@@ -7,6 +7,7 @@ public class Hello
    {
       System.out.printf( "Hello World\n" );
 
+      System.out.printf( "Programmende\n" );
    }
 
 }
