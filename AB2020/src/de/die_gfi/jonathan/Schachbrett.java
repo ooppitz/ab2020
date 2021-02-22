@@ -4,9 +4,12 @@ package de.die_gfi.jonathan;
 public class Schachbrett {
 public static void main(String[] args) {
 	double reis=1;
-	for (int i = 0; i < 64; i++) {
+	for (int i = 1; i <= 64; i++) {
 		reis=reis*2;
-		System.out.println(reis);
+		System.out.print(reis+"		");
+		if (i%8==0) {
+		System.out.print("\n");	
+		}
 	}
 }
 }
