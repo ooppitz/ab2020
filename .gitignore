@@ -1,6 +1,6 @@
-/bin/
-/shelf/
-/dataSources.local.xml
-/httpRequests/
 /.idea/
-/.settings/
+/AB2020/bin/
+/AB2020/out/
+/AB2020/.settings/
+/AB2020/.project
+/AB2020/.classpath
