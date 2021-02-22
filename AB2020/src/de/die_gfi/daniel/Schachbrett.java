@@ -4,12 +4,11 @@ public class Schachbrett
 {
    public static void main( String[] args )
    {
-      long koerner = 1;     /* Anzahl der Koerner */
-                        /* Formel: 1*2^(feld-1) */
+      double koerner = 1;     /* Anzahl der Koerner */
       int feld = 1;
                         
-      int zeilen;       /* Laufvariable fuer die Zeilen vom Schachbrett     */
-      int spalten;      /* Laufvariable fuer die Spalten vom Schachbrett    */
+      int zeilen;             /* Laufvariable fuer die Zeilen vom Schachbrett     */
+      int spalten;            /* Laufvariable fuer die Spalten vom Schachbrett    */
       
       
       
@@ -18,9 +17,9 @@ public class Schachbrett
       {
          for( spalten = 0; spalten < 8; spalten++ )
          {
-            System.out.printf( "feld %2d: %19d\n", feld, koerner );
+            System.out.printf( "feld %2d: %.2E\n", feld, koerner );
             feld++;
-            koerner = koerner << 1;
+            koerner = koerner * 2;
          }
          
          System.out.printf( "\n" );
