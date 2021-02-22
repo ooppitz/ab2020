@@ -6,6 +6,8 @@ public class HelloWorld {
 
 		System.out.println("Hello, World!");
 		
-		System.out.println("Bye, cruel World!!!");
+		System.out.println("Branch Test");
+		
+		System.out.println("Platzhalter");
 	}
 }
