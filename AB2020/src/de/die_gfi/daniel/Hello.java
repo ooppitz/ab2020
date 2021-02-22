@@ -1,4 +1,4 @@
-package daniel;
+package de.die_gfi.daniel;
 
 public class Hello
 {
