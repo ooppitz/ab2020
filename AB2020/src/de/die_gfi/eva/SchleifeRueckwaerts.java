@@ -1,6 +1,6 @@
 package de.die_gfi.eva;
 
-public class SchleifeRückwärts {
+public class SchleifeRueckwaerts {
 
 	public static void main(String[] args) {
 		
