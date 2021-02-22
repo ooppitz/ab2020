@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 /bin/
-=======
 /shelf/
 /dataSources.local.xml
 /httpRequests/
 /.idea/
->>>>>>> branch 'master' of https://github.com/ooppitz/ab2020.git
+/.settings/
