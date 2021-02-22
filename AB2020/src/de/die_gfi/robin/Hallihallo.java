@@ -6,5 +6,6 @@ public class Hallihallo {
 		System.out.println("Hallo Leute!");
 		System.out.println("Willkommen in meinem Repositorium!!");
 		System.out.println("Das ist die neueste Änderung lalala");
+		System.out.println("Small change");
 	}
 }
