@@ -1,6 +1,6 @@
 package de.die_gfi.jonathan;
 //schachbrett rätsel simulieren aufs erte ein reiskorn 
-//auf nächste doppelt so viele bis zum ende
+//auf naechste doppelt so viele bis zum ende
 public class Schachbrett {
 public static void main(String[] args) {
 	double reis=1;
