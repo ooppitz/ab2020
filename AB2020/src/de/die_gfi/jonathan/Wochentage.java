@@ -13,6 +13,10 @@ public class Wochentage {
  arraylist.add("Freitag");
  arraylist.add("Samstag");
  arraylist.add("Sonntag");
+ 
+ for (int i = 0; i < 7; i++) {
+	System.out.println(arraylist);
+}
 	}
 
 }
