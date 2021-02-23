@@ -11,10 +11,19 @@ public class Schachbrett {public static void main(String[] args) {
 		reis=reis*2;
 		
 }
-	int mazziff=zifferAnzahl(reiskorn[64]);
+	int mazziff=22;
 	for (int j = 0; j < reiskorn.length; j++) {
 		rice[j]=Double.toString(reiskorn[j]); 
 		
+		while (rice[j].length()<mazziff) {
+			rice[j]=rice[j]+" ";
+			
+		}
+		System.out.print(rice[j]);
+		System.out.print("___");
+		if (j%7==0) {
+			System.out.println("");
+		}
 	}
 }
 public static int zifferAnzahl(double z) {
