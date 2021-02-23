@@ -1,5 +1,7 @@
 package de.die_gfi.franziska;
 
+import java.util.Arrays;
+
 public class ArrayMin {
 
 	public static void main(String[] args) {
@@ -15,5 +17,13 @@ public class ArrayMin {
 			}
 		}
 		System.out.println(smallNumber);
+
+		Arrays.sort(ints);
+
+		for (int i = 0; i < ints.length; i++) {
+
+			System.out.print(ints[i] + " ");
+
+		}
 	}
 }
