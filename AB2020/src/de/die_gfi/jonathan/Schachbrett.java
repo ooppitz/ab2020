@@ -9,10 +9,7 @@ public class Schachbrett {public static void main(String[] args) {
 		reiskorn[i]=reis;
 
 		reis=reis*2;
-		//System.out.print(reis+"		");
-		//if (i%7==0) {
-		//System.out.print("\n");	
-		//}
+		
 }
 	int mazziff=zifferAnzahl(reiskorn[64]);
 	for (int j = 0; j < reiskorn.length; j++) {
