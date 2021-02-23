@@ -19,7 +19,12 @@ public class Schachbrett {
                 }
                 System.out.print("\n" + "+--------".repeat(8) + "+\n" + "|        ".repeat(8) + "|\n|");
             }
-            System.out.printf("%8s|", format.format(bigNum));
+
+            if (bigNum.toString().length() >= 9) {
+                System.out.printf("%8s|", format.format(bigNum));
+            } else {
+                System.out.printf("%8s|", bigNum.toString());
+            }
             bigNum = bigNum.multiply(BigInteger.valueOf(2));
         }
         System.out.println("\n" + "|        ".repeat(8) + "|\n" + "+--------".repeat(8) + "+");
