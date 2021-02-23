@@ -1,5 +1,7 @@
 package de.die_gfi.jonathan;
 
+import java.util.Arrays;
+
 public class searchInt {
 
 	public static void main(String[] args) {
@@ -9,7 +11,11 @@ public class searchInt {
 		if (ints[i]<min)
 			min =ints[i];
 	}
-    System.out.println(min);
+    Arrays.sort(ints);
+    System.out.println("der kleinste wert ist:"+min);
+    for (int i = 0; i < ints.length; i++) {
+		System.out.print(ints[i]+" ");
+	}
 	}
 
 }
