@@ -1,4 +1,4 @@
-package de.die_gfi.Jonathan;
+package de.die_gfi.jonathan;
 
 public class HelloProjektJonathan {
 	
