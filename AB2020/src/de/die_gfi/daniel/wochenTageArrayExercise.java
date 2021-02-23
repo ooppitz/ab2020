@@ -1,6 +1,6 @@
 package de.die_gfi.daniel;
 
-public class wochenTageArrayExample
+public class wochenTageArrayExercise
 {
 
    public static void main(String[] args)

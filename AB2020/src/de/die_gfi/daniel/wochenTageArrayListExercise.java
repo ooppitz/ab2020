@@ -4,7 +4,7 @@ package de.die_gfi.daniel;
 
 import java.util.ArrayList;
 
-public class wochenTageArrayListExample
+public class wochenTageArrayListExercise
 {
    public static void main(String[] args)
    {
