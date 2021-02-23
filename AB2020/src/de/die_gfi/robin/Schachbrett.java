@@ -19,13 +19,13 @@ public class Schachbrett {
 
 
 			if (startZahl.doubleValue() > 100000) {
-				if (laenge < 10) {
+				if (laenge < 13) {
 					System.out.print(" ");
 				}
 
 				//Abkürzung für große Zahlen ausgeben anstatt der gesamten Zahlen
 				System.out.print(stringZahl.substring(0, 3));
-				System.out.print("+" + laenge + "x0");
+				System.out.print("+" + (laenge-3) + "x0");
 
 				//Abtrennung der einzelnen Zahlen
 				System.out.print(" | ");
@@ -38,9 +38,9 @@ public class Schachbrett {
 				System.out.print(stringZahl + " | ");
 			}
 
-
-			//wenn 8 mal eine Zahl ausgegeben wurde springt man in die nächste Zeile
 			spaltenZaehler++;
+			
+			//wenn 8 mal eine Zahl ausgegeben wurde springt man in die nächste Zeile
 			if (spaltenZaehler > 7) {
 				System.out.println("");
 				spaltenZaehler = 0;
