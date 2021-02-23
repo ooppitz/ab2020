@@ -17,6 +17,9 @@ public class WochentageList {
         for (String s : arrList) {
             System.out.println(s);
         }
+
+        System.out.println();
+
         for (int i = arrList.size() - 1; i >= 0; i--) {
             System.out.println(arrList.get(i));
         }
