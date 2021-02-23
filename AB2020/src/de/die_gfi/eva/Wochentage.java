@@ -3,7 +3,7 @@ package de.die_gfi.eva;
 public class Wochentage {
 
 	public static void main(String[] args) {
-		
+
 		String[] woche = { "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag" };
 		
 		
@@ -15,7 +15,6 @@ public class Wochentage {
 		for (int i = woche.length - 1; i >= 0 ; i--) {
 			System.out.print(woche[i] + " ");
 		}
-		
 		
 	}
 
