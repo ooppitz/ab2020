@@ -13,6 +13,9 @@ public class Passwort {
 		hash1 = readPassword();
 		
 		hash2 = readPassword();
+		
+		int[] passwords = {hash1, hash2};
+		
 
 		if (hash1 == hash2) {
 
@@ -24,8 +27,7 @@ public class Passwort {
 
 	}
 
-	private static int readPassword() {
-		
+	private static int readPassword(){
 		int hash1;
 		
 		Scanner scanner = new Scanner(System.in);
