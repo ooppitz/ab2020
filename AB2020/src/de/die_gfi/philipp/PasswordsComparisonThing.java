@@ -8,13 +8,11 @@ public class PasswordsComparisonThing {
     public static void main(String[] args) {
         ArrayList<Integer> pwList = new ArrayList<>();
 
-        System.out.print("Please enter a password: ");
-        int firstHash = readPassword();
+        int firstHash = readPassword("Please enter a password: ");
         pwList.add(firstHash);
         System.out.print("\n".repeat(800));
 
-        System.out.print("Please enter another password: ");
-        int secondHash = readPassword();
+        int secondHash = readPassword("Please enter another password: ");
         pwList.add(secondHash);
 
         if (firstHash == secondHash) {
@@ -24,8 +22,7 @@ public class PasswordsComparisonThing {
         }
 
         while (true) {
-            System.out.print("Enter more passwords: ");
-            int hashValue = readPassword();
+            int hashValue = readPassword("Enter one more password: ");
             if (checkForPWExistance(pwList, hashValue)) {
                 System.out.println("Password was previously entered.");
                 break;
@@ -36,7 +33,8 @@ public class PasswordsComparisonThing {
 
     }
 
-    public static int readPassword() {
+    public static int readPassword(String pwMessage) {
+        System.out.print(pwMessage);
         return Arrays.hashCode((new Scanner(System.in)).nextLine().toCharArray());
     }
 
