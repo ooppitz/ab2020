@@ -6,18 +6,19 @@ import java.util.Scanner;
 public class Password {
 
 	public static void main(String[] args) {
-		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		int[] pswd = new int[10];
 		int[] verwendet = new int[10];
-		int zeiger = 0;
 		Arrays.fill(verwendet, 0);
 		boolean work = true;
 		do {
-			System.out.println("Bitte geben sie login oder paswd an je nachdem welsche aktion sie ausführen möchten");
+			System.out.println(
+					"Bitte geben sie login oder paswd oder mpaswd an je nachdem welloche aktion sie ausführen möchten");
 			String aktion = sc.next();
-			if (aktion.equalsIgnoreCase("paswd")) {
+			if (aktion.equalsIgnoreCase("pswd")) {
 				changePaswd(sc, pswd);
+			} else if (aktion.equalsIgnoreCase("mpswd")) {
+				changeMasterPaswd(sc, pswd);
 			} else if (aktion.equalsIgnoreCase("login")) {
 				login(sc, pswd, verwendet);
 			} else {
@@ -25,7 +26,7 @@ public class Password {
 			}
 
 			System.out.println("Soll da Programm beendet werden");
-			if (sc.next() == "Ja") {
+			if (sc.next().equalsIgnoreCase("ja")) {
 				work = false;
 			}
 
@@ -53,6 +54,13 @@ public class Password {
 		zeiger = sc.nextInt();
 		System.out.println("Bitte Passwod eingeben:");
 		pswd[zeiger] = readPassword(sc);
+	}
+
+	private static void changeMasterPaswd(Scanner sc, int[] pswd) {
+		// auch forsellbar mit für jeden account individuelle zufallszahlen
+		System.out.println("Bitte das Default Password für alle accounts festlegen");
+		int ersatz = readPassword(sc);
+		Arrays.fill(pswd, ersatz);
 	}
 
 	public static int readPassword(Scanner sc) {
