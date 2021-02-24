@@ -16,7 +16,7 @@ public class Password {
 		boolean goOn;
 		do {
 			System.out.println(
-					"Bitte geben Sie 'login' oder 'pwd' oder 'mpwd' an, je nachdem welche Aktion sie ausfÃ¼hren mÃ¶chten:");
+					"Bitte geben Sie 'login' oder 'pwd' oder 'mpwd' an, je nachdem welche Aktion sie ausführen mÃ¶chten:");
 			String aktion = sc.next();
 			if (aktion.equalsIgnoreCase("pwd")) {
 				changePaswd(sc, pswdHash);
@@ -60,8 +60,8 @@ public class Password {
 	}
 
 	private static void changeMasterPaswd(Scanner sc, int[] pswd) {
-		// auch forsellbar mit fï¿½r jeden account individuelle zufallszahlen
-		System.out.println("Bitte das Default Password fï¿½r alle accounts festlegen");
+		// auch forsellbar mit für jeden account individuelle zufallszahlen
+		System.out.println("Bitte das Default Password für alle accounts festlegen");
 		int ersatz = readPassword(sc);
 		Arrays.fill(pswd, ersatz);
 	}
