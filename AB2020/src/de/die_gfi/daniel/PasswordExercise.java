@@ -22,55 +22,40 @@
  *
  */
 
-
 package de.die_gfi.daniel;
 
 import java.util.Scanner;
 import java.util.Arrays;
+import java.io.IOException;
 import java.lang.String;
 
-public class passwordExercise
-{
+public class PasswordExercise {
+	
+	static Scanner eingabe = new Scanner(System.in);
+	
+	public static void main(String[] args) {
 
-   public static void main(String[] args)
-   {
+		int oldHash = readPassword();
+		System.out.printf("oldHash = %d\n", oldHash);
 
+		int newHash = readPassword();
+		System.out.printf("newHash = %d\n", newHash);
 
+		if (oldHash == newHash) {
+			System.out.printf("Die Passwörter sind gleich\n");
+		} else {
+			System.out.printf("Die Passwörter unterscheiden sich\n");
+		}
+		
+		eingabe.close();
+	}
 
+	public static int readPassword() {
 
-      int oldHash = readPassword();
-      System.out.printf( "oldHash = %d\n", oldHash );
-      
+		System.out.printf("Geben Sie ein Password ein:\n");
+		String puffer = eingabe.nextLine();
+		int hash = Arrays.hashCode(puffer.toCharArray());
 
-      int newHash = readPassword();
-      System.out.printf( "newHash = %d\n", newHash );
-
-
-      if( oldHash == newHash )
-      {
-         System.out.printf( "Die Passwörter sind gleich\n" );
-      }
-      else
-      {
-         System.out.printf( "Die Passwörter unterscheiden sich\n" );
-      }
-
-
-
-
-   }
-
-
-   public static int readPassword()
-   {
-      Scanner eingabe = new Scanner( System.in );
-      
-      System.out.printf( "Geben Sie ein Password ein:\n" );
-      String puffer = eingabe.nextLine();
-//      eingabe.close();
-      int hash = Arrays.hashCode( puffer.toCharArray() );
-      
-      
-      return hash;
-   }
+		return hash;
+	}
 }
