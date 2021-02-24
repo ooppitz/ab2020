@@ -17,19 +17,9 @@ public class Password {
 			System.out.println("Bitte geben sie login oder paswd an je nachdem welsche aktion sie ausführen möchten");
 			String aktion = sc.next();
 			if (aktion.equalsIgnoreCase("paswd")) {
-				System.out.println("Bitte den Account angeben");
-				zeiger = sc.nextInt();
-				System.out.println("Bitte Passwod eingeben:");
-				pswd[zeiger] = readPassword();
+				changePaswd(sc, pswd);
 			} else if (aktion.equalsIgnoreCase("login")) {
-				System.out.println("Bitte den Account angeben");
-				zeiger = sc.nextInt();
-				System.out.println("Bitte Anmelden");
-				int hashEingabe = readPassword();
-				if (hashEingabe == pswd[zeiger]) {
-					System.out.println("Anmeldung erfolgreich\nbis jetzt " + verwendet[zeiger] + " Anmeldungen");
-					verwendet[zeiger]++;
-				}
+				login(sc, pswd, verwendet);
 			} else {
 				System.out.println("Falsche eingeabe");
 			}
@@ -43,15 +33,30 @@ public class Password {
 
 	}
 
-	@SuppressWarnings("resource")
-	public static String eingabe() {
-		Scanner sc = new Scanner(System.in);
-		String s = sc.next();
-		return s;
+	private static void login(Scanner sc, int[] pswd, int[] verwendet) {
+		int zeiger;
+		System.out.println("Bitte den Account angeben");
+		zeiger = sc.nextInt();
+		System.out.println("Bitte Anmelden");
+		int hashEingabe = readPassword(sc);
+		if (hashEingabe == pswd[zeiger]) {
+			System.out.println("Anmeldung erfolgreich\nbis jetzt " + verwendet[zeiger] + " Anmeldungen");
+			verwendet[zeiger]++;
+		} else {
+			System.out.println("Anmeldung Fehlgeschlagen");
+		}
 	}
 
-	public static int readPassword() {
-		String p = eingabe();
+	private static void changePaswd(Scanner sc, int[] pswd) {
+		int zeiger;
+		System.out.println("Bitte den Account angeben");
+		zeiger = sc.nextInt();
+		System.out.println("Bitte Passwod eingeben:");
+		pswd[zeiger] = readPassword(sc);
+	}
+
+	public static int readPassword(Scanner sc) {
+		String p = sc.next();
 		char[] buchstaben = p.toCharArray();
 		int hash = Arrays.hashCode(buchstaben);
 		return hash;
