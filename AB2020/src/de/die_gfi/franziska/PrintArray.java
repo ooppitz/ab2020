@@ -7,9 +7,9 @@ public class PrintArray {
 
 		int[] arr = new int[243];
 		
-		for (int i = 2; i < arr.length; i++) {
+		for (int i = 0; i < arr.length; i++) {
 			
-			arr[i] = i;
+			arr[i] = i +2;
 		}
 		
 		de.die_gfi.util.Print.printArray(arr);
