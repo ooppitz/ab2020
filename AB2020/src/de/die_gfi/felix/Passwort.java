@@ -30,17 +30,15 @@ public class Passwort {
 			} else {
 				passwortListe.add(hashcode);
 			}
-		System.out.println("Möchten Sie noch ein Passwort setzen? Wenn Ja geben Sie 'xxxJa' ein");
-		String weiteresPasswort = sc.next();
-		if(weiteresPasswort.equals("xxxJa")) {
-			schalter2 = false;
-		} else {
-			schalter2 = true;
-		}
+			
+			System.out.println("Möchten Sie noch ein Passwort setzen? Wenn Ja geben Sie 'xxxJa' ein");
+			String weiteresPasswortGewünscht = sc.next();
+			if(weiteresPasswortGewünscht.equals("xxxJa")) {
+				schalter2 = false;
+			} else {
+				schalter2 = true;
+			}
 		}	
-		
-		
-		
 		
 		//------------------------
 		
@@ -52,7 +50,9 @@ public class Passwort {
 			String passwort2 = sc.next();
 		
 			String hashcode2 = hashcodeErmittlung(passwort2);
-			if(hashcode.equals(hashcode2)) {
+			int index = passwortListe.indexOf(hashcode2);
+			
+			if(index != -1) {
 				System.out.println("Korrekte Eingabe");
 				schalter = true;
 				break;
