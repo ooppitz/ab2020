@@ -1,1 +1,7 @@
 /bin/
+/out/
+/.settings/
+../.idea/
+../bin/
+.classpath
+.project
