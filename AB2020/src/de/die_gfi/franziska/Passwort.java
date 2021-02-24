@@ -7,22 +7,19 @@ public class Passwort {
 
 	public static void main(String[] args) {
 
-	
 		int hash1; 
-		
+		int hash2;
 		  
 		hash1 = readPassword();
-
-		char[] zeichen2 = null;  // .toCharArray();
-
-		int hash2 = Arrays.hashCode(zeichen2);
+		
+		hash2 = readPassword();
 
 		if (hash1 == hash2) {
 
-			System.out.println("Die Passwï¿½rter sind gleich.");
+			System.out.println("Die Passwörter sind gleich.");
 		} else {
 
-			System.out.println("Die Passwï¿½rter unterscheiden sich.");
+			System.out.println("Die Passwörter unterscheiden sich.");
 		}
 
 	}
@@ -40,8 +37,6 @@ public class Passwort {
 		char[] zeichen1 = passwort1.toCharArray();
 		
 		hash1 = Arrays.hashCode(zeichen1);
-		
-		scanner.close();
 		
 		return hash1;
 	}
