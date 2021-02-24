@@ -13,5 +13,9 @@ public class Hash {
 		System.out.println(Arrays.hashCode(b));
 		b[30] = 90;
 		System.out.println(Arrays.hashCode(b));
+		b[30]= -90;
+		System.out.println(Arrays.hashCode(b));
+
+		
 	}
 }
