@@ -6,32 +6,35 @@ import java.util.Scanner;
 public class Password {
 
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
-		int[] pswd = new int[10];
-		int[] verwendet = new int[10];
-		Arrays.fill(verwendet, 0);
-		boolean work = true;
+		
+		int[] pswdHash = new int[10];
+		int[] pswdVerwendet = new int[10];
+		Arrays.fill(pswdVerwendet, 0);
+		
+		boolean goOn;
 		do {
 			System.out.println(
-					"Bitte geben sie login oder paswd oder mpaswd an je nachdem welloche aktion sie ausführen möchten");
+					"Bitte geben Sie 'login' oder 'pwd' oder 'mpwd' an, je nachdem welche Aktion sie ausfÃ¼hren mÃ¶chten:");
 			String aktion = sc.next();
-			if (aktion.equalsIgnoreCase("pswd")) {
-				changePaswd(sc, pswd);
-			} else if (aktion.equalsIgnoreCase("mpswd")) {
-				changeMasterPaswd(sc, pswd);
+			if (aktion.equalsIgnoreCase("pwd")) {
+				changePaswd(sc, pswdHash);
+			} else if (aktion.equalsIgnoreCase("mpwd")) {
+				changeMasterPaswd(sc, pswdHash);
 			} else if (aktion.equalsIgnoreCase("login")) {
-				login(sc, pswd, verwendet);
+				login(sc, pswdHash, pswdVerwendet);
 			} else {
-				System.out.println("Falsche eingeabe");
+				System.out.println("Falsche Eingabe");
 			}
 
-			System.out.println("Soll da Programm beendet werden");
-			if (sc.next().equalsIgnoreCase("ja")) {
-				work = false;
-			}
+			System.out.println("Soll da Programm beendet werden (ja/nein)?");
+			
+			goOn = !sc.next().equalsIgnoreCase("ja");			
 
-		} while (work == true);
+		} while (goOn == true);
 
+		System.out.println("Das Programm wurde beendet");
 	}
 
 	private static void login(Scanner sc, int[] pswd, int[] verwendet) {
@@ -57,8 +60,8 @@ public class Password {
 	}
 
 	private static void changeMasterPaswd(Scanner sc, int[] pswd) {
-		// auch forsellbar mit für jeden account individuelle zufallszahlen
-		System.out.println("Bitte das Default Password für alle accounts festlegen");
+		// auch forsellbar mit fï¿½r jeden account individuelle zufallszahlen
+		System.out.println("Bitte das Default Password fï¿½r alle accounts festlegen");
 		int ersatz = readPassword(sc);
 		Arrays.fill(pswd, ersatz);
 	}
