@@ -1,5 +1,7 @@
 package de.die_gfi.felix;
 
+import de.die_gfi.util.Print;
+
 public class PrintArray {
 	public static void main(String args[]) {
 		int[] intArr = new int[242 - 2 + 1]; 
@@ -8,7 +10,7 @@ public class PrintArray {
 			intArr[i] = zähler;
 			zähler++;
 		}
-	de.die_gfi.util.Print.printArray(intArr);	
+	Print.printArray(intArr);	
 	}
 	
 
