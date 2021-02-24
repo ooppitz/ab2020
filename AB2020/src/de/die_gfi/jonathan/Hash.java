@@ -12,5 +12,4 @@ public class Hash {
 		b[30] = 90;
 		System.out.println(b.hashCode());
 	}
-
 }
