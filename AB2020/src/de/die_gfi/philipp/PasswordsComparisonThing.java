@@ -23,7 +23,7 @@ public class PasswordsComparisonThing {
 
         while (true) {
             int hashValue = readPassword("Enter one more password: ");
-            if (checkForPWExistance(pwList, hashValue)) {
+            if (checkForPWExistence(pwList, hashValue)) {
                 System.out.println("Password was previously entered.");
                 break;
             } else {
@@ -38,7 +38,7 @@ public class PasswordsComparisonThing {
         return Arrays.hashCode((new Scanner(System.in)).nextLine().toCharArray());
     }
 
-    public static boolean checkForPWExistance(ArrayList<Integer> passwordArrayList, int hash) {
+    public static boolean checkForPWExistence(ArrayList<Integer> passwordArrayList, int hash) {
         boolean flag = false;
             for (int otherHash : passwordArrayList) {
                 if (otherHash == hash) {
