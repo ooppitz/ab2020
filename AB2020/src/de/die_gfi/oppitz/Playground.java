@@ -9,13 +9,19 @@ public class Playground {
 
 	public static void main(String[] args) {
 		
-		int[] b = { 1, 10, 100, 1000, 10000 };
-
-		de.die_gfi.util.Print.printArray(b);
-
-		Arrays.fill(b, 1, 3, 99);
-
-		de.die_gfi.util.Print.printArray(b);
+		int a = 5; 
+		
+		System.out.println(a);
+		
+		System.out.println(a++);  // Post-Inkrement
+		
+		System.out.println(++a);  // Pre-Inkrement
+		
+		System.out.println(--a);  // Pre-Dekrement
+		
+		System.out.println(a--); // Post-Dekrement
+		
+		System.out.println(a);
 		
 		
 	}
