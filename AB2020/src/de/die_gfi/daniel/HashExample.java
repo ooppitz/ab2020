@@ -71,7 +71,8 @@ public class HashExample
    {
       for( int i = 0; i < array.length; i++ )
       {
-         System.out.printf( "%s[%d] = %d\n\n", name, i, array[i] );
+         System.out.printf( "%s[%d] = %d\n", name, i, array[i] );
       }
+      System.out.printf( "\n" );
    }
 }
