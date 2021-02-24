@@ -10,29 +10,10 @@ public class Passwort {
 	
 		int hash1; 
 		
-		Scanner scanner = new Scanner(System.in);
+		  
+		hash1 = readPassword();
 
-		System.out.println("Bitte Passwort eingeben");
-	
-		String passwort1 = scanner.nextLine();
-
-		char[] zeichen1 = passwort1.toCharArray();
-		
-		hash1 = Arrays.hashCode(zeichen1);
-		
-		
-		
-		System.out.println("Bitte Passwort erneut eingeben");
-
-		String passwort2 = scanner.nextLine();
-
-		scanner.close();
-
-		
-
-		char[] zeichen2 = passwort2.toCharArray();
-
-	  
+		char[] zeichen2 = null;  // .toCharArray();
 
 		int hash2 = Arrays.hashCode(zeichen2);
 
@@ -44,6 +25,25 @@ public class Passwort {
 			System.out.println("Die Passw�rter unterscheiden sich.");
 		}
 
+	}
+
+	private static int readPassword() {
+		
+		int hash1;
+		
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("Bitte Passwort eingeben");
+	
+		String passwort1 = scanner.nextLine();
+
+		char[] zeichen1 = passwort1.toCharArray();
+		
+		hash1 = Arrays.hashCode(zeichen1);
+		
+		scanner.close();
+		
+		return hash1;
 	}
 
 }
