@@ -6,7 +6,7 @@ public class HashExample {
 
 	public static void main(String[] args) {
 
-		int[] arr1 = new int[4];
+		int[] arr1 = {3,9,45,21,8};
 
 		arr1[0] = 4;
 
@@ -17,7 +17,7 @@ public class HashExample {
 
 		System.out.println("\nHashcode: " + Arrays.hashCode(arr1) + "\n");
 
-		arr1[0] = 28;
+		arr1[0] = 37;
 
 		for (int i = 0; i < arr1.length; i++) {
 
