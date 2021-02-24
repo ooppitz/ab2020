@@ -10,15 +10,13 @@ public class Passwort {
 		System.out.println("Legen Sie ein Passwort fest: ");
 		Scanner input = new Scanner(System.in);
 		
-		String passwort = input.next();
-		char[] arr = passwort.toCharArray();
-		int hash = Arrays.hashCode(arr);
+		int hash = readPassword(input);
+		
 		
 		System.out.println("Geben Sie das Passwort ein: ");
 		
-		String eingabe = input.next();
-		char[] arrNeu = eingabe.toCharArray();
-		int hashNeu = Arrays.hashCode(arrNeu);
+		int hashNeu = readPassword(input);
+		
 		
 		if (hash == hashNeu) {
 			System.out.println("Korrekte Eingabe");
@@ -28,5 +26,13 @@ public class Passwort {
 		
 		
 		input.close();
+	}
+
+	
+	private static int readPassword(Scanner input) {
+		String passwort = input.next();
+		char[] arr = passwort.toCharArray();
+		int hash = Arrays.hashCode(arr);
+		return hash;
 	}
 }
