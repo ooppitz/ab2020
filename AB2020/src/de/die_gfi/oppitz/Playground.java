@@ -2,16 +2,20 @@ package de.die_gfi.oppitz;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Arrays;
+
+import de.die_gfi.util.Print;
 
 public class Playground {
 
 	public static void main(String[] args) {
 		
-		double d = Math.pow(2, 63);
-		System.out.println(d);
+		int[] b = { 1, 10, 100, 1000, 10000 };
 
-		String numberEE = String.format("%6.0e",d);
-		System.out.println(numberEE);
+		Arrays.fill(b, 1, 3, 99);
+
+		Print.printArray(b);
+		
 		
 	}
 
