@@ -4,7 +4,6 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Arrays;
 
-import de.die_gfi.util.Print;
 
 public class Playground {
 
@@ -12,9 +11,11 @@ public class Playground {
 		
 		int[] b = { 1, 10, 100, 1000, 10000 };
 
+		de.die_gfi.util.Print.printArray(b);
+
 		Arrays.fill(b, 1, 3, 99);
 
-		Print.printArray(b);
+		de.die_gfi.util.Print.printArray(b);
 		
 		
 	}
