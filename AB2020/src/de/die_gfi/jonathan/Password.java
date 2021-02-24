@@ -3,7 +3,6 @@ package de.die_gfi.jonathan;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class Password {
 
 	public static void main(String[] args) {
@@ -18,7 +17,8 @@ public class Password {
 		}
 
 	}
-	
+
+	@SuppressWarnings("resource")
 	public static String eingabe() {
 		Scanner sc = new Scanner(System.in);
 		String s = sc.next();
@@ -26,7 +26,7 @@ public class Password {
 	}
 
 	public static int readPassword() {
-		String p=eingabe();
+		String p = eingabe();
 		char[] buchstaben = p.toCharArray();
 		int hash = Arrays.hashCode(buchstaben);
 		return hash;
