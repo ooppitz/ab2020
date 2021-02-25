@@ -9,7 +9,7 @@ public class Exercise17 {
 		int[] arr = new int[] {5,23,45,11,22,22,11,5,100};
 		
 		int max = arr[0];
-		int max2 = 0;
+		int max2 = Integer.MIN_VALUE;
 		
 		
 		for (int eintrag : arr) {
