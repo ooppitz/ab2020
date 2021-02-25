@@ -15,7 +15,7 @@ public class Exercise7Primitive {
 
 		String[] arr = { "Affe", "Hund", "Akku", "Tiger" };
 
-		String[] arrClone = { "", "", "", "" };
+		String[] arrClone = new String[arr.length-1];
 
 		int pointer = 0;
 
@@ -24,6 +24,8 @@ public class Exercise7Primitive {
 			if (arr[i] == "Akku") {
 
 				pointer = i;
+				
+				break;
 			}
 		}
 
@@ -34,7 +36,7 @@ public class Exercise7Primitive {
 
 		for (int i = pointer + 1; i < arr.length; i++) {
 
-			arrClone[i] = arr[i];
+			arrClone[i - 1] = arr[i];
 
 		}
 

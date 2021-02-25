@@ -25,8 +25,7 @@ public class Exercise5Primitive {
 			if (target == 9) {
 								
 				score = score + 1;
-			}else {
-				score = score + 0;
+				
 			}
 		}
 		
