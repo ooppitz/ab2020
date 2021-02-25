@@ -5,7 +5,7 @@ import java.util.ArrayList;
 //12. Write a Java program to find the duplicate values of an array of integer values.
 public class Exercise12 {
 	public static void main(String[] args) {
-		int[] arr = new int[] {3,6,11,4,4,0,77,3};
+		int[] arr = new int[] {3,6,2,4,4,0,77,3};
 		ArrayList<Integer> arrCheckList = new ArrayList<Integer>();
 		
 		for (int eintrag : arr) {
