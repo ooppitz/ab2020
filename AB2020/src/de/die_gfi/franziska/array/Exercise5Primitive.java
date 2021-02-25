@@ -12,28 +12,29 @@ public class Exercise5Primitive {
 
 	public static void main(String[] args) {
 
-		int[] arr = {1,6,9,5};
-		
+		int[] arr = { 1, 6, 9, 5 };
+
 		int target = 0;
-		
-		int score = 0;
-				
+
+		boolean found = false;
+
 		for (int i = 0; i < arr.length; i++) {
-			
+
 			target = arr[i];
-			
+
 			if (target == 9) {
-								
-				score = score + 1;
-				
+
+				found = true;
+				break;
+
 			}
 		}
-		
-		if(score != 0) {
+
+		if (found) {
 			System.out.println("The number(9) you were looking for is contained in the array");
-		}else {
+		} else {
 			System.out.println("The number(9) you were looking for is not contained in the array");
 		}
-		
+
 	}
 }
