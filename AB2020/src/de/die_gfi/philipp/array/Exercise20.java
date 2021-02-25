@@ -2,8 +2,6 @@ package de.die_gfi.philipp.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 20. Write a Java program to convert an array to ArrayList.
