@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * 13. Write a Java program to find the duplicate values of an array of string values.
  */
-public class Excercise13 {
+public class Exercise13 {
     public static void main(String[] args) {
         String[] strings = new String[5000];
         StringBuilder builder = new StringBuilder();
