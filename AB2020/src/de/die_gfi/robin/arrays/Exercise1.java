@@ -11,34 +11,12 @@ public class Exercise1 {
 		Arrays.sort(intArr);
 		de.die_gfi.util.Print.printArray(intArr);
 		
-		
-		sortStringArray(stringArr);
+		Arrays.sort(stringArr);
 		
 		de.die_gfi.util.Print.printArray(stringArr);
 		
 		
 	}
-	
-	
-	
-	
-	private static String[] sortStringArray(String[] stringArr) {
-		String zwischenSpeicher = "";
-		
-		for (int j = 0; j < stringArr.length - 1; j++) {
-			for (int i = 0; i < stringArr.length - 1; i++) {
-				if (stringArr[i].charAt(0) > stringArr[i + 1].charAt(0)) {
-					zwischenSpeicher = stringArr[i];
-					stringArr[i] = stringArr[i + 1];
-					stringArr[i + 1] = zwischenSpeicher;
-				}
-		
-			}
-		}
-		return stringArr;
-		
-	}
-	
 	
 	
 	
