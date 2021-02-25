@@ -14,9 +14,7 @@ public class Exercise1 {
 		
 		sortStringArray(stringArr);
 		
-		for (String eintrag : stringArr) {
-			System.out.println(eintrag);
-		}
+		de.die_gfi.util.Print.printArray(stringArr);
 		
 		
 	}
