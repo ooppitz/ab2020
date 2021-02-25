@@ -6,6 +6,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * 21. Write a Java program to convert an ArrayList to an array.
+ */
 public class Exercise21 {
     public static void main(String[] args) {
         ArrayList<Integer> intList = new ArrayList<>();
