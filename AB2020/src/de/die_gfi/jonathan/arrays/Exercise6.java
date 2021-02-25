@@ -16,6 +16,7 @@ public class Exercise6 {
 		for (int i = 0; i < stringArray.length; i++) {
 			if (stringArray[i].equals(value)) {
 				gesuchterIndex = i;
+				break;
 			}
 		}
 		if (gesuchterIndex == -1) {

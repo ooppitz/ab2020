@@ -1,6 +1,6 @@
 //Write a Java program to remove a specific element from an array.
 package de.die_gfi.jonathan.arrays;
-
+// stelle verschwindet
 import java.util.Scanner;
 
 import de.die_gfi.util.Print;
