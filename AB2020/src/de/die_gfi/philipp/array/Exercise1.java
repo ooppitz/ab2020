@@ -2,6 +2,9 @@ package de.die_gfi.philipp.array;
 
 import java.util.Arrays;
 
+/**
+ * 1. Write a Java program to sort a numeric array and a string array.
+ */
 public class Exercise1 {
     public static void main(String[] args) {
         int[] arr1 = {5, 9, 2, 4, 98, 7, 1, 3, 76, 8, 6, 32};
