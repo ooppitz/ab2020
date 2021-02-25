@@ -4,6 +4,9 @@ import de.die_gfi.util.Print;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * 10. Write a Java program to find the maximum and minimum value of an array.
+ */
 public class Exercise10 {
     public static void main(String[] args) {
         int[] arr = new int[100];
