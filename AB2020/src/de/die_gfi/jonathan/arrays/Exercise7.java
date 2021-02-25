@@ -17,6 +17,10 @@ public class Exercise7 {
 
 		for (int i = 0; i < stringArray.length; i++) {
 			if (stringArray[i].equals(value)) {
+				String []stringRam=stringArray;
+			stringArray=new String[stringArray.length-1];
+			
+			
 				stringArray[i] = null;
 			}
 		}
