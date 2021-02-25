@@ -1,5 +1,8 @@
 package de.die_gfi.philipp.array;
 
+/**
+ * 41. Write a Java program to find smallest and second smallest elements of a given array.
+ */
 public class Exercise41 {
     public static void main(String[] args) {
         int[] arr = new int[100];
