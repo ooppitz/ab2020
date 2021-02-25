@@ -11,6 +11,10 @@ public class Exercise5 {
 
         int numberToLookFor = 87;
 
+        findNumberInArray(arr, numberToLookFor);
+    }
+
+    private static void findNumberInArray(int[] arr, int numberToLookFor) {
         int[] cloneArray = arr.clone();
         Arrays.sort(cloneArray);
         int indexOfNumber = Arrays.binarySearch(cloneArray, numberToLookFor);
