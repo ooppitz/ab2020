@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Spielwiese {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		int[] a = { 1, 10, 100, 1000, 10000 };
         int[] b = { 1, 10, 100, 1000, 10000 };

@@ -3,6 +3,7 @@ package de.die_gfi.jonathan;
 import de.die_gfi.util.Print;
 import java.util.Arrays;
 
+@SuppressWarnings("unused")
 public class Hash {
 
 	public static void main(String[] args) {
