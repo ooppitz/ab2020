@@ -9,8 +9,9 @@ public class Exercise2 {
 		int[] intArr = {420, 21, 69, 0, 7};
 		int summe = 0;
 		
-		for (int i : intArr) 
+		for (int i : intArr) {
 			summe += i;
+		}    
 		System.out.println("Summe des Arrays = " + summe);	
 		
 		
