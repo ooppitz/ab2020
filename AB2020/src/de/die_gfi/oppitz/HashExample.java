@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class HashExample {
 
 	public static void main(String[] args) {
-		
-		
+				
 		int[] array = { 8, 3, 13, 1, 4, 9, 10, 12, 11, 1, 2, 5 };
 		
 		int hashcode = Arrays.hashCode(array);
