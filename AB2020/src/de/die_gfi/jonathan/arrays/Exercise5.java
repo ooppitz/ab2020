@@ -17,14 +17,16 @@ public class Exercise5 {
 			if (stringArray[i].equals(value)) {
 				contains = true;
 			}
-			if (contains == true) {
-				System.out.println("Der angebene Wert ist enthalten");
-			} else {
-				System.out.println("Der angebene Wert ist nicht enthalten");
-
-			}
+			
 
 		}
+		if (contains == true) {
+			System.out.println("Der angebene Wert ist enthalten");
+		} else {
+			System.out.println("Der angebene Wert ist nicht enthalten");
+
+		}
+		sc.close();
 	}
 
 }
