@@ -21,7 +21,7 @@ public class Exercise6 {
 		if (gesuchterIndex == -1) {
 			System.out.println("Der gesuchte wert ist nicht vorhanden");
 		} else {
-			System.out.println("Das Oblekt " + value + "befindet sich an der stelle " + gesuchterIndex);
+			System.out.println("Das Objekt " + value + "befindet sich an der stelle " + gesuchterIndex);
 
 		}
 		sc.close();
