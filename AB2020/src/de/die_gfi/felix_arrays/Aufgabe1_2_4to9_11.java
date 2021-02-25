@@ -32,7 +32,7 @@ public class Aufgabe1_2_4to9_11 {
 		
 		//5. find out if the array contains a value
 		int gesuchteZahl = 87;
-		existenzPrüfen(zahlen, gesuchteZahl);
+		existenzPruefen(zahlen, gesuchteZahl);
 		
 		//6. finde den Index zu einem Gesuchten Element
 		
@@ -43,12 +43,55 @@ public class Aufgabe1_2_4to9_11 {
 		//8. copy an array by itarating over it
 		//9. add a specific element to an array
 		
-		int laengeZahlen2 = zahlen.length;
-		if(indexGesuchtesElement >= 0) {
-			laengeZahlen2 = laengeZahlen2 - 1;
-		} else {
-			laengeZahlen2 = laengeZahlen2 + 1;
+		int wertHinzufuegen = 12;
+		
+		int[] zahlen2 = gesuchtesElementLöschen(zahlen, gesuchteZahl, indexGesuchtesElement);
+		
+		int[] zahlen4 = arrayKopieren(zahlen);
+		
+		int[] zahlen5 = arrayWertHinzufuegen(zahlen, wertHinzufuegen);
+		
+		System.out.println("Sortierte Ints 2: ");
+		Print.printArray(zahlen2);
+		System.out.println("Koppiertes Array");
+		Print.printArray(zahlen4);
+		System.out.println("Sortierte Ints mit hinzugefuegtem Wert: ");
+		Print.printArray(zahlen5);
+		
+		
+		
+		//11. reverse an array of intager values
+		
+		int[] zahlen3 = arrayUmdrehen(zahlen);
+		
+		System.out.println("Sortierte Ints umgedreht: ");
+		Print.printArray(zahlen3);
+	}
+
+	private static int[] arrayWertHinzufuegen(int[] zahlen, int wertHinzufuegen) {
+		int[] zahlen5 = new int[zahlen.length + 1];		
+		for(int i = 0; i < zahlen.length; i++) {
+				zahlen5[i] = zahlen[i];
+				}
+		zahlen5[zahlen5.length - 1] = wertHinzufuegen;
+		Arrays.sort(zahlen5);
+		return zahlen5;
+	}
+
+	private static int[] arrayKopieren(int[] zahlen) {
+		int[] zahlen4 = new int[zahlen.length];		
+		for(int i = 0; i < zahlen.length; i++) {
+				zahlen4[i] = zahlen[i];
 		}
+		return zahlen4;
+	}
+
+	private static int[] gesuchtesElementLöschen(int[] zahlen, int gesuchteZahl, int indexGesuchtesElement) {
+		int laengeZahlen2 = zahlen.length;
+		boolean elementExistiert = existenzPruefen(zahlen,gesuchteZahl);
+		if(elementExistiert) {
+			laengeZahlen2 = laengeZahlen2 - 1;
+		} 
 		int[] zahlen2 = new int[laengeZahlen2];
 		int k = 0;
 		
@@ -58,22 +101,7 @@ public class Aufgabe1_2_4to9_11 {
 				k++;
 			}
 		}
-		
-		if(indexGesuchtesElement < 0) {
-			zahlen2[zahlen2.length - 1] = gesuchteZahl;
-			Arrays.sort(zahlen2);
-		}
-		
-		System.out.println("Sortierte Ints 2: ");
-		Print.printArray(zahlen2);
-		
-		
-		//11. reverse an array of intager values
-		
-		int[] zahlen3 = arrayUmdrehen(zahlen);
-		
-		System.out.println("Sortierte Ints umgedreht: ");
-		Print.printArray(zahlen3);
+		return zahlen2;
 	}
 
 	private static int[] arrayUmdrehen(int[] zahlen) {
@@ -89,7 +117,7 @@ public class Aufgabe1_2_4to9_11 {
 		return zahlen3;
 	}
 
-	private static boolean existenzPrüfen(int[] zahlen, int gesuchteZahl) {
+	private static boolean existenzPruefen(int[] zahlen, int gesuchteZahl) {
 		boolean schalter = false;
 		if(Arrays.binarySearch(zahlen, gesuchteZahl) >= 0) {
 			System.out.println("Wert Existiert");
