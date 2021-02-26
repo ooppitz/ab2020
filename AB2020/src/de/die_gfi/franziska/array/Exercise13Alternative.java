@@ -8,7 +8,7 @@ package de.die_gfi.franziska.array;
  *
  */
 
-public class Exercise13 {
+public class Exercise13Alternative {
 
 	public static void main(String[] args) {
 
@@ -22,9 +22,9 @@ public class Exercise13 {
 
 		for (int i = 0; i < arr.length; i++) {
 
-			for (int j = 1; j < arr.length - 1; j++) {
+			for (int j = 0; j < arr.length - 1; j++) {
 				
-				if (arr[j] != arr[j - 1]) {
+				if (arr[j] != arr[j + 1]) {
 
 					storage = arr[j + 1];
 
@@ -32,6 +32,8 @@ public class Exercise13 {
 
 					arr[j] = storage;
 					
+				}else {
+					break;
 				}
 			}
 
