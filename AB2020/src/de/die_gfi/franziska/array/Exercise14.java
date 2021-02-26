@@ -18,7 +18,7 @@ public class Exercise14 {
 
 		String[] arr1 = { "fill", "stahl", "test", "kein B", "auch kein B", "B" };
 
-		String[] arr2 = { "kamel", "schock", "B" };
+		String[] arr2 = { "kamel", "schock", "B", "j" };
 
 // Das arr1 ist kleiner oder gleich groß im Vergleich zu arr2 und deshalb gibt es keine Probleme mit dem Index von arr1.length (der Index wäre sonst zu groß)
 
@@ -43,9 +43,9 @@ public class Exercise14 {
 
 			for (int i = 0; i < arr2.length; i++) {
 
-				for (int j = 0; j < arr2.length; j++) {
+				for (int j = 0; j < arr1.length; j++) {
 
-					if (arr2[i] == arr2[j]) {
+					if (arr2[i] == arr1[j]) {
 
 						common = arr2[i];
 
