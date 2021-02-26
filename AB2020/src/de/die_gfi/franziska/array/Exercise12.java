@@ -12,24 +12,43 @@ public class Exercise12 {
 
 	public static void main(String[] args) {
 
-		int[] arr = { 1, 4, 4, 5, 8 };
+		int[] arr = { 8, 1, 4, 5, 4 };
 
-		boolean duplicate = false;
+		boolean duplicateFound = false;
+
+		int storage = 0;
+		
+		int duplicate = 0;
+
+		for (int j = 0; j < arr.length; j++) {
+
+			for (int i = 0; i < arr.length - 1; i++) {
+
+				if (arr[i] > arr[i + 1]) {
+
+					storage = arr[i + 1];
+
+					arr[i + 1] = arr[i];
+
+					arr[i] = storage;
+
+				}
+			}
+		}
 
 		for (int i = 0; i < arr.length - 1; i++) {
 
-// Fehler bemerkt: funktioniert wahrscheinlich nur, wenn die Elemente direkt nebeneinander im Array liegen
-// Evtl Array sortieren um die Elemente nebeneinander zu schieben, falls sie voneinander entfernt sind und dann nach dem selben Prinzip durchsuchen. 			
-			
 			if (arr[i] == arr[i + 1]) {
 
-				duplicate = true;
+				duplicateFound = true;
+				duplicate = arr[i];
 				break;
 			}
 		}
 
-		if (duplicate) {
-			System.out.println("Duplicate found");
+		if (duplicateFound) {
+
+			System.out.println("There is a duplicate of the number " + duplicate);
 
 		} else {
 
