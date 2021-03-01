@@ -1,5 +1,7 @@
 package de.die_gfi.philipp;
 
+import java.util.ArrayList;
+
 public class Circle {
 
 	// Radius
@@ -11,13 +13,13 @@ public class Circle {
 	
 	public static void main(String[] args) {
 
-		Circle kreis1 = new Circle(2,3,4);
+		Circle kreis1 = new Circle(2,-10,4);
 		System.out.println("Die Fläche des Kreises #1 ist " + kreis1.calculateArea());
 	 
 		Circle kreis2 = new Circle(4,3,1);
 		System.out.println("Die Fläche des Kreises #2 ist " + kreis2.calculateArea());
 
-		Circle kreis3 = new Circle(14,3,1);
+		Circle kreis3 = new Circle(3,3,1);
 		System.out.println("Die Fläche des Kreises #3 ist " + kreis3.calculateArea());
 		
 		System.out.println("Der Umfang des Kreises #3 ist " + kreis3.calculateCircumference());
@@ -35,6 +37,14 @@ public class Circle {
 		System.out.println(circ1.isTouching(circ2));
 		System.out.println(circ1.isTouching(circ3));
 		System.out.println(circ2.isTouching(circ3));
+
+		Circle[] circles = {kreis1, kreis2, kreis3, circ1, circ2, circ3};
+
+		Circle[] touchingCircles = touchingCircles(circles);
+
+		for (Circle c : touchingCircles) {
+			System.out.println("Circle r: " + c.radius + " (" + c.x + ", " + c.y + ") is touching at least one other circle");
+		}
 
 	}
 
@@ -105,9 +115,34 @@ public class Circle {
 		return distance <= this.radius;
 	}
 
+	/**
+	 * Calculates whether this circle and another circle touch.
+	 *
+	 * @param c another circle
+	 * @return true if the circles touch or overlap
+	 */
 	public boolean isTouching(Circle c) {
 		double distance = this.calculateDistance(c.x, c.y);
 		return distance <= this.radius + c.radius;
+	}
+
+	/**
+	 * Calculates the overlapping cicles of the specified array
+	 * @param c an array of circles
+	 * @return an array containing circles that overlap with at least one circle
+	 */
+	public static Circle[] touchingCircles(Circle[] c) {
+		ArrayList<Circle> circleList= new ArrayList<>();
+		for (int i = 0; i < c.length; i++) {
+			for (int j = 0; j < c.length; j++) {
+				if (c[i].isTouching(c[j]) && i != j) {
+					if (!circleList.contains(c[i])) {
+						circleList.add(c[i]);
+					}
+				}
+			}
+		}
+		return circleList.toArray(new Circle[0]);
 	}
 
 }
