@@ -24,6 +24,9 @@ public class Circle {
 		
 		System.out.println("Der Radius des Kreises #3 ist " + kreis3.radius);
 
+		System.out.println("Der Kreis #1 ist " + kreis1.calculateDistance(-1, -1) +
+				" weit entfernt von (-1, 1)");
+
 
 	}
 
@@ -68,6 +71,19 @@ public class Circle {
 		
 		return calculateDiameter() * Math.PI;
 		
+	}
+
+	/**
+	 * Calculates the distance of a given point from the center of the circle
+	 *
+	 * @param px x coordinate of the point
+	 * @param py y coordinate of the point
+	 * @return Distance to the given point from the center
+	 */
+	public double calculateDistance(double px, double py) {
+		double a = px - this.x;
+		double b = py - this.y;
+		return Math.sqrt(a * a + b * b);
 	}
 
 }
