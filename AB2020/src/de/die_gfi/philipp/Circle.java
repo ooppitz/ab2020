@@ -79,7 +79,7 @@ public class Circle {
 	}
 
 	/**
-	 * Calculates the distance of a given point from the center of the circle
+	 * Calculates the distance of a given point from the center of this circle
 	 *
 	 * @param px x coordinate of the point
 	 * @param py y coordinate of the point
