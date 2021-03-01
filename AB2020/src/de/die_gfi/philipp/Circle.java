@@ -32,6 +32,13 @@ public class Circle {
 		System.out.println(circ.calculateDistance(10, 10));
 		System.out.println(circ.calculateDistance(10, 14));
 		System.out.println(circ.calculateDistance(14, 10));
+		System.out.println(circ.calculateDistance(6, 10));
+
+		System.out.println(circ.isOnCircle(14, 10)); // true
+		System.out.println(circ.isOnCircle(6, 6)); // false
+		System.out.println(circ.isOnCircle(11, 11)); // true
+		System.out.println(circ.isOnCircle(12, 16)); // false
+		System.out.println(circ.isOnCircle(0,0)); // false
 
 	}
 
@@ -89,6 +96,17 @@ public class Circle {
 		double dx = px - this.x;
 		double dy = py - this.y;
 		return Math.sqrt(dx * dx + dy * dy);
+	}
+
+	/**
+	 * Calculates whether the specified point lies on this circle (including both the area and circumference)
+	 * @param px x coordinate of the point
+	 * @param py y coordinate of the point
+	 * @return true if specified point is on circle
+	 */
+	public boolean isOnCircle(double px, double py) {
+		double distance = this.calculateDistance(px, py);
+		return distance <= this.radius;
 	}
 
 }
