@@ -18,12 +18,71 @@ public class Circle {
 		System.out.println("Die Fläche des Kreises #2 ist " + kreis2.calculateArea());
 
 		Circle kreis3 = new Circle(14,3,1);
-		System.out.println("Die Fläche des Kreises #3 ist " + kreis3.calculateArea());
 		
-		System.out.println("Der Umfang des Kreises #3 ist " + kreis3.calculateCircumference());
 		
-		System.out.println("Der Radius des Kreises #3 ist " + kreis3.radius);
+		Circle testCircle = new Circle (4,10,10);
+		
+		
+		Circle testCircle2 = new Circle (2,0,0);
+//		boolean contained = testCircle2.isOnCircle(12, 3);
+//		System.out.println("Der Punkt liegt " + (contained ? "" : "nicht") + " auf dem Kreis");
+		
+		
+		boolean touch = testCircle2.isTouching(testCircle);
+		System.out.println("Der Kreis berührt den anderen " + (touch ? "" : "nicht"));
+	}
+	
+	
+	
+	
+	public boolean isTouching(Circle a) {
 
+		double distance = this.calculateDistance(a.x, a.y);
+
+		if (distance <= (this.radius + a.radius)) {
+
+			return true;
+
+		} else {
+			
+			return false;
+		}
+	}
+
+	/**
+	 * Calculates wether the spcified point lies on this circle
+	 *(including both the area and the circumference).
+	 * @param px
+	 * @param py
+	 * @return true if the specified point is on the circle
+	 */
+	public boolean isOnCircle(double px, double py) {
+
+		boolean isOnCircle = false;
+
+		double distance = calculateDistance(px, py);
+
+		if (distance <= this.radius) {
+
+			isOnCircle = true;
+		}
+
+		return isOnCircle;
+	}
+	
+	/**
+	 * Calculate the distance between the specified point and the center of *this* circle.
+	 * @param px
+	 * @param py
+	 * @return
+	 */
+	public double calculateDistance(double px, double py) {
+
+		double dx = px - x;
+		double dy = py - y;
+		double distance = Math.sqrt(dy * dy + dx * dx);
+
+		return distance;
 
 	}
 
