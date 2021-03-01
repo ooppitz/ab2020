@@ -136,9 +136,8 @@ public class Circle {
 		for (int i = 0; i < c.length; i++) {
 			for (int j = 0; j < c.length; j++) {
 				if (c[i].isTouching(c[j]) && i != j) {
-					if (!circleList.contains(c[i])) {
-						circleList.add(c[i]);
-					}
+					circleList.add(c[i]);
+					break;
 				}
 			}
 		}
