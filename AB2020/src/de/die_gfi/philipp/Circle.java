@@ -10,7 +10,7 @@ public class Circle {
 	double y;
 	
 	public static void main(String[] args) {
-						
+
 		Circle kreis1 = new Circle(2,3,4);
 		System.out.println("Die Fläche des Kreises #1 ist " + kreis1.calculateArea());
 	 
@@ -27,6 +27,11 @@ public class Circle {
 		System.out.println("Der Kreis #1 ist " + kreis1.calculateDistance(-1, -1) +
 				" weit entfernt von (-1, 1)");
 
+
+		Circle circ = new Circle(4, 10, 10);
+		System.out.println(circ.calculateDistance(10, 10));
+		System.out.println(circ.calculateDistance(10, 14));
+		System.out.println(circ.calculateDistance(14, 10));
 
 	}
 
@@ -81,9 +86,9 @@ public class Circle {
 	 * @return Distance to the given point from the center
 	 */
 	public double calculateDistance(double px, double py) {
-		double a = px - this.x;
-		double b = py - this.y;
-		return Math.sqrt(a * a + b * b);
+		double dx = px - this.x;
+		double dy = py - this.y;
+		return Math.sqrt(dx * dx + dy * dy);
 	}
 
 }
