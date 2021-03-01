@@ -29,9 +29,9 @@ public class Circle {
 
 	/** This constructor initialises a Circle object
 	 * 
-	 * @param r
-	 * @param x
-	 * @param y
+	 * @param r circle radius
+	 * @param x center point x coordinate
+	 * @param y center point y coordinate
 	 */
 	public Circle(double r, double x, double y) {
 		
