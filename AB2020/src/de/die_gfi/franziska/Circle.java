@@ -1,7 +1,5 @@
 package de.die_gfi.franziska;
 
-import de.die_gfi.oppitz.Circle;
-
 public class Circle {
 
 	// Radius
