@@ -18,6 +18,51 @@ public class Circle {
 		boolean contained = kreis2.isOnCircle(12, 3);
 		System.out.println("Der Punkt liegt " + (contained ? "" : "nicht") + " auf dem Kreis");
 
+		Circle a = new Circle(2, 13, 4);
+		Circle b = new Circle(2, 4, 3);
+		boolean touching = a.isTouching(b);
+		System.out.println("Die beiden Kreise berühren sich" + (touching ? "." : " nicht."));
+		
+		Circle[] circles = new Circle[4];
+		circles[0] = kreis1;
+		circles[1] = kreis2;
+		circles[2] = a;
+		circles[3] = b;
+
+		Circle[] touchingCircles = touchingCircles(circles);
+		
+	}
+
+	
+	/** Calculates the overlapping circles of the specified array. 
+	 * 
+	 * @param c 
+	 * @return an array containing circles that overlap with at least one other circle
+	 */
+	public static Circle[] touchingCircles(Circle[] c) {
+		
+		return null;
+	}
+	
+	/**
+	 * Calculates whether the two circles touch or overlap
+	 * @param a
+	 * @return true if the circles touch or overlap, otherwise false
+	 */
+	public boolean isTouching(Circle a) {
+
+		double distance = this.calculateDistance(a.x, a.y);
+		if (distance <= (a.radius + this.radius)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean isTouchingShort(Circle a) {
+
+		double distance = this.calculateDistance(a.x, a.y);
+		return distance <= (a.radius + this.radius);
 	}
 
 	/**
