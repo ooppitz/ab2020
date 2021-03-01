@@ -119,9 +119,12 @@ public class Circle {
 	 * Calculates whether this circle and another circle touch.
 	 *
 	 * @param c another circle
-	 * @return true if the circles touch or overlap
+	 * @return true if the circles touch or overlap, if c is null then false
 	 */
 	public boolean isTouching(Circle c) {
+		if (c == null) {
+			return false;
+		}
 		double distance = this.calculateDistance(c.x, c.y);
 		return distance <= this.radius + c.radius;
 	}
