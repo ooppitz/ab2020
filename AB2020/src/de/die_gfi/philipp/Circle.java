@@ -28,17 +28,13 @@ public class Circle {
 				" weit entfernt von (-1, 1)");
 
 
-		Circle circ = new Circle(4, 10, 10);
-		System.out.println(circ.calculateDistance(10, 10));
-		System.out.println(circ.calculateDistance(10, 14));
-		System.out.println(circ.calculateDistance(14, 10));
-		System.out.println(circ.calculateDistance(6, 10));
+		Circle circ1 = new Circle(4, 10, 10);
+		Circle circ2 = new Circle(5, 15, 12);
+		Circle circ3 = new Circle(2, 8, 14);
 
-		System.out.println(circ.isOnCircle(14, 10)); // true
-		System.out.println(circ.isOnCircle(6, 6)); // false
-		System.out.println(circ.isOnCircle(11, 11)); // true
-		System.out.println(circ.isOnCircle(12, 16)); // false
-		System.out.println(circ.isOnCircle(0,0)); // false
+		System.out.println(circ1.isTouching(circ2));
+		System.out.println(circ1.isTouching(circ3));
+		System.out.println(circ2.isTouching(circ3));
 
 	}
 
@@ -107,6 +103,11 @@ public class Circle {
 	public boolean isOnCircle(double px, double py) {
 		double distance = this.calculateDistance(px, py);
 		return distance <= this.radius;
+	}
+
+	public boolean isTouching(Circle c) {
+		double distance = this.calculateDistance(c.x, c.y);
+		return distance <= this.radius + c.radius;
 	}
 
 }
