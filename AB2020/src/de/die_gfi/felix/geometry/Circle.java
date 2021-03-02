@@ -1,8 +1,9 @@
-package de.die_gfi.felix;	
+package de.die_gfi.felix.geometry;	
 
 import java.util.Arrays;
 import java.util.ArrayList;
-import de.die_gfi.felix.Circle;
+
+import de.die_gfi.felix.geometry.Circle;
 import de.die_gfi.util.Print;
 
 public class Circle {

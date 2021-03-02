@@ -1,4 +1,4 @@
-package de.die_gfi.felix_arrays;
+package de.die_gfi.felix.arrays;
 
 import java.util.Arrays;
 import de.die_gfi.util.Print;
@@ -7,7 +7,7 @@ import de.die_gfi.util.Print;
 public class Aufgabe1_2_4to9_11 { 
 	public static void main(String args[]) {
 		
-		String[] staedte = {"Berlin", "Bern", "Dortmund", "Stutgart", "Wien", "Reichenberg", "Hamburg", "Zürich", "Salzburg", "Luxemburg", "Straßburg", "Frankfurt", "Danzig", "Koeln", "Bozen", "Breslau", "Dresden", "Königsberg", "Oedenburg"};
+		String[] staedte = {"Berlin", "Bern", "Dortmund", "Stutgart", "Wien", "Reichenberg", "Hamburg", "Zï¿½rich", "Salzburg", "Luxemburg", "Straï¿½burg", "Frankfurt", "Danzig", "Koeln", "Bozen", "Breslau", "Dresden", "Kï¿½nigsberg", "Oedenburg"};
 		
 		int[] zahlen = {45, 4, 65, 789, 0, -45, 87, 257, 99};
 		
@@ -49,7 +49,7 @@ public class Aufgabe1_2_4to9_11 {
 		System.out.println("Kopiertes Array: ");
 		Print.printArray(zahlen4);
 		
-		System.out.println("Sortiertes Int Array mit Gelöschtem Element: ");
+		System.out.println("Sortiertes Int Array mit Gelï¿½schtem Element: ");
 		Print.printArray(zahlen2);
 		
 		System.out.println("Sortierte Ints mit hinzugefuegtem Wert: ");

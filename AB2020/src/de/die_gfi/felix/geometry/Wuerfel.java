@@ -1,4 +1,4 @@
-package de.die_gfi.felix;
+package de.die_gfi.felix.geometry;
 
 public class Wuerfel extends Quader {
 	

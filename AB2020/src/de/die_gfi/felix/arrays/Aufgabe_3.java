@@ -1,4 +1,4 @@
-package de.die_gfi.felix_arrays;
+package de.die_gfi.felix.arrays;
 
 //3. geben sie das Feld mit Hilfe eines Arrays aus
 
