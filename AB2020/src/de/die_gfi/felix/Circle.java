@@ -40,17 +40,33 @@ public class Circle {
 		System.out.println("Der Punkt liegt innerhalb des Kreises/auf der Kreislinie?: " + kreis4.isOnOrInsideCircle(10, 10));
 		System.out.println("the Circles Touch?: " + kreis4.circlesTouch(kreis5));
 		System.out.println("the Circles Touch?: " + kreis4.circlesTouch(kreis6));
-		
+		System.out.println(selectBiggest(kreiseArr));
+	}
+	public static Circle selectBiggest(Circle[] c) {
+		int groessterKreisIndex = -1;
+		double groessterRadius = -1;
+		for(int i = 0; i < c.length; i++) {
+			if(c[i].radius > groessterRadius) {
+				groessterRadius = c[i].radius;
+				groessterKreisIndex = i;
+			}
+		}
+		return c[groessterKreisIndex];
+	}
+	
+	public String toString() {
+		String result = new String("{ Kreis Radius: " + radius + ", Mittelpunkt: " + x + "/" + y + " }");
+		return result;
 	}
 	
 	public static Circle[] circleTochArr(Circle[] kreiseArr) {
-		ArrayList<Integer> arrlist = new ArrayList<Integer>();
+		ArrayList<Integer> indexListe = new ArrayList<Integer>();
 		
 		for(int i = 0; i < kreiseArr.length; i++) {
 			for(int j = 0; j < kreiseArr.length; j++) {
 				if(j != i) {
 					if(kreiseArr[i].circlesTouch(kreiseArr[j])) {
-						arrlist.add(i);
+						indexListe.add(i);
 						break;
 					}
 					
@@ -58,14 +74,14 @@ public class Circle {
 			
 			}
 		}
-		Circle[] kreiseArrReturn = new Circle[arrlist.size()];
+		Circle[] kreiseArrReturn = new Circle[indexListe.size()];
 		int k = 0;
 		for(int i = 0; i < kreiseArr.length; i++) {
-			if(arrlist.contains(i)) {
+			if(indexListe.contains(i)) {
 				kreiseArrReturn[k++] = kreiseArr[i];
 			}
 		}
-		System.out.println(arrlist);
+		System.out.println(indexListe);
 		return kreiseArrReturn;
 	}
 	
