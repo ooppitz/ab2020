@@ -35,6 +35,7 @@ public class Circle {
 		
 		Circle[] kreise = { kreis1, kreis2, kreis3, testCircle, testCircle2 };
 		
+		@SuppressWarnings("unused")
 		Circle[] matches = touchingCircles(kreise);
 		
 		

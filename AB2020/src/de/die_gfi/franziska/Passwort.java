@@ -14,15 +14,16 @@ public class Passwort {
 		
 		hash2 = readPassword();
 		
+		@SuppressWarnings("unused")
 		int[] passwords = {hash1, hash2};
 		
 
 		if (hash1 == hash2) {
 
-			System.out.println("Die Passwörter sind gleich.");
+			System.out.println("Die Passwï¿½rter sind gleich.");
 		} else {
 
-			System.out.println("Die Passwörter unterscheiden sich.");
+			System.out.println("Die Passwï¿½rter unterscheiden sich.");
 		}
 
 	}
@@ -39,6 +40,8 @@ public class Passwort {
 		char[] zeichen1 = passwort1.toCharArray();
 		
 		hash1 = Arrays.hashCode(zeichen1);
+		
+		scanner.close();
 		
 		return hash1;
 	}

@@ -14,13 +14,13 @@ public class Wuerfel extends Quader {
 		
 		System.out.println(w.calculateArea());
 		
-		
+		System.out.println(w.toString());
 		
 	}
 	
 	public String toString() {
 		
-		return "{ k = " + this.b;
+		return "{ k = " + this.b + " }";
 		
 	}
 	
