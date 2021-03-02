@@ -7,7 +7,7 @@ public class Kugel {
 	double z;
 	
 	public double berechneOberflaeche() {
-		
+		return 4*Math.PI*radius*radius;
 	}
 	 
 	 
@@ -15,8 +15,11 @@ public class Kugel {
 		return radius*2;
 	}
 	public double berechneVolumen() {
-		3/4*m
+		return (4.0/3)*Math.PI*radius*radius*radius;
 	}
-	 public String toString() {}
-	
+	 public String toString() {
+	return "Radiu s"+this.radius+" Kordinaten "+this.x+this.y+this.z;}
+	 
+	 
+	 
 }
