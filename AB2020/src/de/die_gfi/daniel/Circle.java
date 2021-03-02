@@ -225,8 +225,7 @@ public class Circle
    public static Circle selectBiggest( Circle[] c )
    {
       int maxIndex = 0;
-      
-      
+
       for( int i = 1; i < c.length; i++ )
       {
          if( c[maxIndex].radius < c[i].radius )
@@ -234,8 +233,8 @@ public class Circle
             maxIndex = i;
          }
       }
-      
-      
+
+
       return c[maxIndex];
    }
 }
