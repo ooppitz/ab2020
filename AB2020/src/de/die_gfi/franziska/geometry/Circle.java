@@ -1,5 +1,6 @@
-package de.die_gfi.franziska;
+package de.die_gfi.franziska.geometry;
 
+import java.util.ArrayList;
 
 public class Circle {
 
@@ -40,7 +41,24 @@ public class Circle {
 		
 	}
 	
-	
+	/**
+	 * @param c
+	 * @return static Method, welche ein Array von Circles bekommt und den größten Circle zurückgibt
+	 */
+	public static Circle selectBiggest(Circle[] c) {
+
+		Circle biggest = null;
+		double groessterRadius = -1;
+
+		for (int i = 0; i < c.length; i++) {
+
+			if (c[i].radius > groessterRadius) {
+				groessterRadius = c[i].radius;
+				biggest = c[i];
+			}
+		}
+		return biggest;
+	}
 	
 	
 	/** Calculates the overlapping circles of the specified array. 
@@ -50,27 +68,24 @@ public class Circle {
 	 */
 	public static Circle[] touchingCircles(Circle[] c) {
 
-		int matchCounter = 0;
+		ArrayList<Circle> collection = new ArrayList<Circle>();
 
-		Circle[] collection = new Circle[matchCounter];
-		
 		for (int i = 0; i < c.length; i++) {
 
-			for (int k = 0; k < c.length; k++) {
+			for (int j = 0; j < c.length; j++) {
 
-				if (c[i].isTouching(c[k])) {
+				if (c[i].isTouching(c[j]) && i != j) {
 
-					collection[i] = c[i];
-					
-					matchCounter++;
+					collection.add(c[i]);
+
+					break;
 
 				}
 			}
 		}
-
-		return collection;
+		return collection.toArray(new Circle[0]);
 	}
-	
+
 	public boolean isTouching(Circle a) {
 
 		double distance = this.calculateDistance(a.x, a.y);
