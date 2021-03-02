@@ -31,7 +31,7 @@ public class Quader {
     }
 
     public double calculateSumOfEdges() {
-        return 4 * (this.width + this.height + this.depth * 4);
+        return 4 * (this.width + this.height + this.depth);
     }
 
     public double calculateSurfaceArea() {
@@ -43,9 +43,9 @@ public class Quader {
      * @return the length of the shortest side
      */
     public double getShortestSide() {
-        if (this.width <= height && width <= depth) {
+        if (width <= height && width <= depth) {
             return this.width;
-        } else if (this.height <= this.depth && this.height <= this.width) {
+        } else if (height <= depth && height <= width) {
             return this.height;
         } else {
             return this.depth;
@@ -54,6 +54,6 @@ public class Quader {
 
     @Override
     public String toString() {
-        return "{" + this.width + "/" + this.height + "/" + this.depth + " (w/h/d)}";
+        return "{" + width + "/" + height + "/" + depth + " (w/h/d)}";
     }
 }
