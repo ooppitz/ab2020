@@ -46,6 +46,8 @@ public class Circle {
 			System.out.println("Circle " + c + " is touching at least one other circle");
 		}
 
+		System.out.println("Largest circle is " + selectBiggest(circles));
+
 	}
 
 	/** This constructor initialises a Circle object
@@ -150,6 +152,21 @@ public class Circle {
 	@Override
 	public String toString() {
 		return "{M:(" + this.x + "|" + this.y + ")" + ", r = " + this.radius + "}";
+	}
+
+	/**
+	 *
+	 * @param cArr Array of circles
+	 * @return the first occurrence of a circle with the largest radius.
+	 */
+	public static Circle selectBiggest(Circle[] cArr) {
+		Circle maxC = cArr[0];
+		for (int i = 1; i < cArr.length; i++) {
+			if (maxC.radius < cArr[i].radius) {
+				maxC = cArr[i];
+			}
+		}
+		return maxC;
 	}
 
 }
