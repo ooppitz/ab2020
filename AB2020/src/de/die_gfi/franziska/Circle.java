@@ -1,5 +1,6 @@
 package de.die_gfi.franziska;
 
+
 public class Circle {
 
 	// Radius
@@ -30,10 +31,45 @@ public class Circle {
 		
 		boolean touch = testCircle2.isTouching(testCircle);
 		System.out.println("Der Kreis berührt den anderen " + (touch ? "" : "nicht"));
+		
+		Circle[] kreise = { kreis1, kreis2, kreis3, testCircle, testCircle2 };
+		
+		Circle[] matches = touchingCircles(kreise);
+		
+		
+		
 	}
 	
 	
 	
+	
+	/** Calculates the overlapping circles of the specified array. 
+	 * 
+	 * @param c 
+	 * @return an array containing circles that overlap with at least one other circle
+	 */
+	public static Circle[] touchingCircles(Circle[] c) {
+
+		int matchCounter = 0;
+
+		Circle[] collection = new Circle[matchCounter];
+		
+		for (int i = 0; i < c.length; i++) {
+
+			for (int k = 0; k < c.length; k++) {
+
+				if (c[i].isTouching(c[k])) {
+
+					collection[i] = c[i];
+					
+					matchCounter++;
+
+				}
+			}
+		}
+
+		return collection;
+	}
 	
 	public boolean isTouching(Circle a) {
 
@@ -44,13 +80,13 @@ public class Circle {
 			return true;
 
 		} else {
-			
+
 			return false;
 		}
 	}
 
 	/**
-	 * Calculates wether the spcified point lies on this circle
+	 * Calculates whether the specified point lies on this circle
 	 *(including both the area and the circumference).
 	 * @param px
 	 * @param py
@@ -86,7 +122,7 @@ public class Circle {
 
 	}
 
-	/** This constructor initialises a Circle object
+	/** This constructor initializes a Circle object
 	 * 
 	 * @param r
 	 * @param x
