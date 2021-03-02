@@ -43,9 +43,9 @@ public class Quader {
      * @return the length of the shortest side
      */
     public double getShortestSide() {
-        if (this.width < height && width < depth) {
+        if (this.width <= height && width <= depth) {
             return this.width;
-        } else if (this.height < this.depth && this.height < this.width) {
+        } else if (this.height <= this.depth && this.height <= this.width) {
             return this.height;
         } else {
             return this.depth;
