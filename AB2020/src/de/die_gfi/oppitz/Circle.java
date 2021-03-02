@@ -99,7 +99,6 @@ public class Circle {
 	 * 
 	 * @param px
 	 * @param py
-	 * @return
 	 */
 	public double calculateDistance(double px, double py) {
 
@@ -156,5 +155,14 @@ public class Circle {
 		return calculateDiameter() * Math.PI;
 
 	}
+	
+	
+	}
 
-}
+
+
+
+
+
+
+
