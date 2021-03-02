@@ -5,7 +5,7 @@ public class Circle {
 	// Radius
 	// Mittelpunkt
 
-	double radius; // Each object has a variable "r"
+	private double radius; // Each object has a variable "r"
 	double x; // Each object has a variable "xCoordinate"
 	double y;
 
@@ -52,7 +52,7 @@ public class Circle {
 	public boolean isTouching(Circle a) {
 
 		double distance = this.calculateDistance(a.x, a.y);
-		if (distance <= (a.radius + this.radius)) {
+		if (distance <= (a.getRadius() + this.getRadius())) {
 			return true;
 		} else {
 			return false;
@@ -62,7 +62,7 @@ public class Circle {
 	public boolean isTouchingShort(Circle a) {
 
 		double distance = this.calculateDistance(a.x, a.y);
-		return distance <= (a.radius + this.radius);
+		return distance <= (a.getRadius() + this.getRadius());
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class Circle {
 
 		boolean result = false;
 		double distance = calculateDistance(px, py);
-		if (distance <= this.radius) {
+		if (distance <= this.getRadius()) {
 			result = true;
 		}
 		return result;
@@ -85,12 +85,12 @@ public class Circle {
 	public boolean isOnCircleShort(double px, double py) {
 
 		double distance = this.calculateDistance(px, py);
-		return this.calculateDistance(px, py) <= this.radius;
+		return this.calculateDistance(px, py) <= this.getRadius();
 	}
 
 	public boolean isOnCircleVeryShort(double px, double py) {
 
-		return this.calculateDistance(px, py) <= this.radius;
+		return this.calculateDistance(px, py) <= this.getRadius();
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class Circle {
 	 */
 	public Circle(double r, double x, double y) {
 
-		this.radius = r;
+		this.setRadius(r);
 		this.x = x;
 		this.y = y;
 
@@ -133,7 +133,7 @@ public class Circle {
 	 */
 	public double calculateArea() { // Object method / instance method
 
-		return this.radius * this.radius * Math.PI;
+		return this.getRadius() * this.getRadius() * Math.PI;
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class Circle {
 	 * @return the diameter
 	 */
 	public double calculateDiameter() {
-		return this.radius * 2;
+		return this.getRadius() * 2;
 	}
 
 	/**
@@ -155,6 +155,16 @@ public class Circle {
 
 		return calculateDiameter() * Math.PI;
 
+	}
+
+
+	public double getRadius() {
+		return radius;
+	}
+
+
+	public void setRadius(double radius) {
+		this.radius = radius;
 	}
 
 }
