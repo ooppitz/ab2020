@@ -1,4 +1,4 @@
-package de.die_gfi.jonathan.objekt;
+package de.die_gfi.jonathan.Geometry;
 import de.die_gfi.oppitz.Circle;
 
 

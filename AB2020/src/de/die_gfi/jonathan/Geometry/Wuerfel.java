@@ -1,4 +1,4 @@
-package de.die_gfi.jonathan.objekt;
+package de.die_gfi.jonathan.Geometry;
 
 public class Wuerfel extends Quader {
 
