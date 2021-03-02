@@ -11,13 +11,27 @@ double tiefe;
 	public static void main(String args[]) {
 		
 		Quader quader1 = new Quader(3, 1 , 2);
+		Quader quader2 = new Quader(4, 4, 4);
+		Quader quader3 = new Quader(2, 6, 4);
+		
+		Quader[] quaderArr = {quader1, quader2, quader3};
 		
 		System.out.println(quader1);
 		System.out.println("Volumen: " + quader1.rechneVolumen());
 		System.out.println("Gesamtoberflaeche: " + quader1.rechneOberflaeche());
 		System.out.println("Summe Kantenlaenge: " + quader1.rechneSummeKantenlaenge());
 		System.out.println("Kuerzeste Seite: " + quader1.rueckgabeKuerzesteSeite());
+		System.out.println("Minimale Stapelhoehe: " + rechneMinimaleStapelHoehe(quaderArr));
 	}
+	
+	public static double rechneMinimaleStapelHoehe(Quader[] quaderArr) {
+	double hoeheStapel = 0;
+	for(Quader akktuellerQuader : quaderArr) {
+		hoeheStapel = hoeheStapel + akktuellerQuader.rueckgabeKuerzesteSeite();
+	}
+	return hoeheStapel;
+	}
+	
 	public Quader(double laenge, double hoehe, double tiefe) {
 		this.laenge = laenge;
 		this.hoehe = hoehe;
