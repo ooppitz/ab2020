@@ -23,6 +23,9 @@ public class Quader {
         System.out.println("The surface area of q3 is " + q3.calculateSurfaceArea());
         System.out.println("The shortest side of q4 has a length of " + q4.getShortestSide());
         System.out.println("q5 is " + q5);
+
+        Quader[] qArr = {q1, q2, q3, q4, q5};
+        System.out.println("Der Stapel ist mindestens " + berecheneMinimaleHoeheEinesStapels(qArr) + " cm hoch.");
     }
 
 
@@ -50,6 +53,14 @@ public class Quader {
         } else {
             return this.depth;
         }
+    }
+
+    public static double berecheneMinimaleHoeheEinesStapels(Quader[] qArr) {
+        double sum = 0;
+        for (Quader q : qArr) {
+            sum += q.getShortestSide();
+        }
+        return sum;
     }
 
     @Override
