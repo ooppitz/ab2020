@@ -1,22 +1,22 @@
 package de.die_gfi.philipp.geometry;
 
-public class Quader {
+public class Cuboid {
     public double width;
     public double height;
     public double depth;
 
-    public Quader(double width, double height, double depth) {
+    public Cuboid(double width, double height, double depth) {
         this.width = width;
         this.height = height;
         this.depth = depth;
     }
 
     public static void main(String[] args) {
-        Quader q1 = new Quader(5, 5, 5);
-        Quader q2 = new Quader(8, 7, 6);
-        Quader q3 = new Quader(4, 5, 6);
-        Quader q4 = new Quader(5, 4, 4);
-        Quader q5 = new Quader(4, 7, 4);
+        Cuboid q1 = new Cuboid(5, 5, 5);
+        Cuboid q2 = new Cuboid(8, 7, 6);
+        Cuboid q3 = new Cuboid(4, 5, 6);
+        Cuboid q4 = new Cuboid(5, 4, 4);
+        Cuboid q5 = new Cuboid(4, 7, 4);
 
         System.out.println("Volume of q1 is " + q1.calculateVolume());
         System.out.println("The sum of the length of the edges of q2 is " + q2.calculateSumOfEdges());
@@ -24,7 +24,7 @@ public class Quader {
         System.out.println("The shortest side of q4 has a length of " + q4.getShortestSide());
         System.out.println("q5 is " + q5);
 
-        Quader[] qArr = {q1, q2, q3, q4, q5};
+        Cuboid[] qArr = {q1, q2, q3, q4, q5};
         System.out.println("Der Stapel ist mindestens " + berecheneMinimaleHoeheEinesStapels(qArr) + " cm hoch.");
     }
 
@@ -55,9 +55,9 @@ public class Quader {
         }
     }
 
-    public static double berecheneMinimaleHoeheEinesStapels(Quader[] qArr) {
+    public static double berecheneMinimaleHoeheEinesStapels(Cuboid[] qArr) {
         double sum = 0;
-        for (Quader q : qArr) {
+        for (Cuboid q : qArr) {
             sum += q.getShortestSide();
         }
         return sum;

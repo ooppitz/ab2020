@@ -1,8 +1,8 @@
 package de.die_gfi.philipp.geometry;
 
-public class Wuerfel extends Quader{
+public class Cube extends Cuboid {
 
-    public Wuerfel(double k) {
+    public Cube(double k) {
         super(k, k, k);
 
     }
