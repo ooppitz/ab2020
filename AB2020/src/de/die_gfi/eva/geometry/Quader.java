@@ -1,4 +1,4 @@
-package de.die_gfi.eva;
+package de.die_gfi.eva.geometry;
 
 public class Quader {
 
