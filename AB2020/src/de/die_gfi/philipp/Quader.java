@@ -31,11 +31,11 @@ public class Quader {
     }
 
     public double calculateSumOfEdges() {
-        return this.width * 4 + this.height * 4 + this.depth * 4;
+        return 4 * (this.width + this.height + this.depth * 4);
     }
 
     public double calculateSurfaceArea() {
-        return 2 * (width * height) + 2 * (width + depth) + 2 * (depth + height);
+        return 2 * (width * height + width * depth + depth * height);
     }
 
     /**
