@@ -43,7 +43,7 @@ public class Circle {
 		Circle[] touchingCircles = touchingCircles(circles);
 
 		for (Circle c : touchingCircles) {
-			System.out.println("Circle r: " + c.radius + " (" + c.x + ", " + c.y + ") is touching at least one other circle");
+			System.out.println("Circle " + c + " is touching at least one other circle");
 		}
 
 	}
@@ -145,6 +145,11 @@ public class Circle {
 			}
 		}
 		return circleList.toArray(new Circle[0]);
+	}
+
+	@Override
+	public String toString() {
+		return "{M:(" + this.x + "|" + this.y + ")" + ", r = " + this.radius + "}";
 	}
 
 }
