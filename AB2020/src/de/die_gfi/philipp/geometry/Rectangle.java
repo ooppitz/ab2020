@@ -4,6 +4,12 @@ public class Rectangle {
     public double x, y;
     public double a, b;
 
+    public Rectangle(double a, double b) {
+        this.a = a;
+        this.b = b;
+        this.x = this.y = 0;
+    }
+
     /**
      *
      * @param a length of the side on the x-axis

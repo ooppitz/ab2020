@@ -2,6 +2,10 @@ package de.die_gfi.philipp.geometry;
 
 public class Square extends Rectangle{
 
+    public Square(double a) {
+        super(a, a);
+    }
+
     public Square(double a, double x, double y) {
         super(a, a, x, y);
     }
