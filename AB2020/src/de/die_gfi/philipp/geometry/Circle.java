@@ -1,4 +1,4 @@
-package de.die_gfi.philipp;
+package de.die_gfi.philipp.geometry;
 
 import java.util.ArrayList;
 
