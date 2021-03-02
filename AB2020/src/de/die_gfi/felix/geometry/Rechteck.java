@@ -17,4 +17,12 @@ public class Rechteck {
 		String result = new String("{ Laenge: " + this.laenge + ", Breite: " + this.breite + " }");
 		return result;
 	}
+	
+	public double rechneUmfang() {
+		return (this.laenge + this.breite) * 2;
+	}
+	
+	public double rechneFlaeche() {
+		return this.laenge * this.breite;
+	}
 }
