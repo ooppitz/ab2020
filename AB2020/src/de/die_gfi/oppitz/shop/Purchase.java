@@ -1,8 +1,13 @@
 package de.die_gfi.oppitz.shop;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 public class Purchase {
@@ -29,20 +34,80 @@ public class Purchase {
 
 	}
 
+	/**
+	 * Calculates the total amount of this purchase
+	 * 
+	 * @return the total amount
+	 */
+	public double calculateTotal() {
+
+		double total = 0;
+
+		Set<Entry<Product, Integer>> set = items.entrySet();
+		Iterator<Entry<Product, Integer>> it = set.iterator();
+
+		while (it.hasNext()) {
+			Entry<Product, Integer> me = it.next();
+			Product product = (Product) me.getKey();
+			Integer count = (Integer) me.getValue();
+			total += product.price * count;
+		}
+
+		return total;
+
+	}
+
+	public String generateBill() {
+
+		Shop shop = Shop.getShop();
+		String bill = shop.name + ", " + shop.street + ", " + shop.postcode + " " + shop.town + "\n";
+		bill += "-".repeat(60) + "\n";
+
+		bill += "\n";
+		bill += this.customer.name + "\n";
+		bill += this.customer.street + "\n";
+		bill += this.customer.postcode + " " + this.customer.town + "\n";
+		bill += this.customer.town + "\n";
+		bill += "\n";
+		
+		bill += "** Rechnung **\n";
+		bill += "\n";
+		
+		String date = LocalDate.now().toString();
+		bill += "Rechnungsdatum: " + date + "\n";
+		bill += "\n";
+
+		
+		bill += "Artikel" + "\n";
+		bill += "\n";
+
+		double total = this.calculateTotal();
+
+		bill += this.toString();
+		bill += "-".repeat(75) + "\n";
+		bill += "Total amount                                                         " + String.format("%4.2f", total);
+		bill += "\n";
+		bill += "\n";
+
+		bill += "Please pay this bill within 14 days";
+		return bill;
+
+	}
+
 	@Override
 	public String toString() {
 
 		String result = "";
-		
-		Set set = items.entrySet();
-		Iterator it = set.iterator();
 
-		System.out.println("HashMap Key-Value Pairs : ");
+		Set<Entry<Product, Integer>> set = items.entrySet();
+		Iterator<Entry<Product, Integer>> it = set.iterator();
+
 		while (it.hasNext()) {
-			Map.Entry me = (Map.Entry) it.next();
+			Entry<Product, Integer> me = it.next();
 			Product p = (Product) me.getKey();
 			Integer c = (Integer) me.getValue();
-			result += c + " x " + p.name + "\n";
+			String price = String.format("%4.2f", p.price * c);
+			result += c + " x " + String.format("%-60s", p.name) + String.format("%10s", price) + "\n";
 		}
 		return result;
 	}

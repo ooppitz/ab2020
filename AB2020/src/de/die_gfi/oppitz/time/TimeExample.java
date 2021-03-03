@@ -1,10 +1,10 @@
-package de.die_gfi.oppitz.playarea;
+package de.die_gfi.oppitz.time;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-public class App {
+public class TimeExample {
 
 	public static void main(String[] args) {
 
