@@ -1,8 +1,11 @@
 package de.die_gfi.philipp.shop;
 
+/**
+ *
+ */
 public class Food extends Product{
-    private final String bestByDate;
-    private int weight;
+    protected final String bestByDate;
+    protected int weight;
 
     public Food(String name, double price, long articleNumber, String bestByDate) {
         super(name, price, articleNumber);
@@ -16,5 +19,21 @@ public class Food extends Product{
         this.bestByDate = bestByDate;
         this.weight = weight;
 
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "bestByDate='" + bestByDate + '\'' +
+                ", weight=" + weight +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", articleNumber=" + articleNumber +
+                ", packagingUnit=" + packagingUnit +
+                '}';
     }
 }
