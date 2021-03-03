@@ -15,5 +15,13 @@ public class App
       Product wecker = new Product( "Analogwecker", 10.0, "Made in Germany", 4189325 );
       System.out.println( wecker );
       System.out.println();
+      
+      Product nudeln = new Product( "Fusilli Nudeln", 0.49, "500 gramm", 7928195 );
+      System.out.println( nudeln );
+      System.out.println();
+      
+      
+      /* Book Test */
+      Book buch = new Book( "Javainsel", 49.90, "15. Auflage", 9783836377372L, "Rheinwerk Verlag", "Christian Ullenboom", "978-3-8362-7737-2" );
    }
 }
