@@ -2,16 +2,16 @@ package de.die_gfi.daniel.shop;
 
 public class PurchaseItem
 {
-   Product artikel;
-   long anzahl;
+   Product product;
+   int count;
    
    
    
    
-   public PurchaseItem( Product artikel, long anzahl )
+   public PurchaseItem( Product product, int count )
    {
-      this.artikel = artikel;
-      this.anzahl = anzahl;
+      this.product = product;
+      this.count = count;
    }
    
    
@@ -19,7 +19,7 @@ public class PurchaseItem
    {
       return
             ":PurchaseItem" + "\n" +
-            artikel.ausgabe() + "\n" +
-            "Anzahl        : " + this.anzahl;
+            product.ausgabe() + "\n" +
+            "Anzahl        : " + this.count;
    }
 }
