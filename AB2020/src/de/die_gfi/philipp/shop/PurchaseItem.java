@@ -55,7 +55,8 @@ public class PurchaseItem {
 
     @Override
     public String toString() {
-        return "" + getArticleNumber() + ": " + getName() + " | Amount: "
+        String formattedName = String.format("%-60s", getName());
+        return "" + getArticleNumber() + ": " + formattedName + " | Amount: "
                 + getAmount();
     }
 }
