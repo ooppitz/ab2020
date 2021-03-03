@@ -7,7 +7,7 @@ public class App {
                 "Hansi Mueller",
                 "Dorfstrasse 96, 28392 Dorf im Au");
 
-        System.out.println("Customer amount: " + aShop.getCustomerAmount());
+        System.out.println(aShop);
 
 
 
