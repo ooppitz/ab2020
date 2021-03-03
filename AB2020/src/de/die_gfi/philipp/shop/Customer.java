@@ -20,4 +20,15 @@ public class Customer {
     public static int getCustomerAmount() {
         return customers;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Customer Number: ").append(this.customerNumber).append("\n");
+        builder.append("Name :").append(this.name).append("\n");
+        builder.append("Address: ").append(this.address).append("\n");
+        builder.append("eMail address: ").append(this.emailAddress).append("\n");
+        builder.append("Amount of purchases: ").append(this.purchases.size());
+        return builder.toString();
+    }
 }
