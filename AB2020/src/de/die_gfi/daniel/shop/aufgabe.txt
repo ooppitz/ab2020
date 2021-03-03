@@ -3,12 +3,12 @@ Aufgabe
 Wir entwickeln eine Lösung für einen Online-Shop. 
 
 Dazu benötigen wir 
--	Eine class Customer, um die Daten von Kunden zu speichern (Name, Adresse, Email, … )
--	Eine class Product, um Waren zu speichern (Name, Preis, Nummer, … )
--	Verschiedene Klassen, die von der  class Product abgeleitete sind, z.B. für Bücher (ISBN-Nummer, … ) , Getränke, Lebensmittel (Ablaufdatum, …) , Digitale Produkte (E-Book, Video-Kurse), Dienstleistungen (Online-Webinar mit Datum)
--	Eine class Purchase, um die Waren zu speichern (mit Stückzahl, …) , die bei einem konkreten Kaufvorgang gekauft werden.
+-   Eine class Customer, um die Daten von Kunden zu speichern (Name, Adresse, Email, … )
+-   Eine class Product, um Waren zu speichern (Name, Preis, Nummer, … )
+-   Verschiedene Klassen, die von der  class Product abgeleitete sind, z.B. für Bücher (ISBN-Nummer, … ) , Getränke, Lebensmittel (Ablaufdatum, …) , Digitale Produkte (E-Book, Video-Kurse), Dienstleistungen (Online-Webinar mit Datum)
+-   Eine class Purchase, um die Waren zu speichern (mit Stückzahl, …) , die bei einem konkreten Kaufvorgang gekauft werden.
 
--	Eine class ProductCollection welche das Warenlager repräsentiert
+-   Eine class ProductCollection welche das Warenlager repräsentiert
 
 Class Purchase {
 
@@ -29,8 +29,8 @@ Class PurchaseItem {
 Aufgabe 1
 
 Implementieren Sie die class Customer mit
--	Einem Feld, um alle Kaufvorgänge zu speichern (class Purchase)
--	Einer toString() Methode, um die wichtigsten Daten auszugeben
+-   Einem Feld, um alle Kaufvorgänge zu speichern (class Purchase)
+-   Einer toString() Methode, um die wichtigsten Daten auszugeben
 Implementieren Sie soweit nötig die class Product { } und die class Purchase { }.
 
 Implementieren Sie in der class App eine Methode 
@@ -71,17 +71,4 @@ class App {
           System.out.println(„Der Kunde "+ c + „hat folgendes gekauft:“);
           System.out.println(k);
     }
-    
-    
-    
-    Aufgabe 
-
-Implementieren Sie eine Methode, um für einen Purchase eine Rechnung zu drucken
-
-Eine Rechnung benötigt ein Rechnungsdatum und eine Steuernummer. 
-
-Implementieren Sie eine class Shop, welche die Steuernummer und die Adresse des Shop-Betreibers enthält, Namen des Shops, Adresse
-
-
-    s
 }
