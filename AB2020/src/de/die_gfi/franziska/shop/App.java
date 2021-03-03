@@ -16,13 +16,7 @@ public class App {
 
 		System.out.println(k.toString(k));
 
-//		for (int i = 0; i < products.length; i++) {
-
-//			System.out.println(products[i].toString());
-//			System.out.println("");
 	}
-
-//	}
 
 	/**
 	 * 

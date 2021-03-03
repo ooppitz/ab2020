@@ -63,4 +63,8 @@ public class Purchase {
 		return counter;
 	}
 
+/*	public String erstelleRechnung() {
+		
+	}
+*/	
 }
