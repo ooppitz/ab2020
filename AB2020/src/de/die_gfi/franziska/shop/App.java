@@ -1,7 +1,6 @@
 package de.die_gfi.franziska.shop;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class App {
 
@@ -65,6 +64,7 @@ public class App {
 
 			String gesuchterName = p.toArray(p)[j].name;
 
+			@SuppressWarnings("unused")
 			Product gekauftesProdukt = p.toArray(p)[indexStorage];
 
 			for (int i = 0; i < p.toArray(p).length; i++) {
