@@ -10,5 +10,14 @@ public class App {
             System.out.println(pr);
         }
 
+        System.out.println();
+
+        Purchase testPurchase = new Purchase();
+        testPurchase.addToPurchase(prArr[1], 2);
+        testPurchase.addToPurchase(prArr[0], 6);
+
+        System.out.println(testPurchase);
+
+
     }
 }
