@@ -1,7 +1,10 @@
 package de.die_gfi.felix.shop;
 
+import java.util.ArrayList;
+
 public class Shop {
 	
+	ArrayList<Custumer> kundenListe;
 	String name;
 	String adresse;
 	int steuernummer;
@@ -17,5 +20,18 @@ public class Shop {
 		return result;
 	}
 	
+	public void addCustumer(Custumer c) {
+		kundenListe.add(c);
+	}
+	
+	public ArrayList<Custumer> returnCustumerList() {
+		return kundenListe;
+	}
+	
+	public void printCustumerList() {
+		for(Custumer c : kundenListe) {
+			System.out.println(c);
+		}
+	}
 }
 	

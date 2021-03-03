@@ -12,6 +12,9 @@ public class App {
 		Shop felixOnlineShop = new Shop("Felix Fröhlicher Online Shop", "Kaiser Wilhelm Alee 12, 77777 Hinter-Pusemuckel, Deutschland", 777888999);
 		Custumer kunde1 = new Custumer("Harald", "Harald(at)Harald(dot)com", "Haraldstrasse 1, 77777 Haraldstadt, Schweden");
 		
+		felixOnlineShop.addCustumer(kunde1);
+		System.out.println(felixOnlineShop.kundenListe.toString());
+		
 		Product produkt1 = new Product("Haralds Radiowecker", 12, 77777);
 		Book produkt2 = new Book("Harald Töpfer und der Stein der Weisen", 13, 88888, "JK Rollen", "Fantasy Roman");
 		Food produkt3 = new Food("Haralds Vegane Glutenfreie Mettwurst mit Zwibeln", 14, 99999, 500, true);
