@@ -5,22 +5,22 @@ package de.die_gfi.philipp.shop;
  */
 public class Product {
 
+    protected final long articleNumber;
     protected final String name;
     protected double price;
-    protected final long articleNumber;
     protected int packagingUnit;
 
     /**
      * Constructs a Product object with all necessary data for a generic product.
      *
+     * @param articleNumber Article number of this product
      * @param name Name of this product
      * @param price Price of this product
-     * @param articleNumber Article number of this product
      */
-    public Product(String name, double price, long articleNumber) {
+    public Product(long articleNumber, String name, double price) {
+        this.articleNumber = articleNumber;
         this.name = name;
         this.price = price;
-        this.articleNumber = articleNumber;
         this.packagingUnit = 1;
     }
 
@@ -28,15 +28,15 @@ public class Product {
      * Construct a Product object with all necessary data for a generic product and additionally defines the amount of
      * units per package
      *
+     * @param articleNumber Article number of this product
      * @param name Name of this product
      * @param price Price of this product
-     * @param articleNumber Article number of this product
      * @param packagingUnit How many units of the product are included per package
      */
-    public Product(String name, double price, long articleNumber, int packagingUnit) {
+    public Product(long articleNumber, String name, double price, int packagingUnit) {
+        this.articleNumber = articleNumber;
         this.name = name;
         this.price = price;
-        this.articleNumber = articleNumber;
         this.packagingUnit = packagingUnit;
     }
 

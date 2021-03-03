@@ -18,8 +18,8 @@ public class Beverage extends Food{
      * @param bestByDate Best by Date of this Beverage
      * @param containerSize Size of the container of the Beverage in ml
      */
-    public Beverage(String name, double price, long articleNumber, String bestByDate, int containerSize) {
-        super(name, price, articleNumber, bestByDate);
+    public Beverage(long articleNumber, String name, double price, String bestByDate, int containerSize) {
+        super(articleNumber, name, price, bestByDate);
         this.containerSize = containerSize;
     }
 
