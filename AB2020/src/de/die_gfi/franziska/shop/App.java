@@ -8,7 +8,7 @@ public class App {
 
 		ProductCollection p = App.createProductCollection();
 
-		Product[] products = p.toArray(p);
+		Product[] products = p.toArray();
 
 		Customer kurt = new Customer("Kurt Maier", "Landau", "kurt@maier.de");
 
@@ -33,8 +33,8 @@ public class App {
 
 		ArrayList<PurchaseItem> purchasedItems = new ArrayList<PurchaseItem>();
 
-		Product erstesShort = p.toArray(p)[0];
-		Product zweitesShort = p.toArray(p)[4];
+		Product erstesShort = p.toArray()[0];
+		Product zweitesShort = p.toArray()[4];
 
 		PurchaseItem erstes = new PurchaseItem(erstesShort, erstesShort.anzahl, erstesShort.preis);
 
@@ -60,16 +60,16 @@ public class App {
 
 		int indexStorage = 0;
 
-		for (int j = 0; j < p.toArray(p).length; j++) {
+		for (int j = 0; j < p.toArray().length; j++) {
 
-			String gesuchterName = p.toArray(p)[j].name;
+			String gesuchterName = p.toArray()[j].name;
 
 			@SuppressWarnings("unused")
-			Product gekauftesProdukt = p.toArray(p)[indexStorage];
+			Product gekauftesProdukt = p.toArray()[indexStorage];
 
-			for (int i = 0; i < p.toArray(p).length; i++) {
+			for (int i = 0; i < p.toArray().length; i++) {
 
-				if (p.toArray(p)[i].name == gesuchterName) {
+				if (p.toArray()[i].name == gesuchterName) {
 
 					indexStorage = i;
 				}
@@ -85,7 +85,7 @@ public class App {
 	 */
 	public static ProductCollection createProductCollection() {
 
-		Book b = new Book("Gulaschsuppe für Anfänger und Fortgeschrittene", 9.99, 1, 347);
+		Book b = new Book("Gulaschsuppe für Fortgeschrittene", 9.99, 1, 347);
 		Book o = new Book("Stricken lernen", 67.00, 2, 345578);
 		Getraenke g = new Getraenke("Erdbeerlimo", 1, 3, "22.08.2023");
 		Nahrung n = new Nahrung("Sandwich", 2, 4, "04.03.2021");

@@ -20,7 +20,7 @@ public class ProductCollection {
 	 * @param ProductCollection c
 	 * @return Product[] from ArrayList<Product>
 	 */
-	public Product[] toArray(ProductCollection c) {
+	public Product[] toArray() {
 
 		Product[] arr = new Product[this.productCollection.size()];
 
@@ -42,7 +42,7 @@ public class ProductCollection {
 
 		int counter = 0;
 
-		for (int i = 0; i < collection.toArray(collection).length; i++) {
+		for (int i = 0; i < collection.toArray().length; i++) {
 
 			counter = counter + 1;
 
