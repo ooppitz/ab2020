@@ -18,6 +18,25 @@ public class Product
    }
    
    
+   public String ausgabe()
+   {
+      return
+            "Name          : " + this.name + "\n" +
+            "Preis         : " + this.preis + "\n" +
+            "Beschreibung  : " + this.beschreibung + "\n" +
+            "Artikelnummer : " + this.artikelNummer;
+      
+   }
+   
+   
+   public String toString()
+   {
+      return
+            ":Product" + "\n" +
+            this.ausgabe();
+   }
+   
+/*   
    public String toString()
    {
       return
@@ -26,4 +45,5 @@ public class Product
             "Beschreibung  : " + this.beschreibung + "\n" +
             "Artikelnummer : " + this.artikelNummer;
    }
+*/
 }

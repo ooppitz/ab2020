@@ -19,7 +19,8 @@ public class Customer
    
    public String toString()
    {
-      return 
+      return
+            ":Customer" + "\n" +
             "Name    : " + this.name + "\n" + 
             "Adresse : " + this.adresse + "\n" +
             "E-Mail  : " + this.email;
