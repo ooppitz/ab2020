@@ -34,6 +34,11 @@ public class App {
 		
 		System.out.println(p.toString());
 		
+		System.out.println("Total amount = " + p.calculateTotal());
+		
+		System.out.println();
+		String bill = p.generateBill();
+		System.out.println(bill);
 		
 		
 	}
