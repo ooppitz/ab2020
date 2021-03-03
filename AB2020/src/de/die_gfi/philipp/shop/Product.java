@@ -15,7 +15,7 @@ public class Product {
      * Constructs a Product object with all necessary data for a generic product.
      *  @param articleNumber Article number of this product
      * @param name Name of this product
-     * @param manufacturer
+     * @param manufacturer Manufacturer of this product
      * @param price Price of this product
      */
     public Product(long articleNumber, String name, String manufacturer, double price) {
@@ -31,7 +31,7 @@ public class Product {
      * units per package
      *  @param articleNumber Article number of this product
      * @param name Name of this product
-     * @param manufacturer
+     * @param manufacturer manufacturer of this product
      * @param price Price of this product
      * @param packagingUnit How many units of the product are included per package
      */

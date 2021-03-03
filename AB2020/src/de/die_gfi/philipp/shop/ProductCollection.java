@@ -1,7 +1,6 @@
 package de.die_gfi.philipp.shop;
 
 
-import java.lang.annotation.Repeatable;
 import java.util.ArrayList;
 
 public class ProductCollection {
