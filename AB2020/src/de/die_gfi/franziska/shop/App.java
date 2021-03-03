@@ -9,4 +9,11 @@ public class App {
 		
 	}
 
+	public ProductCollection createProductCollection(){
+	    Book b = new Book("Die Bibel" , 18.99, 14, 173 );
+	    Book k = new Book("Der Koran", 7, 34,3432 );
+	    ProductCollection p;
+	    return p;
+	}
+	
 }
