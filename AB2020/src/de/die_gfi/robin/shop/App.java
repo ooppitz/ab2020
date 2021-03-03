@@ -6,14 +6,18 @@ public class App {
 	
 	public static void main(String[] args) {
 		
-		Customer c1 = new Customer("Heinz" ,"Gruber", "Trauberstrasse 33", "45657", "Muenchen", false);
+		Customer c1 = new Customer("1","Heinz" ,"Gruber", "Trauberstrasse 33", "45657", "Muenchen");
+		Customer[] kundenListe = Customer.kundenAuflisten();
 		
 		ArrayList<ProductCollection> collection1 = ProductCollection.createProductCollection();
 		
-		Purchase total = simulatePurchase(c1, collection1);
+		Purchase total = simulatePurchase(kundenListe[1], collection1);
 		
 		
-		System.out.println(collection1);
+		
+		
+		
+		System.out.println(total);
 		
 		
 		
