@@ -71,4 +71,17 @@ class App {
           System.out.println(„Der Kunde "+ c + „hat folgendes gekauft:“);
           System.out.println(k);
     }
+    
+    
+    
+    Aufgabe 
+
+Implementieren Sie eine Methode, um für einen Purchase eine Rechnung zu drucken
+
+Eine Rechnung benötigt ein Rechnungsdatum und eine Steuernummer. 
+
+Implementieren Sie eine class Shop, welche die Steuernummer und die Adresse des Shop-Betreibers enthält, Namen des Shops, Adresse
+
+
+    s
 }
