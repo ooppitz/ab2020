@@ -8,7 +8,7 @@ public class App {
 
         System.out.println(products);
 
-        System.out.println();
+        System.out.println("Customer amount: " + Customer.getCustomerAmount());
 
         Purchase testPurchase = new Purchase();
         testPurchase.addToPurchase(prArr[1], 2);
