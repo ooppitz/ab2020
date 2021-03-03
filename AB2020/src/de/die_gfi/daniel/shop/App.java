@@ -13,10 +13,12 @@ public class App
       
       /* Product Test */
       Product wecker = new Product( "Analogwecker", 10.0, "Made in Germany", 4189325 );
+      System.out.println( ":Product" );
       System.out.println( wecker );
       System.out.println();
       
       Product nudeln = new Product( "Fusilli Nudeln", 0.49, "500 gramm", 7928195 );
+      System.out.println( "# Product" );
       System.out.println( nudeln );
       System.out.println();
       

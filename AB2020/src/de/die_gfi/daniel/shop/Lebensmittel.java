@@ -15,6 +15,7 @@ public class Lebensmittel extends Product
    public String toString()
    {
       return
+            "# Lebensmittel" + "\n" +
             super.toString() + "\n" + 
             "Ablaufdatum   : " + this.ablaufDatum;
    }
