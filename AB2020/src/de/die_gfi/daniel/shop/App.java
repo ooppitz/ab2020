@@ -25,5 +25,11 @@ public class App
       Book buch = new Book( "Javainsel", 49.90, "15. Auflage", 9783836377372L, "Rheinwerk Verlag", "Christian Ullenboom", "978-3-8362-7737-2" );
       System.out.println( buch );
       System.out.println();
+      
+      
+      /* Lebensmittel Test */
+      Lebensmittel brot = new Lebensmittel( "Vierkornbrot", 10.0, "Scheibenstaerke 12", 4803460, "5 Tage" );
+      System.out.println( brot );
+      System.out.println();
    }
 }
