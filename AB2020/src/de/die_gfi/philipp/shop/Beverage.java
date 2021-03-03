@@ -11,15 +11,14 @@ public class Beverage extends Food{
     protected int containerSize;
 
     /**
-     *
+     * @param articleNumber Article number of this Beverage
      * @param name Name of this Beverage
      * @param price Price of this Beverage
-     * @param articleNumber Article number of this Beverage
      * @param bestByDate Best by Date of this Beverage
      * @param containerSize Size of the container of the Beverage in ml
      */
-    public Beverage(long articleNumber, String name, double price, String bestByDate, int containerSize) {
-        super(articleNumber, name, price, bestByDate);
+    public Beverage(long articleNumber, String name, String manufacturer,double price, String bestByDate, int containerSize) {
+        super(articleNumber, name, manufacturer,price, bestByDate);
         this.containerSize = containerSize;
     }
 

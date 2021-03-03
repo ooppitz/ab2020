@@ -17,8 +17,8 @@ public class Food extends Product{
      * @param articleNumber Article number of this Food
      * @param bestByDate Best by Date of this Food
      */
-    public Food(long articleNumber, String name, double price, String bestByDate) {
-        super(articleNumber, name, price);
+    public Food(long articleNumber, String name, String manufacturer, double price, String bestByDate) {
+        super(articleNumber, name, manufacturer, price);
         this.bestByDate = bestByDate;
         this.weight = -1;
 
@@ -33,8 +33,8 @@ public class Food extends Product{
      * @param bestByDate Best by Date of this Food
      * @param weight Weight of this Food
      */
-    public Food(long articleNumber, String name, double price, String bestByDate, int weight) {
-        super(articleNumber, name, price);
+    public Food(long articleNumber, String name, String manufacturer, double price, String bestByDate, int weight) {
+        super(articleNumber, name, manufacturer, price);
         this.bestByDate = bestByDate;
         this.weight = weight;
 
