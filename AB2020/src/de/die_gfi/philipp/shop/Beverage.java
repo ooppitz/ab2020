@@ -43,4 +43,8 @@ public class Beverage extends Food{
                 ", packagingUnit=" + packagingUnit +
                 '}';
     }
+
+    public int getContainerSize() {
+        return containerSize;
+    }
 }

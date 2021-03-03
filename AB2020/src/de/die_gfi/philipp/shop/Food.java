@@ -10,7 +10,7 @@ public class Food extends Product{
     protected int weight;
 
     /**
-     *
+     * This constructor is mostly used by the subclass {@link Beverage}, puts the weight to -1
      *
      * @param name Name of this Food
      * @param price Price of this Food
@@ -59,5 +59,13 @@ public class Food extends Product{
                 ", articleNumber=" + articleNumber +
                 ", packagingUnit=" + packagingUnit +
                 '}';
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public String getBestByDate() {
+        return bestByDate;
     }
 }
