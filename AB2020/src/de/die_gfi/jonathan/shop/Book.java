@@ -2,15 +2,15 @@ package de.die_gfi.jonathan.shop;
 
 public class Book extends Product {
 	int isbn = (int) (Math.random() * 8);
-	String autor;
+	String author;
 //String titel;
-	String sprache;
+	String language;
 
-	public Book(String a, String t, String s, double p, int pn) {
-		autor = a;
-		name = t;
-		sprache = s;
-		preis = p;
-		produktnummer = pn;
+	// TODO: Namen korrigieren
+    // TODO: JavaDoc ergänzen
+	public Book(String autor, String titel, String sprache, double preis, int produktnummer) {
+		super(titel, preis, produktnummer);
+		author = autor;
+		language = sprache;
 	}
 }

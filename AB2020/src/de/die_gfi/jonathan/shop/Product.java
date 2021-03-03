@@ -2,12 +2,12 @@ package de.die_gfi.jonathan.shop;
 
 public class Product {
 	String name;
-	double preis;
-	int produktnummer;
+	double price;
+	int produktnumber;
 
-	public Product(String n, double p, int pn) {
-		name = n;
-		preis = p;
-		produktnummer = pn;
+	public Product(String bezeicnbung, double preis, int produtnummer) {
+		name = bezeicnbung;
+		price = preis;
+		produktnumber = produtnummer;
 	}
 }
