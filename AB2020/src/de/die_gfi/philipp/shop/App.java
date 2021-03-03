@@ -7,7 +7,7 @@ public class App {
         Product[] prArr = products.getProducts();
 
         for (Product pr : prArr) {
-            System.out.println(pr.name);
+            System.out.println(pr);
         }
 
     }
