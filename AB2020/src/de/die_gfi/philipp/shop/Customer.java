@@ -9,10 +9,11 @@ public class Customer {
     public int customerNumber;
     public ArrayList<PurchaseItem> purchases = new ArrayList<>();
 
-    public Customer(String name, String address, String emailAddress) {
+    public Customer(String name, String address, String emailAddress, Shop shop) {
         this.name = name;
         this.address = address;
         this.emailAddress = emailAddress;
+        this.customerNumber = shop.getCustomerAmount() + 1;
     }
 
     public void makePurchase() {

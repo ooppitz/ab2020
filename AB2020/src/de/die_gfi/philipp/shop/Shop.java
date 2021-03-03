@@ -9,6 +9,7 @@ public class Shop {
     protected String shopAddress;
     protected ProductCollection products;
     protected ArrayList<Customer> customers;
+    protected ArrayList<Purchase> sales;
 
     public Shop(String shopName, String ownerName, String shopAddress) {
         this.shopName = shopName;
@@ -16,6 +17,7 @@ public class Shop {
         this.shopAddress = shopAddress;
         this.products = ProductCollection.createProductCollection();
         this.customers = new ArrayList<>();
+        this.sales = new ArrayList<>();
     }
 
     public String getShopName() {
@@ -55,7 +57,10 @@ public class Shop {
         return "Shop name: " + shopName + "\n"+
                 "Shop owner: " + ownerName + "\n" +
                 "Shop address: " + shopAddress + "\n" +
-                "Amount of customers: " + getCustomerAmount() + "\n" +
-                "Inventory:\n" + products;
+                "Amount of customers: " + getCustomerAmount();
+    }
+
+    public String inventoryToStrin() {
+        return "Inventory:\n" + products;
     }
 }
