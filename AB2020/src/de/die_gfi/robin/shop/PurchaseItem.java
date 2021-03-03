@@ -12,10 +12,6 @@ public class PurchaseItem {
 		this.preis = b.preis * this.menge;
 	}
 	
-	public PurchaseItem( Getraenk g, int m) {
-		this.bezeichnung = g.marke;
-		this.menge = m;
-		this.preis = g.preis * this.menge;
-	}
+	
 	
 }

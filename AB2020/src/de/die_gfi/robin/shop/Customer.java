@@ -20,7 +20,7 @@ public class Customer {
 	}
 	
 	public String toString() {
-		return "Kunde: " + this.vorname + " " + this.nachname + " " + this.strasse + " " + this.plz + " " + this.ort + " VIP-Status: " + this.vipKunde;
+		return  this.vorname + "\n" + this.nachname + "\n" + this.strasse + "\n" + this.plz + " " + this.ort + "\n" ;
 	}
 	
 	
