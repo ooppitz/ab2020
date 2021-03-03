@@ -25,6 +25,22 @@ public class Product {
     }
 
     /**
+     * Construct a Product object with all necessary data for a generic product and additionally defines the amount of
+     * units per package
+     *
+     * @param name Name of this product
+     * @param price Price of this product
+     * @param articleNumber Article number of this product
+     * @param packagingUnit How many units of the product are included per package
+     */
+    public Product(String name, double price, long articleNumber, int packagingUnit) {
+        this.name = name;
+        this.price = price;
+        this.articleNumber = articleNumber;
+        this.packagingUnit = packagingUnit;
+    }
+
+    /**
      * Sets a new price for this product
      *
      * @param newPrice new price of this product
