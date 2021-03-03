@@ -17,8 +17,13 @@ public class App {
 		produkt1.displayInformation();
 		
 		
-		Product produkt2 = new Product("Haralds Birnenpuere", 14, 88888);
-		Product produkt3 = new Product("Haralds Vegane Glutenfreie Mettwurst", 13, 99999);
+		Book produkt2 = new Book("Harald Töpfer und der Stein der Weisen", 14, 88888, "JK Rollen", "Fantasy Roman");
+		System.out.println(produkt2);
+		produkt2.displayInformation();
+		
+		Food produkt3 = new Food("Haralds Vegane Glutenfreie Mettwurst mit Zwibeln", 13, 99999, 500, true);
+		System.out.println(produkt3);
+		produkt3.displayInformation();
 		
 		PurchaseItem kauf1 = new PurchaseItem(produkt1, 12);
 		PurchaseItem kauf2 = new PurchaseItem(produkt2, 13);
