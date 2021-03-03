@@ -1,4 +1,4 @@
-package de.die_gfi.daniel;
+package de.die_gfi.daniel.geometry;
 
 public class Circle
 {
