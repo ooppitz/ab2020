@@ -10,7 +10,7 @@ public class App {
 		Scanner sc = new Scanner(System.in);
 		
 		Shop felixOnlineShop = new Shop("Felix Fröhlicher Online Shop", "Kaiser Wilhelm Alee 12, 77777 Hinter-Pusemuckel, Deutschland", 777888999);
-		Custumer kunde1 = new Custumer("Harald", "Harald(at)Harald(dot)com", "Haraldstrasse 1, 77777 Haraldstadt, Schweden");
+		Customer kunde1 = new Customer("Harald", "Harald(at)Harald(dot)com", "Haraldstrasse 1, 77777 Haraldstadt, Schweden");
 		
 		Product produkt1 = new Product("Haralds Radiowecker", 12, 77777);
 		Book produkt2 = new Book("Harald Töpfer und der Stein der Weisen", 13, 88888, "JK Rollen", "Fantasy Roman");

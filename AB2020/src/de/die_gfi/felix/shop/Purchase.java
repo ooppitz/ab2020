@@ -25,7 +25,7 @@ public class Purchase {
 		return result;
 	}
 	
-	public String erstellenRechnung(Custumer c, Shop s) {
+	public String erstellenRechnung(Customer c, Shop s) {
 		String result = new String();
 		result = result + "RECHNUNG\n" + "Rechnungssteller:\n" + s.toString() + "\n" + "Rechnungsempfänger:\n" + c.toString() + "\n" + this.toString();
 		return result;

@@ -1,12 +1,12 @@
 package de.die_gfi.felix.shop;
 
-public class Custumer {
+public class Customer {
 
 	String name;
 	String adress;
 	String eMail;
 	
-	public Custumer(String name, String eMail, String adress) {
+	public Customer(String name, String eMail, String adress) {
 		this.name = name;
 		this.eMail = eMail;
 		this.adress = adress;
