@@ -19,7 +19,7 @@ Class Purchase {
 Class PurchaseItem {
     Product p;  --> „Die Bibel“
     int count;  --> 23;
-   double price;
+    double price;
 }
 
   „Die Bibel“.    23 Stück    150 Euro

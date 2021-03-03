@@ -6,7 +6,7 @@ public class Buch extends Product{
 	String author;
 	
 	
-	public Buch(double p, String a, String t) {
+	public Buch(double p, String t, String a) {
 		super(p);
 		this.titel = t;
 		this.author = a;
