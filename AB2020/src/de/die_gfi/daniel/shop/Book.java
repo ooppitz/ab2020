@@ -21,8 +21,11 @@ public class Book extends Product
 
    public String toString()
    {
-      
-      
+      return
+            super.toString() + "\n" +
+            "Verlag        : " + this.verlag + "\n" +
+            "Author        : " + this.author + "\n" +
+            "ISBN          : " + this.isbn + "\n";
    }
 
 

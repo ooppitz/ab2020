@@ -23,5 +23,7 @@ public class App
       
       /* Book Test */
       Book buch = new Book( "Javainsel", 49.90, "15. Auflage", 9783836377372L, "Rheinwerk Verlag", "Christian Ullenboom", "978-3-8362-7737-2" );
+      System.out.println( buch );
+      System.out.println();
    }
 }
