@@ -15,7 +15,7 @@ public class App {
 		
 		Product book = new Book("Guarisci il tuo passato - cambia il tuo futuro", "Libro di auto-aiuto", 19.90, "Maria Grazia Parisi", "Sperling & Kupfer", 2013);
 		Product book2 = new Product("Die Bibel", "Religiöse Literatur", 15.5);
-		Product book3 = new Product("Der Koran", "Religiöse Literatur", 10.0);
+		Product book3 = new Book("Der Name der Rose", "Belletristik", 10.0, "Umberto Ecco", " La nave di Teseo", 2019);
 		Product computer = new Computer("MacBook Pro", "Apple Silicon", 1300.0);
 
 		products = new ArrayList<Product>(Arrays.asList(book, book2, book3, computer));
@@ -29,6 +29,8 @@ public class App {
 		Purchase p = new Purchase(c);
 		p.add(book, 3);
 		p.add(book2, 1);
+		p.add(book3, 1);
+
 		
 		System.out.println(p.toString());
 		

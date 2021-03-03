@@ -3,6 +3,7 @@ package de.die_gfi.oppitz.shop;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 public class Purchase {
@@ -34,15 +35,15 @@ public class Purchase {
 
 		String result = "";
 		
-		Set set = items.entrySet();
-		Iterator it = set.iterator();
+		Set<Entry<Product, Integer>> set = items.entrySet();
+		Iterator<Entry<Product, Integer>> it = set.iterator();
 
-		System.out.println("HashMap Key-Value Pairs : ");
 		while (it.hasNext()) {
-			Map.Entry me = (Map.Entry) it.next();
+			Entry<Product, Integer> me = it.next();
 			Product p = (Product) me.getKey();
 			Integer c = (Integer) me.getValue();
-			result += c + " x " + p.name + "\n";
+			String price = String.format("%4.2f", p.price*c*2);
+			result += c + " x " + String.format("%-60s", p.name) + String.format("%10s", price) + "\n";
 		}
 		return result;
 	}
