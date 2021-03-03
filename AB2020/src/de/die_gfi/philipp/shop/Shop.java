@@ -45,4 +45,8 @@ public class Shop {
     public ArrayList<Customer> getCustomers() {
         return customers;
     }
+
+    public int getCustomerAmount() {
+        return customers.size();
+    }
 }
