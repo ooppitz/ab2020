@@ -6,9 +6,7 @@ public class App {
         ProductCollection products = ProductCollection.createProductCollection();
         Product[] prArr = products.getProducts();
 
-        for (Product pr : prArr) {
-            System.out.println(pr);
-        }
+        System.out.println(products);
 
         System.out.println();
 
