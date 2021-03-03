@@ -32,6 +32,10 @@ public class PurchaseItem {
         return prod.articleNumber;
     }
 
+    public String getName() {
+        return prod.name;
+    }
+
     /**
      * Adds the specified amount to this {@link PurchaseItem}
      *
@@ -41,7 +45,17 @@ public class PurchaseItem {
         this.amount += amount;
     }
 
+    /**
+     *
+     * @return The amount saved
+     */
     public int getAmount() {
         return this.amount;
+    }
+
+    @Override
+    public String toString() {
+        return "" + getArticleNumber() + ": " + getName() + " | Amount: "
+                + getAmount();
     }
 }
