@@ -23,12 +23,10 @@ public class Customer {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Customer Number: ").append(this.customerNumber).append("\n");
-        builder.append("Name :").append(this.name).append("\n");
-        builder.append("Address: ").append(this.address).append("\n");
-        builder.append("eMail address: ").append(this.emailAddress).append("\n");
-        builder.append("Amount of purchases: ").append(this.purchases.size());
-        return builder.toString();
+        return "Customer Number: " + this.customerNumber + "\n" +
+                "Name :" + this.name + "\n" +
+                "Address: " + this.address + "\n" +
+                "eMail address: " + this.emailAddress + "\n" +
+                "Amount of purchases: " + this.purchases.size();
     }
 }
