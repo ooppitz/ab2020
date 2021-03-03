@@ -12,6 +12,7 @@ public class App {
 		listAvailableProducts();
 		
 		ArrayList<Product> catalog = Shop.getProducts();
+		Customer c = new Customer("X", "X", "X", "X", "X", "X");
 		Purchase p = makePurchase(c, catalog);
 		
 		System.out.println();
