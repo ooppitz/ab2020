@@ -14,11 +14,10 @@ public class App
       /* Product Test */
       Product wecker = new Product( "Analogwecker", 10.0, "Made in Germany", 4189325 );
       System.out.println( ":Product" );
-      System.out.println( wecker );
+      System.out.println( wecker.ausgabe() );
       System.out.println();
       
       Product nudeln = new Product( "Fusilli Nudeln", 0.49, "500 gramm", 7928195 );
-      System.out.println( "# Product" );
       System.out.println( nudeln );
       System.out.println();
       
@@ -33,5 +32,18 @@ public class App
       Lebensmittel brot = new Lebensmittel( "Vierkornbrot", 10.0, "Scheibenstaerke 12", 4803460, "5 Tage" );
       System.out.println( brot );
       System.out.println();
+      
+      
+      /* PurchaseItem Test */
+      PurchaseItem ware = new PurchaseItem( brot, 2 );
+      System.out.println( ware );
+      System.out.println();
+      
+      
+      /* Zuweisungstest */
+      Product zutat = new Lebensmittel( "Eier", 2.0, "Bodenhaltung", 4803465, "30. Februar" );
+      System.out.println( zutat );
+      System.out.println();
+      
    }
 }

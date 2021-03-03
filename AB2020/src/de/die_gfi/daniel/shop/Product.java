@@ -21,6 +21,7 @@ public class Product
    public String ausgabe()
    {
       return
+//          String.format( "%-14s: ", "Name" ) + this.name + "\n" +
             "Name          : " + this.name + "\n" +
             "Preis         : " + this.preis + "\n" +
             "Beschreibung  : " + this.beschreibung + "\n" +
