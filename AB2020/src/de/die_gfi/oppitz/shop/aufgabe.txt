@@ -82,6 +82,12 @@ Eine Rechnung benötigt ein Rechnungsdatum und eine Steuernummer.
 
 Implementieren Sie eine class Shop, welche die Steuernummer und die Adresse des Shop-Betreibers enthält, Namen des Shops, Adresse
 
+Aufgabe
 
-    s
-}
+Legen Sie eine Datenstruktur an, welche die Kunden des Shops verwaltet. Diese Datenstruktur kann für Marketing-Aktionen genutzt werden. 
+
+Denken Sie daran, die von einem Kunden gemachten Aufträge (Purchase) zu speichern. Dadurch hat man die Möglichkeit, dem Kunden später gezielt Produkte vorzuschlagen. Die Verkäufe sind ein wichtiger Teil der Buchhaltung und dienen für die Steuererklärung.
+
+
+
+
