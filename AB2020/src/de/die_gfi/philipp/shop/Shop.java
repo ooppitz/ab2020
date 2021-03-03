@@ -49,4 +49,13 @@ public class Shop {
     public int getCustomerAmount() {
         return customers.size();
     }
+
+    @Override
+    public String toString() {
+        return "Shop name: " + shopName + "\n"+
+                "Shop owner: " + ownerName + "\n" +
+                "Shop address: " + shopAddress + "\n" +
+                "Amount of customers: " + getCustomerAmount() + "\n" +
+                "Inventory:\n" + products;
+    }
 }
