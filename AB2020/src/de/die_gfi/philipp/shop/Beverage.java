@@ -1,14 +1,33 @@
 package de.die_gfi.philipp.shop;
 
+/**
+ * Objects of this class represent a Beverage with all associated info.
+ *
+ * @see de.die_gfi.philipp.shop.Food
+ * @see de.die_gfi.philipp.shop.Product
+ */
 public class Beverage extends Food{
 
     protected int containerSize;
 
+    /**
+     *
+     * @param name Name of this Beverage
+     * @param price Price of this Beverage
+     * @param articleNumber Article number of this Beverage
+     * @param bestByDate Best by Date of this Beverage
+     * @param containerSize Size of the container of the Beverage in ml
+     */
     public Beverage(String name, double price, long articleNumber, String bestByDate, int containerSize) {
         super(name, price, articleNumber, bestByDate);
         this.containerSize = containerSize;
     }
 
+    /**
+     * Sets the container size of this Beverage
+     *
+     * @param containerSize The new container size
+     */
     public void setContainerSize(int containerSize) {
         this.containerSize = containerSize;
     }
