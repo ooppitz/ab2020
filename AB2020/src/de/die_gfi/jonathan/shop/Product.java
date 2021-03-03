@@ -4,10 +4,15 @@ public class Product {
 	String name;
 	double price;
 	int produktnumber;
-
-	public Product(String bezeicnbung, double preis, int produtnummer) {
+	private int productCount =0;
+	
+	public Product(String bezeicnbung, double preis) {
 		name = bezeicnbung;
 		price = preis;
-		produktnumber = produtnummer;
+		produktnumber = countProducts();;
+	}
+	private int countProducts() {
+		productCount++;
+		return productCount-1;
 	}
 }

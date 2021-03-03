@@ -8,8 +8,8 @@ public class Book extends Product {
 
 	// TODO: Namen korrigieren
     // TODO: JavaDoc ergänzen
-	public Book(String autor, String titel, String sprache, double preis, int produktnummer) {
-		super(titel, preis, produktnummer);
+	public Book(String autor, String titel, String sprache, double preis) {
+		super(titel, preis);
 		author = autor;
 		language = sprache;
 	}
