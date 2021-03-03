@@ -21,8 +21,17 @@ public class ProductCollection {
 
     public static ProductCollection createProductCollection() {
         ProductCollection productCollection = new ProductCollection();
-        productCollection.addProduct(new Beverage("Die Limo", 1.39, 6839473, "2021-05-09", 1000));
-        productCollection.addProduct(new Food("Salamipralinen", 2.99, 683957, "2020-03-27", 280));
+        productCollection.addProduct(new Beverage(6839473,"Die Limo", 1.39, "2021-05-09", 1000));
+        productCollection.addProduct(new Food(683957, "Salamipralinen", 2.99, "2020-03-27", 280));
         return productCollection;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (Product prod : products) {
+            builder.append(prod).append("\n");
+        }
+        return builder.toString();
     }
 }
