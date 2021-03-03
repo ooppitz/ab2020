@@ -28,9 +28,22 @@ public class Customer {
 	public String toString() {
 		return name + " " + surename + " " + mail;
 	}
+	
+	public void printPurchase() {
+		System.out.println(this);
+		System.out.println(buying.toString());
+		
+		
+	}
 
 	public void addPurchaseItem(PurchaseItem objekt) {
 		this.buying.addItem(objekt);
+	}
+	
+	public int rechnungErstellen() {
+int cost=0;
+buying.items.
+
 	}
 
 }

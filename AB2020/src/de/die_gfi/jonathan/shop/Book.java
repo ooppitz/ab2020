@@ -13,4 +13,9 @@ public class Book extends Product {
 		author = autor;
 		language = sprache;
 	}
+	
+	
+	public String toString() {
+		return name+" "+author+" "+isbn;
+	}
 }

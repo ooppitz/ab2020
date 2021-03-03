@@ -15,4 +15,9 @@ public class Product {
 		productCount++;
 		return productCount-1;
 	}
+	
+	
+	public String toString() {
+		return name+" "+produktnumber+" "+price;
+	}
 }
