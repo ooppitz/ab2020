@@ -1,16 +1,16 @@
 package de.die_gfi.jonathan.shop;
 
 public class Book extends Product {
-int Isbn = (int) (Math.random()*8);
-String Autor;
+	int isbn = (int) (Math.random() * 8);
+	String autor;
 //String Titel;
-String Sprache;
+	String sprache;
 
-public Book (String A,String T,String S,double p,int pn) {
-	Autor=A;
-	Name=T;
-	Sprache=S;
-	Preis =p;
-	Produktnummer =pn;
-}
+	public Book(String a, String t, String s, double p, int pn) {
+		autor = a;
+		name = t;
+		sprache = s;
+		preis = p;
+		produktnummer = pn;
+	}
 }
