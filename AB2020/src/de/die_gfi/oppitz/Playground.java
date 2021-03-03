@@ -3,6 +3,7 @@ package de.die_gfi.oppitz;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Arrays;
+import java.util.Scanner;
 
 
 public class Playground {
@@ -10,10 +11,13 @@ public class Playground {
 	public static void main(String[] args) {
 		
 		
+		Scanner sc = new Scanner(System.in);
+		Scanner sc2 = new Scanner(System.in);
+
+		sc.close();
 		
-	 System.out.println("Ergebnis = " + 4.0 / 3);
-		
-		
+		String s = sc2.nextLine();
+		System.out.println(s);
 		
 	}
 
