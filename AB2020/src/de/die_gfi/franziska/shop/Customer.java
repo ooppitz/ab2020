@@ -9,7 +9,9 @@ public class Customer {
 
 	public static void main(String[] args) {
 
+		Customer kunde1 = new Customer("Hans Müller", "Landau", "muel@gmail.com");
 		
+		System.out.println(kunde1.toString());
 		
 		
 	}
@@ -19,5 +21,11 @@ public class Customer {
 		this.name = n;
 		this.adresse = a;
 		this.mail = m;
+	}
+	
+	public String toString() {
+		
+		return "Name: " + name + "\nAdresse: " + adresse + "\nMail: " + mail;
+		
 	}
 }
