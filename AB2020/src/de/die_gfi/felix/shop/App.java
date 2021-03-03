@@ -10,19 +10,19 @@ public class App {
 		System.out.println(kunde1);
 		
 		
-		Product produkt1 = new Product("Haralds Ding", 12, 77777);
+		Product produkt1 = new Product("Haralds Radiowecker", 12, 77777);
 		
 		System.out.println(produkt1);
 		
 		produkt1.displayInformation();
 		
 		
-		Product produkt2 = new Product("Haralds Ding 2", 14, 88888);
-		Product produkt3 = new Product("Haralds Ding 3", 13, 99999);
+		Product produkt2 = new Product("Haralds Birnenpuere", 14, 88888);
+		Product produkt3 = new Product("Haralds Vegane Glutenfreie Mettwurst", 13, 99999);
 		
 		PurchaseItem kauf1 = new PurchaseItem(produkt1, 12);
-		PurchaseItem kauf2 = new PurchaseItem(produkt1, 13);
-		PurchaseItem kauf3 = new PurchaseItem(produkt1, 14);
+		PurchaseItem kauf2 = new PurchaseItem(produkt2, 13);
+		PurchaseItem kauf3 = new PurchaseItem(produkt3, 14);
 		
 		System.out.println(kauf1);
 		
@@ -41,6 +41,13 @@ public class App {
 		
 		ProductCollection kollecktion = new ProductCollection(kollecktionListe);
 		System.out.println(kollecktion);
+		
+		Shop onlineShop = new Shop("Felix Fröhlicher Onlineshop", "Guenthergasse 2 77777 Haraldsstadt Haraldsland", 777888999);
+		System.out.println(onlineShop);
+		
+		String rechnung = einkaufswagen.erstellenRechnung(kunde1, onlineShop);
+		System.out.println(rechnung);
+		
 
 	}
 

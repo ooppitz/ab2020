@@ -21,8 +21,14 @@ public class Purchase {
 		for(int i = 0; i < itemList.size(); i++) {
 			result = result + itemList.get(i).p.name + ", " + itemList.get(i).stueckzahl + ", " + itemList.get(i).preisGesamt + "\n";
 		}
-			result = result + this.preisEinkauf;		
+			result = result + "Gesamtpreis: " + this.preisEinkauf;		
 		return result;
 	}
 	
+	public String erstellenRechnung(Custumer c, Shop s) {
+		String result = new String();
+		result = result + "RECHNUNG\n" + "Rechnungssteller:\n" + s.toString() + "\n" + "Rechnungsempfänger:\n" + c.toString() + "\n" + this.toString();
+		return result;
+		
+	}
 }
