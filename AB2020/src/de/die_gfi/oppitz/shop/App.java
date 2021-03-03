@@ -25,5 +25,14 @@ public class App {
 			System.out.println(p);
 		}
 		
+		
+		Purchase p = new Purchase(c);
+		p.add(book, 3);
+		p.add(book2, 1);
+		
+		System.out.println(p.toString());
+		
+		
+		
 	}
 }
