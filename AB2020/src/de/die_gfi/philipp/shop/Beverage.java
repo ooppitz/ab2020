@@ -33,15 +33,8 @@ public class Beverage extends Food{
 
     @Override
     public String toString() {
-        return "Beverage{" +
-                "containerSize=" + containerSize +
-                ", bestByDate='" + bestByDate + '\'' +
-                ", weight=" + weight +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", articleNumber=" + articleNumber +
-                ", packagingUnit=" + packagingUnit +
-                '}';
+        return "Beverage: " + articleNumber + "; " + manufacturer + " " + name +
+                "; price: " + price + "; container size: " + containerSize + " ml";
     }
 
     public int getContainerSize() {

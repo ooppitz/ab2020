@@ -51,14 +51,8 @@ public class Food extends Product{
 
     @Override
     public String toString() {
-        return "Food{" +
-                "bestByDate='" + bestByDate + '\'' +
-                ", weight=" + weight +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", articleNumber=" + articleNumber +
-                ", packagingUnit=" + packagingUnit +
-                '}';
+        return "Food: " + articleNumber + "; " + manufacturer + " " + name +
+                "; price: " + price + "; weight: " + weight + " g";
     }
 
     public int getWeight() {
