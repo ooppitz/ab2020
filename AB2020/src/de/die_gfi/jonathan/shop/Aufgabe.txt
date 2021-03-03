@@ -1,0 +1,78 @@
+Aufgabe
+
+Wir entwickeln eine Lösung für einen Online-Shop. 
+
+Dazu benötigen wir 
+-	Eine class Customer, um die Daten von Kunden zu speichern (Name, Adresse, Email, … )
+-	Eine class Product, um Waren zu speichern (Name, Preis, Nummer, … )
+-	Verschiedene Klassen, die von der  class Product abgeleitete sind, z.B. für Bücher (ISBN-Nummer, … )
+ , Getränke, Lebensmittel (Ablaufdatum, …) , Digitale Produkte (E-Book, Video-Kurse), Dienstleistungen
+  (Online-Webinar mit Datum)
+-	Eine class Purchase, um die Waren zu speichern (mit Stückzahl, …) , die bei einem konkreten
+ Kaufvorgang gekauft werden.
+
+-	Eine class ProductCollection welche das Warenlager repräsentiert
+
+Class Purchase {
+
+    ArrayList<PurchaseItem> items;
+   
+}
+
+Class PurchaseItem {
+    Product p;  --> „Die Bibel“
+    int count;  --> 23;
+   double price;
+}
+
+  „Die Bibel“.    23 Stück    150 Euro
+  „Der Koran“.  3 Stück.       30 Euro
+
+
+Aufgabe 1
+
+Implementieren Sie die class Customer mit
+-	Einem Feld, um alle Kaufvorgänge zu speichern (class Purchase)
+-	Einer toString() Methode, um die wichtigsten Daten auszugeben
+Implementieren Sie soweit nötig die class Product { } und die class Purchase { }.
+
+Implementieren Sie in der class App eine Methode 
+
+ProductCollection createProductCollection(){
+    Book b = new Book(„Die Bibel“, „Verschiedene“, … );
+    Book k = new Book(„Der Koran“, „Mohammed“, … );
+    ProductCollection p = … ;
+    return p;
+
+}
+welche das Warenlager mit vordefinierten Produkten füllt. Legen Sie zwischen 5 und 10 Produkte an.
+
+ 
+Implementieren Sie in der class App eine Methode
+ Purchase simulatePurchase(Customer c); in der ein Purchase Objekt erzeugt wird, welches verschiedene
+  Produkte mit einer bestimmten Anzahl enthält.
+
+Purchase simulatePurchase(Customer c) {
+
+
+    PurchaseItem i = new PurchaseItem( … );   // Bibel
+    PurchaseItem i = new PurchaseItem( … );  // Koran
+
+        Purchase p = new Purchase( );
+       return p;
+}
+
+class App {
+
+     public static void main(String[] args) {
+        
+          Customer c = new Customer(„Peter“, „Pan“, … );
+
+          ProducCollection p = createProductCollection();
+
+          Purchase k = simulatePurchase(Customer c, p);
+
+          System.out.println(„Der Kunde "+ c + „hat folgendes gekauft:“);
+          System.out.println(k);
+    }
+}
