@@ -7,14 +7,16 @@ public class Shop {
     protected String shopName;
     protected String ownerName;
     protected String shopAddress;
+    protected final String vatNumber;
     protected ProductCollection products;
     protected ArrayList<Customer> customers;
     protected ArrayList<Purchase> sales;
 
-    public Shop(String shopName, String ownerName, String shopAddress) {
+    public Shop(String shopName, String ownerName, String shopAddress, String vatNumber) {
         this.shopName = shopName;
         this.ownerName = ownerName;
         this.shopAddress = shopAddress;
+        this.vatNumber = vatNumber;
         this.products = ProductCollection.createProductCollection();
         this.customers = new ArrayList<>();
         this.sales = new ArrayList<>();
