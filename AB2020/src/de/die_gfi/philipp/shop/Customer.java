@@ -11,7 +11,7 @@ public class Customer {
     protected String address;
     protected String emailAddress;
     protected final int customerNumber;
-    protected ArrayList<Purchase> purchases = new ArrayList<>();
+    protected final ArrayList<Purchase> purchases = new ArrayList<>();
 
     public Customer(String name, String address, String emailAddress, Shop shop) {
         this.name = name;

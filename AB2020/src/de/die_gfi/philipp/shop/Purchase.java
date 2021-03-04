@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 public class Purchase {
 
-    protected ArrayList<PurchaseItem> items;
-    protected static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    protected final ArrayList<PurchaseItem> items;
+    protected static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
     /**
      * Constructs a Purchase Object with empty ArrayList

@@ -3,7 +3,7 @@ package de.die_gfi.philipp.shop;
 import de.die_gfi.philipp.shop.products.Product;
 
 public class PurchaseItem {
-    protected Product prod;
+    protected final Product prod;
     protected int amount;
 
     /**

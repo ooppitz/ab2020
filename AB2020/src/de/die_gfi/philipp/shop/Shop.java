@@ -10,8 +10,8 @@ public class Shop {
     protected String shopEmailAddress;
     protected final String vatNumber;
     protected ProductCollection products;
-    protected ArrayList<Customer> customers;
-    protected ArrayList<Purchase> sales;
+    protected final ArrayList<Customer> customers;
+    protected final ArrayList<Purchase> sales;
 
     public Shop(String shopName, String ownerName, String shopAddress, String shopEmailAddress,String vatNumber) {
         this.shopName = shopName;
