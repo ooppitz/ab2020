@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ProductCollection {
 // arrayList automatisch hinzugefügt wenn als Purchase Item regestrirt evtl. speicherung aller 
 	// purchaseitems anstatt sie individuell zu bennen
-	ArrayList<PurchaseItem> collection = new ArrayList<>(1);
+	ArrayList<PurchaseItem> collection = new ArrayList<>();
 
 	// objekt zur einkaufsliste hinzufügen
 	public void addToCollection(Product produkt, int anzahl) {
@@ -16,7 +16,7 @@ public class ProductCollection {
 	// finde ein Objekt
 	public PurchaseItem search(String suche) {
 		for (PurchaseItem purchaseItem : collection) {
-			if (purchaseItem.commodity.name.equalsIgnoreCase(suche)) {
+			if (purchaseItem.item.name.equalsIgnoreCase(suche)) {
 				return purchaseItem;
 			}
 		}
@@ -26,8 +26,10 @@ public class ProductCollection {
 
 	@SuppressWarnings("unlikely-arg-type")
 	public void giveIndex() {
+		int s = collection.size();
+		
 		for (int i = 0; i < collection.lastIndexOf(collection); i++) {
-			System.out.println("Index:" + i + "Name:" + collection.get(i).commodity.name);
+			System.out.println("Index:" + i + "Name:" + collection.get(i).item.name);
 		}
 	}
 

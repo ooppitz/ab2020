@@ -25,7 +25,7 @@ public class Purchase {
 	public double getItems() {
 		double wert = 0;
 		for (PurchaseItem einkauf : items) {
-			System.out.println(einkauf.getPrice() + "  " + einkauf.commodity.name);
+			System.out.println(einkauf.getPrice() + "  " + einkauf.item.name);
 			wert = wert + einkauf.getPrice();
 		}
 		return wert;

@@ -5,6 +5,9 @@ public class App {
 	public static void main(String[] args) {
 		// hinzufügen kunden
 		ProductCollection storage = new ProductCollection();
+		
+		
+		// TODO : move into a method for creating the customer list
 		Customer c1 = new Customer("Julius", "Octavian");
 		Customer c2 = new Customer("Claudius", "Nero");
 		c1.setAdress("Imperium Romanum", "Rom", "Palatin", 1);
@@ -17,6 +20,7 @@ public class App {
 		c5.setAdress("Imperium Romanum", "Misenum", "Naval Docks", 5);
 		// Customer c6 = new Customer("", "");
 
+		// TODO : move into a method filling the warehouse
 		// System.out.println(c1);
 		// hinzufügen Produkte
 		Book b1 = new Book("Gaius", "Institutonen", "Latein", 20);
@@ -35,6 +39,7 @@ public class App {
 		storage.addToCollection(t1, 3);
 		storage.addToCollection(t2, 3);
 		storage.addToCollection(b6, 7);
+		
 		PurchaseItem p1 = new PurchaseItem(b1, 10);
 		PurchaseItem p2 = new PurchaseItem(b2, 20);
 		PurchaseItem p3 = new PurchaseItem(b3, 5);
@@ -43,7 +48,7 @@ public class App {
 		PurchaseItem p6 = new PurchaseItem(t2, 3);
 		PurchaseItem p7 = new PurchaseItem(b6, 7);
 		// einkauf
-		// storage.giveIndex();
+		storage.giveIndex();
 		c1.addPurchaseItem(p1);
 		c1.addPurchaseItem(p2);
 		c1.addPurchaseItem(p3);
