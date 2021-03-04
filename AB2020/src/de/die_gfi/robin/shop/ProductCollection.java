@@ -3,27 +3,34 @@ package de.die_gfi.robin.shop;
 import java.util.ArrayList;
 
 public class ProductCollection {
-	
+
+	int produktNummer;
 	String bezeichnung;
 	double preis;
-	
-	
+
+	// Konstruktor Buch
 	public ProductCollection(Buch b) {
 		this.bezeichnung = b.titel + " von " + b.author;
-		this.preis = b.preis; 
+		this.preis = b.preis;
 	}
-	
+
+	// Konstruktor Getraenk
 	public ProductCollection(Getraenk g) {
 		this.bezeichnung = g.marke;
 		this.preis = g.preis;
 	}
-	
+
 	public String toString() {
-		return bezeichnung + " " + preis + "\n";
+		return produktNummer + " " + bezeichnung + " " + preis + " €\n";
 	}
-	
+
+	/**
+	 * Erstellt eine vorgefertigte ArrayListe mit allen Produkten
+	 * 
+	 * @return ArrayList
+	 */
 	public static ArrayList<ProductCollection> createProductCollection() {
-		
+
 		ArrayList<ProductCollection> arrList = new ArrayList<ProductCollection>();
 		Buch inferno = new Buch(14.0, "Inferno", "Dante Alighieri");
 		Buch harryPotter = new Buch(11.0, "Harry Potter", "J.K.Rowling");
@@ -33,7 +40,7 @@ public class ProductCollection {
 		Getraenk bier = new Getraenk(2.0, 0.5, "Bier");
 		Getraenk eistee = new Getraenk(1.5, 0.5, "Eistee");
 		Getraenk wein = new Getraenk(5.0, 0.5, "Wein");
-		
+
 		ProductCollection item1 = new ProductCollection(inferno);
 		ProductCollection item2 = new ProductCollection(harryPotter);
 		ProductCollection item3 = new ProductCollection(paradiso);
@@ -42,8 +49,7 @@ public class ProductCollection {
 		ProductCollection item6 = new ProductCollection(bier);
 		ProductCollection item7 = new ProductCollection(eistee);
 		ProductCollection item8 = new ProductCollection(wein);
-		
-		
+
 		arrList.add(item1);
 		arrList.add(item2);
 		arrList.add(item3);
@@ -52,11 +58,9 @@ public class ProductCollection {
 		arrList.add(item6);
 		arrList.add(item7);
 		arrList.add(item8);
-		
-		
-		
+
 		return arrList;
-		
+
 	}
-	
+
 }
