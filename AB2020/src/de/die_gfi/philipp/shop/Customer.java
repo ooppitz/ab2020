@@ -1,6 +1,7 @@
 package de.die_gfi.philipp.shop;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Customer {
     public String name;
@@ -16,7 +17,8 @@ public class Customer {
         this.customerNumber = shop.getCustomerAmount() + 1;
     }
 
-    public void makePurchase() {
+    public void makePurchase(Scanner input) {
+        Purchase purchase = new Purchase();
 
     }
 
