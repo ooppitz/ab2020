@@ -20,6 +20,6 @@ public class PurchaseItem
       return
             ":PurchaseItem" + "\n" +
             product.ausgabe() + "\n" +
-            "Anzahl        : " + this.count;
+            "Anzahl        : " + this.count + "\n";
    }
 }

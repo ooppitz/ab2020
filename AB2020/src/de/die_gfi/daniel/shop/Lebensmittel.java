@@ -17,6 +17,6 @@ public class Lebensmittel extends Product
       return
             ":Lebensmittel" + "\n" +
             this.ausgabe() + "\n" + 
-            "Ablaufdatum   : " + this.ablaufDatum;
+            "Ablaufdatum   : " + this.ablaufDatum + "\n";
    }
 }

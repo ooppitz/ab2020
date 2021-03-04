@@ -8,10 +8,15 @@ import java.util.ArrayList;
 public class Purchase
 {
    ArrayList<PurchaseItem> items;
-
-   public Purchase()
+   Shop laden;
+   
+   
+   
+   
+   public Purchase( Shop laden )
    {
       items = new ArrayList<PurchaseItem>();
+      this.laden = laden;
    }
 
    /**
@@ -34,6 +39,11 @@ public class Purchase
    {
       double summe = 0;
       String bill = "";
+      
+      bill += laden.name + "\n";
+      bill += String.format( "%-14s: %s", "Adresse", laden.adresse ) + "\n";
+      bill += String.format( "%-14s: %d", "Steuernummer", laden.steuerNummer ) + "\n";
+      bill += "\n";
       bill += "Rechnung:" + "\n";
       bill += "-".repeat(77) + "\n";
 /*      
@@ -72,7 +82,7 @@ public class Purchase
    {
       return "";
    }
-
+/*
    public static void main(String[] args)
    {
       Purchase cart = new Purchase();
@@ -92,5 +102,5 @@ public class Purchase
       String bill = cart.generateBill();
       System.out.println(bill);
    }
-
+*/
 }

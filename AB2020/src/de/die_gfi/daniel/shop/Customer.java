@@ -23,6 +23,6 @@ public class Customer
             ":Customer" + "\n" +
             "Name    : " + this.name + "\n" + 
             "Adresse : " + this.adresse + "\n" +
-            "E-Mail  : " + this.email;
+            "E-Mail  : " + this.email + "\n";
    }
 }

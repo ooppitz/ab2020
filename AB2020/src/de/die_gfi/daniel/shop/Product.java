@@ -34,7 +34,7 @@ public class Product
    {
       return
             ":Product" + "\n" +
-            this.ausgabe();
+            this.ausgabe() + "\n";
    }
    
 /*   

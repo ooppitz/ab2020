@@ -26,7 +26,7 @@ public class Book extends Product
             this.ausgabe() + "\n" +
             "Verlag        : " + this.verlag + "\n" +
             "Author        : " + this.author + "\n" +
-            "ISBN          : " + this.isbn;
+            "ISBN          : " + this.isbn + "\n";
    }
 
 
