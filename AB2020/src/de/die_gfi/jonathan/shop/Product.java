@@ -12,6 +12,10 @@ public class Product {
 		produktnumber = countProducts();
 		;
 	}
+	// add to storage
+	// public void add(int anzahl) {
+
+	// }
 
 	// vergibt eine Productnummer durch durchzälen der produkte
 	private int countProducts() {

@@ -28,6 +28,13 @@ public class App {
 		Trinket t1 = new Trinket("feurio 500", 7, "Feuerzeug");
 		Trinket t2 = new Trinket("macbeths", 5, "Bühnendolch");
 		// aufnahme der Produkte ins Sortiment
+		storage.addToCollection(b1, 10);
+		storage.addToCollection(b2, 20);
+		storage.addToCollection(b3, 5);
+		storage.addToCollection(b4, 7);
+		storage.addToCollection(t1, 3);
+		storage.addToCollection(t2, 3);
+		storage.addToCollection(b6, 7);
 		PurchaseItem p1 = new PurchaseItem(b1, 10);
 		PurchaseItem p2 = new PurchaseItem(b2, 20);
 		PurchaseItem p3 = new PurchaseItem(b3, 5);
@@ -36,16 +43,16 @@ public class App {
 		PurchaseItem p6 = new PurchaseItem(t2, 3);
 		PurchaseItem p7 = new PurchaseItem(b6, 7);
 		// einkauf
+		// storage.giveIndex();
 		c1.addPurchaseItem(p1);
 		c1.addPurchaseItem(p2);
 		c1.addPurchaseItem(p3);
 		c2.addPurchaseItem(p5);
 		c3.addPurchaseItem(p6);
 		c4.addPurchaseItem(p7);
-		// ausgabe
-		c1.printPurchase();
-		c3.rechnungErstellen();
-		c4.printPurchase();
+		// c1.printPurchase();
+		// c3.rechnungErstellen();
+		// c4.printPurchase();
 
 	}
 }
