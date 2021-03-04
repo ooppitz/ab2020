@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Customer {
-    public String name;
-    public String address;
-    public String emailAddress;
-    public int customerNumber;
-    public ArrayList<PurchaseItem> purchases = new ArrayList<>();
+    protected String name;
+    protected String address;
+    protected String emailAddress;
+    protected final int customerNumber;
+    protected ArrayList<PurchaseItem> purchases = new ArrayList<>();
 
     public Customer(String name, String address, String emailAddress, Shop shop) {
         this.name = name;
@@ -17,9 +17,37 @@ public class Customer {
         this.customerNumber = shop.getCustomerAmount() + 1;
     }
 
-    public void makePurchase(Scanner input) {
+    public void makePurchase(Scanner input, Shop shop) {
         Purchase purchase = new Purchase();
 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
