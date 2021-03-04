@@ -5,7 +5,7 @@ public class App {
 	public static void main(String[] args) {
 		Shop s=new Shop();
 		s.demo();
-		
+		s.output();
 		
 
 	}
