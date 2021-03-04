@@ -4,13 +4,13 @@ public class PurchaseItem {
 
 	String bezeichnung;
 	int menge;
-	double preis;
+	double gesamtpreis;
 
-	public PurchaseItem(ProductCollection b, int m) {
+	public PurchaseItem(Product b, int m) {
+		
 		this.bezeichnung = b.bezeichnung;
 		this.menge = m;
-		// Preis wird mit Menge multipliziert
-		this.preis = b.preis * this.menge;
+		this.gesamtpreis = b.preis * this.menge;
 	}
 
 }
