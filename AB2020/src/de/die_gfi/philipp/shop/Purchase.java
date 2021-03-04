@@ -99,7 +99,12 @@ public class Purchase {
         return builder.toString();
     }
 
-    public void printBill() {
+    /**
+     * Prints
+     *
+     * @param shop The {@link Shop} for which the bill is printed
+     */
+    public void printBill(Shop shop) {
 
     }
 }

@@ -32,6 +32,21 @@ public class ProductCollection {
         return productCollection;
     }
 
+    /**
+     *
+     * @param articleNumber Article number of the product which is to be returned
+     * @return {@link Product} object with the specified article number, null if product couldn't be found
+     */
+    public Product getProduct(long articleNumber) {
+        for (Product prod : products) {
+            if (prod.getArticleNumber() == articleNumber) {
+                return prod;
+            }
+        }
+
+        return null;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

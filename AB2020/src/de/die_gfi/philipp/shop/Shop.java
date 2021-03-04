@@ -50,6 +50,21 @@ public class Shop {
         return customers;
     }
 
+    /**
+     *
+     * @param emailAddress email address of the {@link Customer} to be looked for
+     * @return {@link Customer} object with the specified email address, null if not found or there is no customers
+     */
+    public Customer getCustomer(String emailAddress) {
+        for (Customer customer : customers) {
+            if (customer.emailAddress.equals(emailAddress)) {
+                return customer;
+            }
+        }
+
+        return null;
+    }
+
     public int getCustomerAmount() {
         return customers.size();
     }
@@ -73,6 +88,10 @@ public class Shop {
     public void addCustomer(String name, String address, String emailAddress) {
         Customer c = new Customer(name, address, emailAddress, this);
         customers.add(c);
+    }
+
+    public void addToSales(Purchase p) {
+        sales.add(p);
     }
 
     @Override

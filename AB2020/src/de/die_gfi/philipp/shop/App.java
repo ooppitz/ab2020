@@ -14,6 +14,15 @@ public class App {
         System.out.println(aShop);
         System.out.println(aShop.inventoryToString());
 
+        System.out.println("Please enter your email address to make a purchase: ");
+        String str = input.nextLine();
+        Customer customer = aShop.getCustomer(str);
+        if (customer != null) {
+            System.out.println(customer.getName() + ", welcome to " + aShop.getShopName() + "\nYou can now make a purchase.");
+            customer.makePurchase(input, aShop);
+        } else {
+            System.out.println("Seems like you are not a customer of ours yet. Please register first.");
+        }
 
 
     }
