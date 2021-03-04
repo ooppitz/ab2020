@@ -8,6 +8,7 @@ public class App {
         Shop aShop = TestData.initializeTestShop();
 
         System.out.println(aShop);
+        System.out.println(aShop.inventoryToString());
 
 
 
