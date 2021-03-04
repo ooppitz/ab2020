@@ -18,4 +18,8 @@ public class PurchaseItem {
 	public String printProducts() {
 		return commodity.toString()+"\n";
 	}
+	
+	public double getPrice() {
+		return price;
+	}
 }

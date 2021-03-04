@@ -15,6 +15,14 @@ public class Purchase {
 		return items.toString();
 	}
 	
+	public double getItems() {
+		double wert=0;
+		for (PurchaseItem einkauf : items) {
+			wert=wert+einkauf.getPrice();
+		}
+		return wert;
+	}
+	
 	
 
 }
