@@ -18,7 +18,7 @@ public class PurchaseItem {
 
 	// für den kunden vorgesehen Ausgabe
 	public String printProducts() {
-		return commodity.toString() + "\n";
+		return commodity.toString();
 	}
 
 	// Preis ausgabe für die Rechnung

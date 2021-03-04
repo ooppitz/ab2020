@@ -17,7 +17,7 @@ public class Purchase {
 	// zeilenweise Ausgabe der Purchase Items
 	public void printPurchase() {
 		for (PurchaseItem einkauf : items) {
-			System.out.println(einkauf.toString());
+			System.out.println(einkauf.printProducts());
 		}
 	}
 

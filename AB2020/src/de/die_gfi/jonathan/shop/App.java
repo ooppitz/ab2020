@@ -51,9 +51,11 @@ public class App {
 		c3.addPurchaseItem(p6);
 		c4.addPurchaseItem(p7);
 		c1.printPurchase();
+		c1.rechnungErstellen();
+		c3.printPurchase();
 		c3.rechnungErstellen();
 		c4.printPurchase();
-		c2.rechnungErstellen();
+		c2.printPurchase();
 
 	}
 }

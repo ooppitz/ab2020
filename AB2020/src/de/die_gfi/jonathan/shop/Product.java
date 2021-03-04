@@ -10,7 +10,7 @@ public class Product {
 		name = bezeicnbung;
 		price = preis;
 		produktnumber = countProducts();
-		;
+		
 	}
 	// add to storage
 	// public void add(int anzahl) {
@@ -24,6 +24,6 @@ public class Product {
 	}
 
 	public String toString() {
-		return "Name: " + name + " prdnm: " + produktnumber + " preis: " + price;
+		return "Name: " + name + " Produktnummer: " + produktnumber + " preis: " + price;
 	}
 }

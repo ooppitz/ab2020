@@ -31,7 +31,7 @@ public class Customer {
 
 // zeilenweise Ausgabe der Produkte
 	public void printPurchase() {
-		System.out.println(this);
+		System.out.println("\n"+this+"\nIm Warenkorb:");
 		buying.printPurchase();
 
 	}
@@ -43,7 +43,7 @@ public class Customer {
 
 	// erstellt eine Rechnung unter nennung des Produktnamens
 	public double rechnungErstellen() {
-		System.out.println("Rechnung:");
+		System.out.println("\nRechnung\nKunde:"+name+" "+surename);
 		double summ = buying.getItems();
 		System.out.println("________________");
 		System.out.println(summ + "  Gesamtpreis");
