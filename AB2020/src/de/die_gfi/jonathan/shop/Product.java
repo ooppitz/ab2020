@@ -4,12 +4,12 @@ public class Product {
 	String name;
 	double price;
 	int produktnumber;
-	private int productCount = 0;
+// die Produktnummer wird erst zugewiesen wenn das Produkt in das Sortiement aufgenomen wurde
 
 	public Product(String bezeicnbung, double preis) {
 		name = bezeicnbung;
 		price = preis;
-		produktnumber = countProducts();
+		produktnumber = -1;
 		
 	}
 	// add to storage
@@ -17,10 +17,9 @@ public class Product {
 
 	// }
 
-	// vergibt eine Productnummer durch durchzälen der produkte
-	private int countProducts() {
-		productCount++;
-		return productCount - 1;
+	// vergibt eine Productnummer anhand des Index im Storage vor der aufnahme ins Lager nicht belegt
+	private void getProduktNummer(int zahl) {
+		produktnumber=zahl;
 	}
 
 	public String toString() {

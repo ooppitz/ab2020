@@ -37,7 +37,8 @@ public class Customer {
 	}
 
 // ein Purchase Item hinzufügen
-	public void addPurchaseItem(PurchaseItem objekt) {
+	public void addPurchaseItem(int index,ProductCollection lager) {
+		PurchaseItem objekt=lager.getProduct(index);
 		this.buying.addItem(objekt);
 	}
 
