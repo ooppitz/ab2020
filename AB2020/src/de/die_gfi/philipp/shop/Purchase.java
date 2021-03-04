@@ -98,4 +98,8 @@ public class Purchase {
 
         return builder.toString();
     }
+
+    public void printBill() {
+
+    }
 }
