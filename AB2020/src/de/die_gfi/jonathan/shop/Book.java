@@ -3,7 +3,6 @@ package de.die_gfi.jonathan.shop;
 public class Book extends Product {
 	int isbn = (int) (Math.random() * 1000000000);
 	String author;
-//String titel;
 	String language;
 
 	// TODO: Namen korrigieren

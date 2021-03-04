@@ -16,6 +16,7 @@ public class Customer {
 		// mail=m; vorübergehend vereinfacht_,String m
 		mail = n + "." + s + "@shop.com";
 	}
+
 // Set adress
 	public void setAdress(String land, String ort, String Straße, int haus) {
 		country = land;
@@ -27,23 +28,25 @@ public class Customer {
 	public String toString() {
 		return name + " " + surename + " " + mail;
 	}
+
 // zeilenweise Ausgabe der Produkte
 	public void printPurchase() {
 		System.out.println(this);
 		buying.printPurchase();
 
 	}
+
 // ein Purchase Item hinzufügen
 	public void addPurchaseItem(PurchaseItem objekt) {
 		this.buying.addItem(objekt);
 	}
 
-	//erstellt eine Rechnung unter nennung des Produktnamens
+	// erstellt eine Rechnung unter nennung des Produktnamens
 	public double rechnungErstellen() {
 		System.out.println("Rechnung:");
-		double summ=buying.getItems();
+		double summ = buying.getItems();
 		System.out.println("________________");
-		System.out.println(summ+"  Gesamtpreis");
+		System.out.println(summ + "  Gesamtpreis");
 		return summ;
 	}
 

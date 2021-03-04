@@ -11,6 +11,8 @@ public class Product {
 		price = preis;
 		produktnumber = countProducts();;
 	}
+	
+	//vergibt eine Productnummer durch durchzälen der produkte
 	private int countProducts() {
 		productCount++;
 		return productCount-1;

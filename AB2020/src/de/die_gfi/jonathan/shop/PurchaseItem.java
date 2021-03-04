@@ -9,17 +9,19 @@ public class PurchaseItem {
 		commodity=produkt;
 		count=anzahl;
 		price=produkt.price;
+		
 	}
 	
-	@Override
 	public String toString() {
 		return commodity.toString()+" Vorhande exemplare:"+count;
 	}
+	// für den kunden vorgesehen Ausgabe
 	public String printProducts() {
 		return commodity.toString()+"\n";
 	}
-	
+	//Preis ausgabe für die Rechnung
 	public double getPrice() {
 		return price;
 	}
+	
 }
