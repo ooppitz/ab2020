@@ -1,7 +1,7 @@
 package de.die_gfi.jonathan.shop;
 
 public class Book extends Product {
-	int isbn = (int) (Math.random() * 8);
+	int isbn = (int) (Math.random() * 1000000000);
 	String author;
 //String titel;
 	String language;
@@ -16,6 +16,6 @@ public class Book extends Product {
 	
 	
 	public String toString() {
-		return name+" "+author+" "+isbn;
+		return "Titel: "+name+" Autor: "+author+" ISBN "+isbn;
 	}
 }

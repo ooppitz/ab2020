@@ -18,6 +18,6 @@ public class Product {
 	
 	
 	public String toString() {
-		return name+" "+produktnumber+" "+price;
+		return "Name: "+name+" prdnm: "+produktnumber+" preis: "+price;
 	}
 }

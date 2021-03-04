@@ -13,7 +13,7 @@ public class PurchaseItem {
 	
 	@Override
 	public String toString() {
-		return commodity.toString()+" "+count;
+		return commodity.toString()+" Vorhande exemplare:"+count;
 	}
 	public String printProducts() {
 		return commodity.toString()+"\n";

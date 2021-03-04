@@ -8,6 +8,6 @@ public Trinket(String bezeicnbung,double preis,String beschreibung) {
 }
 @Override
 public String toString() {
-	return super.toString()+" "+description;
+	return super.toString()+" Produktbeschreibung: "+description;
 }
 }

@@ -11,13 +11,12 @@ public class Customer {
 	int house;
 
 	public Customer(String s, String n) {
-		// buying=b; Purchase b,
 		surename = s;
 		name = n;
 		// mail=m; vorübergehend vereinfacht_,String m
 		mail = n + "." + s + "@shop.com";
 	}
-
+// Set adress
 	public void setAdress(String land, String ort, String Straße, int haus) {
 		country = land;
 		location = ort;
@@ -28,19 +27,24 @@ public class Customer {
 	public String toString() {
 		return name + " " + surename + " " + mail;
 	}
-
+// zeilenweise Ausgabe der Produkte
 	public void printPurchase() {
 		System.out.println(this);
-		System.out.println(buying.toString());
+		buying.printPurchase();
 
 	}
-
+// ein Purchase Item hinzufügen
 	public void addPurchaseItem(PurchaseItem objekt) {
 		this.buying.addItem(objekt);
 	}
 
+	//erstellt eine Rechnung unter nennung des Produktnamens
 	public double rechnungErstellen() {
-		return buying.getItems();
+		System.out.println("Rechnung:");
+		double summ=buying.getItems();
+		System.out.println("________________");
+		System.out.println(summ+"  Gesamtpreis");
+		return summ;
 	}
 
 }
