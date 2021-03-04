@@ -1,6 +1,5 @@
 package de.die_gfi.philipp.shop;
 
-
 import de.die_gfi.philipp.shop.products.Beverage;
 import de.die_gfi.philipp.shop.products.ExpirableProduct;
 import de.die_gfi.philipp.shop.products.Food;
