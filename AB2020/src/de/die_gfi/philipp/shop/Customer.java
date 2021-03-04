@@ -33,7 +33,8 @@ public class Customer {
                         System.out.println("Successfully made the purchase.");
                         break;
                     } else {
-                        System.out.println("You haven't added any products yet, so you can't them.");
+                        System.out.println("You haven't added any products yet, so you can't buy them.");
+                        continue;
                     }
                 } else if (str.equalsIgnoreCase("show")) {
                     System.out.println(shop.getProducts());
@@ -51,6 +52,7 @@ public class Customer {
                     int amount = input.nextInt();
                     purchase.addToPurchase(prod, amount);
                     System.out.println("Successfully added " + amount + " of " + prod.getManufacturer() + " " + prod.getName());
+                    input.nextLine();
                 } else {
                     System.out.println("Sorry, the specified article number couldn't be found in our system.");
                 }

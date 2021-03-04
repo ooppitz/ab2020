@@ -4,6 +4,9 @@ import de.die_gfi.philipp.shop.products.Product;
 
 import java.util.ArrayList;
 
+/**
+ * Objects of this class represent a purchase.
+ */
 public class Purchase {
 
     ArrayList<PurchaseItem> items;
