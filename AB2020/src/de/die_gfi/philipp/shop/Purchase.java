@@ -16,9 +16,9 @@ public class Purchase {
     }
 
     /**
+     * Adds a {@link Product} with a specified amount to the {@link Purchase}
      *
-     *
-     * @param prod Product object
+     * @param prod {@link Product} object
      * @param amount Amount of product to be added
      */
     public void addToPurchase(Product prod, int amount) {
@@ -32,6 +32,7 @@ public class Purchase {
     }
 
     /**
+     * Adds a {@link PurchaseItem} to the {@link Purchase}
      *
      * @param item a {@link PurchaseItem} object
      */
