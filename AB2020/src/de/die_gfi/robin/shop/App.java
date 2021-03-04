@@ -15,48 +15,87 @@ public class App {
 
 		// Einkauf simulieren
 
-		System.out.println("Bitte Kundennummer eingeben");
+		kundennummerAbfragen(kundenListe);
+
 		int kundenNummer = input.nextInt();
+
 		Purchase total = simulatePurchase(kundenListe[kundenNummer], products);
 		System.out.println(total);
+
+		// Rechnung in Datei hinzufuegen
+		Rechnungen.rechnungHinzufuegen(total, kundenListe[kundenNummer]);
 
 		input.close();
 
 	}
 
-	
-	
-	public static Purchase simulatePurchase(Customer c, ArrayList<Product> collection) {
-		
-		ArrayList<PurchaseItem> arrList = new ArrayList<PurchaseItem>();
+	/**
+	 * Erfragt die Kundennummer. Danach werden alle Kundennummern mit den
+	 * zugehörigen Namen ausgedruckt
+	 * 
+	 * @param kundenListe
+	 */
+	private static void kundennummerAbfragen(Customer[] kundenListe) {
+		System.out.println("Bitte Kundennummer eingeben");
+
+		for (Customer kunde : kundenListe) {
+			System.out.println(kunde.kundenNummer + ": " + kunde.anrede + " " + kunde.vorname + " " + kunde.nachname);
+
+		}
+	}
+
+	public static Purchase simulatePurchase(Customer kunde, ArrayList<Product> products) {
+
+		ArrayList<PurchaseItem> einkaufswagen = new ArrayList<PurchaseItem>();
 
 		Scanner input = new Scanner(System.in);
 
-		System.out.println("ProduktNummer eingeben: ");
-		int produktNummer = input.nextInt();
-		System.out.println("Menge eingeben: ");
-		int produktMenge = input.nextInt();
+		String produktNummer;
+		int produktMenge = 0;
 
-		while (produktNummer != 0) {
-			PurchaseItem pItem = new PurchaseItem(collection.get(produktNummer), produktMenge);
-			arrList.add(pItem);
+		do {
 
-			System.out.println("ProduktNummer eingeben ('0' beendet den Einkauf): ");
-			produktNummer = input.nextInt();
-			if (produktNummer == 0) {
+			produktlisteAusgeben(products);
+			System.out.println("Produktnummer eingeben ('fertig' beendet den Einkauf) ");
+			produktNummer = input.next();
+			if (produktNummer.equals("fertig")) {
 				break;
 			}
 
-			System.out.println("Menge eingeben: ");
-			produktMenge = input.nextInt();
+			try {
 
-		}
+				System.out.println("Menge eingeben: ");
+				produktMenge = input.nextInt();
+
+				PurchaseItem pItem = new PurchaseItem(products.get(Integer.parseInt(produktNummer)), produktMenge);
+				einkaufswagen.add(pItem);
+				System.out.println("Das Produkt wurde hinzugefuegt\n");
+			} catch (Exception e) {
+				System.out.println("Ihre Eingabe der Produktnummer: " + produktNummer + " oder Menge: " + produktMenge
+						+ " ist fehlerhaft\nBitte versuchen Sie es erneut");
+			}
+
+		} while (produktNummer != "fertig");
+		input.close();
+
 		Shop meinShop = new Shop("Mitrix AG", "Schrammstrasse 4", "73023 Doppeldorf", 132465);
 
-		Purchase total = new Purchase(arrList, c, meinShop);
+		Purchase total = new Purchase(einkaufswagen, kunde, meinShop);
 
 		return total;
 
+	}
+
+	/**
+	 * Gibt die gesamte produktliste formatiert auf der Konsole aus
+	 * 
+	 * @param products
+	 */
+	private static void produktlisteAusgeben(ArrayList<Product> products) {
+		for (Product product : products) {
+			System.out.println(product.produktnummer + ": " + String.format("%-40s", product.bezeichnung) + " "
+					+ String.format("%6.2f", product.preis) + " €");
+		}
 	}
 
 }

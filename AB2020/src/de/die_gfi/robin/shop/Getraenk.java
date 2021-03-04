@@ -4,9 +4,9 @@ public class Getraenk extends Product {
 
 	double liter;
 
-	public Getraenk(double preis, double liter, String bezeichnung) {
+	public Getraenk(int pNummer,double preis, double liter, String bezeichnung) {
 		
-		super(preis, bezeichnung);
+		super(pNummer,preis, bezeichnung);
 		
 		this.liter = liter;
 
