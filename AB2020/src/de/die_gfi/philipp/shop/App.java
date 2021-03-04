@@ -10,11 +10,12 @@ public class App {
         Scanner input = new Scanner(System.in);
 
         Shop aShop = TestData.initializeTestShop();
+        aShop.addCustomer("Oliver Oppitz", "Walhallastraße 7, 80639 München", "ooppitz@github.com");
 
         System.out.println(aShop);
         System.out.println(aShop.inventoryToString());
 
-        System.out.println("Please enter your email address to make a purchase: ");
+        System.out.println("Please enter your email address to make a purchase (To test use \"ooppitz@github.com\"): ");
         String str = input.nextLine();
         Customer customer = aShop.getCustomer(str);
         if (customer != null) {
