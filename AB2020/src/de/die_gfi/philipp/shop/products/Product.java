@@ -42,6 +42,18 @@ public class Product {
         this.packagingUnit = packagingUnit;
     }
 
+    public static Product parseString(String[] elements) {
+        if (elements.length == 5) {
+            return new Product(Long.parseLong(elements[1]), elements[2],
+                    elements[3], Double.parseDouble(elements[4]));
+        }
+        if (elements.length == 6)
+            return new Product(Long.parseLong(elements[1]), elements[2], elements[3],
+                    Double.parseDouble(elements[4]), Integer.parseInt(elements[5]));
+
+        return null;
+    }
+
     /**
      * Sets a new price for this product
      *
@@ -58,12 +70,6 @@ public class Product {
      */
     public void setPackagingUnit(int newPackagingUnit) {
         this.packagingUnit = newPackagingUnit;
-    }
-
-    @Override
-    public String toString() {
-        return "Product: " + articleNumber + "; " + manufacturer + " " + name +
-                "; price: " + price + "; packaging unit: " + packagingUnit;
     }
 
     public long getArticleNumber() {
@@ -88,5 +94,11 @@ public class Product {
 
     public String getProductString() {
         return manufacturer + " " + name;
+    }
+
+    @Override
+    public String toString() {
+        return "Product: " + articleNumber + "; " + manufacturer + " " + name +
+                "; price: " + price + "; packaging unit: " + packagingUnit;
     }
 }

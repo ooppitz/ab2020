@@ -23,8 +23,18 @@ public class Beverage extends ExpirableProduct{
     }
 
     public Beverage(long articleNumber, String name, String manufacturer, double price, String bestByDate, int containerSizeInMl, int packagingUnit) {
-        super(articleNumber, name,manufacturer,price,packagingUnit, bestByDate);
+        super(articleNumber, name,manufacturer,price, bestByDate, packagingUnit);
         this.containerSizeInMl = containerSizeInMl;
+    }
+
+    public static Product parseString(String[] elements) {
+        if (elements.length == 7)
+            return new Beverage(Long.parseLong(elements[1]), elements[2], elements[3],
+                    Double.parseDouble(elements[4]), elements[5], Integer.parseInt(elements[6]));
+        if (elements.length == 8)
+            return new Beverage(Long.parseLong(elements[1]), elements[2], elements[3],
+                    Double.parseDouble(elements[4]), elements[5], Integer.parseInt(elements[6]),  Integer.parseInt(elements[7]));
+        return null;
     }
 
     /**

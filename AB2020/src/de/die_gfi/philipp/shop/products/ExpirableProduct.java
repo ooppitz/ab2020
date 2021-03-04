@@ -9,8 +9,21 @@ public class ExpirableProduct extends Product{
         this.bestByDate = bestByDate;
     }
 
-    public ExpirableProduct(long articleNumber, String name, String manufacturer, double price, int packagingUnit, String bestByDate) {
+    public ExpirableProduct(long articleNumber, String name, String manufacturer, double price, String bestByDate, int packagingUnit) {
         super(articleNumber, name, manufacturer, price, packagingUnit);
         this.bestByDate = bestByDate;
+    }
+
+    public static Product parseString(String[] elements) {
+        if (elements.length == 6) {
+            return new ExpirableProduct(Long.parseLong(elements[1]), elements[2],
+                    elements[3], Double.parseDouble(elements[4]), elements[5]);
+        }
+        if (elements.length == 7) {
+            return new ExpirableProduct(Long.parseLong(elements[1]), elements[2], elements[3],
+                    Double.parseDouble(elements[4]), elements[5], Integer.parseInt(elements[6]));
+        }
+
+        return null;
     }
 }
