@@ -11,7 +11,8 @@ import java.util.ArrayList;
  */
 public class Purchase {
 
-    ArrayList<PurchaseItem> items;
+    protected ArrayList<PurchaseItem> items;
+    protected static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
     /**
      * Constructs a Purchase Object with empty ArrayList
@@ -109,32 +110,44 @@ public class Purchase {
      *
      * @param shop The {@link Shop} for which the bill is printed
      */
-    public void printBill(Shop shop) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    public void printBill(Shop shop, Customer customer) {
         LocalDateTime now = LocalDateTime.now();
 
         String billNumString = "Bill number: " + shop.getSalesNumber() + 1;
         String dateString = dtf.format(now);
 
         double totalSum = 0;
+
+        // Prints the data of the shop
         System.out.println(shop.getShopName());
         System.out.println(shop.getShopAddress() + "\n");
         String ovString = "Owner: " + shop.getOwnerName() + " ".repeat(25) + "VAT Number: " + shop.getVatNumber();
         System.out.println(ovString);
+
+        // Prints the customer data
+        System.out.println("\n #" + customer.getCustomerNumber()+ " " + customer.getName());
+        System.out.println(customer.getAddress());
+
+        // Prints the bill number, date and a spacer
         System.out.println(billNumString +
                 " ".repeat(ovString.length() - (billNumString.length() + dateString.length())) + dateString);
         System.out.println("-".repeat(ovString.length()));
 
+        // Prints each item in the order amount, manufacturer, product name, and subtotal
         for (PurchaseItem p : items) {
             double itemPrice = p.getTotalPrice();
             String itemString = String.format("%4d: %s", p.getAmount(),p.getProductString());
-            String priceString = Double.toString(itemPrice);
+            String priceString = String.format("%.2f", itemPrice);
             System.out.println(itemString +
                     " ".repeat(ovString.length() - (priceString.length() + itemString.length())) + priceString);
             totalSum += itemPrice;
         }
+
+        // Prints a spacer
         System.out.println("-".repeat(ovString.length()));
-        String totalString = "Total: " + totalSum;
+
+        // Prints the total
+        String totalString = "Total: " + String.format("%.2f", totalSum);
         System.out.println(" ".repeat(ovString.length()-totalString.length()) + totalString);
 
     }
