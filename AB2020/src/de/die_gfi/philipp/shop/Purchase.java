@@ -126,7 +126,7 @@ public class Purchase {
 
         // Prints the customer data
         System.out.println("\n #" + customer.getCustomerNumber()+ " " + customer.getName());
-        System.out.println(customer.getAddress());
+        System.out.println(customer.getAddress() + "\n");
 
         // Prints the bill number, date and a spacer
         System.out.println(billNumString +
