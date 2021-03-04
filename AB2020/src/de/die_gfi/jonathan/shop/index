@@ -5,3 +5,11 @@ Index: 3 Name: Odysee
 Index: 4 Name: feurio 500
 Index: 5 Name: macbeths
 Index: 6 Name: Domesday Book
+
+
+c1.printPurchase();
+		c1.createBill();
+		c3.printPurchase();
+		c3.createBill();
+		c4.printPurchase();
+		c2.printPurchase();

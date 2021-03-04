@@ -9,12 +9,14 @@ public class Customer {
 	String location;
 	String street;
 	int house;
+	String account;
 
 	public Customer(String s, String n) {
 		surename = s;
 		name = n;
 		// mail=m; vorübergehend vereinfacht_,String m
-		mail = n + "." + s + "@shop.com";
+		account=n + "." + s;
+		mail = account + "@shop.com";
 	}
 
 // Set adress
@@ -43,7 +45,7 @@ public class Customer {
 	}
 
 	// erstellt eine Rechnung unter nennung des Produktnamens
-	public double rechnungErstellen() {
+	public double createBill() {
 		System.out.println("\nRechnung\nKunde:"+name+" "+surename);
 		double summ = buying.getItems();
 		System.out.println("________________");
