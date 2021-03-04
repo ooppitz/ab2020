@@ -1,6 +1,7 @@
 package de.die_gfi.jonathan.shop;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Shop {
@@ -21,6 +22,7 @@ public class Shop {
 			Customer c;
 			String account = sc.next();
 			if (account == "Admin") {
+				// TODO hinzufügen
 				System.out.println("coming soon");
 			} else {
 
@@ -32,8 +34,14 @@ public class Shop {
 					if (input.equalsIgnoreCase("index")) {
 						storage.giveIndex();
 					} else if (input.equalsIgnoreCase("buy")) {
-
-						buy(sc.nextInt(), c);
+						
+						try {
+							buy(sc.nextInt(), c);
+						} catch (InputMismatchException e) {
+								System.out.println("Falsce eingabe kauf vorgang abgebrochen");
+						}catch (IndexOutOfBoundsException e) {
+							System.out.println("Das Produkt existirt nicht");
+						}
 					} else if (input.equalsIgnoreCase("logout")) {
 						login = false;
 					} else if (input.equalsIgnoreCase("search")) {
