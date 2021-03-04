@@ -7,7 +7,7 @@ package de.die_gfi.philipp.shop.products;
  */
 public class Food extends Product{
     protected final String bestByDate;
-    protected int weight;
+    protected int weightInGramm;
 
     /**
      * This constructor is mostly used by the subclass {@link Beverage}, puts the weight to -1
@@ -20,7 +20,7 @@ public class Food extends Product{
     public Food(long articleNumber, String name, String manufacturer, double price, String bestByDate) {
         super(articleNumber, name, manufacturer, price);
         this.bestByDate = bestByDate;
-        this.weight = -1;
+        this.weightInGramm = -1;
 
     }
 
@@ -34,9 +34,8 @@ public class Food extends Product{
      * @param weight Weight of this Food
      */
     public Food(long articleNumber, String name, String manufacturer, double price, String bestByDate, int weight) {
-        super(articleNumber, name, manufacturer, price);
-        this.bestByDate = bestByDate;
-        this.weight = weight;
+        this(articleNumber, name, manufacturer, price, bestByDate);
+        this.weightInGramm = weight;
 
     }
 
@@ -46,17 +45,17 @@ public class Food extends Product{
      * @param weight New weight of the food product
      */
     public void setWeight(int weight) {
-        this.weight = weight;
+        this.weightInGramm = weight;
     }
 
     @Override
     public String toString() {
         return "Food: " + articleNumber + "; " + manufacturer + " " + name +
-                "; price: " + price + "; weight: " + weight + " g";
+                "; price: " + price + "; weight: " + weightInGramm + " g";
     }
 
     public int getWeight() {
-        return weight;
+        return weightInGramm;
     }
 
     public String getBestByDate() {

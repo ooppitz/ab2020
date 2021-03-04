@@ -36,10 +36,9 @@ public class Product {
      * @param packagingUnit How many units of the product are included per package
      */
     public Product(long articleNumber, String name, String manufacturer, double price, int packagingUnit) {
-        this.articleNumber = articleNumber;
-        this.name = name;
-        this.manufacturer = manufacturer;
-        this.price = price;
+    	
+    	this(articleNumber, name, manufacturer, price);
+ 
         this.packagingUnit = packagingUnit;
     }
 
