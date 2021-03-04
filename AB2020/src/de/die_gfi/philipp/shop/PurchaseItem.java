@@ -61,4 +61,16 @@ public class PurchaseItem {
         return "" + getArticleNumber() + ": " + formattedName + " | Amount: "
                 + getAmount();
     }
+
+    public double getTotalPrice() {
+        return prod.getPrice() * amount;
+    }
+
+    public String getManufacturer() {
+        return prod.getManufacturer();
+    }
+
+    public String getProductString() {
+        return prod.getProductString();
+    }
 }

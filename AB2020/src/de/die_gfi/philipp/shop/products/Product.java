@@ -86,4 +86,8 @@ public class Product {
     public double getPrice() {
         return price;
     }
+
+    public String getProductString() {
+        return manufacturer + " " + name;
+    }
 }

@@ -2,6 +2,8 @@ package de.die_gfi.philipp.shop;
 
 import de.die_gfi.philipp.shop.products.Product;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -103,11 +105,37 @@ public class Purchase {
     }
 
     /**
-     * Prints
+     * Prints the bill for this {@link Purchase}
      *
      * @param shop The {@link Shop} for which the bill is printed
      */
     public void printBill(Shop shop) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+
+        String billNumString = "Bill number: " + shop.getSalesNumber() + 1;
+        String dateString = dtf.format(now);
+
+        double totalSum = 0;
+        System.out.println(shop.getShopName());
+        System.out.println(shop.getShopAddress() + "\n");
+        String ovString = "Owner: " + shop.getOwnerName() + " ".repeat(25) + "VAT Number: " + shop.getVatNumber();
+        System.out.println(ovString);
+        System.out.println(billNumString +
+                " ".repeat(ovString.length() - (billNumString.length() + dateString.length())) + dateString);
+        System.out.println("-".repeat(ovString.length()));
+
+        for (PurchaseItem p : items) {
+            double itemPrice = p.getTotalPrice();
+            String itemString = String.format("%4d: %s", p.getAmount(),p.getProductString());
+            String priceString = Double.toString(itemPrice);
+            System.out.println(itemString +
+                    " ".repeat(ovString.length() - (priceString.length() + itemString.length())) + priceString);
+            totalSum += itemPrice;
+        }
+        System.out.println("-".repeat(ovString.length()));
+        String totalString = "Total: " + totalSum;
+        System.out.println(" ".repeat(ovString.length()-totalString.length()) + totalString);
 
     }
 }

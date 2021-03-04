@@ -27,10 +27,10 @@ public class Customer {
             if (str.equalsIgnoreCase("buy") || str.equalsIgnoreCase("cancel") || str.equalsIgnoreCase("show")) {
                 if (str.equalsIgnoreCase("buy")) {
                     if (purchase.items.size() > 0) {
+                        System.out.println("Successfully made the purchase.\n\n");
                         purchase.printBill(shop);
                         purchases.add(purchase);
                         shop.addToSales(purchase);
-                        System.out.println("Successfully made the purchase.");
                         break;
                     } else {
                         System.out.println("You haven't added any products yet, so you can't buy them.");
@@ -48,10 +48,10 @@ public class Customer {
                 long articleNumber = Long.parseLong(str);
                 Product prod = shop.getProducts().getProduct(articleNumber);
                 if (prod != null) {
-                    System.out.print("How many do you want to add? ");
+                    System.out.print("How many of the product " + prod.getProductString() + " do you want to add? ");
                     int amount = input.nextInt();
                     purchase.addToPurchase(prod, amount);
-                    System.out.println("Successfully added " + amount + " of " + prod.getManufacturer() + " " + prod.getName());
+                    System.out.println("Successfully added " + amount + " of " + prod.getProductString());
                     input.nextLine();
                 } else {
                     System.out.println("Sorry, the specified article number couldn't be found in our system.");

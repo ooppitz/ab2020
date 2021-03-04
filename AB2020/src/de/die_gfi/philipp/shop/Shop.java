@@ -7,15 +7,17 @@ public class Shop {
     protected String shopName;
     protected String ownerName;
     protected String shopAddress;
+    protected String shopEmailAddress;
     protected final String vatNumber;
     protected ProductCollection products;
     protected ArrayList<Customer> customers;
     protected ArrayList<Purchase> sales;
 
-    public Shop(String shopName, String ownerName, String shopAddress, String vatNumber) {
+    public Shop(String shopName, String ownerName, String shopAddress, String shopEmailAddress,String vatNumber) {
         this.shopName = shopName;
         this.ownerName = ownerName;
         this.shopAddress = shopAddress;
+        this.shopEmailAddress = shopEmailAddress;
         this.vatNumber = vatNumber;
         this.products = ProductCollection.createProductCollection();
         this.customers = new ArrayList<>();
@@ -92,6 +94,14 @@ public class Shop {
 
     public void addToSales(Purchase p) {
         sales.add(p);
+    }
+
+    public int getSalesNumber() {
+        return sales.size();
+    }
+
+    public String getVatNumber() {
+        return vatNumber;
     }
 
     @Override
