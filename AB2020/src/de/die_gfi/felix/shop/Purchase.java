@@ -19,7 +19,7 @@ public class Purchase {
 	public String toString() {
 		String result = new String();
 		for(int i = 0; i < itemList.size(); i++) {
-			result = result + itemList.get(i).p.name + ", " + itemList.get(i).stueckzahl + ", " + itemList.get(i).preisGesamt + "\n";
+			result = result + "Name: " + itemList.get(i).p.name + ", Stueckzahl: " + itemList.get(i).stueckzahl + ", Gesamtpreis Artikel: " + itemList.get(i).preisGesamt + "\n";
 		}
 			result = result + "Gesamtpreis: " + this.preisEinkauf;		
 		return result;
