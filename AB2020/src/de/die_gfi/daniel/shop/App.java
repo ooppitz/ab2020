@@ -44,6 +44,21 @@ public class App
       Product zutat = new Lebensmittel( "Eier", 2.0, "Bodenhaltung", 4803465, "30. Februar" );
       System.out.println( zutat );
       System.out.println();
+
+      
+      
+      Purchase cart = new Purchase();
+      
+      cart.add( ware ); /* Brot */
+      cart.add( new PurchaseItem( wecker, 1 ) );
+      cart.add( new PurchaseItem( nudeln, 3 ) );
+      cart.add( new PurchaseItem( buch, 1 ) );
+      cart.add( new PurchaseItem( zutat, 1 ) );
+      
+      System.out.println( cart.generateBill() );
+      
+      
+      
       
    }
 }
