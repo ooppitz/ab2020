@@ -28,7 +28,7 @@ public class Customer {
             String str = input.nextLine();
 
             if (str.equalsIgnoreCase("buy") || str.equalsIgnoreCase("cancel") || str.equalsIgnoreCase("show")) {
-                if (str.equalsIgnoreCase("buy")) {
+                if (str.equalsIgnoreCase("buy") || str.equalsIgnoreCase("basket")) {
                     if (purchase.items.size() > 0) {
 
                         System.out.println("Successfully made the purchase.\n\n");
@@ -48,28 +48,33 @@ public class Customer {
                     System.out.println("Successfully cancelled the purchase.");
                     break;
                 }
-            }
-            try {
-                long articleNumber = Long.parseLong(str);
-                Product prod = shop.getProducts().getProduct(articleNumber);
 
-                if (prod != null) {
-                    System.out.print("How many of the product " + prod.getProductString() + " do you want to add? ");
-                    int amount = input.nextInt();
-                    purchase.addToPurchase(prod, amount);
-                    System.out.println("Successfully added " + amount + " of " + prod.getProductString());
-                    input.nextLine();
 
-                } else {
-                    System.out.println("Sorry, the specified article number couldn't be found in our system.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter the article number without spaces or things that are alphabetical");
-            } catch (InputMismatchException e) {
-                System.out.println("The amount entered was invalid.");
             }
 
+            addToPurchase(purchase, str, shop, input);
+        }
+    }
 
+    public void addToPurchase(Purchase purchase, String str, Shop shop, Scanner input) {
+        try {
+            long articleNumber = Long.parseLong(str);
+            Product prod = shop.getProducts().getProduct(articleNumber);
+
+            if (prod != null) {
+                System.out.print("How many of the product " + prod.getProductString() + " do you want to add? ");
+                int amount = input.nextInt();
+                purchase.addToPurchase(prod, amount);
+                System.out.println("Successfully added " + amount + " of " + prod.getProductString());
+                input.nextLine();
+
+            } else {
+                System.out.println("Sorry, the specified article number couldn't be found in our system.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter the article number without spaces or things that are alphabetical");
+        } catch (InputMismatchException e) {
+            System.out.println("The amount entered was invalid.");
         }
     }
 
