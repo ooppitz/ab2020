@@ -12,6 +12,7 @@ public class TestData {
         shop.addCustomer("Johannes Mueller", "Muenchner Strasse 74, 80666 Muenchen", "jom58@gmail.com");
         Customer c = new Customer("Maria Jonasson", "Salzberg 5, 7665 Salzburg", "maria.jo@yahoo.com", shop);
         shop.addCustomer(c);
+        shop.addCustomer("Maximilian Mueller", "Hauptstrasse, 58394 Dorf", "max.mueller10000@gmail.com");
         return shop;
 
     }
