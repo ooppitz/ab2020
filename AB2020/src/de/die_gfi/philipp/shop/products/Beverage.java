@@ -6,38 +6,38 @@ package de.die_gfi.philipp.shop.products;
  * @see Food
  * @see Product
  */
-public class Beverage extends Food{
+public class Beverage extends ExpirableProduct{
 
-    protected int containerSize;
+    protected int containerSizeInMl;
 
     /**
      * @param articleNumber Article number of this Beverage
      * @param name Name of this Beverage
      * @param price Price of this Beverage
      * @param bestByDate Best by Date of this Beverage
-     * @param containerSize Size of the container of the Beverage in ml
+     * @param containerSizeInMl Size of the container of the Beverage in ml
      */
-    public Beverage(long articleNumber, String name, String manufacturer,double price, String bestByDate, int containerSize) {
-        super(articleNumber, name, manufacturer,price, bestByDate);
-        this.containerSize = containerSize;
+    public Beverage(long articleNumber, String name, String manufacturer,double price, String bestByDate, int containerSizeInMl) {
+        super(articleNumber, name, manufacturer, price, bestByDate);
+        this.containerSizeInMl = containerSizeInMl;
     }
 
     /**
      * Sets the container size of this Beverage
      *
-     * @param containerSize The new container size
+     * @param containerSizeInMl The new container size
      */
-    public void setContainerSize(int containerSize) {
-        this.containerSize = containerSize;
+    public void setContainerSizeInMl(int containerSizeInMl) {
+        this.containerSizeInMl = containerSizeInMl;
     }
 
     @Override
     public String toString() {
         return "Beverage: " + articleNumber + "; " + manufacturer + " " + name +
-                "; price: " + price + "; container size: " + containerSize + " ml";
+                "; price: " + price + "; container size: " + containerSizeInMl + " ml";
     }
 
-    public int getContainerSize() {
-        return containerSize;
+    public int getContainerSizeInMl() {
+        return containerSizeInMl;
     }
 }

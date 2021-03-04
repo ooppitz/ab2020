@@ -5,28 +5,10 @@ package de.die_gfi.philipp.shop.products;
  *
  * @see Product
  */
-public class Food extends Product{
-    protected final String bestByDate;
+public class Food extends ExpirableProduct{
     protected int weightInGramm;
 
     /**
-     * This constructor is mostly used by the subclass {@link Beverage}, puts the weight to -1
-     *
-     * @param name Name of this Food
-     * @param price Price of this Food
-     * @param articleNumber Article number of this Food
-     * @param bestByDate Best by Date of this Food
-     */
-    public Food(long articleNumber, String name, String manufacturer, double price, String bestByDate) {
-        super(articleNumber, name, manufacturer, price);
-        this.bestByDate = bestByDate;
-        this.weightInGramm = -1;
-
-    }
-
-    /**
-     *
-     *
      * @param name Name of this Food
      * @param price Price of this Food
      * @param articleNumber Article number of this Food
@@ -34,7 +16,7 @@ public class Food extends Product{
      * @param weight Weight of this Food
      */
     public Food(long articleNumber, String name, String manufacturer, double price, String bestByDate, int weight) {
-        this(articleNumber, name, manufacturer, price, bestByDate);
+        super(articleNumber, name, manufacturer, price, bestByDate);
         this.weightInGramm = weight;
 
     }
