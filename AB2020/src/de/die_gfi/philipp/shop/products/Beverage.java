@@ -22,6 +22,11 @@ public class Beverage extends ExpirableProduct{
         this.containerSizeInMl = containerSizeInMl;
     }
 
+    public Beverage(long articleNumber, String name, String manufacturer, double price, String bestByDate, int containerSizeInMl, int packagingUnit) {
+        super(articleNumber, name,manufacturer,price,packagingUnit, bestByDate);
+        this.containerSizeInMl = containerSizeInMl;
+    }
+
     /**
      * Sets the container size of this Beverage
      *
