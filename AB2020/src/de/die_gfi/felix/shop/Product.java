@@ -4,9 +4,9 @@ public class Product {
 	
 	String name;
 	double preis;
-	int nummer;
+	String nummer;
 	
-	public Product (String name, double preis, int nummer) {
+	public Product (String name, double preis, String nummer) {
 		this.name = name;
 		this.preis = preis;
 		this.nummer = nummer;

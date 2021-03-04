@@ -9,14 +9,7 @@ public class App {
 
 		
 			
-		listAvailableProducts();
 		
-		ArrayList<Product> catalog = Shop.getProducts();
-		Purchase p = makePurchase(c, catalog);
-		
-		System.out.println();
-		String bill = p.generateBill();
-		System.out.println(bill);
 		
 		
 	}

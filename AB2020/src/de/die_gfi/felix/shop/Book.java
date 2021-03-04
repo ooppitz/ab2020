@@ -6,7 +6,7 @@ public class Book extends Product{
 	String mussGekuehltWerden;
 	
 	
-	public Book(String name, double preis, int nummer, String author, String thema) {
+	public Book(String name, double preis, String nummer, String author, String thema) {
 		super(name, preis, nummer);
 		this.kalorien = author;
 		this.mussGekuehltWerden = thema;

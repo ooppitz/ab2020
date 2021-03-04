@@ -6,7 +6,7 @@ public class Food extends Product{
 	boolean mussGekuehltWerden;
 	
 	
-	public Food(String name, double preis, int nummer, int kalorien, boolean mussGekuehltWerden) {
+	public Food(String name, double preis, String nummer, int kalorien, boolean mussGekuehltWerden) {
 		super(name, preis, nummer);
 		this.kalorien = kalorien;
 		this.mussGekuehltWerden = mussGekuehltWerden;
