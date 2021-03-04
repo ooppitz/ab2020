@@ -1,86 +1,85 @@
 package de.die_gfi.jonathan.shop;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Shop {
 	public ProductCollection storage = new ProductCollection();
 	ArrayList<Customer> user = new ArrayList<>();
-	
-	public void buy(int index,Customer kunde) {
+
+	// vereinfacht die das einkaufen ist aber nicht notwendig
+	public void buy(int index, Customer kunde) {
 		kunde.addPurchaseItem(index, storage);
 	}
-	
+
+//die Bedinoberfläche
 	public void output() {
-		Scanner sc=new Scanner(System.in);
-		boolean running=true;
+		Scanner sc = new Scanner(System.in);
+		boolean running = true;
 		do {
-			
-		
-		Customer c;
-		String account=sc.next();
-		if (account=="Admin") {
-		System.out.println("coming soon");
-		}else {
-			
-			c=find(account);
-			boolean login=true;
-			do {
-			
-				
-			
-			String input=sc.next();
-			if (input.equalsIgnoreCase("index")) {
-				storage.giveIndex();			
-			}else if (input.equalsIgnoreCase("buy")) {
-				
-				buy(sc.nextInt(), c);
-			}else if (input.equalsIgnoreCase("logout")) {
-				login=false;
-			}else if (input.equalsIgnoreCase("search")) {
-				storage.search(sc.next());
-			}else if (input.equalsIgnoreCase("print")) {
-				c.printPurchase();
-			}else if (input.equalsIgnoreCase("bill")) {
-				c.createBill();
+
+			Customer c;
+			String account = sc.next();
+			if (account == "Admin") {
+				System.out.println("coming soon");
+			} else {
+
+				c = find(account);
+				boolean login = true;
+				do {
+
+					String input = sc.next();
+					if (input.equalsIgnoreCase("index")) {
+						storage.giveIndex();
+					} else if (input.equalsIgnoreCase("buy")) {
+
+						buy(sc.nextInt(), c);
+					} else if (input.equalsIgnoreCase("logout")) {
+						login = false;
+					} else if (input.equalsIgnoreCase("search")) {
+						storage.search(sc.next());
+					} else if (input.equalsIgnoreCase("print")) {
+						c.printPurchase();
+					} else if (input.equalsIgnoreCase("bill")) {
+						c.createBill();
+					} else if (input.equalsIgnoreCase("exit")) {
+						login = false;
+						running = false;
+						break;
+					}
+				} while (login == true);
 			}
-			else if (input.equalsIgnoreCase("exit")) {
-			login=false;
-			running=false;
-			break;
-			}
-			} while (login==true);
-		}
-			
-		
-		
-		} while (running==true);
+
+		} while (running == true);
 	}
-	
+
+	// präsentirt was das Programm kann
 	public void demo() {
-		//hinzufügen kunden
+		// hinzufügen kunden
 		initilizeCustomer();
 		initilizeProducts();
-		
+
 		// einkauf
 		storage.giveIndex();
-		
-		
-		buy(0,user.get(0));
-		buy(1,user.get(0));
-		buy(2,user.get(0));
-		buy(4,user.get(1));
-		buy(5,user.get(2));
-		buy(6,user.get(3));
+
+		buy(0, user.get(0));
+		buy(1, user.get(0));
+		buy(2, user.get(0));
+		buy(4, user.get(1));
+		buy(5, user.get(2));
+		buy(6, user.get(3));
 		user.get(0).printPurchase();
 		user.get(0).createBill();
 		user.get(2).printPurchase();
 		user.get(2).createBill();
 		user.get(3).printPurchase();
 		user.get(1).printPurchase();
-		
+
 	}
+
+	// erstellt einige Kunden
 	public void initilizeCustomer() {
-		user.add(new Customer("Julius", "Octavian")) ;
+		user.add(new Customer("Julius", "Octavian"));
 		user.add(new Customer("Claudius", "Nero"));
 		user.get(0).setAdress("Imperium Romanum", "Rom", "Palatin", 1);
 		user.get(1).setAdress("Imperium Romanum", "Rom", "Domus Aurea", 1);
@@ -91,7 +90,8 @@ public class Shop {
 		user.add(new Customer("Plinius", "Gaius"));
 		user.get(4).setAdress("Imperium Romanum", "Misenum", "Naval Docks", 5);
 	}
-	
+
+	// ferstellt einige Producte
 	public void initilizeProducts() {
 		Book b1 = new Book("Gaius", "Institutonen", "Latein", 20);
 		Book b2 = new Book("Gaius Julius Casar", "De Bello Gallico", "Latein", 15);
@@ -110,10 +110,11 @@ public class Shop {
 		storage.addToCollection(t2, 3);
 		storage.addToCollection(b6, 7);
 	}
-	
+
+	// suchalgoritmus für die Kunden liste
 	public Customer find(String suche) {
 		for (Customer customer : user) {
-			
+
 			if (customer.account.equalsIgnoreCase(suche)) {
 				return customer;
 			}
