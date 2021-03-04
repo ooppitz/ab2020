@@ -1,12 +1,8 @@
 package de.die_gfi.oppitz.shop;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -74,7 +70,7 @@ public class Purchase {
 		bill += "\n";
 		
 		String date = LocalDate.now().toString();
-		bill += "Rechnungsdatum: " + date + "\n";
+		bill += "Rechnungsdatum: " + date + "                   Steuernummer: " + shop.taxNumber + "\n";
 		bill += "\n";
 
 		
