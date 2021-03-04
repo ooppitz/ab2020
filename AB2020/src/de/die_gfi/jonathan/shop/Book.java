@@ -6,15 +6,14 @@ public class Book extends Product {
 	String language;
 
 	// TODO: Namen korrigieren
-    // TODO: JavaDoc ergänzen
+	// TODO: JavaDoc ergänzen
 	public Book(String autor, String titel, String sprache, double preis) {
 		super(titel, preis);
 		author = autor;
 		language = sprache;
 	}
-	
-	
+
 	public String toString() {
-		return "Titel: "+name+" Autor: "+author+" ISBN "+isbn;
+		return "Titel: " + name + " Autor: " + author + " ISBN " + isbn;
 	}
 }

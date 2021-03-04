@@ -4,7 +4,7 @@ public class App {
 
 	public static void main(String[] args) {
 		// hinzufügen kunden
-		ProductCollection storage =new ProductCollection();
+		ProductCollection storage = new ProductCollection();
 		Customer c1 = new Customer("Julius", "Octavian");
 		Customer c2 = new Customer("Claudius", "Nero");
 		c1.setAdress("Imperium Romanum", "Rom", "Palatin", 1);
