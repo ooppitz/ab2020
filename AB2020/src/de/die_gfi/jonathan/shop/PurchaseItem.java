@@ -1,24 +1,25 @@
 package de.die_gfi.jonathan.shop;
 
 public class PurchaseItem {
-	Product commodity;
+	
+	Product item;
 	int count;
 	double price;
 
 	public PurchaseItem(Product produkt, int anzahl) {
-		commodity = produkt;
+		item = produkt;
 		count = anzahl;
 		price = produkt.price;
 
 	}
 
 	public String toString() {
-		return commodity.toString() + " Vorhande exemplare:" + count;
+		return item.toString() + " Vorhande exemplare:" + count;
 	}
 
 	// für den kunden vorgesehen Ausgabe
 	public String printProducts() {
-		return commodity.toString();
+		return item.toString();
 	}
 
 	// Preis ausgabe für die Rechnung

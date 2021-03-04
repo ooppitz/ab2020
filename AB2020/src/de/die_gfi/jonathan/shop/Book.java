@@ -1,16 +1,21 @@
 package de.die_gfi.jonathan.shop;
 
 public class Book extends Product {
-	int isbn = (int) (Math.random() * 1000000000);
+	
+	int isbn;
 	String author;
 	String language;
 
 	// TODO: Namen korrigieren
 	// TODO: JavaDoc ergänzen
+	
 	public Book(String autor, String titel, String sprache, double preis) {
+		
 		super(titel, preis);
 		author = autor;
 		language = sprache;
+		isbn = (int) (Math.random() * 1000000000);
+				
 	}
 
 	public String toString() {
