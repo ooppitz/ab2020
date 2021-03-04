@@ -12,10 +12,10 @@ public class Food extends ExpirableProduct{
      * @param articleNumber Article number of this Food
      * @param name Name of this Food
      * @param price Price of this Food
-     * @param weight Weight of this Food
      * @param bestByDate Best by Date of this Food
+     * @param weight Weight of this Food
      */
-    public Food(long articleNumber, String name, String manufacturer, double price, int weight, String bestByDate) {
+    public Food(long articleNumber, String name, String manufacturer, double price, String bestByDate, int weight) {
         super(articleNumber, name, manufacturer, price, bestByDate);
         this.weightInGramm = weight;
 
@@ -24,7 +24,7 @@ public class Food extends ExpirableProduct{
     public static Product parseString(String[] elements) {
         if (elements.length == 7)
             return new Food(Long.parseLong(elements[1]), elements[2], elements[3],
-                    Double.parseDouble(elements[4]), Integer.parseInt(elements[5]), elements[6]);
+                    Double.parseDouble(elements[4]), elements[5], Integer.parseInt(elements[6]));
         return null;
     }
 

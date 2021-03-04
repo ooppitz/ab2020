@@ -4,6 +4,7 @@ package de.die_gfi.philipp.shop.products;
  * Objects of this class represent a Beverage with all associated info.
  *
  * @see Food
+ * @see ExpirableProduct
  * @see Product
  */
 public class Beverage extends ExpirableProduct{
