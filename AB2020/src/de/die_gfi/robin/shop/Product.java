@@ -3,9 +3,13 @@ package de.die_gfi.robin.shop;
 public class Product {
 
 	double preis;
-
-	public Product(double p) {
-		this.preis = p;
+	int produktNummer;
+	String bezeichnung;
+	
+	public Product(double preis, String bezeichnung) {
+		
+		this.preis = preis;
+		this.bezeichnung = bezeichnung;
 	}
 
 }
