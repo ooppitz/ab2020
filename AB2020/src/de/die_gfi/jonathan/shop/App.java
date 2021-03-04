@@ -34,6 +34,7 @@ public class App {
 		c1.addPurchaseItem(p3);
 		c2.addPurchaseItem(p5);
 		c1.printPurchase();
+		c1.rechnungErstellen();
 		
 		
 	}
