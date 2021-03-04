@@ -52,6 +52,15 @@ public class Shop {
         return customers.size();
     }
 
+    public void addCustomer(Customer c) {
+        customers.add(c);
+    }
+
+    public void addCustomer(String name, String address, String emailAddress) {
+        Customer c = new Customer(name, address, emailAddress, this);
+        customers.add(c);
+    }
+
     @Override
     public String toString() {
         return "Shop name: " + shopName + "\n"+
