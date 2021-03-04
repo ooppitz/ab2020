@@ -54,7 +54,15 @@ public class App
       System.out.println( cart.generateBill() );
       
       
-
+      System.out.println( "-----------------------------------------------------------------------------------------------" );
+      
+      /* Customoer ArrayList<Purchase> Test */
+      daniel.addPurchase(cart);
+      System.out.println(daniel.listPurchase());
+      
       
    }
+   
+   
+   
 }
