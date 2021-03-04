@@ -54,10 +54,22 @@ public class Shop {
         return customers.size();
     }
 
+    /**
+     * Adds a customer to this {@link Shop} by using a {@link Customer} object
+     *
+     * @param c A {@link Customer} object
+     */
     public void addCustomer(Customer c) {
         customers.add(c);
     }
 
+    /**
+     * Adds a customer to this {@link Shop} by using their name, address, and email address.
+     *
+     * @param name The name of the customer
+     * @param address The address of the customer
+     * @param emailAddress The e-mail address of the customer
+     */
     public void addCustomer(String name, String address, String emailAddress) {
         Customer c = new Customer(name, address, emailAddress, this);
         customers.add(c);
@@ -71,6 +83,10 @@ public class Shop {
                 "Amount of customers: " + getCustomerAmount();
     }
 
+    /**
+     *
+     * @return a string representing the inventory of this {@link Shop}
+     */
     public String inventoryToString() {
         return "Inventory:\n" + products;
     }
