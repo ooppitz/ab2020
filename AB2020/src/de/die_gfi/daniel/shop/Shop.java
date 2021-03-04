@@ -1,11 +1,16 @@
 package de.die_gfi.daniel.shop;
 
+import java.util.ArrayList;
+
+import de.die_gfi.daniel.shop.products.Warenlager;
+
 public class Shop
 {
    /* Shopdaten */
    String name;
    String adresse;
 
+   ArrayList<Product> warenlager;
    
    /* Inhaberdaten */
    long steuerNummer;
@@ -18,6 +23,9 @@ public class Shop
       this.adresse = adresse;
       this.steuerNummer = steuerNummer;
       this.adresseInhaber = adresseInhaber;      
+      
+      this.warenlager = Warenlager.createWarenlager();
+      
    }
    
    
