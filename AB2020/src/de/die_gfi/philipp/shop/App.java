@@ -1,11 +1,11 @@
 package de.die_gfi.philipp.shop;
 
+import de.die_gfi.philipp.shop.data.*;
+
 public class App {
     
     public static void main(String[] args) {
-        Shop aShop = new Shop("Hansi's Gemischtwarenladen",
-                "Hansi Mueller",
-                "Dorfstrasse 96, 28392 Dorf im Au");
+        Shop aShop = TestData.initializeTestShop();
 
         System.out.println(aShop);
 
