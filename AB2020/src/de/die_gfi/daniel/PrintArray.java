@@ -11,7 +11,7 @@
 
 package de.die_gfi.daniel;
 
-import de.die_gfi.util.Print;
+import de.die_gfi.util.Print;   /* Klasse importieren */
 
 
 public class PrintArray
@@ -21,7 +21,7 @@ public class PrintArray
    {
       int zahlen[] = new int[242-2+1];  /* Array deklarieren */
 
-      
+
       /* Array initialisieren */
       for( int i = 0; i < zahlen.length; i++ )
       {
@@ -29,7 +29,8 @@ public class PrintArray
       }
 
       Print.printArray( zahlen );
-      
+      de.die_gfi.util.Print.printArray(zahlen);
+
    }
 
 }
