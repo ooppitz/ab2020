@@ -50,9 +50,10 @@ public class App {
 		c2.addPurchaseItem(p5);
 		c3.addPurchaseItem(p6);
 		c4.addPurchaseItem(p7);
-		// c1.printPurchase();
-		// c3.rechnungErstellen();
-		// c4.printPurchase();
+		c1.printPurchase();
+		c3.rechnungErstellen();
+		c4.printPurchase();
+		c2.rechnungErstellen();
 
 	}
 }
