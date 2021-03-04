@@ -60,7 +60,7 @@ public class Shop {
                 "Amount of customers: " + getCustomerAmount();
     }
 
-    public String inventoryToStrin() {
+    public String inventoryToString() {
         return "Inventory:\n" + products;
     }
 }
