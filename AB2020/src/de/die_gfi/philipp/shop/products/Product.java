@@ -1,4 +1,4 @@
-package de.die_gfi.philipp.shop;
+package de.die_gfi.philipp.shop.products;
 
 /**
  * The objects of this class represent a generic product in an online shop.
@@ -65,5 +65,25 @@ public class Product {
     public String toString() {
         return "Product: " + articleNumber + "; " + manufacturer + " " + name +
                 "; price: " + price + "; packaging unit: " + packagingUnit;
+    }
+
+    public long getArticleNumber() {
+        return articleNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public int getPackagingUnit() {
+        return packagingUnit;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }

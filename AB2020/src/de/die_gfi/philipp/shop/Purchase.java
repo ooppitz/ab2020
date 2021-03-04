@@ -1,5 +1,7 @@
 package de.die_gfi.philipp.shop;
 
+import de.die_gfi.philipp.shop.products.Product;
+
 import java.util.ArrayList;
 
 public class Purchase {

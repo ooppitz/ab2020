@@ -1,9 +1,9 @@
-package de.die_gfi.philipp.shop;
+package de.die_gfi.philipp.shop.products;
 
 /**
  * Objects of this class represent Food with all associated info
  *
- * @see de.die_gfi.philipp.shop.Product
+ * @see Product
  */
 public class Food extends Product{
     protected final String bestByDate;

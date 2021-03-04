@@ -1,10 +1,10 @@
-package de.die_gfi.philipp.shop;
+package de.die_gfi.philipp.shop.products;
 
 /**
  * Objects of this class represent a Beverage with all associated info.
  *
- * @see de.die_gfi.philipp.shop.Food
- * @see de.die_gfi.philipp.shop.Product
+ * @see Food
+ * @see Product
  */
 public class Beverage extends Food{
 

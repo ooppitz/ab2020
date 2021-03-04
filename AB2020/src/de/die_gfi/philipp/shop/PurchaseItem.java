@@ -1,5 +1,7 @@
 package de.die_gfi.philipp.shop;
 
+import de.die_gfi.philipp.shop.products.Product;
+
 public class PurchaseItem {
     protected Product prod;
     protected int amount;
@@ -29,11 +31,11 @@ public class PurchaseItem {
      * @return the article number of the {@link Product} of this {@link PurchaseItem}
      */
     public long getArticleNumber() {
-        return prod.articleNumber;
+        return prod.getArticleNumber();
     }
 
     public String getName() {
-        return prod.name;
+        return prod.getName();
     }
 
     /**
