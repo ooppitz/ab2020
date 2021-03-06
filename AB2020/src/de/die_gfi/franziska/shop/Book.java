@@ -22,7 +22,7 @@ public class Book extends Product {
 
 	public String toString() {
 
-		return "Name: " + name + " \nPreis: " + preis + "€" + " \nMenge: " + anzahl + " \nISBN Nummer: " + isbn;
+		return "Artikelnummer: " + artikelnummer + "\nBuch: " + name + " \nPreis: " + preis + "€" + "\n";
 
 	}
 

@@ -2,6 +2,8 @@ package de.die_gfi.franziska.shop;
 
 import java.util.ArrayList;
 
+import de.die_gfi.franziska.shop.ProductCollection;
+
 public class App {
 
 	public static void main(String[] args) {
@@ -12,10 +14,15 @@ public class App {
 
 		Customer kurt = new Customer("Kurt Maier", "Landau", "kurt@maier.de");
 
+		System.out.println("Bücher \nGetränke \nLebensmittel" + "\n\nBitte Kategorie wählen");
+
+		System.out.println(p.auswahlTreffen());
+
 		Purchase k = simulatePurchase(kurt, p);
 
 		System.out.println(k.toString(k));
-
+		
+		
 	}
 
 	/**
@@ -26,17 +33,11 @@ public class App {
 	public static Purchase simulatePurchase(Customer c, ProductCollection p) {
 
 		ArrayList<PurchaseItem> purchasedItems = new ArrayList<PurchaseItem>();
+		
+		purchasedItems.add(PurchaseItem.productToPurchaseItem(p.auswahlArtikelAlsProduct()));
 
-		Product erstesShort = p.toArray()[0];
-		Product zweitesShort = p.toArray()[4];
-
-		PurchaseItem erstes = new PurchaseItem(erstesShort, erstesShort.anzahl, erstesShort.preis);
-
-		PurchaseItem zweites = new PurchaseItem(zweitesShort, zweitesShort.anzahl, zweitesShort.preis);
-
-		purchasedItems.add(erstes);
-		purchasedItems.add(zweites);
-
+		
+		
 		Purchase purchase = new Purchase(c, purchasedItems);
 
 		return purchase;
@@ -83,7 +84,7 @@ public class App {
 		Book o = new Book("Stricken lernen", 67.00, 2, 345578);
 		Getraenke g = new Getraenke("Erdbeerlimo", 1, 3, "22.08.2023");
 		Nahrung n = new Nahrung("Sandwich", 2, 4, "04.03.2021");
-		Nahrung a = new Nahrung("Babybrei", 8, 5, "01.01.2030");
+		Nahrung a = new Nahrung("Babybrei", 10.00, 5, "01.01.2030");
 
 		ArrayList<Product> produkte = new ArrayList<Product>();
 
@@ -118,5 +119,6 @@ public class App {
 		return strings;
 
 	}
+
 
 }

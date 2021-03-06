@@ -2,6 +2,8 @@ package de.die_gfi.franziska.shop;
 
 import java.util.ArrayList;
 
+import java.util.Scanner;
+
 public class ProductCollection {
 
 	ArrayList<Product> productCollection;
@@ -38,7 +40,7 @@ public class ProductCollection {
 	 * @param Product[] arr
 	 * @return length of the Product[]
 	 */
-	public int laenge(ProductCollection collection) {
+	public static int laenge(ProductCollection collection) {
 
 		int counter = 0;
 
@@ -51,4 +53,115 @@ public class ProductCollection {
 		return counter;
 	}
 
+	public String toString() {
+
+		String ausgabe = "";
+
+		for (int i = 0; i < ProductCollection.laenge(this); i++) {
+
+			ausgabe = ausgabe + productCollection.get(i).toString();
+
+		}
+		return ausgabe;
+	}
+
+	public String auswahlTreffen() {
+
+		Scanner scanner = new Scanner(System.in);
+
+		String auswahl = scanner.nextLine();
+		
+
+
+		String ausgabe = "";
+
+		String ausgabeTest = "";
+
+		switch (auswahl) {
+		case "Bücher":
+
+			for (int i = 0; i < ProductCollection.laenge(this); i++) {
+				if (productCollection.get(i) instanceof Book) {
+
+					ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+				}
+			}
+
+			System.out.println("Bitte Artikel durch Artikelnummer auswählen \n");
+
+			break;
+
+		case "Getränke":
+
+			for (int i = 0; i < ProductCollection.laenge(this); i++) {
+				if (productCollection.get(i) instanceof Getraenke) {
+
+					ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+
+				}
+			}
+
+			break;
+
+		case "Lebensmittel":
+
+			for (int i = 0; i < ProductCollection.laenge(this); i++) {
+				if (productCollection.get(i) instanceof Nahrung) {
+
+					ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+
+				}
+			}
+
+			break;
+		default:
+
+			ausgabe = "\nKategorie nicht vorhanden";
+
+			break;
+		}
+
+		return ausgabe + ausgabeTest;
+	}
+
+	public String auswahlArtikel() {
+
+//		Scanner scanner = new Scanner(System.in);
+
+		int chosenArticle = 1;
+
+		String ausgabeTest = "";
+
+		for (int i = 0; i < ProductCollection.laenge(this); i++) {
+
+			if (productCollection.get(i).artikelnummer == chosenArticle) {
+
+				ausgabeTest = "Ihr gewählter Artikel ist " + productCollection.get(i).name;
+
+			}
+
+		}
+		
+		return ausgabeTest;
+	}
+	
+	public Product auswahlArtikelAlsProduct() {
+
+		Scanner scanner = new Scanner(System.in);
+
+		int chosenArticle = scanner.nextInt();
+
+		Product chosenProduct = new Product("filler", 99, 99);
+
+		for (int i = 0; i < ProductCollection.laenge(this); i++) {
+
+			if (productCollection.get(i).artikelnummer == chosenArticle) {
+
+				chosenProduct = productCollection.get(i);
+
+			}
+
+		}
+		return chosenProduct;
+	}
 }

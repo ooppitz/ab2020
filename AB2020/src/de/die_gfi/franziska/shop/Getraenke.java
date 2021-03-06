@@ -22,7 +22,7 @@ public class Getraenke extends Product {
 
 	public String toString() {
 
-		return "Name: " + name + " \nPreis: " + preis + "€" + " \nMenge: " + anzahl + " \nAblaufdatum: " + ablaufdatum;
+		return "Artikenummer: " + artikelnummer + "\nGetränk: " + name + " \nPreis: " + preis + "\n";
 
 	}
 }

@@ -4,7 +4,7 @@ public class Product {
 
 	String name;
 	double preis;
-	int anzahl;
+	int artikelnummer;
 
 	public static void main(String[] args) {
 
@@ -14,13 +14,13 @@ public class Product {
 
 		this.name = n;
 		this.preis = p;
-		this.anzahl = nr;
+		this.artikelnummer = nr;
 
 	}
 
 	public String toString() {
 
-		return "Name: " + name + "\nPreis: " + preis + "\nMenge: " + anzahl;
+		return "Name: " + name + "\nPreis: " + preis + "\nArtikelnummer: " + artikelnummer;
 
 	}
 

@@ -14,7 +14,7 @@ public class Nahrung extends Product {
 
 	public String toString() {
 
-		return "Name: " + name + " \nPreis: " + preis + "€" + " \nMenge: " + anzahl + " \nAblaufdatum: " + ablaufdatum;
+		return "Artikelnummer: " + artikelnummer + "\nLebensmittel: " + name + " \nPreis: " + preis + "€" + "\n";
 
 	}
 }

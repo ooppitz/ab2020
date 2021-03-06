@@ -2,6 +2,10 @@ package de.die_gfi.franziska.shop;
 
 import java.util.ArrayList;
 
+import java.util.Scanner;
+
+import de.die_gfi.franziska.shop.PurchaseItem;
+
 public class Purchase {
 
 	ArrayList<PurchaseItem> items;
@@ -24,16 +28,21 @@ public class Purchase {
 		String ausgabe = "";
 
 		double preisGesamt = 0;
-
+		
+		double preisProItem = 0;
+		
+		
 		for (int i = 0; i < items.toArray().length; i++) {
+			
+			preisProItem = preisProItem + items.get(i).p.preis* items.get(i).menge;
 
-			preisGesamt = preisGesamt + (items.get(i).p.preis * items.get(i).p.anzahl);
-
-			ausgabe = ausgabe + items.get(i).p.anzahl + "x " + items.get(i).p.name + " für je " + items.get(i).p.preis
+			preisGesamt = preisGesamt + preisProItem;
+			
+			ausgabe = ausgabe + items.get(i).menge + "x " + items.get(i).p.name + " " + preisProItem
 					+ "€\n";
 		}
-
-		return "Ihr Einkauf: \n" + ausgabe + "\nGesamt: " + preisGesamt;
+		
+		return "Ihr Einkauf: \n" + ausgabe + "\nGesamt: " + preisGesamt + "€";
 
 	}
 

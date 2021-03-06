@@ -22,6 +22,7 @@ public class Exercise16ArrayList {
 		arr.add(6);
 		arr.add(3);
 		arr.add(9);
+		arr.add(3);
 
 		System.out.println("Original Array: " + arr);
 
