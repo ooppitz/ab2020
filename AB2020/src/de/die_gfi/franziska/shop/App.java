@@ -2,27 +2,23 @@ package de.die_gfi.franziska.shop;
 
 import java.util.ArrayList;
 
-import de.die_gfi.franziska.shop.ProductCollection;
+import java.util.Scanner;
 
 public class App {
 
 	public static void main(String[] args) {
 
-		ProductCollection p = App.createProductCollection();
+		Scanner scanner = new Scanner(System.in);
 
-		Product[] products = p.toArray();
+		ProductCollection p = App.createProductCollection();
 
 		Customer kurt = new Customer("Kurt Maier", "Landau", "kurt@maier.de");
 
-		System.out.println("Bücher \nGetränke \nLebensmittel" + "\n\nBitte Kategorie wählen");
-
-		System.out.println(p.auswahlTreffen());
-
 		Purchase k = simulatePurchase(kurt, p);
 
-		System.out.println(k.toString(k));
-		
-		
+		System.out.println(k.toString());
+
+		scanner.close();
 	}
 
 	/**
@@ -34,45 +30,25 @@ public class App {
 
 		ArrayList<PurchaseItem> purchasedItems = new ArrayList<PurchaseItem>();
 		
-		purchasedItems.add(PurchaseItem.productToPurchaseItem(p.auswahlArtikelAlsProduct()));
+		System.out.println("Wilkommen in Franzis fantastischem Online-Shop");
 
-		
-		
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("Wollen Sie etwas kaufen?");
+
+		while (input.nextLine().equalsIgnoreCase("ja")) {
+
+			System.out.println(p.auswahlTreffen());
+
+//		creates PurchaseItem out of the Product that was chosen with artikelnummer and adds it to Purchase which is a PurchaseItem array.		
+			purchasedItems.add(PurchaseItem.productToPurchaseItem(p.auswahlArtikelAlsProduct()));
+
+			System.out.println("Noch einen Artikel hinzufügen?");
+		}
+
 		Purchase purchase = new Purchase(c, purchasedItems);
 
 		return purchase;
-	}
-
-	/**
-	 * Experiment um zu überprüfen, ob das ausgewählte Produkt in einem bestimmten
-	 * Sortiment vorhanden ist.
-	 * 
-	 * @param p
-	 * @param product
-	 * @return
-	 */
-	public boolean isPartOfProductLine(ProductCollection p, Product product) {
-
-		int indexStorage = 0;
-
-		for (int j = 0; j < p.toArray().length; j++) {
-
-			String gesuchterName = p.toArray()[j].name;
-
-			@SuppressWarnings("unused")
-			Product gekauftesProdukt = p.toArray()[indexStorage];
-
-			for (int i = 0; i < p.toArray().length; i++) {
-
-				if (p.toArray()[i].name == gesuchterName) {
-
-					indexStorage = i;
-				}
-
-			}
-		}
-
-		return true;
 	}
 
 	/**
@@ -80,45 +56,32 @@ public class App {
 	 */
 	public static ProductCollection createProductCollection() {
 
-		Book b = new Book("Gulaschsuppe für Fortgeschrittene", 9.99, 1, 347);
-		Book o = new Book("Stricken lernen", 67.00, 2, 345578);
-		Getraenke g = new Getraenke("Erdbeerlimo", 1, 3, "22.08.2023");
-		Nahrung n = new Nahrung("Sandwich", 2, 4, "04.03.2021");
-		Nahrung a = new Nahrung("Babybrei", 10.00, 5, "01.01.2030");
+		Book proG = new Book("Gulaschsuppe für Fortgeschrittene", 9.99, 1, 347);
+		Book sLernen = new Book("Stricken lernen", 67.00, 2, 345578);
+		Getraenke eLimo = new Getraenke("Erdbeerlimo", 1.00, 3, "22.08.2023");
+		Getraenke bier = new Getraenke("Bier", 1.86, 4, "nächster Tag bis 4 Uhr");
+		Nahrung sandwich = new Nahrung("Sandwich", 2.00, 5, "04.03.2021");
+		Nahrung brei = new Nahrung("Babybrei", 10.00, 6, "01.01.2030");
+		Nahrung mGulasch = new Nahrung("Minderwertiges Gulasch", 28, 7, "jetzt");
+		Nahrung erbsen = new Nahrung("N' Batzen Erbsen", 15, 8, "wahrscheinlich noch ne gute Zeit entfernt");
+		Nahrung mettIgel = new Nahrung("Mettigel", 9 , 9, "unbekannt");
 
 		ArrayList<Product> produkte = new ArrayList<Product>();
 
-		produkte.add(b);
-		produkte.add(o);
-		produkte.add(g);
-		produkte.add(n);
-		produkte.add(a);
-
+		produkte.add(proG);
+		produkte.add(sLernen);
+		produkte.add(eLimo);
+		produkte.add(bier);
+		produkte.add(sandwich);
+		produkte.add(brei);
+		produkte.add(mGulasch);
+		produkte.add(erbsen);
+		produkte.add(mettIgel);
+		
 		ProductCollection collection = new ProductCollection(produkte);
 
 		return collection;
 
 	}
-
-	/**
-	 * 
-	 * @param arr
-	 * @return Primitive array out of the ArrayList
-	 */
-
-	public String[] toStringArray(Product[] arr) {
-
-		String[] strings = new String[arr.length];
-
-		for (int i = 0; i < arr.length; i++) {
-
-			strings[i] = arr[i].toString();
-
-		}
-
-		return strings;
-
-	}
-
-
+	
 }

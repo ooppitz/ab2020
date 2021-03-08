@@ -8,9 +8,9 @@ public class ProductCollection {
 
 	ArrayList<Product> productCollection;
 
-	public ProductCollection(ArrayList<Product> arrList) {
+	public ProductCollection(ArrayList<Product> listOfProducts) {
 
-		this.productCollection = arrList;
+		this.productCollection = listOfProducts;
 
 	}
 
@@ -68,67 +68,71 @@ public class ProductCollection {
 	public String auswahlTreffen() {
 
 		Scanner scanner = new Scanner(System.in);
-
-		String auswahl = scanner.nextLine();
 		
+		System.out.println("Unsere Kategorien: \n");
 
+		System.out.println("Bücher \nGetränke \nLebensmittel");
 
 		String ausgabe = "";
 
-		String ausgabeTest = "";
+		
+			System.out.println("\nBitte eine Kategorie wählen");
 
-		switch (auswahl) {
-		case "Bücher":
+			switch (scanner.nextLine()) {
+			case "Bücher":
 
-			for (int i = 0; i < ProductCollection.laenge(this); i++) {
-				if (productCollection.get(i) instanceof Book) {
+				for (int i = 0; i < ProductCollection.laenge(this); i++) {
+					if (productCollection.get(i) instanceof Book) {
 
-					ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+						ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+					}
 				}
-			}
 
-			System.out.println("Bitte Artikel durch Artikelnummer auswählen \n");
+				System.out.println("Bitte Artikel durch Artikelnummer auswählen \n");
 
-			break;
+				break;
 
-		case "Getränke":
+			case "Getränke":
 
-			for (int i = 0; i < ProductCollection.laenge(this); i++) {
-				if (productCollection.get(i) instanceof Getraenke) {
+				for (int i = 0; i < ProductCollection.laenge(this); i++) {
+					if (productCollection.get(i) instanceof Getraenke) {
 
-					ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+						ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
 
+					}
 				}
-			}
 
-			break;
+				break;
 
-		case "Lebensmittel":
+			case "Lebensmittel":
 
-			for (int i = 0; i < ProductCollection.laenge(this); i++) {
-				if (productCollection.get(i) instanceof Nahrung) {
+				for (int i = 0; i < ProductCollection.laenge(this); i++) {
+					if (productCollection.get(i) instanceof Nahrung) {
 
-					ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+						ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
 
+					}
 				}
+
+				break;
+
+			default:
+
+				ausgabe = "\nKategorie nicht vorhanden";
+
+				break;
 			}
+	
 
-			break;
-		default:
-
-			ausgabe = "\nKategorie nicht vorhanden";
-
-			break;
-		}
-
-		return ausgabe + ausgabeTest;
+		
+		return ausgabe;
 	}
 
 	public String auswahlArtikel() {
 
-//		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 
-		int chosenArticle = 1;
+		int chosenArticle = scanner.nextInt();
 
 		String ausgabeTest = "";
 
@@ -141,10 +145,10 @@ public class ProductCollection {
 			}
 
 		}
-		
+
 		return ausgabeTest;
 	}
-	
+
 	public Product auswahlArtikelAlsProduct() {
 
 		Scanner scanner = new Scanner(System.in);

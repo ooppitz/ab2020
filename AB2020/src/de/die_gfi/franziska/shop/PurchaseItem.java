@@ -48,6 +48,4 @@ public class PurchaseItem {
 
 		return item;
 	}
-
-
 }
