@@ -6,7 +6,5 @@ public class App {
 		Shop s=new Shop();
 		s.demo();
 		s.output();
-		
-
 	}
 }
