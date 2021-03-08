@@ -31,21 +31,20 @@ public class Punkt3D extends Punkt {
 
 	}
 
-public static int countPunkt3D(Punkt[] punkte) {
-		
+	public static int countPunkt3D(Punkt[] punkte) {
+
 		int counter = 0;
-		
+
 		for (int i = 0; i < punkte.length; i++) {
-			
+
 			if (punkte[i] instanceof Punkt3D) {
-				
+
 				counter = counter + 1;
-				
+
 			}
 		}
-		
+
 		return counter;
 	}
 
-	
 }
