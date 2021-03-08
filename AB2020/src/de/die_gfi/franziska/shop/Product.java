@@ -19,7 +19,7 @@ public class Product {
 		Nahrung sandwich = new Nahrung("Sandwich", 2.00, 5, "04.03.2021");
 		Nahrung brei = new Nahrung("Babybrei", 10.00, 6, "01.01.2030");
 		Nahrung mGulasch = new Nahrung("Minderwertiges Gulasch", 28, 7, "jetzt");
-		Nahrung erbsen = new Nahrung("N' Batzen Erbsen", 15, 8, "wahrscheinlich noch ne gute Zeit entfernt");
+		Nahrung erbsen = new Nahrung("N' Batzen Bohnen", 3, 8, "wahrscheinlich noch ne gute Zeit entfernt");
 		Nahrung mettIgel = new Nahrung("Mettigel", 9, 9, "unbekannt");
 
 		ArrayList<Product> produkte = new ArrayList<Product>();
