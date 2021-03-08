@@ -1,5 +1,7 @@
 package de.die_gfi.franziska.shop;
 
+//start implementing interfaces
+
 public class Getraenke extends Product {
 
 	String ablaufdatum;

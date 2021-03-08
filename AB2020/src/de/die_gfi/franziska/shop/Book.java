@@ -1,5 +1,7 @@
 package de.die_gfi.franziska.shop;
 
+//start implementing interfaces
+
 public class Book extends Product {
 
 	int isbn;

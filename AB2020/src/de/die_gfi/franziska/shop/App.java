@@ -1,5 +1,7 @@
 package de.die_gfi.franziska.shop;
 
+// Start implementing interfaces
+
 import java.util.ArrayList;
 
 import java.util.Scanner;
