@@ -2,15 +2,19 @@ package de.die_gfi.franziska.shop;
 
 //start implementing interfaces
 
-public class Getraenke extends Product {
+public class Getraenke extends Product implements InstanceCounter {
 
 	String ablaufdatum;
+
+	public static int counter = 0;
 
 	public Getraenke(String n, double p, int nr, String a) {
 
 		super(n, p, nr);
 
 		this.ablaufdatum = a;
+
+		Getraenke.counter++;
 
 	}
 
@@ -25,6 +29,12 @@ public class Getraenke extends Product {
 	public String toString() {
 
 		return "Artikenummer: " + artikelnummer + "\nGetränk: " + name + " \nPreis: " + preis + "\n";
+
+	}
+
+	public int getCount() {
+
+		return Getraenke.counter;
 
 	}
 }
