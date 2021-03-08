@@ -1,0 +1,16 @@
+Aufgabe
+
+Implementieren Sie eine Klasse Punkt mit den double-Koordinaten x, y.
+Implementieren Sie eine Klasse Punkt3D, welche von Punkt abgeleitet ist und eine Koordinate double z hinzufügt. 
+Schreiben Sie für Punkt und Punkt3D Konstruktoren, welche Parameter zum Initialisieren der Variablen erhalten. Nicht angegebene Koordinaten werden mit 0 initialisiert.
+Nutzen Sie wo immer möglich, bereits implementierte Konstruktoren und rufen Sie diese mit this() bzw. super() auf. 
+
+Implementieren Sie eine main()-Methode, welche Punkt nach dem Muster unten erzeugt.
+Legen Sie ein Package interfaces an.
+
+
+Punkt p = new Punkt(9);  // x = 9;
+Punkt q = new Punkt(3, 7);
+Punkt3d = new Punkt3d(9,3,2);
+Punkt3d = new Punkt3d(7);
+Punkt3d = new Punkt3d(7,4);
