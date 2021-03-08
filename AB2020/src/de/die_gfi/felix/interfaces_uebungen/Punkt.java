@@ -21,6 +21,11 @@ public class Punkt {
 		this.counter++;
 	}
 	
+	public String toString() {
+		String result = new String("x: " + this.x + ", y: " + this.y);
+		return result;
+	}
+	
 	public static void main(String args[]) {
 		Punkt punkt1 = new Punkt();
 		Punkt punkt2 = new Punkt(1);

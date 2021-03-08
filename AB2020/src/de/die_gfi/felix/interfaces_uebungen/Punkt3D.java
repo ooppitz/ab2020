@@ -24,4 +24,9 @@ public class Punkt3D extends Punkt{
 		counter3D++;
 		counter--;
 	}
+	
+	public String toString() {
+		String result = new String("x: " + this.x + ", y: " + this.y + ", z: " + this.z);
+		return result;
+	}
 }
