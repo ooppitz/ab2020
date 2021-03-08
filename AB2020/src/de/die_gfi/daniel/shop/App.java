@@ -47,6 +47,7 @@ public class App
       System.out.println( daniel.listPurchase() );
 
 
+      System.out.printf( "Anzahl Produkte: %d\n", Product.anzahlProduct );
    }
 
 

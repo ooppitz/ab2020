@@ -1,11 +1,12 @@
 package de.die_gfi.daniel.shop;
 
-public class Product
+public class Product implements CounterInterface
 {
    String name;
    double preis;
    String beschreibung;
    long artikelNummer;
+   static int anzahlProduct = 0;
    
    
    
@@ -15,6 +16,13 @@ public class Product
       this.preis = preis;
       this.beschreibung = beschreibung;
       this.artikelNummer = artikelNummer;
+      Product.anzahlProduct++;
+      
+      /* Wenn es sich um e */
+      if()
+      {
+         
+      }
    }
    
    
@@ -35,6 +43,12 @@ public class Product
       return
             ":Product" + "\n" +
             this.ausgabe() + "\n";
+   }
+
+
+   public int getCount()
+   {
+      return Product.anzahlProduct;
    }
    
 /*   

@@ -1,6 +1,6 @@
 package de.die_gfi.daniel.shop;
 
-public class Book extends Product
+public class Book extends Product implements CounterInterface
 {
    String verlag;
    String author;
