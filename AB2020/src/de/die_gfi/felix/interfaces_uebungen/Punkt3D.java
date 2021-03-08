@@ -1,4 +1,4 @@
-package de.die_gfi.felix;
+package de.die_gfi.felix.interfaces_uebungen;
 
 public class Punkt3D extends Punkt{
 	

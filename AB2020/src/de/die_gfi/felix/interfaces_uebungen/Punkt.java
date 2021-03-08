@@ -1,6 +1,6 @@
-package de.die_gfi.felix;
+package de.die_gfi.felix.interfaces_uebungen;
 
-public class Punkt {
+public class Punkt { 
 
 	double x;
 	double y;
