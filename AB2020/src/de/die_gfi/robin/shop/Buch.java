@@ -2,6 +2,7 @@ package de.die_gfi.robin.shop;
 
 public class Buch extends Product {
 
+	static int countBuch;
 	String titel;
 	String author;
 
@@ -11,7 +12,12 @@ public class Buch extends Product {
 		
 		this.titel = _titel;
 		this.author = _author;
+		countBuch++;
+		
 
 	}
 
+	public int getCount() {
+		return countBuch;
+	}
 }

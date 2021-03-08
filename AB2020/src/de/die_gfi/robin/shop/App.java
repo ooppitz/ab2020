@@ -3,7 +3,7 @@ package de.die_gfi.robin.shop;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class App {
+public class App implements CounterInterface {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -26,6 +26,9 @@ public class App {
 		Rechnungen.rechnungHinzufuegen(total, kundenListe[kundenNummer]);
 
 		input.close();
+		
+		System.out.println("\nMenge der instanzierten Objekte");
+		System.out.printf("Getränke: %d Buch",Getraenk.countGetraenk,Buch.countBuch);
 
 	}
 
@@ -96,6 +99,12 @@ public class App {
 			System.out.println(product.produktnummer + ": " + String.format("%-40s", product.bezeichnung) + " "
 					+ String.format("%6.2f", product.preis) + " €");
 		}
+	}
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
