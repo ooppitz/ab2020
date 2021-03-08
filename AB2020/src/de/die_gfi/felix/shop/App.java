@@ -35,8 +35,6 @@ public class App {
 		System.out.println("Rechnung wird Erstellt");
 		System.out.println(einkauf.erstellenRechnung(kunde1, felixOnlineShop));
 		System.out.println("\n");
-		kunde1.printPurchaseList();
-		felixOnlineShop.printCustumerList();
 		sc.close();
 	}
 
