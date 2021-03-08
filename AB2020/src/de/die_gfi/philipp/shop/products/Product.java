@@ -3,13 +3,14 @@ package de.die_gfi.philipp.shop.products;
 /**
  * The objects of this class represent a generic product in an online shop.
  */
-public class Product {
+public class Product implements CounterInterface{
 
     protected final long articleNumber;
     protected final String name;
     protected final String manufacturer;
     protected double price;
     protected int packagingUnit;
+    static int counter;
 
     /**
      * Constructs a Product object with all necessary data for a generic product.
@@ -24,6 +25,7 @@ public class Product {
         this.manufacturer = manufacturer;
         this.price = price;
         this.packagingUnit = 1;
+        Product.counter++;
     }
 
     /**
@@ -94,6 +96,10 @@ public class Product {
 
     public String getProductString() {
         return manufacturer + " " + name;
+    }
+
+    public int getCount() {
+        return Product.counter;
     }
 
     @Override
