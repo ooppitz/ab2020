@@ -13,8 +13,11 @@ public class Punkt {
 		Punkt3D p2 = new Punkt3D(7);
 		Punkt3D p3 = new Punkt3D(7, 4);
 
-		System.out.println(p.toString());
+		Punkt[] arr = {p, q, p1, p2, p3};
 
+		Punkt.countPunkte(arr);
+		
+		
 	}
 
 	public Punkt(double x, double y) {
@@ -35,6 +38,17 @@ public class Punkt {
 
 		return "x: " + this.x + "y: " + this.y;
 
+	}
+	
+	public static int countPunkte(Punkt[] punkte) {
+		
+		int anzahl = punkte.length - Punkt3D.countPunkt3D(punkte);
+		
+		System.out.println("Es wurden " + anzahl + " zweidimensionale Punkte erzeugt.");
+		
+		System.out.println("Es wurden " + Punkt3D.countPunkt3D(punkte) + " dreidimensionale Punkte erzeugt.");
+		
+		return anzahl;
 	}
 
 }
