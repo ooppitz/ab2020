@@ -22,6 +22,11 @@ public class App {
 		kollecktionListe.add(produkt1);
 		kollecktionListe.add(produkt2);
 		kollecktionListe.add(produkt3);
+		
+		ArrayList<CounterTest> kollecktionListe2 = new ArrayList<CounterTest>();
+		kollecktionListe2.add(produkt1);
+		kollecktionListe2.add(produkt2);
+		kollecktionListe2.add(produkt3);
 
 		ProductCollection produktPallette = new ProductCollection(kollecktionListe);
 
@@ -36,6 +41,7 @@ public class App {
 		System.out.println(einkauf.erstellenRechnung(kunde1, felixOnlineShop));
 		System.out.println("\n");
 		sc.close();
+		printCounter(kollecktionListe2);
 	}
 
 	private static Purchase einkaufDurchfueren(Scanner sc, Shop felixOnlineShop, ProductCollection produktPallete) {
@@ -79,6 +85,13 @@ public class App {
 
 		Purchase einkauf = new Purchase(einkaufswagen);
 		return einkauf;
+	}
+	
+	public static void printCounter(ArrayList<CounterTest> kollecktionsListe) {
+		for(CounterTest x : kollecktionsListe) {
+			System.out.println(x);
+			System.out.println(x.getCounter());
+		}
 	}
 
 }
