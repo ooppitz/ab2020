@@ -13,13 +13,13 @@ public interface Discount {
 	     * 
 	     * @return maximum possible discount in percent
 	     */
-	    int getMaximumDiscount();
+	    double getMaximumDiscount();
 	    
 	    /** Returns the discount when purchasing multiple products 
 	     * 
 	     * @param number of items to purchase
 	     * @return possible discount in percent
 	     */
-	    int getDiscountForAmount(int count);
+	   // int getDiscountForAmount(int count);
 	
 }

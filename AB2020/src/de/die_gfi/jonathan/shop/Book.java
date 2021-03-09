@@ -28,12 +28,9 @@ public class Book extends Product implements Discount {
 	}
 
 	@Override
-	public int getMaximumDiscount() {
+	public double getMaximumDiscount() {
 		return 0;
 	}
 
-	@Override
-	public int getDiscountForAmount(int count) {
-		return 0;
-	}
+	
 }

@@ -20,14 +20,9 @@ public class Trinket extends Product implements Discount {
 	}
 
 	@Override
-	public int getMaximumDiscount() {
-		System.out.println("5%");
-		return 5;
+	public double getMaximumDiscount() {
+		return price-price/20;
 	}
 
-	@Override
-	public int getDiscountForAmount(int count) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 }
