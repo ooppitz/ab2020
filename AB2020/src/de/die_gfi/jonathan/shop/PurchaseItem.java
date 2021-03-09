@@ -3,7 +3,7 @@ package de.die_gfi.jonathan.shop;
 public class PurchaseItem {
 	
 	Product item;
-	int count;
+	private int count;
 	double price;
 
 	public PurchaseItem(Product produkt, int anzahl) {

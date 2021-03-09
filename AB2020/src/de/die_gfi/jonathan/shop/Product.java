@@ -2,7 +2,7 @@ package de.die_gfi.jonathan.shop;
 
 public class Product {
 	String name;
-	double price;
+	protected double price;
 	int produktnumber;
 // die Produktnummer wird erst zugewiesen wenn das Produkt in das Sortiement aufgenomen wurde
 
@@ -25,4 +25,14 @@ public class Product {
 	public String toString() {
 		return "Name: " + name + " Produktnummer: " + produktnumber + " preis: " + price;
 	}
+	
+	public double getPrice() {
+		return price;
+	}
+	
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	
 }
