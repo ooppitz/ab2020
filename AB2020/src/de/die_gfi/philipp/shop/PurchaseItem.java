@@ -66,10 +66,6 @@ public class PurchaseItem {
         return prod.getPrice() * amount;
     }
 
-    public int getPackagingUnit() {
-        return prod.getPackagingUnit();
-    }
-
     public String getManufacturer() {
         return prod.getManufacturer();
     }

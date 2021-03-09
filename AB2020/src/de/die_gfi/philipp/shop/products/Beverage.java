@@ -10,6 +10,7 @@ package de.die_gfi.philipp.shop.products;
 public class Beverage extends ExpirableProduct{
 
     protected int containerSizeInMl;
+    protected int packagingUnit;
 
     /**
      * @param articleNumber Article number of this Beverage
@@ -24,7 +25,8 @@ public class Beverage extends ExpirableProduct{
     }
 
     public Beverage(long articleNumber, String name, String manufacturer, double price, String bestByDate, int containerSizeInMl, int packagingUnit) {
-        super(articleNumber, name,manufacturer,price, bestByDate, packagingUnit);
+        super(articleNumber, name,manufacturer,price, bestByDate);
+        this.packagingUnit = packagingUnit;
         this.containerSizeInMl = containerSizeInMl;
     }
 

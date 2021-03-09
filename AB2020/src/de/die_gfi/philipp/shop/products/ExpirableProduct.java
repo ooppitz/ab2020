@@ -9,8 +9,8 @@ public class ExpirableProduct extends Product{
         this.bestByDate = bestByDate;
     }
 
-    public ExpirableProduct(long articleNumber, String name, String manufacturer, double price, String bestByDate, int packagingUnit) {
-        super(articleNumber, name, manufacturer, price, packagingUnit);
+    public ExpirableProduct(long articleNumber, String name, String manufacturer, double price, String bestByDate, int maxDiscountPercent) {
+        super(articleNumber, name, manufacturer, price, maxDiscountPercent);
         this.bestByDate = bestByDate;
     }
 

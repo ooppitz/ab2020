@@ -3,14 +3,15 @@ package de.die_gfi.philipp.shop.products;
 /**
  * The objects of this class represent a generic product in an online shop.
  */
-public class Product implements CounterInterface{
+public class Product implements CounterInterface, Discount{
 
     protected final long articleNumber;
     protected final String name;
     protected final String manufacturer;
     protected double price;
-    protected int packagingUnit;
     static int counter;
+    protected boolean isDiscountable = false;
+    protected int maxDiscountPercent = 0;
 
     /**
      * Constructs a Product object with all necessary data for a generic product.
@@ -24,26 +25,36 @@ public class Product implements CounterInterface{
         this.name = name;
         this.manufacturer = manufacturer;
         this.price = price;
-        this.packagingUnit = 1;
         Product.counter++;
     }
 
     /**
-     * Construct a Product object with all necessary data for a generic product and additionally defines the amount of
-     * units per package
+     * Construct a Product object with all necessary data for a generic product and additionally defines a discount
+     *
      *  @param articleNumber Article number of this product
      * @param name Name of this product
      * @param manufacturer manufacturer of this product
      * @param price Price of this product
-     * @param packagingUnit How many units of the product are included per package
+     * @param maxDiscountPercent The maximum discount that can be given in percent (e.g. 15 % would be 15)
      */
-    public Product(long articleNumber, String name, String manufacturer, double price, int packagingUnit) {
+    public Product(long articleNumber, String name, String manufacturer, double price, int maxDiscountPercent) {
     	
     	this(articleNumber, name, manufacturer, price);
- 
-        this.packagingUnit = packagingUnit;
+    	this.isDiscountable = true;
+    	this.maxDiscountPercent = maxDiscountPercent;
+
     }
 
+    /**
+     * Parses a String array to a Product object <br>
+     * The stored String has a format of either
+     * <p>type|article number|name|manufacturer|price</p>
+     * or
+     * <p>type|article number|name|manufacturer|price|max discount in percent</p>
+     *
+     * @param elements A String array, which represents the elements for the constructor
+     * @return an object initialized from the values in the elements array
+     */
     public static Product parseString(String[] elements) {
         if (elements.length == 5) {
             return new Product(Long.parseLong(elements[1]), elements[2],
@@ -65,15 +76,6 @@ public class Product implements CounterInterface{
         this.price = newPrice;
     }
 
-    /**
-     * Sets a new amount of product per unit
-     *
-     * @param newPackagingUnit new amount per unit
-     */
-    public void setPackagingUnit(int newPackagingUnit) {
-        this.packagingUnit = newPackagingUnit;
-    }
-
     public long getArticleNumber() {
         return articleNumber;
     }
@@ -84,10 +86,6 @@ public class Product implements CounterInterface{
 
     public String getManufacturer() {
         return manufacturer;
-    }
-
-    public int getPackagingUnit() {
-        return packagingUnit;
     }
 
     public double getPrice() {
@@ -103,8 +101,29 @@ public class Product implements CounterInterface{
     }
 
     @Override
+    public boolean isDiscountPossible() {
+        return isDiscountable;
+    }
+
+    @Override
+    public int getMaximumDiscount() {
+        return maxDiscountPercent;
+    }
+
+    @Override
+    public int getDiscountForAmount(int amount) {
+        if (amount > 25) {
+            return maxDiscountPercent;
+        }
+        if (amount > 10) {
+            return maxDiscountPercent/2;
+        }
+        return 0;
+    }
+
+    @Override
     public String toString() {
         return "Product: " + articleNumber + "; " + manufacturer + " " + name +
-                "; price: " + price + "; packaging unit: " + packagingUnit;
+                "; price: " + price;
     }
 }
