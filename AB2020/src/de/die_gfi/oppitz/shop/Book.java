@@ -21,4 +21,15 @@ public class Book extends Product {
 		return "Book '" + name + "' (" + author + ")" + " published by " + publisher + " in " + publicationYear + "; Cost: " + price;
 	}
 
+	@Override
+	public int caculateDiscount(int numberOfItems) {
+		
+		int discount = 0;
+		
+		if (numberOfItems >=5) {
+			discount = 5;
+		}
+		return discount;
+	}
+
 }
