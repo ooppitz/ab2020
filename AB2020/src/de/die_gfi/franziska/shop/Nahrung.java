@@ -6,7 +6,7 @@ public class Nahrung extends Product implements InstanceCounter {
 
 	String ablaufdatum;
 
-	public static int counter = 0;
+	protected static int counter = 0;
 
 	public Nahrung(String n, double p, int nr, String a) {
 

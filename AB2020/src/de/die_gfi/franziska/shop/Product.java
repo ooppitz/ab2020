@@ -2,7 +2,7 @@ package de.die_gfi.franziska.shop;
 
 import java.util.ArrayList;
 
-public class Product {
+public class Product implements Discount {
 
 	String name;
 	double preis;
@@ -74,4 +74,22 @@ public class Product {
 
 	}
 
+	@Override
+	public boolean isDiscountPossible() {
+		
+		return true;
+	}
+
+	@Override
+	public int getMaximumDiscount() {
+		
+		
+		return 30;
+	}
+
+	@Override
+	public int getDiscountForAmount(int count) {
+		
+		return 10;
+	}
 }
