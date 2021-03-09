@@ -4,12 +4,12 @@ public class PurchaseItem {
 	
 	Product item;
 	private int count;
-	double price;
+	protected double price;
 
 	public PurchaseItem(Product produkt, int anzahl) {
 		item = produkt;
 		count = anzahl;
-		price = produkt.price;
+		price = produkt.price+5;
 
 	}
 
