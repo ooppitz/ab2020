@@ -33,7 +33,7 @@ public class ColoredCircle extends Circle {
 		if (this.color.equals("black") || this.color.equals("white") ) {
 			return true;
 		}
-		
+			
 		return false;
 	}
 	
