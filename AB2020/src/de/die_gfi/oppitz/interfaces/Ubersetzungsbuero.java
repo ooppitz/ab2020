@@ -15,6 +15,10 @@ public class Ubersetzungsbuero {
 		paolo.spezialitaetDesAngestellten("Auf Wiedersehen!");
 
 	}
+	
+    void foo() {
+		
+	}
 
 }
 
