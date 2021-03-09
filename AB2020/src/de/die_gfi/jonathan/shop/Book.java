@@ -1,6 +1,6 @@
 package de.die_gfi.jonathan.shop;
 
-public class Book extends Product {
+public class Book extends Product implements Discount {
 	
 	int isbn;
 	String author;
@@ -20,5 +20,20 @@ public class Book extends Product {
 
 	public String toString() {
 		return "Titel: " + name + " Autor: " + author + " ISBN " + isbn;
+	}
+
+	@Override
+	public boolean isDiscountPossible() {
+		return false;
+	}
+
+	@Override
+	public int getMaximumDiscount() {
+		return 0;
+	}
+
+	@Override
+	public int getDiscountForAmount(int count) {
+		return 0;
 	}
 }
