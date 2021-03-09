@@ -1,6 +1,6 @@
 package de.die_gfi.robin.shop;
 
-public class Buch extends Product {
+public class Buch extends Product implements CounterInterface {
 
 	static int countBuch;
 	String titel;

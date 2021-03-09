@@ -1,8 +1,8 @@
 package de.die_gfi.robin.shop;
 
-public class Product implements CounterInterface {
+public class Product {
 
-	static int count;
+	
 	double preis;
 	int produktnummer;
 	String bezeichnung;
@@ -16,11 +16,8 @@ public class Product implements CounterInterface {
 	}
 
 
-	@Override
-	public int getCount() {
-		
-		return 0;
-	}
+	
+	
 	
 	
 }

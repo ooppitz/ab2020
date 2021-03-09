@@ -1,6 +1,6 @@
 package de.die_gfi.robin.shop;
 
-public class Getraenk extends Product {
+public class Getraenk extends Product implements CounterInterface {
 
 	static int countGetraenk;
 	double liter;
