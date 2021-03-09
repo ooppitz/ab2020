@@ -14,6 +14,6 @@ public abstract class Angestellter {
 		this.abteilung = abteilung;
 	}
 	
-	public abstract void spezialität(String aufgabe);
+	public abstract void spezialitaet(String aufgabe);
 
 }

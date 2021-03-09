@@ -6,7 +6,7 @@ public class Drohnenspezialist extends Angestellter{
 		super (name, eMail, gehalt, abteilung);			
 		}
 	
-	public void spezialität(String aufgabe) {
+	public void spezialitaet(String aufgabe) {
 		System.out.println(aufgabe);
 	}
 
