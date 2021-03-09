@@ -6,7 +6,7 @@ public class Product implements CounterInterface
    double preis;
    String beschreibung;
    long artikelNummer;
-   static int anzahlProduct = 0;
+   private static int anzahlProduct = 0;
    
    
    
@@ -26,7 +26,7 @@ public class Product implements CounterInterface
    }
    
    
-   public String ausgabe()
+   protected String ausgabe()
    {
       return
 //          String.format( "%-14s: ", "Name" ) + this.name + "\n" +

@@ -46,8 +46,10 @@ public class App
       daniel.addPurchase( cart );
       System.out.println( daniel.listPurchase() );
 
-
+/*
       System.out.printf( "Anzahl Produkte: %d\n", Product.anzahlProduct );
+*/
+      System.out.printf( "Anzahl Produkte: %d\n", produkte.get(0).getCount() );
    }
 
 
