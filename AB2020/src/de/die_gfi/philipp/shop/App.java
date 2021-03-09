@@ -1,6 +1,7 @@
 package de.die_gfi.philipp.shop;
 
 import de.die_gfi.philipp.shop.data.*;
+import de.die_gfi.philipp.shop.products.Product;
 
 import java.util.Scanner;
 
@@ -15,6 +16,8 @@ public class App {
         System.out.println(aShop);
         System.out.println(aShop.inventoryToString());
 
+        System.out.println();
+        /*
         System.out.println("Please enter your email address to make a purchase (To test use \"ooppitz@github.com\"): ");
         String str = input.nextLine();
         Customer customer = aShop.getCustomer(str);
@@ -24,6 +27,7 @@ public class App {
         } else {
             System.out.println("Seems like you are not a customer of ours yet. Please register first.");
         }
+         */
 
 
     }
