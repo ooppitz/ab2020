@@ -3,12 +3,16 @@ package de.die_gfi.daniel.shop;
 public class Lebensmittel extends Product implements CounterInterface
 {
    String ablaufDatum;
+   static int anzahlLebensmittel = 0;
+   
    
    public Lebensmittel( String name, double preis, String beschreibung, long artikelNummer, String ablaufDatum )
    {
       super( name, preis, beschreibung, artikelNummer );
       
       this.ablaufDatum = ablaufDatum;
+      
+      Lebensmittel.anzahlLebensmittel++;
    }
    
    
@@ -18,5 +22,11 @@ public class Lebensmittel extends Product implements CounterInterface
             ":Lebensmittel" + "\n" +
             this.ausgabe() + "\n" + 
             "Ablaufdatum   : " + this.ablaufDatum + "\n";
+   }
+   
+   
+   public int getCount()
+   {
+      return Lebensmittel.anzahlLebensmittel;
    }
 }

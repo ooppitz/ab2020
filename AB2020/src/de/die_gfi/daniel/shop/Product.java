@@ -16,12 +16,12 @@ public class Product implements CounterInterface
       this.preis = preis;
       this.beschreibung = beschreibung;
       this.artikelNummer = artikelNummer;
-      Product.anzahlProduct++;
+
       
-      /* Wenn es sich um e */
-      if()
+      /* Wenn es sich um eine Instanz von 'Product' handelt */
+      if( this instanceof Product )
       {
-         
+         Product.anzahlProduct++;
       }
    }
    

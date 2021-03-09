@@ -5,7 +5,7 @@ public class Restaurant
 
    public static void main( String[] args )
    {
-      Chef chef = new Chef( "Eugene H. Krabs", 4000, "eugene.krabs@krustykrab.uw" );
+      Chef chef = new Chef( "Eugene H. Krabs", 4000, "eugene.krabs@krustykrab.uw", "Chefsessel deluxe" );
       chef.spezialitaetDesAngestellten( "verwalten" );
       System.out.println( chef );
       
@@ -21,6 +21,7 @@ public class Restaurant
    }
 
 }
+
 
 
 abstract class Angestellter
@@ -46,6 +47,7 @@ abstract class Angestellter
             String.format( "%-6s : %s", "E-Mail", this.email ) + "\n";
    }
    
+   
    public String toString()
    {
       return
@@ -58,15 +60,17 @@ abstract class Angestellter
 }
 
 
+
 class Chef extends Angestellter
 {
    String sessel;
    boolean tresorSchluessel;
    
    
-   public Chef(String name, double gehalt, String email)
+   public Chef(String name, double gehalt, String email, String sessel)
    {
       super(name, gehalt, email);
+      this.sessel = sessel;
    }
    
    
@@ -74,7 +78,8 @@ class Chef extends Angestellter
    {
       return
             "# Chef" + "\n" +
-            ausgabe();
+            ausgabe() +
+            String.format( "%-6s : %s", "Sessel", this.sessel ) + "\n";
    }
    
    
@@ -86,6 +91,7 @@ class Chef extends Angestellter
       }
    }
 }
+
 
 
 class Koch extends Angestellter
@@ -114,6 +120,7 @@ class Koch extends Angestellter
 }
 
 
+
 class Kassierer extends Angestellter
 {
    public Kassierer(String name, double gehalt, String email)
@@ -134,7 +141,7 @@ class Kassierer extends Angestellter
    {
       if( aufgabe.equalsIgnoreCase( "warten auf Kunden" ) )
       {
-//       System.out.println( "Meine Spezialität ist mich vom Koch nerven zu lassen" );
+//       System.out.println( "Meine Spezialitaet ist mich vom Koch nerven zu lassen" );
          System.out.println( "Ich waere soweit" );
       }
    }

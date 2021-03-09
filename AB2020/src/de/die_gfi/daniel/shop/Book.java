@@ -7,6 +7,7 @@ public class Book extends Product implements CounterInterface
    String isbn;
 // int erscheinungsJahr;
 // int auflage;
+   static int anzahlBook = 0;
 
 
    public Book(String name, double preis, String beschreibung, long artikelNummer, String verlag, String author, String isbn)
@@ -16,6 +17,8 @@ public class Book extends Product implements CounterInterface
       this.verlag = verlag;
       this.author = author;
       this.isbn = isbn;
+      
+      Book.anzahlBook++;
    }
 
 
@@ -30,4 +33,9 @@ public class Book extends Product implements CounterInterface
    }
 
 
+   public int getCount()
+   {
+      return Book.anzahlBook;
+   }
+   
 }
