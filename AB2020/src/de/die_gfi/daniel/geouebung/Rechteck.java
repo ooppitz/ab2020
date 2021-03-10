@@ -24,6 +24,16 @@ public class Rechteck implements Abmessungen
       this.breite *= faktor;
    }
    
+   
+   /**
+    * Verschiebt ein Rechteck um einen Vektor
+    */
+   public void verschieben( int xVektor, int yVektor )
+   {
+      this.x += xVektor;
+      this.y += yVektor;
+   }
+   
    /**
     * Berechnet die Flaeche des Rechtecks
     * 
@@ -35,9 +45,9 @@ public class Rechteck implements Abmessungen
    }
    
    
-   public void zeichnen( char[][] koordinatenSystem ) {
-	   
-	   zeichnen(koordinatenSystem, 'X');
+   public void zeichnen( char[][] koordinatenSystem )
+   {
+      zeichnen(koordinatenSystem, 'X');
    }
    
    /** Die Methode zeichnet das aktuelle Rechteck in 
@@ -47,26 +57,24 @@ public class Rechteck implements Abmessungen
     */
    public void zeichnen( char[][] koordinatenSystem, char c )
    {
-          
-      for(int x = this.x; x < this.x + this.breite; x++ )
+      for( int x = this.x; x < this.x + this.breite; x++ )
       {
-    	  int yOben = this.y + this.hoehe - 1; 
-    	  int yUnten = this.y;
-    	  
+         int yOben = this.y + this.hoehe - 1;
+         int yUnten = this.y;
+
          koordinatenSystem[yOben][x] = c;
          koordinatenSystem[yUnten][x] = c;
       }
-      
-      
-      for(int y = this.y + 1; y < this.y + this.hoehe - 1; y++) {
-    	  
-    	  int xLinks = this.x;
-    	  int xRechts = this.x + this.breite - 1;
-    	  koordinatenSystem[y][xLinks] = c;
-          koordinatenSystem[y][xRechts] = c;
-    	  
+
+
+      for( int y = this.y + 1; y < this.y + this.hoehe - 1; y++ )
+      {
+         int xLinks = this.x;
+         int xRechts = this.x + this.breite - 1;
+         
+         koordinatenSystem[y][xLinks] = c;
+         koordinatenSystem[y][xRechts] = c;
       }
- 
    }
    
    /**
