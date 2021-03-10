@@ -4,7 +4,7 @@ package de.die_gfi.daniel.geouebung;
 public class Rechteck implements Abmessungen
 {
    private double laenge, breite;
-   private double x, y;
+   protected double x, y;
    
    
    public Rechteck( double x, double y, double laenge, double breite )
@@ -15,7 +15,15 @@ public class Rechteck implements Abmessungen
       this.breite = breite;      
    }
 
-   
+   /** Die Methode vergrößert beide Seitenlängen mit dem angegebenen
+    * Faktor
+    */
+   public void skalieren(double faktor) {
+	   
+	   this.laenge *= faktor;
+	   this.breite *= faktor;
+	   
+   }
    
    /**
     * Berechnet die Flaeche des Rechtecks

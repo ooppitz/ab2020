@@ -8,8 +8,7 @@ public class Application
       Rechteck rechteck = new Rechteck( 1, 1, 4, 3 );
       double flaeche;
       double umfang;
-      
-      
+            
       flaeche = rechteck.berechneOberflaeche();
       umfang = rechteck.berechneUmfang();
       
