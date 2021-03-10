@@ -1,16 +1,12 @@
 package de.die_gfi.philipp.shop;
 
-import de.die_gfi.philipp.shop.products.Beverage;
-import de.die_gfi.philipp.shop.products.ExpirableProduct;
-import de.die_gfi.philipp.shop.products.Food;
-import de.die_gfi.philipp.shop.products.Product;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Shop {
@@ -20,9 +16,10 @@ public class Shop {
     protected String shopAddress;
     protected String shopEmailAddress;
     protected final String vatNumber;
-    protected ProductCollection products;
+    protected final ProductCollection products;
     protected final ArrayList<Customer> customers;
     protected final ArrayList<Purchase> sales;
+    protected int salesNumber;
 
     public Shop(String shopName, String ownerName, String shopAddress, String shopEmailAddress,String vatNumber) {
         this.shopName = shopName;
@@ -33,6 +30,7 @@ public class Shop {
         this.products = ProductCollection.createProductCollection();
         this.customers = new ArrayList<>();
         this.sales = new ArrayList<>();
+        this.salesNumber = Objects.requireNonNull((new File("AB2020/src/de/die_gfi/philipp/shop/data/bills/")).listFiles()).length;
     }
 
     public String getShopName() {
@@ -127,10 +125,11 @@ public class Shop {
 
     public void addToSales(Purchase p) {
         sales.add(p);
+        salesNumber++;
     }
 
     public int getSalesNumber() {
-        return sales.size();
+        return salesNumber;
     }
 
     public String getVatNumber() {

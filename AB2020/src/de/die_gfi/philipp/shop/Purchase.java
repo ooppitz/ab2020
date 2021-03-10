@@ -2,6 +2,7 @@ package de.die_gfi.philipp.shop;
 
 import de.die_gfi.philipp.shop.products.Product;
 
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -12,7 +13,12 @@ import java.util.ArrayList;
 public class Purchase {
 
     protected final ArrayList<PurchaseItem> items;
-    protected static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+
+    /** Print String Formatter */
+    protected static final DateTimeFormatter psf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+
+    /** File String Formatter */
+    protected static final DateTimeFormatter fsf = DateTimeFormatter.ofPattern("yyyyMMdd");
 
     /**
      * Constructs a Purchase Object with empty ArrayList
@@ -106,49 +112,81 @@ public class Purchase {
     }
 
     /**
-     * Prints the bill for this {@link Purchase}
+     * Prints the bill for this {@link Purchase} and saves it to a file.
      *
      * @param shop The {@link Shop} for which the bill is printed
      */
     public void printBill(Shop shop, Customer customer) {
+        int billNumber = shop.getSalesNumber() + 1;
         LocalDateTime now = LocalDateTime.now();
+        String billNumString = "Bill number: " + billNumber;
+        String dateString = psf.format(now);
 
-        String billNumString = "Bill number: " + shop.getSalesNumber() + 1;
-        String dateString = dtf.format(now);
+        File billFile = new File("AB2020/src/de/die_gfi/philipp/shop/data/bills/" +
+                billNumber + "-" + customer.getCustomerNumber() + "-" + fsf.format(now) + ".bill");
+
+        StringBuilder billBuilder = new StringBuilder();
 
         double totalSum = 0;
 
-        // Prints the data of the shop
-        System.out.println(shop.getShopName());
-        System.out.println(shop.getShopAddress() + "\n");
+        // Adds the data of the shop
+        billBuilder.append(shop.getShopName()).append("\n");
+        billBuilder.append(shop.getShopAddress()).append("\n\n");
         String ovString = "Owner: " + shop.getOwnerName() + " ".repeat(25) + "VAT Number: " + shop.getVatNumber();
-        System.out.println(ovString);
+        billBuilder.append(ovString).append("\n\n");
 
-        // Prints the customer data
-        System.out.println("\n #" + customer.getCustomerNumber()+ " " + customer.getName());
-        System.out.println(customer.getStreetHouseNumber() + "\n");
+        // Adds the customer data
+        billBuilder.append("Customer Nr.:").append(customer.getCustomerNumber()).append("\n");
+        billBuilder.append(customer.getName()).append("\n");
+        String fullAddress = customer.getStreetHouseNumber() +"," + customer.getPostCode() + " " + customer.getCity()+
+                "\n" + customer.getCountry();
+        billBuilder.append(fullAddress).append("\n\n");
 
-        // Prints the bill number, date and a spacer
-        System.out.println(billNumString +
-                " ".repeat(ovString.length() - (billNumString.length() + dateString.length())) + dateString);
-        System.out.println("-".repeat(ovString.length()));
+        // Adds the bill number, date and a spacer
+        billBuilder.append(billNumString);
+        billBuilder.append(" ".repeat(ovString.length() - (billNumString.length() + dateString.length())));
+        billBuilder.append(dateString).append("\n");
+        billBuilder.append("-".repeat(ovString.length())).append("\n");
 
-        // Prints each item in the order amount, manufacturer, product name, and subtotal
+        // Adds each item in the order amount, manufacturer, product name, and subtotal
         for (PurchaseItem p : items) {
             double itemPrice = p.getTotalPrice();
+
             String itemString = String.format("%4d: %s", p.getAmount(),p.getProductString());
             String priceString = String.format("%.2f", itemPrice);
-            System.out.println(itemString +
-                    " ".repeat(ovString.length() - (priceString.length() + itemString.length())) + priceString);
+
+            billBuilder.append(itemString);
+            billBuilder.append(" ".repeat(ovString.length() - (priceString.length() + itemString.length())));
+            billBuilder.append(priceString).append("\n");
+
             totalSum += itemPrice;
         }
 
-        // Prints a spacer
-        System.out.println("-".repeat(ovString.length()));
+        // Adds a spacer
+        billBuilder.append("-".repeat(ovString.length())).append("\n");
 
-        // Prints the total
+        // Adds the total
         String totalString = "Total: " + String.format("%.2f", totalSum);
-        System.out.println(" ".repeat(ovString.length()-totalString.length()) + totalString);
+
+        billBuilder.append(" ".repeat(ovString.length()-totalString.length()));
+        billBuilder.append(totalString);
+
+        // Prints whole bill and writes it to file
+        System.out.print(billBuilder);
+
+        try {
+            FileOutputStream fos = new FileOutputStream(billFile);
+            OutputStreamWriter fileWriter = new OutputStreamWriter(fos);
+            fileWriter.write(billBuilder.toString());
+            fileWriter.flush();
+            fileWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File couldn't be found.");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Bill couldn't be written, does the application have access to the folder?");
+            e.printStackTrace();
+        }
 
     }
 }

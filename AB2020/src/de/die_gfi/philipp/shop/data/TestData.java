@@ -1,6 +1,5 @@
 package de.die_gfi.philipp.shop.data;
 
-import de.die_gfi.philipp.shop.Customer;
 import de.die_gfi.philipp.shop.Shop;
 
 public class TestData {
