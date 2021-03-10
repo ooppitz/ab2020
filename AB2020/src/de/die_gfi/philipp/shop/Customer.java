@@ -38,12 +38,13 @@ public class Customer {
         Purchase purchase = new Purchase();
 
         while (true) {
-            System.out.print("Please enter article number or command (commands are \"buy\", \"cancel\" and \"show\"): ");
+            System.out.print("Please enter article number or command (commands are \"buy\", \"cancel\", \"prodlist\", and \"basket\"): ");
             String str = input.nextLine();
 
-            if (str.equalsIgnoreCase("buy") || str.equalsIgnoreCase("cancel") || str.equalsIgnoreCase("show")) {
+            if (str.equalsIgnoreCase("buy") || str.equalsIgnoreCase("cancel") ||
+                    str.equalsIgnoreCase("prodlist") || str.equalsIgnoreCase("basket")) {
                 if (str.equalsIgnoreCase("buy") || str.equalsIgnoreCase("basket")) {
-                    if (purchase.items.size() > 0) {
+                    if (purchase.items.size() > 0 && str.equalsIgnoreCase("buy")) {
 
                         System.out.println("Successfully made the purchase.\n\n");
                         purchase.printBill(shop, this);
@@ -52,10 +53,10 @@ public class Customer {
                         break;
                     } else {
 
-                        System.out.println("You haven't added any products yet, so you can't buy them.");
+                        System.out.print(purchase.getAsBasket());
                         continue;
                     }
-                } else if (str.equalsIgnoreCase("show")) {
+                } else if (str.equalsIgnoreCase("prodlist")) {
                     System.out.println(shop.getProducts());
                     continue;
                 } else {

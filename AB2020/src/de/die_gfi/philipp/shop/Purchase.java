@@ -111,6 +111,21 @@ public class Purchase {
         return builder.toString();
     }
 
+    public String getAsBasket() {
+        StringBuilder builder = new StringBuilder();
+        if (items.size() > 0) {
+            for (PurchaseItem item : items) {
+                String entry = item.getAmount() + "x " + item.getManufacturer() + " " + item.getName();
+                builder.append(entry).append("\n");
+            }
+
+        } else {
+            builder.append("Basket empty.\n");
+        }
+
+        return builder.toString();
+    }
+
     /**
      * Prints the bill for this {@link Purchase} and saves it to a file.
      *
