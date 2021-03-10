@@ -80,11 +80,21 @@ public class App {
 		do {
 
 			produktlisteAusgeben(products);
-			System.out.println("Produktnummer eingeben ('fertig' beendet den Einkauf) ");
+			System.out.println("Produktnummer eingeben ('fertig' beendet den Einkauf,'warenkorb' zeigt Ihren Warenkorb an) ");
 			produktNummer = input.next();
-			if (produktNummer.equals("fertig")) {
+			if (produktNummer.equalsIgnoreCase("fertig")) {
 				break;
 			}
+			if (produktNummer.equalsIgnoreCase("warenkorb")) {
+				for (PurchaseItem item : einkaufswagen) {
+					System.out.println(item);
+				}
+				
+				input.next();
+				continue;
+			}
+			
+			
 
 			boolean gefunden = false; 														// Prüft ob die eingegebene Produktnummer mit der eines Produktes
 			for (Product product : products) { 												// in der ArrayList 'products' übereinstimmt

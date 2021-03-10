@@ -5,12 +5,14 @@ public class PurchaseItem {
 	String bezeichnung;
 	int menge;
 	double gesamtpreis;
+	double einzelpreis;
 	int discountPercent;
 
 	PurchaseItem(Product p, int m) {
 
 		this.bezeichnung = p.getBezeichnung();
 		this.menge = m;
+		this.einzelpreis = p.preis;
 		this.gesamtpreis = p.preis * this.menge;
 
 		if (p instanceof Buch) {
@@ -26,5 +28,10 @@ public class PurchaseItem {
 		}
 
 	}
-
+	
+	public String toString() {
+		return  menge + " x " + bezeichnung + " je " + String.format("%.2f €", einzelpreis);
+	}
+	
+	
 }
