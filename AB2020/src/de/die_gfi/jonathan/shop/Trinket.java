@@ -21,6 +21,7 @@ public class Trinket extends Product implements Discount {
 
 	@Override
 	public double getMaximumDiscount() {
+		
 		return price-price/20;
 	}
 

@@ -2,6 +2,7 @@ package de.die_gfi.jonathan.shop;
 
 import java.util.ArrayList;
 
+
 public class ProductCollection {
 // arrayList automatisch hinzugefügt wenn als Purchase Item regestrirt evtl. speicherung aller 
 	// purchaseitems anstatt sie individuell zu bennen
@@ -14,6 +15,16 @@ public class ProductCollection {
 		PurchaseItem objekt = new PurchaseItem(produkt, anzahl);
 		collection.add(objekt);
 	}
+	
+	public void send(int nummer, int anzahl) {
+		for (int i = 0; i < anzahl; i++) {
+		collection.get(nummer).bought();
+		}
+	if (collection.get(nummer).count<=0) {
+		collection.remove(nummer);
+	}	
+	}
+	
 
 	// finde ein Objekt
 	public PurchaseItem search(String suche) {

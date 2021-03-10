@@ -3,13 +3,13 @@ package de.die_gfi.jonathan.shop;
 public class PurchaseItem {
 	
 	Product item;
-	private int count;
+	int count;
 	protected double price;
 
 	public PurchaseItem(Product produkt, int anzahl) {
 		item = produkt;
 		count = anzahl;
-		price = produkt.price+5;
+		price = produkt.price;
 
 	}
 
@@ -25,6 +25,11 @@ public class PurchaseItem {
 	// Preis ausgabe für die Rechnung
 	public double getPrice() {
 		return price;
+	}
+	
+	public int bought() {
+		count=count-1;
+		return count;
 	}
 
 }
