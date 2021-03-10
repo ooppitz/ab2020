@@ -41,68 +41,26 @@ public class Rechteck implements Abmessungen
     */
    public void zeichnen( char[][] koordinatenSystem )
    {
-      /* Laufvariablen */
-      int x;
-      int y;
-      
-      
-      /* Koordinaten des Punktes A */
-      int xWert = this.x;
-      int yWert = this.y;
-      
-      System.out.printf( "A(%d/%d)\n", xWert, yWert );      
-      
-      /* Strecke AB und Punkt B zeichnen */
-      
-
-      
-      for( x = xWert; x < xWert + this.breite; x++ )
+          
+      for(int x = this.x; x < this.x + this.breite; x++ )
       {
-         koordinatenSystem[yWert][x] = 'X';
+    	  int yOben = this.y + this.hoehe - 1; 
+    	  int yUnten = this.y;
+    	  
+         koordinatenSystem[yOben][x] = 'X';
+         koordinatenSystem[yUnten][x] = 'X';
       }
       
       
-      /* Strecke BC und Punkt C zeichnen */
-      
-      /* Koordinaten des Punktes B */
-      xWert = x-1;
-//    yWert = yWert;
-      
-      System.out.printf( "B(%d/%d)\n", xWert, yWert );
-      
-      for( y = yWert+1; y < yWert + this.hoehe; y++ )
-      {
-         koordinatenSystem[y][xWert] = 'X';
+      for(int y = this.y + 1; y < this.y + this.hoehe - 1; y++) {
+    	  
+    	  int xLinks = this.x;
+    	  int xRechts = this.x + this.breite - 1;
+    	  koordinatenSystem[y][xLinks] = 'X';
+          koordinatenSystem[y][xRechts] = 'X';
+    	  
       }
-      
-      
-      /* Strecke CD und Punkt D zeichnen */
-      
-      /* Koordinaten des Punktes C */
-//    xWert = xWert;
-      yWert = y-1;
-      
-      System.out.printf( "C(%d/%d)\n", xWert, yWert );
-      
-      for( x = xWert-1; x > xWert - this.breite; x-- )
-      {
-         koordinatenSystem[yWert][x] = 'X';
-      }
-      
-      
-      /* Strecke DA zeichnen */
-      
-      /* Koordinaten des Punktes D */
-      xWert = x+1;
-//    yWert = yWert;
-      
-      System.out.printf( "D(%d/%d)\n", xWert, yWert );
-      
-      for( y = yWert-1; y > yWert - this.hoehe+1; y-- )
-      {
-         koordinatenSystem[y][xWert] = 'X';
-      }
-
+ 
    }
    
    /**
