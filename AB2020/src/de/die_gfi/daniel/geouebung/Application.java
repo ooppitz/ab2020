@@ -30,8 +30,12 @@ public class Application
       bild.add(rechteck);
       bild.add(quadrat);
       bild.zeichnen(koordinatenSystem);
-      bild.drucken(); 
+      bild.drucken(koordinatenSystem); 
       
+      
+      quadrat.verschieben(10, 0);
+      bild.zeichnen(koordinatenSystem);
+      bild.drucken(koordinatenSystem);
       
       // Ausdrucken des Arrays auf der Konsole
 /*    for( int y = 0; y < 100; y++ ) */
