@@ -1,5 +1,6 @@
 package de.die_gfi.philipp.shop;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Shop {
@@ -59,7 +60,7 @@ public class Shop {
      */
     public Customer getCustomer(String emailAddress) {
         for (Customer customer : customers) {
-            if (customer.emailAddress.equals(emailAddress)) {
+            if (customer.getEmailAddress().equals(emailAddress)) {
                 return customer;
             }
         }
@@ -84,12 +85,18 @@ public class Shop {
      * Adds a customer to this {@link Shop} by using their name, address, and email address.
      *
      * @param name The name of the customer
-     * @param address The address of the customer
+     * @param streetHouseNumber The street name and house number of the customer
+     * @param postcode Post code of the city of the customer
+     * @param city City or town name of the customer
      * @param emailAddress The e-mail address of the customer
      */
-    public void addCustomer(String name, String address, String emailAddress) {
-        Customer c = new Customer(name, address, emailAddress, this);
+    public void addCustomer(String name, String streetHouseNumber, String postcode, String city, String country,String emailAddress) {
+        Customer c = new Customer(name, streetHouseNumber, postcode, city, emailAddress, country,this);
         customers.add(c);
+    }
+
+    public void readCustomersFromFile() {
+        File file = new File("AB2020/src/de/die_gfi/philipp/shop/data/customers.inv");
     }
 
     public void addToSales(Purchase p) {

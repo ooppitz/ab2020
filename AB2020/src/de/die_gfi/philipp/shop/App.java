@@ -1,7 +1,6 @@
 package de.die_gfi.philipp.shop;
 
 import de.die_gfi.philipp.shop.data.*;
-import de.die_gfi.philipp.shop.products.Product;
 
 import java.util.Scanner;
 
@@ -11,7 +10,8 @@ public class App {
         Scanner input = new Scanner(System.in);
 
         Shop aShop = TestData.initializeTestShop();
-        aShop.addCustomer("Oliver Oppitz", "Walhallastraße 7, 80639 München", "ooppitz@github.com");
+        aShop.addCustomer("Oliver Oppitz", "Walhallastraße 7", "80639",
+                "München", "Germany","ooppitz@github.com");
 
         System.out.println(aShop);
         System.out.println(aShop.inventoryToString());

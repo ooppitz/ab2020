@@ -7,17 +7,31 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Customer {
-    protected String name;
-    protected String address;
-    protected String emailAddress;
-    protected final int customerNumber;
-    protected final ArrayList<Purchase> purchases = new ArrayList<>();
+    private String name;
+    private String streetHouseNumber;
+    private String postCode;
+    private String city;
+    private String country;
+    private String emailAddress;
+    private int customerNumber;
+    private final ArrayList<Purchase> purchases = new ArrayList<>();
 
-    public Customer(String name, String address, String emailAddress, Shop shop) {
+    private Customer(String name, String streetHouseNumber, String postCode, String city, String country, String emailAddress) {
         this.name = name;
-        this.address = address;
+        this.streetHouseNumber = streetHouseNumber;
+        this.postCode = postCode;
+        this.city = city;
+        this.country = country;
         this.emailAddress = emailAddress;
+    }
+    public Customer(String name, String streetHouseNumber, String postCode, String city, String country, String emailAddress, Shop shop) {
+        this(name, streetHouseNumber, postCode, city, country, emailAddress);
         this.customerNumber = shop.getCustomerAmount() + 1;
+    }
+
+    public Customer(String name, String streetHouseNumber, String postCode, String city, String country, String emailAddress, int customerNumber) {
+        this(name, streetHouseNumber, postCode, city, country, emailAddress);
+        this.customerNumber = customerNumber;
     }
 
     public void makePurchase(Scanner input, Shop shop) {
@@ -87,16 +101,40 @@ public class Customer {
         return customerNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreetHouseNumber() {
+        return streetHouseNumber;
+    }
+
+    public void setStreetHouseNumber(String streetHouseNumber) {
+        this.streetHouseNumber = streetHouseNumber;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getEmailAddress() {
         return emailAddress;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public void setEmailAddress(String emailAddress) {
@@ -111,7 +149,7 @@ public class Customer {
     public String toString() {
         return "Customer Number: " + this.customerNumber + "\n" +
                 "Name :" + this.name + "\n" +
-                "Address: " + this.address + "\n" +
+                "Address: " + this.streetHouseNumber + "\n" +
                 "eMail address: " + this.emailAddress + "\n" +
                 "Amount of purchases: " + this.purchases.size();
     }
