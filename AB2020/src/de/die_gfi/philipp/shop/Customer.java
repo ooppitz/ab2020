@@ -4,7 +4,6 @@ import de.die_gfi.philipp.shop.products.Product;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Customer {
