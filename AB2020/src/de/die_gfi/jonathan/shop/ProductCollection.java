@@ -16,10 +16,8 @@ public class ProductCollection {
 		collection.add(objekt);
 	}
 	
-	public void send(int nummer, int anzahl) {
-		for (int i = 0; i < anzahl; i++) {
+	public void send(int nummer) {
 		collection.get(nummer).bought();
-		}
 	if (collection.get(nummer).count<=0) {
 		collection.remove(nummer);
 	}	
