@@ -126,7 +126,7 @@ public class Shop {
 
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File products.inv couldn't be accessed, it may be deleted or moved.");
+            System.err.println("File products.inv couldn't be accessed, it may be deleted or moved.");
         }
     }
 
