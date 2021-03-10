@@ -87,6 +87,15 @@ public class Purchase {
         return -1;
     }
 
+    public int getIndexOfProduct(long articleNumber) {
+        for (int i = 0; i < items.size(); i++) {
+            if (articleNumber == items.get(i).getArticleNumber()) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     /**
      *
      * @return a "prettified" String of the info in this {@link Purchase} object
@@ -111,6 +120,10 @@ public class Purchase {
         return builder.toString();
     }
 
+    /**
+     *
+     * @return items in the purchase as a basket (eg. 2x Manufacturer Product)
+     */
     public String getAsBasket() {
         StringBuilder builder = new StringBuilder();
         if (items.size() > 0) {

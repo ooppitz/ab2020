@@ -75,6 +75,10 @@ public class PurchaseItem {
         return prod.getManufacturer();
     }
 
+    /**
+     *
+     * @return manufacturer and name of product
+     */
     public String getProductString() {
         return prod.getProductString();
     }

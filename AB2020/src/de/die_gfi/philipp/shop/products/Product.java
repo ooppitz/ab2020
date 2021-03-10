@@ -92,6 +92,10 @@ public class Product implements CounterInterface, Discount{
         return price;
     }
 
+    /**
+     *
+     * @return manufacturer and name of product
+     */
     public String getProductString() {
         return manufacturer + " " + name;
     }

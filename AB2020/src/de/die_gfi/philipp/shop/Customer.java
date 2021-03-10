@@ -4,6 +4,7 @@ import de.die_gfi.philipp.shop.products.Product;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Customer {
@@ -36,38 +37,55 @@ public class Customer {
 
     public void makePurchase(Scanner input, Shop shop) {
         Purchase purchase = new Purchase();
+        boolean purchaseMade = false;
 
         while (true) {
-            System.out.print("Please enter article number or command (commands are \"buy\", \"cancel\", \"prodlist\", and \"basket\"): ");
-            String str = input.nextLine();
+            System.out.println("Please enter article number or command \n" +
+                    "Commands are \"buy\", \"cancel\", \"products\", \"delete\" and \"basket\"");
+            String str = input.nextLine().toLowerCase();
 
-            if (str.equalsIgnoreCase("buy") || str.equalsIgnoreCase("cancel") ||
-                    str.equalsIgnoreCase("prodlist") || str.equalsIgnoreCase("basket")) {
-                if (str.equalsIgnoreCase("buy") || str.equalsIgnoreCase("basket")) {
-                    if (purchase.items.size() > 0 && str.equalsIgnoreCase("buy")) {
-
+            switch (str) {
+                case "cancel":
+                    break;
+                case "buy":
+                    if (purchase.items.size() > 0) {
                         System.out.println("Successfully made the purchase.\n\n");
                         purchase.printBill(shop, this);
                         purchases.add(purchase);
                         shop.addToSales(purchase);
-                        break;
+                        purchaseMade = true;
                     } else {
-
-                        System.out.print(purchase.getAsBasket());
-                        continue;
+                        System.out.println("Basket is empty, couldn't make a purchase.");
                     }
-                } else if (str.equalsIgnoreCase("prodlist")) {
-                    System.out.println(shop.getProducts());
-                    continue;
-                } else {
-                    System.out.println("Successfully cancelled the purchase.");
                     break;
-                }
+                case "basket":
+                    System.out.print(purchase.getAsBasket());
+                    break;
+                case "products":
+                    System.out.println(shop.getProducts());
+                    break;
+                case "delete":
+                    System.out.print("Please enter the article number of the product you want to remove from the basket: ");
+                    int productIndex = purchase.getIndexOfProduct(input.nextLong());
+                    if (productIndex != -1) {
+                        PurchaseItem item = purchase.items.get(productIndex);
+                        System.out.println("Successfully removed the product " + " " + item.getArticleNumber()+
+                                " " + item.getProductString());
+                        purchase.items.remove(productIndex);
 
-
+                    } else {
+                        System.out.println("Couldn't remove product, not in basket or existing product.");
+                    }
+                    input.nextLine();
+                    break;
+                default:
+                    addToPurchase(purchase, str, shop, input);
+                    break;
             }
 
-            addToPurchase(purchase, str, shop, input);
+            if ((str.equals("buy") && purchaseMade) || str.equals("cancel")) {
+                break;
+            }
         }
     }
 
