@@ -1,5 +1,6 @@
 package de.die_gfi.philipp.shop;
 
+import de.die_gfi.philipp.shop.data.PathGetter;
 import de.die_gfi.philipp.shop.products.Product;
 
 import java.io.*;
@@ -150,7 +151,7 @@ public class Purchase {
         String billNumString = "Bill number: " + billNumber;
         String dateString = psf.format(now);
 
-        File billFile = new File("AB2020/src/de/die_gfi/philipp/shop/data/bills/" +
+        File billFile = new File(PathGetter.getDataPath() + "bills/" +
                 billNumber + "-" + customer.getCustomerNumber() + "-" + fsf.format(now) + ".bill");
 
         StringBuilder billBuilder = new StringBuilder();

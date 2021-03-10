@@ -116,10 +116,10 @@ public class Product implements CounterInterface, Discount{
 
     @Override
     public int getDiscountForAmount(int amount) {
-        if (amount > 25) {
+        if (amount >= 25) {
             return maxDiscountPercent;
         }
-        if (amount > 10) {
+        if (amount >= 10) {
             return maxDiscountPercent/2;
         }
         return 0;

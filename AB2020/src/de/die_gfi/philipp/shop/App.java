@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class App {
     
     public static void main(String[] args) {
+        System.out.println(PathGetter.getDataPath());
         Scanner input = new Scanner(System.in);
 
         Shop aShop = TestData.initializeTestShop();
@@ -25,6 +26,7 @@ public class App {
         } else {
             System.out.println("Seems like you are not a customer of ours yet. Please register first.");
         }
+
 
 
 

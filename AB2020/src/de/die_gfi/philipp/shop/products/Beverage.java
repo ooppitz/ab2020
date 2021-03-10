@@ -48,8 +48,8 @@ public class Beverage extends ExpirableProduct{
                     Double.parseDouble(elements[4]), elements[5], Integer.parseInt(elements[6]), Integer.parseInt(elements[7]));
         if (elements.length == 9)
             return new Beverage(Long.parseLong(elements[1]), elements[2], elements[3],
-                    Double.parseDouble(elements[4]), elements[5], Integer.parseInt(elements[6]), Integer.parseInt(elements[7],
-                    Integer.parseInt(elements[8])));
+                    Double.parseDouble(elements[4]), elements[5], Integer.parseInt(elements[6]), Integer.parseInt(elements[7]),
+                    Integer.parseInt(elements[8]));
         return null;
     }
 

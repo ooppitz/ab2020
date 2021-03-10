@@ -1,5 +1,6 @@
 package de.die_gfi.philipp.shop;
 
+import de.die_gfi.philipp.shop.data.PathGetter;
 import de.die_gfi.philipp.shop.products.Beverage;
 import de.die_gfi.philipp.shop.products.ExpirableProduct;
 import de.die_gfi.philipp.shop.products.Food;
@@ -29,7 +30,7 @@ public class ProductCollection {
     }
 
     public static ProductCollection createProductCollection() {
-        File file = new File("AB2020/src/de/die_gfi/philipp/shop/data/products.inv");
+        File file = new File(PathGetter.getDataPath() + "products.inv");
         try {
             InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
             ProductCollection productCollection = new ProductCollection();

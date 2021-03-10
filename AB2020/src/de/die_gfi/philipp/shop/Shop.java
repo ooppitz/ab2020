@@ -1,5 +1,7 @@
 package de.die_gfi.philipp.shop;
 
+import de.die_gfi.philipp.shop.data.PathGetter;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -30,7 +32,7 @@ public class Shop {
         this.products = ProductCollection.createProductCollection();
         this.customers = new ArrayList<>();
         this.sales = new ArrayList<>();
-        this.salesNumber = Objects.requireNonNull((new File("AB2020/src/de/die_gfi/philipp/shop/data/bills/")).listFiles()).length;
+        this.salesNumber = Objects.requireNonNull((new File(PathGetter.getDataPath() + "bills/")).listFiles()).length;
     }
 
     public String getShopName() {
@@ -111,7 +113,7 @@ public class Shop {
      *
      */
     public void readCustomersFromFile() {
-        File file = new File("AB2020/src/de/die_gfi/philipp/shop/data/customers.inv");
+        File file = new File(PathGetter.getDataPath() + "customers.inv");
         try {
             InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
 
