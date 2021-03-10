@@ -63,7 +63,12 @@ public class PurchaseItem {
     }
 
     public double getTotalPrice() {
-        return prod.getPrice() * amount;
+        double total = prod.getPrice() * amount;
+        if (prod.isDiscountPossible()) {
+            double discount = (double) prod.getDiscountForAmount(amount) / 100.00;
+            total = total - (discount * amount);
+        }
+        return total;
     }
 
     public String getManufacturer() {
