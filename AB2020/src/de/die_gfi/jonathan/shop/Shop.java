@@ -23,8 +23,7 @@ public class Shop {
 			Customer c;
 			String account = sc.next();
 			if (account == "Admin") {
-				// TODO hinzufügen
-				System.out.println("coming soon");
+				
 			} else {
 
 				c = find(account);
@@ -32,9 +31,7 @@ public class Shop {
 				do {
 
 					String input = sc.next();
-					if (input.equalsIgnoreCase("index")) {
-						storage.giveIndex();
-					} else if (input.equalsIgnoreCase("buy")) {
+					if (input.equalsIgnoreCase("buy")) {
 						
 						try {
 							buy(sc.nextInt(), c);
@@ -56,16 +53,20 @@ public class Shop {
 						} catch (IndexOutOfBoundsException e) {
 							System.out.println("Das Produkt existirt nicht");
 						}}
+							
+					}else if (input.equalsIgnoreCase("print")) {
+						c.printPurchase();
+					} else if (input.equalsIgnoreCase("bill")) {
+						c.createBill();
 					}
+						else if (input.equalsIgnoreCase("index")) {
+						storage.giveIndex();
+					} 
 					 else if (input.equalsIgnoreCase("logout")) {
 						login = false;
 					} else if (input.equalsIgnoreCase("search")) {
 						storage.search(sc.next());
-					} else if (input.equalsIgnoreCase("print")) {
-						c.printPurchase();
-					} else if (input.equalsIgnoreCase("bill")) {
-						c.createBill();
-					} else if (input.equalsIgnoreCase("exit")) {
+					}  else if (input.equalsIgnoreCase("exit")) {
 						login = false;
 						running = false;
 						break;
