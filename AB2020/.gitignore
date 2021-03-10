@@ -3,5 +3,5 @@
 /.settings/
 ../.idea/
 ../bin/
-.classpath
-.project
+/.classpath
+/.project
