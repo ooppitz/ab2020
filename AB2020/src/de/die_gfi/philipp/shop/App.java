@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class App {
     
     public static void main(String[] args) {
-        System.out.println(PathGetter.getDataPath());
         Scanner input = new Scanner(System.in);
 
         Shop aShop = TestData.initializeTestShop();
