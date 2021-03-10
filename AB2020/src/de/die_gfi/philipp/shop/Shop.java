@@ -1,7 +1,17 @@
 package de.die_gfi.philipp.shop;
 
+import de.die_gfi.philipp.shop.products.Beverage;
+import de.die_gfi.philipp.shop.products.ExpirableProduct;
+import de.die_gfi.philipp.shop.products.Food;
+import de.die_gfi.philipp.shop.products.Product;
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Shop {
 
@@ -97,6 +107,22 @@ public class Shop {
 
     public void readCustomersFromFile() {
         File file = new File("AB2020/src/de/die_gfi/philipp/shop/data/customers.inv");
+        try {
+            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
+
+            Scanner fileScanner = new Scanner(fileReader);
+
+            while (fileScanner.hasNextLine()) {
+
+                String str = fileScanner.nextLine();
+                String[] e = str.split("\\|");
+                Customer c = new Customer(e[1], e[2], e[3], e[4], e[5], e[6], Integer.parseInt(e[0]));
+                customers.add(c);
+
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File products.inv couldn't be accessed, it may be deleted or moved.");
+        }
     }
 
     public void addToSales(Purchase p) {
