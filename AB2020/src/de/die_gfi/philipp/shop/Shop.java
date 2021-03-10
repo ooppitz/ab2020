@@ -105,7 +105,10 @@ public class Shop {
     }
 
     /**
-     * Reads all Customers from a customers.inv file and adds them to the shop
+     * Reads all Customers from a customers.inv file and adds them to the shop <br>
+     * File needs to be formatted as follows
+     * <p>customer number|name|street and house number|post code|city or town|country|email address</p>
+     *
      */
     public void readCustomersFromFile() {
         File file = new File("AB2020/src/de/die_gfi/philipp/shop/data/customers.inv");
