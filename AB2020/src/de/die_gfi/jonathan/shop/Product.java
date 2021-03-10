@@ -1,6 +1,6 @@
 package de.die_gfi.jonathan.shop;
 
-public class Product {
+public class Product implements Discount{
 	String name;
 	protected double price;
 	int produktnumber;
@@ -33,6 +33,14 @@ public class Product {
 	
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	@Override
+	public boolean isDiscountPossible() {
+		return false;
+	}
+	@Override
+	public double getMaximumDiscount(int menge) {
+		return 0;
 	}
 	
 	

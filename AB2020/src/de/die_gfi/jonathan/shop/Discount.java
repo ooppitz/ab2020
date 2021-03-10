@@ -13,7 +13,7 @@ public interface Discount {
 	     * 
 	     * @return maximum possible discount in percent
 	     */
-	    double getMaximumDiscount();
+	    double getMaximumDiscount(int menge);
 	    
 	    /** Returns the discount when purchasing multiple products 
 	     * 

@@ -28,7 +28,7 @@ public class Book extends Product implements Discount {
 	}
 
 	@Override
-	public double getMaximumDiscount() {
+	public double getMaximumDiscount(int menge) {
 		return 0;
 	}
 
