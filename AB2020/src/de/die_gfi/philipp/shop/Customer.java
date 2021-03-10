@@ -25,6 +25,7 @@ public class Customer {
         this.country = country;
         this.emailAddress = emailAddress;
     }
+
     public Customer(String name, String streetHouseNumber, String postCode, String city, String country, String emailAddress, Shop shop) {
         this(name, streetHouseNumber, postCode, city, country, emailAddress);
         this.customerNumber = shop.getCustomerAmount() + 1;
@@ -65,18 +66,8 @@ public class Customer {
                     System.out.println(shop.getProducts());
                     break;
                 case "delete":
-                    System.out.print("Please enter the article number of the product you want to remove from the basket: ");
-                    int productIndex = purchase.getIndexOfProduct(input.nextLong());
-                    if (productIndex != -1) {
-                        PurchaseItem item = purchase.items.get(productIndex);
-                        System.out.println("Successfully removed the product " + " " + item.getArticleNumber()+
-                                " " + item.getProductString());
-                        purchase.items.remove(productIndex);
+                    removeFromPurchase(input, purchase);
 
-                    } else {
-                        System.out.println("Couldn't remove product, not in basket or existing product.");
-                    }
-                    input.nextLine();
                     break;
                 default:
                     addToPurchase(purchase, str, shop, input);
@@ -89,7 +80,31 @@ public class Customer {
         }
     }
 
-    public void addToPurchase(Purchase purchase, String str, Shop shop, Scanner input) {
+    private void removeFromPurchase(Scanner input, Purchase purchase) {
+        if (purchase.items.size() > 0) {
+            try {
+                System.out.println(purchase.toString());
+                System.out.print("Please enter the article number of the product you want to remove from the basket: ");
+                int productIndex = purchase.getIndexOfProduct(input.nextLong());
+                if (productIndex != -1) {
+                    PurchaseItem item = purchase.items.get(productIndex);
+                    System.out.println("Successfully removed the product " + " " + item.getArticleNumber() +
+                            " " + item.getProductString());
+                    purchase.items.remove(productIndex);
+
+                } else {
+                    System.out.println("Couldn't remove product, not in basket or existing product.");
+                }
+                input.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Please only enter an article number.");
+            }
+        } else {
+            System.out.println("Basket has no items yes.");
+        }
+    }
+
+    private void addToPurchase(Purchase purchase, String str, Shop shop, Scanner input) {
         try {
             long articleNumber = Long.parseLong(str);
             Product prod = shop.getProducts().getProduct(articleNumber);
@@ -110,7 +125,6 @@ public class Customer {
             System.out.println("The amount entered was invalid.");
         }
     }
-
 
     public String getName() {
         return name;
