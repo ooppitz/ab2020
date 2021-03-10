@@ -34,14 +34,27 @@ public class Shop {
 					if (input.equalsIgnoreCase("index")) {
 						storage.giveIndex();
 					} else if (input.equalsIgnoreCase("buy")) {
-						
+
 						try {
 							buy(sc.nextInt(), c);
 						} catch (InputMismatchException e) {
-								System.out.println("Falsce eingabe kauf vorgang abgebrochen");
-						}catch (IndexOutOfBoundsException e) {
+							System.out.println("Falsce eingabe kauf vorgang abgebrochen");
+						} catch (IndexOutOfBoundsException e) {
 							System.out.println("Das Produkt existirt nicht");
 						}
+					} else if (input.equalsIgnoreCase("buymult")) {
+						int ram =sc.nextInt();
+							System.out.println("wie viel stück wollen sie kaufen");
+							int timer=sc.nextInt();
+							for (int i = 0; i <= timer; i++) {
+						try {
+							
+							buy(ram, c);
+						} catch (InputMismatchException e) {
+							System.out.println("Falsce eingabe kauf vorgang abgebrochen");
+						} catch (IndexOutOfBoundsException e) {
+							System.out.println("Das Produkt existirt nicht");
+						}}
 					} else if (input.equalsIgnoreCase("logout")) {
 						login = false;
 					} else if (input.equalsIgnoreCase("search")) {
