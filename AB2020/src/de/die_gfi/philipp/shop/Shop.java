@@ -62,6 +62,7 @@ public class Shop {
     }
 
     /**
+     * Gets a {@link Customer} for a specified email address
      *
      * @param emailAddress email address of the {@link Customer} to be looked for
      * @return {@link Customer} object with the specified email address, null if not found or there is no customers
@@ -103,6 +104,9 @@ public class Shop {
         customers.add(c);
     }
 
+    /**
+     * Reads all Customers from a customers.inv file and adds them to the shop
+     */
     public void readCustomersFromFile() {
         File file = new File("AB2020/src/de/die_gfi/philipp/shop/data/customers.inv");
         try {
@@ -123,6 +127,11 @@ public class Shop {
         }
     }
 
+    /**
+     * Adds a {@link Purchase} to the sales of this Shop
+     *
+     * @param p A {@link Purchase} object which is going to be added to this Shop
+     */
     public void addToSales(Purchase p) {
         sales.add(p);
         salesNumber++;
