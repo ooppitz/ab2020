@@ -15,14 +15,13 @@ public class Rechteck implements Abmessungen
       this.breite = breite;      
    }
 
-   /** Die Methode vergrößert beide Seitenlängen mit dem angegebenen
-    * Faktor
+   /**
+    * Die Methode vergrößert beide Seitenlängen mit dem angegebenen Faktor
     */
-   public void skalieren(double faktor) {
-	   
-	   this.laenge *= faktor;
-	   this.breite *= faktor;
-	   
+   public void skalieren( double faktor )
+   {
+      this.laenge *= faktor;
+      this.breite *= faktor;
    }
    
    /**
@@ -52,5 +51,11 @@ public class Rechteck implements Abmessungen
    public double getLaenge()
    {
       return this.laenge;
+   }
+   
+   
+   public double getBreite()
+   {
+      return this.breite;
    }
 }

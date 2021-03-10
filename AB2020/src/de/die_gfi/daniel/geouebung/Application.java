@@ -23,6 +23,9 @@ public class Application
       
       
       Quadrat quadrat = new Quadrat( 2, 2, 6 );
+      System.out.printf( "Quadrat:\n" );
+      System.out.printf( "Laenge = %.2f\n", quadrat.getLaenge() );
+      System.out.printf( "Punkt(%.2f/%.2f)\n", quadrat.x, quadrat.y );
       
    }
 
