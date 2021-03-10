@@ -34,7 +34,14 @@ public class Rechteck implements Abmessungen
       return this.laenge * this.breite;
    }
    
-   
+   /** Die Methode zeichnet das aktuelle Rechteck in 
+    * das angegebene Koordinatensystem
+    * 
+    * @param koordinatenSystem
+    */
+   public void zeichnen(char[][] koordinatenSystem) {
+	   
+   }
    
    /**
     * Berechnet den Umfang des Rechtecks
