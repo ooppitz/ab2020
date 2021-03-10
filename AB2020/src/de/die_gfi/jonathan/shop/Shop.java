@@ -74,6 +74,7 @@ public class Shop {
 			}
 
 		} while (running == true);
+		sc.close();
 	}
 
 	

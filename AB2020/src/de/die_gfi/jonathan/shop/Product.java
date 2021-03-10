@@ -18,6 +18,7 @@ public class Product {
 	// }
 
 	// vergibt eine Productnummer anhand des Index im Storage vor der aufnahme ins Lager nicht belegt
+	@SuppressWarnings("unused")
 	private void getProduktNummer(int zahl) {
 		produktnumber=zahl;
 	}
