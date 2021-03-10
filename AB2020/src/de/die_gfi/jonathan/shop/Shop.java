@@ -5,17 +5,18 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Shop {
-	public ProductCollection storage = new ProductCollection();
-	ArrayList<Customer> user = new ArrayList<>();
-	Demo d = new Demo(storage, user);
+	
+	ProductCollection storage = new ProductCollection();
+	
+	ArrayList<Customer> users = new ArrayList<>();
 
 	// vereinfacht die das einkaufen ist aber nicht notwendig
 	public void buy(int index, Customer kunde) {
 		kunde.addPurchaseItem(index, storage);
 	}
 
-//die Bedinoberfläche
-	public void output() {
+    //die Bedinoberfläche
+	public void userInterface() {
 		Scanner sc = new Scanner(System.in);
 		boolean running = true;
 		do {
@@ -33,14 +34,14 @@ public class Shop {
 				}
 			} else {
 
-				running = outputCustomer(sc, running, account);
+				running = customerInterface(sc, running, account);
 			}
 
 		} while (running == true);
 		sc.close();
 	}
 
-	public boolean outputCustomer(Scanner sc, boolean running, String account) {
+	public boolean customerInterface(Scanner sc, boolean running, String account) {
 		Customer c;
 		c = find(account);
 		boolean login = true;
@@ -54,9 +55,9 @@ public class Shop {
 				try {
 					buy(sc.nextInt(), c);
 				} catch (InputMismatchException e) {
-					System.out.println("Falsce eingabe kauf vorgang abgebrochen");
+					System.out.println("Falsche Eingabe Kaufvorgang abgebrochen");
 				} catch (IndexOutOfBoundsException e) {
-					System.out.println("Das Produkt existirt nicht");
+					System.out.println("Das Produkt existiert nicht");
 				}
 				break;
 			}
@@ -104,7 +105,7 @@ public class Shop {
 
 	// suchalgoritmus für die Kunden liste
 	public Customer find(String suche) {
-		for (Customer customer : user) {
+		for (Customer customer : users) {
 
 			if (customer.account.equalsIgnoreCase(suche)) {
 				return customer;
