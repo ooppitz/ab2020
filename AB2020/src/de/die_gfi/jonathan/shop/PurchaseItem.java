@@ -24,7 +24,7 @@ public class PurchaseItem {
 
 	// Preis ausgabe für die Rechnung
 	public double getPrice() {
-		return price;
+		return item.getMaximumDiscount(count);
 	}
 	
 	public int bought() {

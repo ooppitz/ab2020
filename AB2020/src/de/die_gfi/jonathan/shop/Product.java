@@ -40,7 +40,7 @@ public class Product implements Discount{
 	}
 	@Override
 	public double getMaximumDiscount(int menge) {
-		return 0;
+		return price;
 	}
 	
 	
