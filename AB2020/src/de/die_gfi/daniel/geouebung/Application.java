@@ -21,11 +21,9 @@ public class Application
 
       rechteck.skalieren(2);
       rechteck.zeichnen(koordinatenSystem, '@');
-      
-      // Rechteck rechteck2 = new Rechteck(  );
-      
-      
-      
+            
+      Quadrat quadrat = new Quadrat(3,3,5);
+      quadrat.zeichnen(koordinatenSystem, 'q');
       
       
       // Ausdrucken des Arrays auf der Konsole
