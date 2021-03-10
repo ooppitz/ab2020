@@ -5,9 +5,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Shop {
-	
+
 	ProductCollection storage = new ProductCollection();
-	
+
 	ArrayList<Customer> users = new ArrayList<>();
 
 	// vereinfacht die das einkaufen ist aber nicht notwendig
@@ -15,23 +15,55 @@ public class Shop {
 		kunde.addPurchaseItem(index, storage);
 	}
 
-    //die Bedinoberfläche
+	// die Bedinoberfläche
 	public void userInterface() {
 		Scanner sc = new Scanner(System.in);
 		boolean running = true;
 		do {
 
 			String account = sc.next();
-			if (account == "Admin") {
-				String input = sc.next().toLowerCase();
-				switch (input) {
-				case "addC":
+			if (account.equalsIgnoreCase("admin")) {
+				boolean login = true;
+				do {
 
-					break;
+					String input = sc.next().toLowerCase();
 
-				default:
-					break;
-				}
+					switch (input) {
+
+					case "addc":
+						System.out.println("Bitte Nachnahmen und Vornahmen angeben");
+						users.add(new Customer(sc.next(), sc.next()));
+						break;
+					case "addp":
+						System.out.println("Bitte Produktnamen Preis und Anzahl angben");
+						storage.addToCollection(new Product(sc.next(), sc.nextDouble()), sc.nextInt());
+						break;
+					case "addb":
+						System.out.println("Bitte Author Titel Sprache preis und anzahl der exemplare angeben");
+						storage.addToCollection(new Book(sc.next(), sc.next(), sc.next(), sc.nextDouble()),
+								sc.nextInt());
+						break;
+					case "addt":
+						System.out.println("Bite Name Preis Beschreibung und Anzahl angeben");
+						storage.addToCollection(new Trinket(sc.next(), sc.nextDouble(), sc.nextLine()), sc.nextInt());
+						break;
+					case "index":
+						storage.giveIndex();
+						break;
+					case "logout":
+						login = false;
+						break;
+					case "search":
+						storage.search(sc.next());
+						break;
+					case "exit":
+						login = false;
+						running = false;
+						break;
+					default:
+						break;
+					}
+				} while (login == true);
 			} else {
 
 				running = customerInterface(sc, running, account);
@@ -45,7 +77,7 @@ public class Shop {
 		Customer c;
 		c = find(account);
 		boolean login = true;
-		System.out.println("Mögliche Eingaben: print search index logout buy buymult exit bill");
+		System.out.println("Mögliche Eingaben: print search index logout buy buymult exit bill adress");
 		do {
 
 			String input = sc.next().toLowerCase();
@@ -75,6 +107,9 @@ public class Shop {
 						System.out.println("Das Produkt existirt nicht");
 					}
 				}
+				break;
+			case "adress":
+				c.setAdress(sc.next(), sc.next(), sc.next(), sc.nextInt());
 				break;
 			case "print":
 				c.printPurchase();

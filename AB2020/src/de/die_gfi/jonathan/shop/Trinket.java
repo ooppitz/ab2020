@@ -21,6 +21,7 @@ public class Trinket extends Product implements Discount {
 
 	public double getMaximumDiscount(int menge) {
 		if (menge>20) {
+			System.out.println(name+" gibt es nur Jetzt 20% billiger");
 			return price-price/20;	
 		}else {
 			return price;
