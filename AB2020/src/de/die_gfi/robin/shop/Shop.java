@@ -7,7 +7,7 @@ public class Shop {
 	String ort;
 	int steuerNummer;
 
-	public Shop(String sName, String str, String ort, int sNummer) {
+	protected Shop(String sName, String str, String ort, int sNummer) {
 		this.shopName = sName;
 		this.strasse = str;
 		this.ort = ort;

@@ -11,7 +11,7 @@ public class Customer {
 	String ort;
 
 	// Konstruktor
-	public Customer(String a, String k, String v, String n, String s, String p, String o) {
+	Customer(String a, String k, String v, String n, String s, String p, String o) {
 		
 		this.anrede = a;
 		this.kundenNummer = k;
@@ -24,7 +24,7 @@ public class Customer {
 	}
 
 	// Kundenliste erstellen
-	public static Customer[] kundenListeAufstellen() {
+	static Customer[] kundenListeAufstellen() {
 
 		Customer c0 = new Customer("Herr","0", "Heinz", "Gruber", "Trauberstrasse 33", "45657", "Muenchen");
 		Customer c1 = new Customer("Herr","1", "Friedrich", "Winter", "Schieferstrasse 8", "63357", "Bremen");

@@ -21,7 +21,7 @@ public class ProductCollection {
 	 * 
 	 * @return ArrayList
 	 */
-	public  ArrayList<Product> createProductCollection() {
+	protected  ArrayList<Product> createProductCollection() {
 		
 		ArrayList<Product> produkte = new ArrayList<Product>();
 		

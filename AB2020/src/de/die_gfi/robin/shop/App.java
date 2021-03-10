@@ -27,8 +27,7 @@ public class App {
 
 		input.close();
 		
-		System.out.println("\nMenge der instanzierten Objekte");
-		System.out.printf("Getränke: %d Bücher: %d",Getraenk.countGetraenk,Buch.countBuch);
+		
 
 		
 		
@@ -50,7 +49,7 @@ public class App {
 		}
 	}
 
-	public static Purchase simulatePurchase(Customer kunde, ArrayList<Product> products) {
+	private static Purchase simulatePurchase(Customer kunde, ArrayList<Product> products) {
 
 		ArrayList<PurchaseItem> einkaufswagen = new ArrayList<PurchaseItem>();
 
@@ -97,9 +96,9 @@ public class App {
 	 * 
 	 * @param products
 	 */
-	private static void produktlisteAusgeben(ArrayList<Product> products) {
+	 private static void produktlisteAusgeben(ArrayList<Product> products) {
 		for (Product product : products) {
-			System.out.println(product.produktnummer + ": " + String.format("%-40s", product.bezeichnung) + " "
+			System.out.println(product.getProduktnummer() + ": " + String.format("%-40s", product.getBezeichnung()) + " "
 					+ String.format("%6.2f", product.preis) + " €");
 		}
 	}

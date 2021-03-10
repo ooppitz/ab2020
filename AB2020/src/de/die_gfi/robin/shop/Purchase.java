@@ -9,7 +9,7 @@ public class Purchase {
 
 	// Die ArrayList wird in einen String übernommen
 	// Der String wird in dem Konstruktor von Purchase aufgebaut
-	public Purchase(ArrayList<PurchaseItem> artikelListe, Customer kunde, Shop shop) {
+	protected Purchase(ArrayList<PurchaseItem> artikelListe, Customer kunde, Shop shop) {
 		
 		this.rechnung = erstelleRechnung(artikelListe, kunde, shop);
 
@@ -20,17 +20,30 @@ public class Purchase {
 		String text = c + "\n";
 		
 		double gesamtpreis = 0;
-
+	
 		for (int i = 0; i < artikel.size(); i++) {
 			
 			text += String.format("%-2d", artikel.get(i).menge) + " x " + String.format("%-45s", artikel.get(i).bezeichnung)
 					+ String.format("%14.2f", artikel.get(i).gesamtpreis) + " €\n";
-			gesamtpreis += artikel.get(i).gesamtpreis;
+			
+			//Rabatt verrechnen
+			int rabattProzent = artikel.get(i).discountPercent;
+			double rabatt = (artikel.get(i).gesamtpreis * rabattProzent) / 100;
+			if (rabatt > 0) {
+				text += "Mengenrabatt: " + rabattProzent + "%";
+				text += String.format("%47.2f €\n", rabatt);
+			
+				gesamtpreis += artikel.get(i).gesamtpreis - rabatt;
+			}
+			else
+				gesamtpreis += artikel.get(i).gesamtpreis;
+			
 		}
 		text += "=".repeat(66);
 		text += "\nSumme: " + String.format("%57.2f €", gesamtpreis);
 		text += "\n\nVielen Dank für Ihren Einkauf\n";
 		text += s;
+		
 		
 		return text;
 	}

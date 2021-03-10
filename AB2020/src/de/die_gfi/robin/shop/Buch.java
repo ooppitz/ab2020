@@ -1,12 +1,12 @@
 package de.die_gfi.robin.shop;
 
-public class Buch extends Product implements CounterInterface {
+public class Buch extends Product implements CounterInterface , Discount{
 
-	static int countBuch;
+	private static int countBuch;
 	String titel;
 	String author;
 
-	public Buch(int pNummer,double preis, String _titel, String _author) {
+	Buch(int pNummer,double preis, String _titel, String _author) {
 		
 		super(pNummer,preis, _titel + " von " + _author);
 		
@@ -17,7 +17,36 @@ public class Buch extends Product implements CounterInterface {
 
 	}
 
-	public int getCount() {
+		public int getCount() {
 		return countBuch;
 	}
+
+		
+		public boolean isDiscountPossible() {
+			
+			return true;
+		}
+
+		
+		public double getMaximumDiscount() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		
+		public int getDiscountForAmount(int menge) {
+			
+			int discountPercent = 0;
+			if (menge >= 5) {
+				if(menge >= 10) {
+					discountPercent = 20;
+				}
+				else 
+					discountPercent = 35;
+			}
+			
+			
+			
+			return discountPercent;
+		}
 }

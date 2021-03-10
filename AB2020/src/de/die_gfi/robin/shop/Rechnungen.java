@@ -10,7 +10,7 @@ public class Rechnungen {
 	
 	
 	
-	public static void rechnungHinzufuegen(Purchase rechnung , Customer kunde) {
+	protected static void rechnungHinzufuegen(Purchase rechnung , Customer kunde) {
 		
 		try {
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
