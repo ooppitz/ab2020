@@ -12,11 +12,6 @@ public class TestData {
                 "info@hansi-gemischtwaren.de",
                 "6038-683-3894");
         shop.readCustomersFromFile();
-        Customer c = new Customer("Maria Jonasson", "Salzberg 5", "7665",
-                "Salzburg", "Austria", "maria.jo@yahoo.com", shop);
-        shop.addCustomer(c);
-        shop.addCustomer("Maximilian Mueller", "Hauptstrasse 3", "58394",
-                "Dorf", "Germany","max.mueller10000@gmail.com");
         return shop;
 
     }
