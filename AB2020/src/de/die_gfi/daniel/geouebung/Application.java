@@ -16,13 +16,11 @@ public class Application
          }
       }
 
-
-
       Rechteck rechteck = new Rechteck(1, 1, 4, 3);
       rechteck.zeichnen(koordinatenSystem);
 
       rechteck.skalieren(2);
-      rechteck.zeichnen(koordinatenSystem);
+      rechteck.zeichnen(koordinatenSystem, '@');
       
       // Rechteck rechteck2 = new Rechteck(  );
       

@@ -34,12 +34,18 @@ public class Rechteck implements Abmessungen
       return this.hoehe * this.breite;
    }
    
+   
+   public void zeichnen( char[][] koordinatenSystem ) {
+	   
+	   zeichnen(koordinatenSystem, 'X');
+   }
+   
    /** Die Methode zeichnet das aktuelle Rechteck in 
     * das angegebene Koordinatensystem
     * 
     * @param koordinatenSystem
     */
-   public void zeichnen( char[][] koordinatenSystem )
+   public void zeichnen( char[][] koordinatenSystem, char c )
    {
           
       for(int x = this.x; x < this.x + this.breite; x++ )
@@ -47,8 +53,8 @@ public class Rechteck implements Abmessungen
     	  int yOben = this.y + this.hoehe - 1; 
     	  int yUnten = this.y;
     	  
-         koordinatenSystem[yOben][x] = 'X';
-         koordinatenSystem[yUnten][x] = 'X';
+         koordinatenSystem[yOben][x] = c;
+         koordinatenSystem[yUnten][x] = c;
       }
       
       
@@ -56,8 +62,8 @@ public class Rechteck implements Abmessungen
     	  
     	  int xLinks = this.x;
     	  int xRechts = this.x + this.breite - 1;
-    	  koordinatenSystem[y][xLinks] = 'X';
-          koordinatenSystem[y][xRechts] = 'X';
+    	  koordinatenSystem[y][xLinks] = c;
+          koordinatenSystem[y][xRechts] = c;
     	  
       }
  
