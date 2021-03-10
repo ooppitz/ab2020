@@ -3,15 +3,15 @@ package de.die_gfi.daniel.geouebung;
 
 public class Rechteck implements Abmessungen
 {
-   private double laenge, breite;
-   protected double x, y;
+   private int hoehe, breite;
+   protected int x, y;
    
    
-   public Rechteck( double x, double y, double laenge, double breite )
+   public Rechteck( int x, int y, int hoehe, int breite )
    {
       this.x = x;
       this.y = y;
-      this.laenge = laenge;
+      this.hoehe = hoehe;
       this.breite = breite;      
    }
 
@@ -20,7 +20,7 @@ public class Rechteck implements Abmessungen
     */
    public void skalieren( double faktor )
    {
-      this.laenge *= faktor;
+      this.hoehe *= faktor;
       this.breite *= faktor;
    }
    
@@ -31,7 +31,7 @@ public class Rechteck implements Abmessungen
     */
    public double berechneOberflaeche()
    {
-      return this.laenge * this.breite;
+      return this.hoehe * this.breite;
    }
    
    /** Die Methode zeichnet das aktuelle Rechteck in 
@@ -39,8 +39,70 @@ public class Rechteck implements Abmessungen
     * 
     * @param koordinatenSystem
     */
-   public void zeichnen(char[][] koordinatenSystem) {
-	   
+   public void zeichnen( char[][] koordinatenSystem )
+   {
+      /* Laufvariablen */
+      int x;
+      int y;
+      
+      
+      /* Koordinaten des Punktes A */
+      int xWert = this.x;
+      int yWert = this.y;
+      
+      System.out.printf( "A(%d/%d)\n", xWert, yWert );      
+      
+      /* Strecke AB und Punkt B zeichnen */
+      
+
+      
+      for( x = xWert; x < xWert + this.breite; x++ )
+      {
+         koordinatenSystem[yWert][x] = 'X';
+      }
+      
+      
+      /* Strecke BC und Punkt C zeichnen */
+      
+      /* Koordinaten des Punktes B */
+      xWert = x-1;
+//    yWert = yWert;
+      
+      System.out.printf( "B(%d/%d)\n", xWert, yWert );
+      
+      for( y = yWert+1; y < yWert + this.hoehe; y++ )
+      {
+         koordinatenSystem[y][xWert] = 'X';
+      }
+      
+      
+      /* Strecke CD und Punkt D zeichnen */
+      
+      /* Koordinaten des Punktes C */
+//    xWert = xWert;
+      yWert = y-1;
+      
+      System.out.printf( "C(%d/%d)\n", xWert, yWert );
+      
+      for( x = xWert-1; x > xWert - this.breite; x-- )
+      {
+         koordinatenSystem[yWert][x] = 'X';
+      }
+      
+      
+      /* Strecke DA zeichnen */
+      
+      /* Koordinaten des Punktes D */
+      xWert = x+1;
+//    yWert = yWert;
+      
+      System.out.printf( "D(%d/%d)\n", xWert, yWert );
+      
+      for( y = yWert-1; y > yWert - this.hoehe+1; y-- )
+      {
+         koordinatenSystem[y][xWert] = 'X';
+      }
+
    }
    
    /**
@@ -50,14 +112,14 @@ public class Rechteck implements Abmessungen
     */
    public double berechneUmfang()
    {
-      return 2*( this.laenge + this.breite );
+      return 2*( this.hoehe + this.breite );
    }
    
    
    
-   public double getLaenge()
+   public double getHoehe()
    {
-      return this.laenge;
+      return this.hoehe;
    }
    
    
