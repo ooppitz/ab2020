@@ -2,8 +2,6 @@ package de.die_gfi.franziska.shop;
 
 import java.util.ArrayList;
 
-import java.util.Scanner;
-
 public class ProductCollection {
 
 	ArrayList<Product> productCollection;
@@ -66,8 +64,6 @@ public class ProductCollection {
 	}
 
 	public String auswahlTreffen() {
-
-		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Unsere Kategorien: \n");
 
@@ -78,7 +74,7 @@ public class ProductCollection {
 		
 			System.out.println("\nBitte eine Kategorie wählen");
 
-			switch (scanner.nextLine()) {
+			switch (App.scannerApp.nextLine()) {
 			case "Bücher":
 
 				for (int i = 0; i < ProductCollection.laenge(this); i++) {
@@ -130,9 +126,7 @@ public class ProductCollection {
 
 	public String auswahlArtikel() {
 
-		Scanner scanner = new Scanner(System.in);
-
-		int chosenArticle = scanner.nextInt();
+		int chosenArticle = App.scannerApp.nextInt();
 
 		String ausgabeTest = "";
 
@@ -151,9 +145,7 @@ public class ProductCollection {
 
 	public Product auswahlArtikelAlsProduct() {
 
-		Scanner scanner = new Scanner(System.in);
-
-		int chosenArticle = scanner.nextInt();
+		int chosenArticle = App.scannerApp.nextInt();
 
 		Product chosenProduct = new Product("filler", 99, 99);
 

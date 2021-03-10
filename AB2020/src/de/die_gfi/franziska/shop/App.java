@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 public class App {
 
-	public static void main(String[] args) {
+	static Scanner scannerApp = new Scanner(System.in);
 
-		Scanner scanner = new Scanner(System.in);
+	public static void main(String[] args) {
 
 		ProductCollection p = App.createProductCollection();
 
@@ -20,7 +20,6 @@ public class App {
 
 		System.out.println(k.toString());
 
-		scanner.close();
 	}
 
 	/**
@@ -31,14 +30,12 @@ public class App {
 	public static Purchase simulatePurchase(Customer c, ProductCollection p) {
 
 		ArrayList<PurchaseItem> purchasedItems = new ArrayList<PurchaseItem>();
-		
-		System.out.println("Wilkommen in Franzis fantastischem Online-Shop");
 
-		Scanner input = new Scanner(System.in);
+		System.out.println("Wilkommen in Franzis fantastischem Online-Shop");
 
 		System.out.println("Wollen Sie etwas kaufen?");
 
-		while (input.nextLine().equalsIgnoreCase("ja")) {
+		while (scannerApp.nextLine().equalsIgnoreCase("ja")) {
 
 			System.out.println(p.auswahlTreffen());
 
@@ -46,6 +43,8 @@ public class App {
 			purchasedItems.add(PurchaseItem.productToPurchaseItem(p.auswahlArtikelAlsProduct()));
 
 			System.out.println("Noch einen Artikel hinzufügen?");
+
+			scannerApp.nextLine();
 		}
 
 		Purchase purchase = new Purchase(c, purchasedItems);
@@ -66,7 +65,7 @@ public class App {
 		Nahrung brei = new Nahrung("Babybrei", 10.00, 6, "01.01.2030");
 		Nahrung mGulasch = new Nahrung("Minderwertiges Gulasch", 28, 7, "jetzt");
 		Nahrung erbsen = new Nahrung("N' Batzen Erbsen", 15, 8, "wahrscheinlich noch ne gute Zeit entfernt");
-		Nahrung mettIgel = new Nahrung("Mettigel", 9 , 9, "unbekannt");
+		Nahrung mettIgel = new Nahrung("Mettigel", 9, 9, "unbekannt");
 
 		ArrayList<Product> produkte = new ArrayList<Product>();
 
@@ -79,11 +78,11 @@ public class App {
 		produkte.add(mGulasch);
 		produkte.add(erbsen);
 		produkte.add(mettIgel);
-		
+
 		ProductCollection collection = new ProductCollection(produkte);
 
 		return collection;
 
 	}
-	
+
 }
