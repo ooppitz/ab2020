@@ -1,6 +1,6 @@
 package de.die_gfi.daniel.shop;
 
-public class Product implements CounterInterface
+public class Product implements CounterInterface, Discount
 {
    String name;
    double preis;
@@ -50,15 +50,42 @@ public class Product implements CounterInterface
    {
       return Product.anzahlProduct;
    }
-   
-/*   
-   public String toString()
+
+
+   public boolean isDiscountPossible()
    {
-      return
-            "Name          : " + this.name + "\n" +
-            "Preis         : " + this.preis + "\n" +
-            "Beschreibung  : " + this.beschreibung + "\n" +
-            "Artikelnummer : " + this.artikelNummer;
+      return true;
    }
-*/
+
+
+   public int getMaximumDiscount()
+   {
+      return 10;
+   }
+
+
+   public int getDiscountForAmount( int count )
+   {
+      // TODO Auto-generated method stub
+      int rabatt;
+      
+      rabatt = 0;
+
+      if(count >= 50 && count < 100)
+      {
+         rabatt = 5;
+      }
+      else
+      {
+         if(count > 100)
+         {
+            rabatt = this.getMaximumDiscount();
+         }
+      }
+      
+      return rabatt;
+   }
+   
+   
+   
 }

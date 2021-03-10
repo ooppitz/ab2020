@@ -32,8 +32,8 @@ public class App
 
       cart.add( ware ); /* Brot */
       cart.add( new PurchaseItem( shop.warenlager.get( 0 ), 1 ) );
-      cart.add( new PurchaseItem( shop.warenlager.get( 1 ), 3 ) );
-      cart.add( new PurchaseItem( shop.warenlager.get( 2 ), 1 ) );
+      cart.add( new PurchaseItem( shop.warenlager.get( 1 ), 310 ) );
+      cart.add( new PurchaseItem( shop.warenlager.get( 2 ), 65 ) );
       cart.add( new PurchaseItem( shop.warenlager.get( 3 ), 1 ) );
 
       System.out.println( cart.generateBill() );

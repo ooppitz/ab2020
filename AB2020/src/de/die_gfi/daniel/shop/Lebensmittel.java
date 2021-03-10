@@ -1,6 +1,6 @@
 package de.die_gfi.daniel.shop;
 
-public class Lebensmittel extends Product implements CounterInterface
+public class Lebensmittel extends Product implements CounterInterface, Discount
 {
    private String ablaufDatum;
    static int anzahlLebensmittel = 0;

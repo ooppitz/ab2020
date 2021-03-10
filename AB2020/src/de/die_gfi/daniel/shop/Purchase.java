@@ -12,7 +12,6 @@ public class Purchase
    
    
    
-   
    public Purchase( Shop laden )
    {
       items = new ArrayList<PurchaseItem>();
@@ -46,29 +45,19 @@ public class Purchase
       bill += "\n";
       bill += "Rechnung:" + "\n";
       bill += "-".repeat(77) + "\n";
-/*      
-      for (PurchaseItem i : this.items)
-      {
-
-         // 3 x "Die Bibel" 99.5 Euro
-
-         String articleName = i.product.name;
-         double articlePrice = i.product.preis;
-         int count = i.count;
-
-         bill += count + " x " + articleName + " " + count * articlePrice + "\n";
-
-      }
-*/     
+   
       
       for( int i = 0; i < items.size(); i++ )
       {
+         
+         
          String articleName =  items.get(i).product.name;
          double articlePrice = items.get(i).product.preis;
          int count = items.get(i).count;
+         int discount = items.get(i).product.getDiscountForAmount(count);
          summe = summe + count * articlePrice;
          
-         bill += String.format("%3d x %-60s %6.2f EUR\n", count, articleName, count * articlePrice );
+         bill += String.format("%3d x %-60s %6.2f EUR\n", count, articleName, count * articlePrice * ((100.0-discount)/(100.0)) );
       }
 
       bill += "-".repeat(77) + "\n";
