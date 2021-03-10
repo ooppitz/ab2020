@@ -26,6 +26,13 @@ public class Application
       quadrat.zeichnen(koordinatenSystem, 'q');
       
       
+      Bild bild = new Bild();
+      bild.add(rechteck);
+      bild.add(quadrat);
+      bild.zeichnen(koordinatenSystem);
+      bild.drucken(); 
+      
+      
       // Ausdrucken des Arrays auf der Konsole
 /*    for( int y = 0; y < 100; y++ ) */
       for( int y = 100-1; y >= 0; y-- )
