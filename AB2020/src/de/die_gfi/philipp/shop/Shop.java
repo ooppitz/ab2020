@@ -22,7 +22,7 @@ public class Shop {
 	protected final ArrayList<Customer> customers;
 	protected final ArrayList<Purchase> sales;
 	protected int salesNumber;
-	protected Admin admin;
+	protected Admin admin = null;
 
 	public Shop(String shopName, String ownerName, String shopAddress, String shopEmailAddress, String vatNumber) {
 		this.shopName = shopName;
@@ -35,9 +35,13 @@ public class Shop {
 		this.sales = new ArrayList<>();
 		this.salesNumber = Objects.requireNonNull((new File(PathGetter.getDataPath() + "bills/")).listFiles()).length;
 	}
-	
+
 	public void addAdmin(Admin admin) {
-		this.admin = admin;
+		if (this.admin == null) {
+			this.admin = admin;
+		} else {
+			System.err.println("Can't have multiple admins.");
+		}
 	}
 
 	public String getShopName() {

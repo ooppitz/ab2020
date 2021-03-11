@@ -38,7 +38,7 @@ public class Customer {
 		this.customerNumber = customerNumber;
 	}
 
-	public void makePurchase(Scanner input, Shop shop) {
+	public boolean makePurchase(Scanner input, Shop shop) {
 		Purchase purchase = new Purchase();
 		boolean purchaseMade = false;
 
@@ -77,7 +77,11 @@ public class Customer {
 			}
 
 			if ((str.equals("buy") && purchaseMade) || str.equals("cancel")) {
-				break;
+				if (purchaseMade) {
+					return true;
+				} else {
+					return false;
+				}
 			}
 		}
 	}

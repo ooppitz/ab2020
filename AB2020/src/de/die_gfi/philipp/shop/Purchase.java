@@ -191,7 +191,7 @@ public class Purchase {
 			billBuilder.append(priceString).append("\n");
 
 			totalSum += itemPrice;
-			billMachineReadable.append(p.getArticleNumber()).append("#").append(p.getAmount()).append("|");
+			billMachineReadable.append(p.getArticleNumber()).append("§").append(p.getAmount()).append("|");
 		}
 		billMachineReadable.deleteCharAt(billMachineReadable.length() - 1).append("\n");
 
@@ -204,9 +204,10 @@ public class Purchase {
 		billBuilder.append(" ".repeat(ovString.length() - totalString.length()));
 		billBuilder.append(totalString);
 
-		// Prints whole bill and writes it to file
+		// Prints the bill
 		System.out.print(billBuilder);
 
+		// Writes the bill in human readable and machine readable form to the disk
 		try (OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(billFile))){
 			fileWriter.write(billMachineReadable.toString());
 			fileWriter.write(billBuilder.toString());

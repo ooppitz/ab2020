@@ -8,7 +8,7 @@ public class ShopInit {
 	public static Shop initializeTestShop() {
 		Shop shop = new Shop("Hansi's Gemischtwarenladen", "Hansi Mueller", "Dorfstrasse 96, 28392 Dorf im Au",
 				"info@hansi-gemischtwaren.de", "6038-683-3894");
-		Admin admin = new Admin(shop, "admin", "admin");
+		Admin admin = new Admin(shop, 92668751);
 		shop.addAdmin(admin);
 		shop.readCustomersFromFile();
 		return shop;
