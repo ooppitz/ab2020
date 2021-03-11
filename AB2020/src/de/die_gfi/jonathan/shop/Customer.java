@@ -44,6 +44,10 @@ public class Customer {
 		lager.send(index);
 		this.buying.addItem(objekt);
 	}
+	
+	public boolean exists() {
+		return true;
+	}
 
 	// erstellt eine Rechnung unter nennung des Produktnamens
 	public double createBill() {

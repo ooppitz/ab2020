@@ -124,6 +124,9 @@ public class Shop {
 	public boolean customerInterface(Scanner sc, boolean running, String account) {
 		Customer c;
 		c = find(account);
+		if (c.exists()==true) {
+			
+		
 		boolean login = true;
 		System.out.println("Mögliche Eingaben: print search index logout buy buymult exit bill adress");
 		do {
@@ -188,6 +191,7 @@ public class Shop {
 			}
 
 		} while (login == true);
+		}
 		return running;
 	}
 
