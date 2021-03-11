@@ -3,7 +3,6 @@ package de.die_gfi.oppitz;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Arrays;
-import java.util.Scanner;
 
 
 public class Playground {
@@ -32,10 +31,13 @@ public class Playground {
 		
 		System.out.println(a);
 		
+<<<<<<< HEAD
 =======
 		String s = sc2.nextLine();
 		System.out.println(s);
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> branch 'eva.newbranch2.0' of https://github.com/ooppitz/ab2020.git
 		
 	}
 

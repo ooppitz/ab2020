@@ -1,6 +1,6 @@
 package de.die_gfi.eva.shop;
 
-public class Customer extends App{
+public class Customer{
 
 	String name;
 	String email;
