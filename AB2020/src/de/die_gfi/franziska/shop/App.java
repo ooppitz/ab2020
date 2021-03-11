@@ -35,9 +35,10 @@ public class App {
 
 		ArrayList<PurchaseItem> purchasedItems = new ArrayList<PurchaseItem>();
 
-		System.out.println("Wilkommen in Franzis fantastischem Online-Shop");
+		System.out.println("Wilkommen in Franzis fantastischem Online-Shop :D");
 
 		System.out.println("Wollen Sie etwas kaufen?");
+		System.out.println("\" ja \" eingeben um einzukaufen");
 
 		while (scannerApp.next().equalsIgnoreCase("ja")) {
 
@@ -72,17 +73,16 @@ public class App {
 						continue;
 
 					} else {
-
-						System.out.println("break");
-
 						weiter = false;
 						break;
 					}
 
 				}
 				System.out.println("Wollen Sie weiter einkaufen?");
+				System.out.println("\" ja \" eingeben um weiter einzukaufen");
 			} else {
-				break;
+				System.out.println("Wollen Sie weiter einkaufen?");
+				System.out.println("\" ja \" eingeben um weiter einzukaufen");
 			}
 		}
 
@@ -104,7 +104,7 @@ public class App {
 		Nahrung brei = new Nahrung("Babybrei", 10.00, 6, "01.01.2030");
 		Nahrung mGulasch = new Nahrung("Minderwertiges Gulasch", 28, 7, "jetzt");
 		Nahrung erbsen = new Nahrung("N' Batzen Erbsen", 15, 8, "wahrscheinlich noch ne gute Zeit entfernt");
-		Nahrung mettIgel = new Nahrung("Mettigel", 9, 9, "unbekannt");
+		Nahrung mettIgel = new Nahrung("Mett-Igel", 9, 9, "unbekannt");
 
 		ArrayList<Product> produkte = new ArrayList<Product>();
 
