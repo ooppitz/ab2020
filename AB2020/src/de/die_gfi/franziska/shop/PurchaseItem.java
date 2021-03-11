@@ -7,18 +7,16 @@ public class PurchaseItem {
 	Product p;
 
 	public static void main(String[] args) {
-		
+
 		Book proG = new Book("Gulaschsuppe für Fortgeschrittene", 9.99, 1, 347);
 		PurchaseItem p1 = new PurchaseItem(proG, 13, proG.preis);
 		System.out.println(p1);
-		
+
 		Getraenke eLimo = new Getraenke("Erdbeerlimo", 1.00, 3, "22.08.2023");
 		PurchaseItem p2 = new PurchaseItem(eLimo, 2, eLimo.preis);
 		System.out.println(p2);
-		
-		
-	}
 
+	}
 
 	public PurchaseItem(Product p, int m, double preis) {
 		this.preis = p.preis;
@@ -33,23 +31,22 @@ public class PurchaseItem {
 		int anzahl = App.scannerApp.nextInt();
 
 		return anzahl;
-		
+
 	}
 
 	public String toString() {
 
-		String mengeP = String.format("%-4s", menge +"x");
+		double preisGesamt = p.preis * menge;
 		
-		String nameP = String.format("%s", p.name );
-	
-		String preisP = String.format("%f", p.preis);
-		
-		
-//		return menge + " x " + p.name + " " + (preis * menge) + "€";
+		String mengeP = String.format("%-5s", menge + "x");
 
-		return mengeP + nameP + preisP;
+		String nameP = String.format("%-40s", p.name);
+
+		String preisP = String.format("%11s", App.f.format(preisGesamt));
+
+		return mengeP + nameP + preisP + "€";
 	}
-	
+
 	public static PurchaseItem productToPurchaseItem(Product p) {
 
 		PurchaseItem item = new PurchaseItem(p, PurchaseItem.mengenAbfrage(), p.preis);

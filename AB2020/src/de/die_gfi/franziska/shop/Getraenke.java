@@ -28,7 +28,7 @@ public class Getraenke extends Product implements InstanceCounter {
 
 	public String toString() {
 
-		return "Artikenummer: " + artikelnummer + "\nGetränk: " + name + " \nPreis: " + preis + "\n";
+		return "Artikenummer: " + artikelnummer + "\nGetränk: " + name + " \nPreis: " + App.f.format(preis) + "\n";
 
 	}
 

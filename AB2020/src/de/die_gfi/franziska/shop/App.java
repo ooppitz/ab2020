@@ -1,5 +1,7 @@
 package de.die_gfi.franziska.shop;
 
+import java.text.DecimalFormat;
+
 // Start implementing interfaces
 
 import java.util.ArrayList;
@@ -9,6 +11,8 @@ import java.util.Scanner;
 public class App {
 
 	static Scanner scannerApp = new Scanner(System.in);
+
+	static DecimalFormat f = new DecimalFormat("#0.00");
 
 	public static void main(String[] args) {
 
@@ -35,7 +39,7 @@ public class App {
 
 		System.out.println("Wollen Sie etwas kaufen?");
 
-		while (scannerApp.nextLine().equalsIgnoreCase("ja")) {
+		while (scannerApp.next().equalsIgnoreCase("ja")) {
 
 			System.out.println(p.auswahlTreffen());
 
@@ -44,7 +48,6 @@ public class App {
 
 			System.out.println("Noch einen Artikel hinzufügen?");
 
-			scannerApp.nextLine();
 		}
 
 		Purchase purchase = new Purchase(c, purchasedItems);

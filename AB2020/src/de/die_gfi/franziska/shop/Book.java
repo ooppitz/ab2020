@@ -11,7 +11,7 @@ public class Book extends Product implements InstanceCounter {
 	public Book(String n, double p, int nr, int isbn) {
 
 		super(n, p, nr);
-
+		
 		this.isbn = isbn;
 
 		Book.counter++;
@@ -28,7 +28,7 @@ public class Book extends Product implements InstanceCounter {
 
 	public String toString() {
 
-		return "Artikelnummer: " + artikelnummer + "\nBuch: " + name + " \nPreis: " + preis + "€" + "\n";
+		return "Artikelnummer: " + artikelnummer + "\nBuch: " + name + " \nPreis: " + App.f.format(preis) + "€" + "\n";
 
 	}
 

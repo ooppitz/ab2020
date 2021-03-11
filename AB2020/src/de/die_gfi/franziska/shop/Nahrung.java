@@ -20,7 +20,7 @@ public class Nahrung extends Product implements InstanceCounter {
 
 	public String toString() {
 
-		return "Artikelnummer: " + artikelnummer + "\nLebensmittel: " + name + " \nPreis: " + preis + "€" + "\n";
+		return "Artikelnummer: " + artikelnummer + "\nLebensmittel: " + name + " \nPreis: " + App.f.format(preis) + "€" + "\n";
 
 	}
 
