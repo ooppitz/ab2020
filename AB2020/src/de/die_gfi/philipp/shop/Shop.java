@@ -120,10 +120,8 @@ public class Shop {
 	 */
 	public void readCustomersFromFile() {
 		File file = new File(PathGetter.getDataPath() + "customers.inv");
-		try {
-			InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
-
-			Scanner fileScanner = new Scanner(fileReader);
+		try (Scanner fileScanner = new Scanner(
+				new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));) {
 
 			while (fileScanner.hasNextLine()) {
 
