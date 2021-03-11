@@ -49,7 +49,7 @@ public class Shop {
 					case "addb":
 						try {
 						System.out.println("Bitte Author Titel Sprache preis und anzahl der exemplare angeben");
-						storage.addToCollection(new Book(sc.next(), sc.next(), sc.next(), sc.nextDouble()),
+						storage.addToCollection(new Book(sc.nextLine(), sc.nextLine(), sc.next(), sc.nextDouble()),
 								sc.nextInt());
 						} catch (InputMismatchException e) {
 							System.err.println("falsche Eingabe!");
@@ -103,9 +103,9 @@ public class Shop {
 				try {
 					buy(sc.nextInt(), c);
 				} catch (InputMismatchException e) {
-					System.out.println("Falsche Eingabe Kaufvorgang abgebrochen");
+					System.err.println("Falsche Eingabe Kaufvorgang abgebrochen");
 				} catch (IndexOutOfBoundsException e) {
-					System.out.println("Das Produkt existiert nicht");
+					System.err.println("Das Produkt existiert nicht");
 				}
 				break;
 			}
@@ -118,9 +118,9 @@ public class Shop {
 
 						buy(ram, c);
 					} catch (InputMismatchException e) {
-						System.out.println("Falsce eingabe kauf vorgang abgebrochen");
+						System.err.println("Falsce eingabe kauf vorgang abgebrochen");
 					} catch (IndexOutOfBoundsException e) {
-						System.out.println("Das Produkt existirt nicht");
+						System.err.println("Das Produkt existirt nicht");
 					}
 				}
 				break;
