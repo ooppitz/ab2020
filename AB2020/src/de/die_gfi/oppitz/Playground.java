@@ -5,20 +5,24 @@ import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class Playground {
 
 	public static void main(String[] args) {
-		
-		
-		Scanner sc = new Scanner(System.in);
-		Scanner sc2 = new Scanner(System.in);
 
-		sc.close();
+		// Wort Buch 3 Berg
+		Scanner sc = new Scanner(System.in);
 		
-		String s = sc2.nextLine();
-		System.out.println(s);
+		String token = sc.next(); // Token entspricht i.A. einem Wort
+		System.out.println(token);
+		
+		token = sc.nextLine();
+		System.out.println(token);
+		
+		int zahl = sc.nextInt();
+		System.out.println(zahl);
+		
 		
 	}
+
 
 }
