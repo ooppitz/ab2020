@@ -40,31 +40,41 @@ public class Shop {
 						break;
 					case "addp":
 						try {
-						System.out.println("Bitte Produktnamen Preis und Anzahl angben");
-						storage.addToCollection(new Product(sc.next(), sc.nextDouble()), sc.nextInt());
+							System.out.println("Bitte Produktnamen Preis und Anzahl angben");
+							storage.addToCollection(new Product(sc.next(), sc.nextDouble()), sc.nextInt());
 						} catch (InputMismatchException e) {
 							System.err.println("falsche Eingabe!");
 						}
 						break;
 					case "addb":
 						try {
-						System.out.println("Bitte Author Titel Sprache preis und anzahl der exemplare angeben");
-						storage.addToCollection(new Book(sc.nextLine(), sc.nextLine(), sc.next(), sc.nextDouble()),
-								sc.nextInt());
+							System.out.println("Bitte Author Titel Sprache preis und anzahl der exemplare angeben");
+							storage.addToCollection(new Book(sc.nextLine(), sc.nextLine(), sc.next(), sc.nextDouble()),
+									sc.nextInt());
 						} catch (InputMismatchException e) {
 							System.err.println("falsche Eingabe!");
 						}
 						break;
+					
+						
 					case "addt":
 						try {
-						System.out.println("Bite Name Preis Beschreibung und Anzahl angeben");
-						storage.addToCollection(new Trinket(sc.next(), sc.nextDouble(), sc.nextLine()), sc.nextInt());
+							System.out.println("Bite Name Preis Beschreibung und Anzahl angeben");
+							storage.addToCollection(new Trinket(sc.next(), sc.nextDouble(), sc.nextLine()),
+									sc.nextInt());
 						} catch (InputMismatchException e) {
 							System.err.println("falsche Eingabe!");
 						}
 						break;
+
 					case "index":
 						storage.giveIndex();
+						break;
+					case "adress":
+						giveAdress();
+						break;
+					case "customer":
+						giveCustomer();
 						break;
 					case "logout":
 						login = false;
@@ -152,6 +162,24 @@ public class Shop {
 
 		} while (login == true);
 		return running;
+	}
+
+	public void giveCustomer() {
+		int size = users.size();
+
+		for (int i = 0; i < size; i++) {
+			System.out.println("Name: " + users.get(i).name + " " + users.get(i).surename + " "
+					+ users.get(i).mail);
+		}
+	}
+
+	public void giveAdress() {
+		int size = users.size();
+
+		for (int i = 0; i < size; i++) {
+			System.out.println(users.get(i).account + " " + users.get(i).country + " " + users.get(i).location + " "
+					+ users.get(i).street + " " + users.get(i).house);
+		}
 	}
 
 	// suchalgoritmus für die Kunden liste
