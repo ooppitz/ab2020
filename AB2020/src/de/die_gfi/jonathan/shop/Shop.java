@@ -35,6 +35,7 @@ public class Shop {
 
 	private boolean interfaceAdmin(Scanner sc, boolean running) {
 		boolean login = true;
+		System.out.println("Mögliche Eingaben: addb addt addp addd addc search index logout customer exit adress details");
 		do {
 
 			String input = sc.next().toLowerCase();
@@ -57,39 +58,47 @@ public class Shop {
 					System.err.println("falsche Eingabe!");
 				}
 				break;
+				
+			case "addd":
+				try {
+					System.out.println("Bitte Produktnamen Preis und Anzahl angben");
+					storage.addToCollection(new Drink(sc.next(), sc.nextDouble(), sc.next() ), sc.nextInt());
+				} catch (InputMismatchException e) {
+					System.err.println("falsche Eingabe!");
+				}
+				break;
 			case "addb":
 				try {
 					System.out.println("Bitte den Namen des Authors angeben");
-					String author =sc.nextLine();
+					String author = sc.nextLine();
 					System.out.println(author);
 					System.out.println("Bitte den Titel des Buches angeben");
-					String titel=sc.nextLine();
+					String titel = sc.nextLine();
 					System.out.println(titel);
 					System.out.println("Bitte die sprache angeben:");
-					String sprache=sc.next();
+					String sprache = sc.next();
 					System.out.println(sprache);
 					System.out.println("Bitte den Preis angeben");
-					double preis=sc.nextDouble();
+					double preis = sc.nextDouble();
 					System.out.println(preis);
 					System.out.println("Bitte die Anzahl der Proddukte angeben");
-					int anzahl =sc.nextInt();
+					int anzahl = sc.nextInt();
 					System.out.println(anzahl);
 					Book b = new Book(author, titel, sprache, preis);
-					storage.addToCollection(b,	anzahl);
+					storage.addToCollection(b, anzahl);
 				} catch (InputMismatchException e) {
 					System.err.println("falsche Eingabe!");
 				}
 				break;
 			case "details":
 				System.out.println("Zu welchem Produkt");
-				int i=sc.nextInt();
+				int i = sc.nextInt();
 				System.out.println(storage.collection.get(i).toString());
 				break;
 			case "addt":
 				try {
 					System.out.println("Bite Name Preis Beschreibung und Anzahl angeben");
-					storage.addToCollection(new Trinket(sc.next(), sc.nextDouble(), sc.nextLine()),
-							sc.nextInt());
+					storage.addToCollection(new Trinket(sc.next(), sc.nextDouble(), sc.nextLine()), sc.nextInt());
 				} catch (InputMismatchException e) {
 					System.err.println("falsche Eingabe!");
 				}
@@ -115,6 +124,8 @@ public class Shop {
 				running = false;
 				break;
 			default:
+				System.out.println(
+						"Mögliche Eingaben: addb addt addp addc search index logout customer exit adress details");
 				break;
 			}
 		} while (login == true);
@@ -124,73 +135,72 @@ public class Shop {
 	public boolean customerInterface(Scanner sc, boolean running, String account) {
 		Customer c;
 		c = find(account);
-		if (c.exists()==true) {
-			
-		
-		boolean login = true;
-		System.out.println("Mögliche Eingaben: print search index logout buy buymult exit bill adress");
-		do {
+		if (c != null) {
 
-			String input = sc.next().toLowerCase();
-			switch (input) {
-			case "buy": {
+			boolean login = true;
+			System.out.println("Mögliche Eingaben: print search index logout buy buymult exit bill adress details");
+			do {
 
-				try {
-					buy(sc.nextInt(), c);
-				} catch (InputMismatchException e) {
-					System.err.println("Falsche Eingabe Kaufvorgang abgebrochen");
-				} catch (IndexOutOfBoundsException e) {
-					System.err.println("Das Produkt existiert nicht");
-				}
-				break;
-			}
-			case "buymult":
-				int ram = sc.nextInt();
-				System.out.println("wie viel stück wollen sie kaufen");
-				int timer = sc.nextInt();
-				for (int i = 0; i < timer; i++) {
+				String input = sc.next().toLowerCase();
+				switch (input) {
+				case "buy": {
+
 					try {
-
-						buy(ram, c);
+						buy(sc.nextInt(), c);
 					} catch (InputMismatchException e) {
-						System.err.println("Falsce eingabe kauf vorgang abgebrochen");
+						System.err.println("Falsche Eingabe Kaufvorgang abgebrochen");
 					} catch (IndexOutOfBoundsException e) {
-						System.err.println("Das Produkt existirt nicht");
+						System.err.println("Das Produkt existiert nicht");
 					}
+					break;
 				}
-				break;
-			case "details":
-				System.out.println("Zu welchem Produkt");
-				int i=sc.nextInt();
-				System.out.println(storage.collection.get(i).toString());
-				break;
-			case "adress":
-				c.setAdress(sc.next(), sc.next(), sc.next(), sc.nextInt());
-				break;
-			case "print":
-				c.printPurchase();
-				break;
-			case "bill":
-				c.createBill();
-				break;
-			case "index":
-				storage.giveIndex();
-				break;
-			case "logout":
-				login = false;
-				break;
-			case "search":
-				storage.search(sc.next());
-				break;
-			case "exit":
-				login = false;
-				running = false;
-				break;
-			default:
-				System.out.println("Mögliche Eingaben: print search index logout buy buymult exit bill");
-			}
+				case "buymult":
+					int ram = sc.nextInt();
+					System.out.println("wie viel stück wollen sie kaufen");
+					int timer = sc.nextInt();
+					for (int i = 0; i < timer; i++) {
+						try {
 
-		} while (login == true);
+							buy(ram, c);
+						} catch (InputMismatchException e) {
+							System.err.println("Falsce eingabe kauf vorgang abgebrochen");
+						} catch (IndexOutOfBoundsException e) {
+							System.err.println("Das Produkt existirt nicht");
+						}
+					}
+					break;
+				case "details":
+					System.out.println("Zu welchem Produkt");
+					int i = sc.nextInt();
+					System.out.println(storage.collection.get(i).toString());
+					break;
+				case "adress":
+					c.setAdress(sc.next(), sc.next(), sc.next(), sc.nextInt());
+					break;
+				case "print":
+					c.printPurchase();
+					break;
+				case "bill":
+					c.createBill();
+					break;
+				case "index":
+					storage.giveIndex();
+					break;
+				case "logout":
+					login = false;
+					break;
+				case "search":
+					storage.search(sc.next());
+					break;
+				case "exit":
+					login = false;
+					running = false;
+					break;
+				default:
+					System.out.println("Mögliche Eingaben: print search index logout buy buymult exit bill");
+				}
+
+			} while (login == true);
 		}
 		return running;
 	}
