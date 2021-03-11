@@ -25,21 +25,25 @@ public class Application
       Quadrat quadrat = new Quadrat(3,3,5);
       quadrat.zeichnen(koordinatenSystem, 'q');
       
-/*      
+      
       Bild bild = new Bild();
       bild.add(rechteck);
       bild.add(quadrat);
       bild.zeichnen(koordinatenSystem);
       bild.drucken(koordinatenSystem); 
       
+      System.out.println();
       
       quadrat.verschieben(10, 0);
+      
       bild.zeichnen(koordinatenSystem);
       bild.drucken(koordinatenSystem);
-*/      
+    
       
       // Ausdrucken des Arrays auf der Konsole
 /*    for( int y = 0; y < 100; y++ ) */
+      
+      /*
       for( int y = 100-1; y >= 0; y-- )
       {
          for( int x = 0; x < 100; x++ )
@@ -48,7 +52,7 @@ public class Application
          }
          System.out.printf("\n");
       }
-
+*/
 
       /*
        * double flaeche; double umfang;
@@ -83,16 +87,16 @@ public class Application
  * .........X.........X...............................
  * .........X.........X.........XXXXXXXXXXXXX.........
  * .........XXXXXXXXXXX.........X...........X.........
- * .............................XXXXXXXXXXXXX.........
+ * ....*.....*.....*............XXXXXXXXXXXXX.........
  * ...................................................
  * ...................................................
  * ........................XXXXXX.....................
  * ........................X....X.....................
- * ........................XXXXXX.....................
+ * ....*.....*.....*......XXXXXX.....................
  * ...................................................
  * ...................................................
  * ...................................................
- * ................................................... (0|0) x x x x
+ * ....*.....*.....*.................................. (0|0) x x x x
  * 
  * 
  * 

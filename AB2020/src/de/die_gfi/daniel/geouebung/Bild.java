@@ -42,7 +42,19 @@ public class Bild
    }
    
    
-   public void zeichne( char array[][] )
+   public void drucken(char array[][]) {
+	   
+	   for( int y = 100-1; y >= 0; y-- )
+	      {
+	         for( int x = 0; x < 100; x++ )
+	         {
+	            System.out.printf("%c", array[y][x]);
+	         }
+	         System.out.printf("\n");
+	      }
+   }
+   
+   public void zeichnen( char array[][] )
    {
       /* Koordinatensystem löschen */
       koordinatenSystemZuruecksetzen( array );
