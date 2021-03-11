@@ -156,6 +156,7 @@ public class Purchase {
 				+ "-" + fsf.format(now) + ".bill");
 
 		StringBuilder billBuilder = new StringBuilder();
+		StringBuilder billMachineReadable = new StringBuilder();
 
 		double totalSum = 0;
 
@@ -190,7 +191,9 @@ public class Purchase {
 			billBuilder.append(priceString).append("\n");
 
 			totalSum += itemPrice;
+			billMachineReadable.append(p.getArticleNumber()).append("#").append(p.getAmount()).append("|");
 		}
+		billMachineReadable.deleteCharAt(billMachineReadable.length() - 1).append("\n");
 
 		// Adds a spacer
 		billBuilder.append("-".repeat(ovString.length())).append("\n");
@@ -204,9 +207,8 @@ public class Purchase {
 		// Prints whole bill and writes it to file
 		System.out.print(billBuilder);
 
-		try {
-			FileOutputStream fos = new FileOutputStream(billFile);
-			OutputStreamWriter fileWriter = new OutputStreamWriter(fos);
+		try (OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(billFile))){
+			fileWriter.write(billMachineReadable.toString());
 			fileWriter.write(billBuilder.toString());
 			fileWriter.flush();
 			fileWriter.close();
