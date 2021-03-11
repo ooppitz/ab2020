@@ -3,7 +3,7 @@ package de.die_gfi.philipp.shop.data;
 import de.die_gfi.philipp.shop.Admin;
 import de.die_gfi.philipp.shop.Shop;
 
-public class TestData {
+public class ShopInit {
 
 	public static Shop initializeTestShop() {
 		Shop shop = new Shop("Hansi's Gemischtwarenladen", "Hansi Mueller", "Dorfstrasse 96, 28392 Dorf im Au",

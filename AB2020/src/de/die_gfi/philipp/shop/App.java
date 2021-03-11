@@ -9,7 +9,7 @@ public class App {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 
-		Shop aShop = TestData.initializeTestShop();
+		Shop aShop = ShopInit.initializeTestShop();
 
 		System.out.println(aShop);
 		System.out.println(aShop.inventoryToString());
