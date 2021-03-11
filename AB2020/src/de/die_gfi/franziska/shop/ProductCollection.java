@@ -74,7 +74,7 @@ public class ProductCollection {
 		
 			System.out.println("\nBitte eine Kategorie wählen");
 
-			switch (App.scannerApp.nextLine()) {
+			switch (App.scannerApp.next()) {
 			case "Bücher":
 
 				for (int i = 0; i < ProductCollection.laenge(this); i++) {

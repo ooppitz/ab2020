@@ -21,23 +21,7 @@ public class Purchase {
 
 	public String toString() {
 
-		String ausgabe = "";
-
-		double preisGesamt = 0;
-
-		double preisProItem = 0;
-
-		for (int i = 0; i < items.size(); i++) {
-
-			preisProItem = items.get(i).preis * items.get(i).menge;
-
-			preisGesamt = preisGesamt + preisProItem;
-
-			ausgabe = ausgabe + items.get(i).menge + "x " + items.get(i).p.name + " " + preisProItem + "€\n";
-
-		}
-
-		return "Vielen Dank für Ihren Einkauf: \n" + "Ihre Rechnung:\n\n" + ausgabe + "\nGesamt: " + preisGesamt + "€";
+		return rechnung();
 
 	}
 
@@ -53,25 +37,32 @@ public class Purchase {
 
 		return counter;
 	}
-	
-	public String Rechnung() {
-		
-		String zeile = "";
-		
-		String rechnung = "Ihre Rechnung\n";
-		
+
+	public String rechnung() {
+
+		String ausgabe = "";
+
+		double preisGesamt = 0;
+
+		double preisProItem = 0;
+
 		for (int i = 0; i < items.size(); i++) {
-			
-			items.get(i).toString();
-			
+
+			preisProItem = items.get(i).preis * items.get(i).menge;
+
+			preisGesamt = preisGesamt + preisProItem;
+
+			ausgabe = ausgabe + "\n" + items.get(i).toString();
+
 		}
+
+		String letzteZeile = "-".repeat(57) + "\nGesamt: " + String.format("%49s", App.f.format(preisGesamt) + "€")
+				+ "\n" + "-".repeat(57);
+
+		String ciao = String.format("%40s", "Vielen Dank & bis bald!");
 		
-		return zeile;
-		
+		return "Ihre Rechnung:\n" + "-".repeat(57) + "\n" + ausgabe + "\n\n" + letzteZeile +"\n" + ciao;
+
 	}
+
 }
-
-
-
-
-

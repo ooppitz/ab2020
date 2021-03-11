@@ -58,6 +58,8 @@ public class Product implements Discount {
 		this.preis = p;
 		this.artikelnummer = nr;
 
+		App.f.format(preis);
+		
 		Product.counter++;
 
 	}
