@@ -22,6 +22,7 @@ public class Shop {
 	protected final ArrayList<Customer> customers;
 	protected final ArrayList<Purchase> sales;
 	protected int salesNumber;
+	protected Admin admin;
 
 	public Shop(String shopName, String ownerName, String shopAddress, String shopEmailAddress, String vatNumber) {
 		this.shopName = shopName;
@@ -33,6 +34,10 @@ public class Shop {
 		this.customers = new ArrayList<>();
 		this.sales = new ArrayList<>();
 		this.salesNumber = Objects.requireNonNull((new File(PathGetter.getDataPath() + "bills/")).listFiles()).length;
+	}
+	
+	public void addAdmin(Admin admin) {
+		this.admin = admin;
 	}
 
 	public String getShopName() {

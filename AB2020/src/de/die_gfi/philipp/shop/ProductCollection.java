@@ -40,22 +40,10 @@ public class ProductCollection {
 
 				String str = fileScanner.nextLine();
 				String[] elements = str.split("\\|");
-				String type = elements[0];
 
 				Product prod = null;
 
-				if (type.equalsIgnoreCase("beverage")) {
-					prod = Beverage.parseString(elements);
-				}
-				if (type.equalsIgnoreCase("food")) {
-					prod = Food.parseString(elements);
-				}
-				if (type.equalsIgnoreCase("expirableproduct")) {
-					prod = ExpirableProduct.parseString(elements);
-				}
-				if (type.equalsIgnoreCase("product")) {
-					prod = Product.parseString(elements);
-				}
+				prod = parseProduct(elements);
 
 				if (prod != null) {
 					productCollection.addProduct(prod);
@@ -66,6 +54,22 @@ public class ProductCollection {
 			System.out.println("File products.inv couldn't be accessed, it may be deleted or moved.");
 		}
 		return new ProductCollection();
+	}
+
+	public static Product parseProduct(String[] elements) {
+		String type = elements[0].toLowerCase();
+		switch (type) {
+		case "product":
+			return Product.parseString(elements);
+		case "expirableproduct":
+			return ExpirableProduct.parseString(elements);
+		case "beverage":
+			return Beverage.parseString(elements);
+		case "food":
+			return Food.parseString(elements);
+		default:
+			return null;
+		}
 	}
 
 	/**
