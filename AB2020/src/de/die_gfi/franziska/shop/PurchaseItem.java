@@ -47,6 +47,11 @@ public class PurchaseItem {
 		return mengeP + nameP + preisP + "€";
 	}
 
+	/**
+	 * 
+	 * @param p
+	 * @return PurchaseItem out of a products values and quantity from method mengenAbfrage 
+	 */
 	public static PurchaseItem productToPurchaseItem(Product p) {
 
 		PurchaseItem item = new PurchaseItem(p, PurchaseItem.mengenAbfrage(), p.preis);

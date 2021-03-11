@@ -36,19 +36,54 @@ public class App {
 		ArrayList<PurchaseItem> purchasedItems = new ArrayList<PurchaseItem>();
 
 		System.out.println("Wilkommen in Franzis fantastischem Online-Shop");
-		
 
 		System.out.println("Wollen Sie etwas kaufen?");
 
 		while (scannerApp.next().equalsIgnoreCase("ja")) {
 
-			System.out.println(p.auswahlTreffen());
+			System.out.println(p.auswahlKategorie());
 
-//		creates PurchaseItem out of the Product that was chosen with artikelnummer and adds it to Purchase which is a PurchaseItem array.		
-			purchasedItems.add(PurchaseItem.productToPurchaseItem(p.auswahlArtikelAlsProduct()));
+			System.out.println("Bitte Artikelnummer eingeben");
+
+//		creates PurchaseItem out of the Product that was chosen with artikelNummer and adds it to Purchase which is a PurchaseItem array.		
+			purchasedItems.add(PurchaseItem.productToPurchaseItem(p.artikelNummerToProduct()));
 
 			System.out.println("Noch einen Artikel hinzufügen?");
+			
+			System.out.println("\"hinzufügen\" eingeben um einen weiteren Artikel aus dieser Kategorie hinzuzufügen ");
 
+			String nextChoice = scannerApp.next();
+
+			boolean weiter = true;
+
+			if (nextChoice.equalsIgnoreCase("hinzufügen")) {
+
+				while (weiter) {
+
+					System.out.println("Bitte Artikelnummer eingeben");
+
+					purchasedItems.add(PurchaseItem.productToPurchaseItem(p.artikelNummerToProduct()));
+
+					System.out.println("Weitere Artikel hinzufügen?");
+					
+					System.out.println("\" weiter \" eingeben um weitere Artikel hinzuzufügen");
+
+					if (scannerApp.next().equalsIgnoreCase("weiter")) {
+						continue;
+
+					} else {
+
+						System.out.println("break");
+
+						weiter = false;
+						break;
+					}
+
+				}
+				System.out.println("Wollen Sie weiter einkaufen?");
+			} else {
+				break;
+			}
 		}
 
 		Purchase purchase = new Purchase(c, purchasedItems);

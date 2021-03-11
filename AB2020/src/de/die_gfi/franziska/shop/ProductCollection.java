@@ -4,15 +4,11 @@ import java.util.ArrayList;
 
 public class ProductCollection {
 
-	ArrayList<Product> productCollection;
+	ArrayList<Product> sortiment;
 
 	public ProductCollection(ArrayList<Product> listOfProducts) {
 
-		this.productCollection = listOfProducts;
-
-	}
-
-	public static void main(String[] args) {
+		this.sortiment = listOfProducts;
 
 	}
 
@@ -22,11 +18,11 @@ public class ProductCollection {
 	 */
 	public Product[] toArray() {
 
-		Product[] arr = new Product[this.productCollection.size()];
+		Product[] arr = new Product[this.sortiment.size()];
 
 		for (int i = 0; i < arr.length; i++) {
 
-			arr[i] = productCollection.get(i);
+			arr[i] = sortiment.get(i);
 
 		}
 
@@ -57,13 +53,13 @@ public class ProductCollection {
 
 		for (int i = 0; i < ProductCollection.laenge(this); i++) {
 
-			ausgabe = ausgabe + productCollection.get(i).toString();
+			ausgabe = ausgabe + sortiment.get(i).toString();
 
 		}
 		return ausgabe;
 	}
 
-	public String auswahlTreffen() {
+	public String auswahlKategorie() {
 		
 		System.out.println("Unsere Kategorien: \n");
 
@@ -78,9 +74,9 @@ public class ProductCollection {
 			case "Bücher":
 
 				for (int i = 0; i < ProductCollection.laenge(this); i++) {
-					if (productCollection.get(i) instanceof Book) {
+					if (sortiment.get(i) instanceof Book) {
 
-						ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+						ausgabe = ausgabe + sortiment.get(i).toString() + "\n";
 					}
 				}
 
@@ -91,9 +87,9 @@ public class ProductCollection {
 			case "Getränke":
 
 				for (int i = 0; i < ProductCollection.laenge(this); i++) {
-					if (productCollection.get(i) instanceof Getraenke) {
+					if (sortiment.get(i) instanceof Getraenke) {
 
-						ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+						ausgabe = ausgabe + sortiment.get(i).toString() + "\n";
 
 					}
 				}
@@ -103,9 +99,9 @@ public class ProductCollection {
 			case "Lebensmittel":
 
 				for (int i = 0; i < ProductCollection.laenge(this); i++) {
-					if (productCollection.get(i) instanceof Nahrung) {
+					if (sortiment.get(i) instanceof Nahrung) {
 
-						ausgabe = ausgabe + productCollection.get(i).toString() + "\n";
+						ausgabe = ausgabe + sortiment.get(i).toString() + "\n";
 
 					}
 				}
@@ -132,9 +128,9 @@ public class ProductCollection {
 
 		for (int i = 0; i < ProductCollection.laenge(this); i++) {
 
-			if (productCollection.get(i).artikelnummer == chosenArticle) {
+			if (sortiment.get(i).artikelnummer == chosenArticle) {
 
-				ausgabeTest = "Ihr gewählter Artikel ist " + productCollection.get(i).name;
+				ausgabeTest = "Ihr gewählter Artikel ist " + sortiment.get(i).name;
 
 			}
 
@@ -143,17 +139,17 @@ public class ProductCollection {
 		return ausgabeTest;
 	}
 
-	public Product auswahlArtikelAlsProduct() {
+	public Product artikelNummerToProduct() {
 
 		int chosenArticle = App.scannerApp.nextInt();
 
-		Product chosenProduct = new Product("filler", 99, 99);
+		Product chosenProduct = new Product("ungültiges Produkt", 0, 0);
 
 		for (int i = 0; i < ProductCollection.laenge(this); i++) {
 
-			if (productCollection.get(i).artikelnummer == chosenArticle) {
+			if (sortiment.get(i).artikelnummer == chosenArticle) {
 
-				chosenProduct = productCollection.get(i);
+				chosenProduct = sortiment.get(i);
 
 			}
 
