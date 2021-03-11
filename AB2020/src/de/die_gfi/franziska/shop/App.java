@@ -32,6 +32,7 @@ public class App {
 		ArrayList<PurchaseItem> purchasedItems = new ArrayList<PurchaseItem>();
 
 		System.out.println("Wilkommen in Franzis fantastischem Online-Shop");
+		
 
 		System.out.println("Wollen Sie etwas kaufen?");
 
