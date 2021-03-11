@@ -27,7 +27,7 @@ public class Shop {
 				do {
 
 					String input = sc.next().toLowerCase();
-
+					sc.nextLine();
 					switch (input) {
 
 					case "addc":
@@ -35,7 +35,7 @@ public class Shop {
 							System.out.println("Bitte Nachnahmen und Vornahmen angeben");
 							users.add(new Customer(sc.next(), sc.next()));
 						} catch (InputMismatchException e) {
-							System.err.println("falsche Eingabe!");
+							System.err.println("falsche Eingabe!1");
 						}
 						break;
 					case "addp":
@@ -43,16 +43,33 @@ public class Shop {
 							System.out.println("Bitte Produktnamen Preis und Anzahl angben");
 							storage.addToCollection(new Product(sc.next(), sc.nextDouble()), sc.nextInt());
 						} catch (InputMismatchException e) {
-							System.err.println("falsche Eingabe!");
+							System.err.println("falsche Eingabe!2");
 						}
 						break;
 					case "addb":
 						try {
-							System.out.println("Bitte Author Titel Sprache preis und anzahl der exemplare angeben");
+							System.out.println("Bitte den Namen des Authors angeben");
+							String author =sc.nextLine();
+							System.out.println(author);
+							System.out.println("Bitte den Titel des Buches angeben");
+							String titel=sc.nextLine();
+							System.out.println(titel);
+							System.out.println("Bitte die sprache angeben:");
+							String sprache=sc.next();
+							System.out.println(sprache);
+							System.out.println("Bitte den Preis angeben");
+							double preis=sc.nextDouble();
+							System.out.println(preis);
+							System.out.println("Bitte die Anzahl der Proddukte angeben");
+							int anzahl =sc.nextInt();
+							System.out.println(anzahl);
+							Book b = new Book(author, titel, sprache, preis);
+							storage.addToCollection(b,	anzahl);
+							/*System.out.println("Bitte Author Titel Sprache preis und anzahl der exemplare angeben");
 							storage.addToCollection(new Book(sc.nextLine(), sc.nextLine(), sc.next(), sc.nextDouble()),
-									sc.nextInt());
+									sc.nextInt());*/
 						} catch (InputMismatchException e) {
-							System.err.println("falsche Eingabe!");
+							System.err.println("falsche Eingabe!3");
 						}
 						break;
 					
@@ -63,7 +80,7 @@ public class Shop {
 							storage.addToCollection(new Trinket(sc.next(), sc.nextDouble(), sc.nextLine()),
 									sc.nextInt());
 						} catch (InputMismatchException e) {
-							System.err.println("falsche Eingabe!");
+							System.err.println("falsche Eingabe!4");
 						}
 						break;
 
@@ -168,8 +185,7 @@ public class Shop {
 		int size = users.size();
 
 		for (int i = 0; i < size; i++) {
-			System.out.println("Name: " + users.get(i).name + " " + users.get(i).surename + " "
-					+ users.get(i).mail);
+			System.out.println("Name: " + users.get(i).name + " " + users.get(i).surename + " " + users.get(i).mail);
 		}
 	}
 
