@@ -25,7 +25,7 @@ public class Application
       Quadrat quadrat = new Quadrat(3,3,5);
       quadrat.zeichnen(koordinatenSystem, 'q');
       
-      
+/*      
       Bild bild = new Bild();
       bild.add(rechteck);
       bild.add(quadrat);
@@ -36,6 +36,7 @@ public class Application
       quadrat.verschieben(10, 0);
       bild.zeichnen(koordinatenSystem);
       bild.drucken(koordinatenSystem);
+*/      
       
       // Ausdrucken des Arrays auf der Konsole
 /*    for( int y = 0; y < 100; y++ ) */
