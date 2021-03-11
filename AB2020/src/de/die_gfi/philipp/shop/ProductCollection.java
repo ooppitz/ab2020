@@ -82,6 +82,9 @@ public class ProductCollection {
         return null;
     }
 
+    /**
+     * @return A pretty String
+     */
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
