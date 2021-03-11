@@ -12,7 +12,7 @@ public class Rechnungen {
 		try {
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-			String path = "C:\\Users\\Nutzer\\git\\ab2020\\ab2020\\AB2020\\bin\\de\\die_gfi\\robin\\shop\\"
+			String path = "bin\\de\\die_gfi\\robin\\shop\\"
 					+ kunde.nachname + "_" + dtf.format(LocalDateTime.now()) + ".txt";
 
 			FileWriter writer = new FileWriter(path);

@@ -46,10 +46,10 @@ public class App {
 		do {
 			istKundenNummerZahl = false;
 			try {
-				kundenNummer = input.nextInt();
+				kundenNummer = Integer.parseInt(input.nextLine());
 				istKundenNummerZahl = true;
-			} catch (java.util.InputMismatchException e) {
-				input.next();
+			} catch (Exception e) {
+				
 				System.out.println("Bitte nur ganze Zahlen eingeben");
 				continue;
 			}
@@ -74,77 +74,65 @@ public class App {
 
 		ArrayList<PurchaseItem> einkaufswagen = new ArrayList<PurchaseItem>();
 
-		String produktNummer;
+		String eingabe = "";
+		int produktNummer = 0;
 		int produktMenge = 0;
 
 		do {
 
 			produktlisteAusgeben(products);
 			System.out.println("Produktnummer eingeben ('fertig' beendet den Einkauf,'warenkorb' zeigt Ihren Warenkorb an) ");
-			produktNummer = input.next();
-			if (produktNummer.equalsIgnoreCase("fertig")) {
+			eingabe = input.nextLine();
+			if (eingabe.equalsIgnoreCase("fertig")) {
 				break;
 			}
-			if (produktNummer.equalsIgnoreCase("warenkorb")) {
-				for (PurchaseItem item : einkaufswagen) {
-					System.out.println(item);
-				}
-				
-				input.next();
+			else if (eingabe.equalsIgnoreCase("warenkorb")) {
+				warenkorbAusgeben(einkaufswagen);
 				continue;
 			}
+			else {
+				try {
+					produktNummer = Integer.parseInt(eingabe);
+				}catch (Exception e){
+					System.out.println("\nIhre Eingabe wurde nicht erkannt. Bitte versuchen Sie es erneut\n");
+					continue;
+				}
+				
+			}
 			
-			
-
 			boolean gefunden = false; 														// Prüft ob die eingegebene Produktnummer mit der eines Produktes
 			for (Product product : products) { 												// in der ArrayList 'products' übereinstimmt
-				if (product.getProduktnummer() == (Integer.parseInt(produktNummer))) {
+				if (product.getProduktnummer() == produktNummer) {
 					gefunden = true;
 					break;
 				}
 
 			}
 			if (gefunden == false) {
-				System.out.println("Produkt wurde nicht gefunden\nBitte versuchen Sie es noch einmal");
+				System.out.println("Produkt wurde nicht gefunden\nBitte versuchen Sie es noch einmal\n");
 				continue;
 			}
 			
 			while (true) {
 			System.out.println("Menge eingeben: ");										//Prüft ob die Eingabe eine Zahl ist oder nicht
 				try {																	//Nur wenn eine Zahl eingegeben wurde wird die Schleife verlassen
-					produktMenge = input.nextInt();
+					produktMenge = Integer.parseInt(input.nextLine());
 					break;
 				}catch(Exception e) {
 					System.out.println("Bitte nur ganze Zahlen eingeben");
-					input.next();
+					
 				}
 			}
 			
-			PurchaseItem pItem = new PurchaseItem(products.get(Integer.parseInt(produktNummer)), produktMenge);
-			boolean itemSchonVorhanden = false;
-
-			for (PurchaseItem itemInArray : einkaufswagen) { 					// Es wird geprüft ob die Bezeichnung von pItem bereits in
-																				// der ArrayList vorhanden ist,
-				if (itemInArray.bezeichnung.equals(pItem.bezeichnung)) { 		// falls das der Fall ist wird die menge und
-																				// gesamtpreis des Elements in der ArrayList
-					itemInArray.gesamtpreis += pItem.gesamtpreis; 				// um das von pItem erhöht (pItem wird nicht in die
-																				// ArrayList übernommen)
-					itemInArray.menge += pItem.menge;
-					itemSchonVorhanden = true;
-				}
-
-			}
-			if (itemSchonVorhanden == false) {
-				einkaufswagen.add(pItem);
-			}
-			// Wenn der einkaufswagen noch leer ist muss pItem trotzdem hinzugefügt werden
-			if (einkaufswagen.isEmpty()) {
-				einkaufswagen.add(pItem);
-			}
+			PurchaseItem pItem = new PurchaseItem(products.get(produktNummer), produktMenge);
+			
+			boolean itemSchonVorhanden = istItemInEinkaufswagenSchonVorhanden(einkaufswagen, pItem);
+			
+			itemHinzufuegen(einkaufswagen, pItem, itemSchonVorhanden);
 
 			System.out.println("Das Produkt wurde hinzugefuegt\n");
 
-		} while (produktNummer != "fertig");
+		} while (true);
 
 		// Erstellung des Shops
 		Shop meinShop = new Shop("Mitrix AG", "Schrammstrasse 4", "73023 Doppeldorf", 132465);
@@ -154,6 +142,44 @@ public class App {
 
 		return total;
 
+	}
+
+	private static void itemHinzufuegen(ArrayList<PurchaseItem> einkaufswagen, PurchaseItem pItem,
+			boolean itemSchonVorhanden) {
+		if (itemSchonVorhanden == false) {
+			einkaufswagen.add(pItem);
+		}
+		// Wenn der einkaufswagen noch leer ist muss pItem trotzdem hinzugefügt werden
+		if (einkaufswagen.isEmpty()) {
+			einkaufswagen.add(pItem);
+		}
+	}
+	
+	/**
+	 * Es wird geprüft ob die Bezeichnung von pItem bereits in der ArrayList vorhanden ist,
+	 * falls das der Fall ist wird die menge und gesamtpreis des Elements in der ArrayList
+	 * um das von pItem erhöht (pItem wird nicht in die ArrayList übernommen)
+	 * @param einkaufswagen
+	 * @param pItem
+	 * @return true falls vorhanden, false falls nicht
+	 */
+	
+	private static boolean istItemInEinkaufswagenSchonVorhanden(ArrayList<PurchaseItem> einkaufswagen,
+			PurchaseItem pItem) {
+		boolean itemSchonVorhanden = false;
+
+		for (PurchaseItem itemInArray : einkaufswagen) { 				
+																		
+			if (itemInArray.bezeichnung.equals(pItem.bezeichnung)) { 		
+																			
+				itemInArray.gesamtpreis += pItem.gesamtpreis; 				
+																			
+				itemInArray.menge += pItem.menge;
+				itemSchonVorhanden = true;
+			}
+
+		}
+		return itemSchonVorhanden;
 	}
 
 	/**
@@ -167,5 +193,28 @@ public class App {
 					+ " " + String.format("%6.2f", product.preis) + " €");
 		}
 	}
+	
+	private static void warenkorbAusgeben(ArrayList<PurchaseItem> einkaufswagen) {
+		System.out.println("Ihr Warenkorb:");
+		if (einkaufswagen.isEmpty()) {
+			System.out.println("\nDer Warenkorb ist noch leer.\n");
+		}
+		else {
+			double einkaufswagenDiscount = 0;
+			double einkaufswagenPreisGesamt = 0;
+			System.out.println(("-").repeat(66));								
+			for (PurchaseItem item : einkaufswagen) {
+				einkaufswagenDiscount += item.discountPreis;
+				einkaufswagenPreisGesamt += item.gesamtpreis;
+				System.out.println(item);
+			}
+			System.out.println(("-").repeat(66));
+			einkaufswagenPreisGesamt = einkaufswagenPreisGesamt - einkaufswagenDiscount;
+			System.out.println("Summe: " + String.format("%57.2f €\n", einkaufswagenPreisGesamt));
+		}
+	
+	}
+	
+	
 
 }

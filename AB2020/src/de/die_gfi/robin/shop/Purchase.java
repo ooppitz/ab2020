@@ -23,17 +23,17 @@ public class Purchase {
 
 		for (int i = 0; i < artikel.size(); i++) {
 
-			text += String.format("%-2d", artikel.get(i).menge) + " x "
-					+ String.format("%-45s", artikel.get(i).bezeichnung)
-					+ String.format("%14.2f", artikel.get(i).gesamtpreis) + " €\n";
+			text += "x " + String.format("%-6d", artikel.get(i).menge) 
+					+ String.format("%-36s", artikel.get(i).bezeichnung)
+					+ String.format("%20.2f", artikel.get(i).gesamtpreis) + " €\n";
 
 			// Rabatt verrechnen
 			int rabattProzent = artikel.get(i).discountPercent;
 			double rabatt = (artikel.get(i).gesamtpreis * rabattProzent) / 100;
 			if (rabatt > 0) {
 				String q = "'-> Mengenrabatt: " + rabattProzent + "%";
-				text += String.format("%-45s",q);
-				text += String.format("%19.2f", -rabatt) + " €\n";
+				text += String.format("%-36s",q);
+				text += String.format("%28.2f", -rabatt) + " €\n";
 
 				gesamtpreis += artikel.get(i).gesamtpreis - rabatt;
 			} else
