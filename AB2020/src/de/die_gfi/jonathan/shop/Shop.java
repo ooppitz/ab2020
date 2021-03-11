@@ -31,12 +31,20 @@ public class Shop {
 					switch (input) {
 
 					case "addc":
-						System.out.println("Bitte Nachnahmen und Vornahmen angeben");
-						users.add(new Customer(sc.next(), sc.next()));
+						try {
+							System.out.println("Bitte Nachnahmen und Vornahmen angeben");
+							users.add(new Customer(sc.next(), sc.next()));
+						} catch (InputMismatchException e) {
+							System.err.println("falsche Eingabe!");
+						}
 						break;
 					case "addp":
+						try {
 						System.out.println("Bitte Produktnamen Preis und Anzahl angben");
 						storage.addToCollection(new Product(sc.next(), sc.nextDouble()), sc.nextInt());
+						} catch (InputMismatchException e) {
+							System.err.println("falsche Eingabe!");
+						}
 						break;
 					case "addb":
 						System.out.println("Bitte Author Titel Sprache preis und anzahl der exemplare angeben");
