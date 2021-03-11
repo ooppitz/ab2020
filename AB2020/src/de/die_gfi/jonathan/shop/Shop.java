@@ -23,90 +23,7 @@ public class Shop {
 
 			String account = sc.next();
 			if (account.equalsIgnoreCase("admin")) {
-				boolean login = true;
-				do {
-
-					String input = sc.next().toLowerCase();
-					sc.nextLine();
-					switch (input) {
-
-					case "addc":
-						try {
-							System.out.println("Bitte Nachnahmen und Vornahmen angeben");
-							users.add(new Customer(sc.next(), sc.next()));
-						} catch (InputMismatchException e) {
-							System.err.println("falsche Eingabe!1");
-						}
-						break;
-					case "addp":
-						try {
-							System.out.println("Bitte Produktnamen Preis und Anzahl angben");
-							storage.addToCollection(new Product(sc.next(), sc.nextDouble()), sc.nextInt());
-						} catch (InputMismatchException e) {
-							System.err.println("falsche Eingabe!2");
-						}
-						break;
-					case "addb":
-						try {
-							System.out.println("Bitte den Namen des Authors angeben");
-							String author =sc.nextLine();
-							System.out.println(author);
-							System.out.println("Bitte den Titel des Buches angeben");
-							String titel=sc.nextLine();
-							System.out.println(titel);
-							System.out.println("Bitte die sprache angeben:");
-							String sprache=sc.next();
-							System.out.println(sprache);
-							System.out.println("Bitte den Preis angeben");
-							double preis=sc.nextDouble();
-							System.out.println(preis);
-							System.out.println("Bitte die Anzahl der Proddukte angeben");
-							int anzahl =sc.nextInt();
-							System.out.println(anzahl);
-							Book b = new Book(author, titel, sprache, preis);
-							storage.addToCollection(b,	anzahl);
-							/*System.out.println("Bitte Author Titel Sprache preis und anzahl der exemplare angeben");
-							storage.addToCollection(new Book(sc.nextLine(), sc.nextLine(), sc.next(), sc.nextDouble()),
-									sc.nextInt());*/
-						} catch (InputMismatchException e) {
-							System.err.println("falsche Eingabe!3");
-						}
-						break;
-					
-						
-					case "addt":
-						try {
-							System.out.println("Bite Name Preis Beschreibung und Anzahl angeben");
-							storage.addToCollection(new Trinket(sc.next(), sc.nextDouble(), sc.nextLine()),
-									sc.nextInt());
-						} catch (InputMismatchException e) {
-							System.err.println("falsche Eingabe!4");
-						}
-						break;
-
-					case "index":
-						storage.giveIndex();
-						break;
-					case "adress":
-						giveAdress();
-						break;
-					case "customer":
-						giveCustomer();
-						break;
-					case "logout":
-						login = false;
-						break;
-					case "search":
-						storage.search(sc.next());
-						break;
-					case "exit":
-						login = false;
-						running = false;
-						break;
-					default:
-						break;
-					}
-				} while (login == true);
+				running = interfaceAdmin(sc, running);
 			} else {
 
 				running = customerInterface(sc, running, account);
@@ -114,6 +31,94 @@ public class Shop {
 
 		} while (running == true);
 		sc.close();
+	}
+
+	private boolean interfaceAdmin(Scanner sc, boolean running) {
+		boolean login = true;
+		do {
+
+			String input = sc.next().toLowerCase();
+			sc.nextLine();
+			switch (input) {
+
+			case "addc":
+				try {
+					System.out.println("Bitte Nachnahmen und Vornahmen angeben");
+					users.add(new Customer(sc.next(), sc.next()));
+				} catch (InputMismatchException e) {
+					System.err.println("falsche Eingabe!");
+				}
+				break;
+			case "addp":
+				try {
+					System.out.println("Bitte Produktnamen Preis und Anzahl angben");
+					storage.addToCollection(new Product(sc.next(), sc.nextDouble()), sc.nextInt());
+				} catch (InputMismatchException e) {
+					System.err.println("falsche Eingabe!");
+				}
+				break;
+			case "addb":
+				try {
+					System.out.println("Bitte den Namen des Authors angeben");
+					String author =sc.nextLine();
+					System.out.println(author);
+					System.out.println("Bitte den Titel des Buches angeben");
+					String titel=sc.nextLine();
+					System.out.println(titel);
+					System.out.println("Bitte die sprache angeben:");
+					String sprache=sc.next();
+					System.out.println(sprache);
+					System.out.println("Bitte den Preis angeben");
+					double preis=sc.nextDouble();
+					System.out.println(preis);
+					System.out.println("Bitte die Anzahl der Proddukte angeben");
+					int anzahl =sc.nextInt();
+					System.out.println(anzahl);
+					Book b = new Book(author, titel, sprache, preis);
+					storage.addToCollection(b,	anzahl);
+				} catch (InputMismatchException e) {
+					System.err.println("falsche Eingabe!");
+				}
+				break;
+			case "details":
+				System.out.println("Zu welchem Produkt");
+				int i=sc.nextInt();
+				System.out.println(storage.collection.get(i).toString());
+				break;
+			case "addt":
+				try {
+					System.out.println("Bite Name Preis Beschreibung und Anzahl angeben");
+					storage.addToCollection(new Trinket(sc.next(), sc.nextDouble(), sc.nextLine()),
+							sc.nextInt());
+				} catch (InputMismatchException e) {
+					System.err.println("falsche Eingabe!");
+				}
+				break;
+
+			case "index":
+				storage.giveIndex();
+				break;
+			case "adress":
+				giveAdress();
+				break;
+			case "customer":
+				giveCustomer();
+				break;
+			case "logout":
+				login = false;
+				break;
+			case "search":
+				storage.search(sc.next());
+				break;
+			case "exit":
+				login = false;
+				running = false;
+				break;
+			default:
+				break;
+			}
+		} while (login == true);
+		return running;
 	}
 
 	public boolean customerInterface(Scanner sc, boolean running, String account) {
@@ -150,6 +155,11 @@ public class Shop {
 						System.err.println("Das Produkt existirt nicht");
 					}
 				}
+				break;
+			case "details":
+				System.out.println("Zu welchem Produkt");
+				int i=sc.nextInt();
+				System.out.println(storage.collection.get(i).toString());
 				break;
 			case "adress":
 				c.setAdress(sc.next(), sc.next(), sc.next(), sc.nextInt());
