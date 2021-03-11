@@ -64,13 +64,22 @@ public class App {
 			int produktIndex = produktPallete.returnProduktIndexVonNummer(eingabe);
 			if(produktIndex == -1) {
 				System.out.println("Produkt wurde nicht gefunden. Bitte versuchen Sie es erneut");
+				continue;
 			}
 			
 			int anzahl = -1;
 			
 			while(schalter2 == true) {
 				System.out.println("Wie viele Stück dieses Artikels möchten Sie kaufen?");
-				anzahl = sc.nextInt();
+				try {
+					anzahl = sc.nextInt();
+				} catch (Exception e) {
+					System.out.println("Es ist ein Fehler aufgetreten. Achten Sie darauf eine Gültige Ganzzahl einzugeben");
+					System.out.println("Es wurde kein Kauf getätigt.");
+					String trash = sc.next();
+					break;
+				}
+				
 				if(anzahl <= 0) {
 					System.out.println("die eingegebene Anzhal ist zu klein. Versuchen Sie es erneut");
 				} else {
