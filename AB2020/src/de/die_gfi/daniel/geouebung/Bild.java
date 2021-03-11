@@ -16,11 +16,16 @@ public class Bild
 {
    ArrayList<Rechteck> rechtecke/* = new ArrayList<Rechteck>() */;
 
-
+   
+   char[][] koordinatenSystem;
 
    public Bild()
    {
       rechtecke = new ArrayList<Rechteck>();
+      
+      koordinatenSystem = new char[50][100];  /* Koordinatensystem erstellen */
+      
+      koordinatenSystemZuruecksetzen();
    }
 
 
@@ -30,42 +35,38 @@ public class Bild
    }
 
 
-   private static void koordinatenSystemZuruecksetzen( char array[][] )
+   private void koordinatenSystemZuruecksetzen()
    {
-      for( int zeilen = 0; zeilen < array.length; zeilen++ )
+      for( int zeilen = 0; zeilen < koordinatenSystem.length; zeilen++ )
       {
-         for( int spalten = 0; spalten < array[0].length; spalten++ )
+         for( int spalten = 0; spalten < koordinatenSystem[0].length; spalten++ )
          {
-            array[zeilen][spalten] = '.';
+        		
+             koordinatenSystem[zeilen][spalten] = ' ';
+        	 
+        	 if (zeilen % 5 == 0) {
+        		 koordinatenSystem[zeilen][spalten] = '.';
+        	 }
+        	 
+        	 if (spalten % 5 == 0) {
+        		 koordinatenSystem[zeilen][spalten] = '.';
+        	 }
          }
       }
    }
    
-/*   
-   public static void drucken( char array[][] )
-   {
-      for( int y = array.length - 1; y >= 0; y-- )
-      {
-         for( int x = 0; x < array[0].length; x++ )
-         {
-            System.out.printf("%c", array[y][x]);
-         }
-         System.out.printf("\n");
-      }
-   }
-*/
-   
-   public static void drucken( char array[][] )
+
+   public void drucken()
    {
       System.out.printf( "%6s\n", "A" );
       System.out.printf( "%6c\n", '|' );
 
       
-      for( int y = array.length - 1; y >= 0; y-- )
+      for( int y = koordinatenSystem.length - 1; y >= 0; y-- )
       {
          if( y % 5 == 0 )
          {
-            System.out.printf( "  %2d%2c", y, '|' );
+            System.out.printf( "  %2d |", y);
          }
          else
          {
@@ -73,42 +74,36 @@ public class Bild
          }
             
             
-         for( int x = 0; x < array[0].length; x++ )
+         for( int x = 0; x < koordinatenSystem[0].length; x++ )
          {
-            System.out.printf("%c", array[y][x]);
+            System.out.printf("%c", koordinatenSystem[y][x]);
          }
          System.out.printf("\n");
       }
       
       
       /* x-Achse drucken */
-      System.out.print( " ".repeat(6) + "-".repeat(array[0].length) + "->\n" );
-      System.out.print( " ".repeat(6) );
+      System.out.print( " ".repeat(6) + "-".repeat(koordinatenSystem[0].length) + "->\n" );
+      System.out.print( " ".repeat(2) );
       
       
       int i = 0;
-      if( i < array[0].length )
-      {
-         System.out.printf( "%d", i );
-      }
-      
-      i = 5;
-      while( i < array[0].length )
+      while( i < koordinatenSystem[0].length )
       {
          System.out.printf( "%5d", i );
          i = i + 5;
       }
    }
    
-   public void zeichnen( char array[][] )
+   public void zeichnen()
    {
       /* Koordinatensystem löschen */
-      koordinatenSystemZuruecksetzen( array );
+      koordinatenSystemZuruecksetzen();
       
       /* Alle Rechtecke in der Arrayliste 'rechtecke' zeichnen */
       for( int i = 0; i < rechtecke.size(); i++ )
       {
-         rechtecke.get(i).zeichnen(array);
+         rechtecke.get(i).zeichnen(this.koordinatenSystem);
       }
       
       
