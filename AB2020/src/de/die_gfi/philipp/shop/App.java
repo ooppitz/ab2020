@@ -2,6 +2,11 @@ package de.die_gfi.philipp.shop;
 
 import de.die_gfi.philipp.shop.data.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 public class App {
@@ -14,9 +19,9 @@ public class App {
 		System.out.println(aShop);
 		System.out.println(aShop.inventoryToString());
 
-		System.out.println();
 
 		while (true) {
+			System.out.println();
 			switch (input.nextLine().toLowerCase()) {
 			case "login":
 				if (employeeLogin(input, aShop)) {
@@ -62,18 +67,59 @@ public class App {
 			return false;
 		}
 	}
-	
+
 	private static boolean employeeLogin(Scanner input, Shop shop) {
 		System.out.print("Please enter user name: ");
 		return false;
 	}
-	
+
 	private static boolean adminLogin(Scanner input, Shop shop) {
 		System.out.print("Please enter admin password: ");
 		return shop.admin.login(input.nextLine());
 	}
-	
+
 	private static void registerAsCustomer(Scanner input, Shop shop) {
-		
+		System.out.print("Please enter your email address: ");
+		String emailAddress = input.nextLine();
+		if (shop.getCustomer(emailAddress) == null) {
+			System.out.print("Please enter your full name: ");
+			String name = input.nextLine();
+
+			System.out.print("Please enter your street name, house number, and other details like flat number: ");
+			String streetHouseNumber = input.nextLine();
+
+			System.out.print("Please enter your post code: ");
+			String postCode = input.nextLine();
+
+			System.out.print("Please enter your city/town name: ");
+			String city = input.nextLine();
+
+			System.out.print("Please enter your country: ");
+			String country = input.nextLine();
+
+			Customer cust = new Customer(name, streetHouseNumber, postCode, city, country, emailAddress, shop);
+
+			File file = new File(PathGetter.getDataPath() + "customers.inv");
+			try (OutputStreamWriter fileWriter = new OutputStreamWriter(new FileOutputStream(file, true))) {
+				fileWriter.append("\n" + cust.getCustomerNumber() + "|");
+				fileWriter.append(name + "|");
+				fileWriter.append(streetHouseNumber + "|");
+				fileWriter.append(postCode + "|");
+				fileWriter.append(city + "|");
+				fileWriter.append(country + "|");
+				fileWriter.append(emailAddress);
+				fileWriter.flush();
+				shop.addCustomer(cust);
+				
+				System.out.println("Successfully registered. You can now make purchases.");
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("That email address is alread associated with a customer.");
+		}
+
 	}
 }
