@@ -41,17 +41,63 @@ public class Bild
       }
    }
    
+/*   
+   public static void drucken( char array[][] )
+   {
+      for( int y = array.length - 1; y >= 0; y-- )
+      {
+         for( int x = 0; x < array[0].length; x++ )
+         {
+            System.out.printf("%c", array[y][x]);
+         }
+         System.out.printf("\n");
+      }
+   }
+*/
    
-   public void drucken(char array[][]) {
-	   
-	   for( int y = 100-1; y >= 0; y-- )
-	      {
-	         for( int x = 0; x < 100; x++ )
-	         {
-	            System.out.printf("%c", array[y][x]);
-	         }
-	         System.out.printf("\n");
-	      }
+   public static void drucken( char array[][] )
+   {
+      System.out.printf( "%6s\n", "A" );
+      System.out.printf( "%6c\n", '|' );
+
+      
+      for( int y = array.length - 1; y >= 0; y-- )
+      {
+         if( y % 5 == 0 )
+         {
+            System.out.printf( "  %2d%2c", y, '|' );
+         }
+         else
+         {
+            System.out.printf( "%6c", '|' );
+         }
+            
+            
+         for( int x = 0; x < array[0].length; x++ )
+         {
+            System.out.printf("%c", array[y][x]);
+         }
+         System.out.printf("\n");
+      }
+      
+      
+      /* x-Achse drucken */
+      System.out.print( " ".repeat(6) + "-".repeat(array[0].length) + "->\n" );
+      System.out.print( " ".repeat(6) );
+      
+      
+      int i = 0;
+      if( i < array[0].length )
+      {
+         System.out.printf( "%d", i );
+      }
+      
+      i = 5;
+      while( i < array[0].length )
+      {
+         System.out.printf( "%5d", i );
+         i = i + 5;
+      }
    }
    
    public void zeichnen( char array[][] )
