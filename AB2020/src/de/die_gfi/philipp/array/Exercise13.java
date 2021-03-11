@@ -1,7 +1,5 @@
 package de.die_gfi.philipp.array;
 
-import de.die_gfi.util.Print;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

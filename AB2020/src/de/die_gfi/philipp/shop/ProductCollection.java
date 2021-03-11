@@ -31,11 +31,9 @@ public class ProductCollection {
 
     public static ProductCollection createProductCollection() {
         File file = new File(PathGetter.getDataPath() + "products.inv");
-        try {
-            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
+        try  (Scanner fileScanner = new Scanner(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))){
+          
             ProductCollection productCollection = new ProductCollection();
-
-            Scanner fileScanner = new Scanner(fileReader);
 
             while (fileScanner.hasNextLine()) {
 

@@ -1,7 +1,6 @@
 package de.die_gfi.philipp.shop.data;
 
 import java.net.URL;
-import java.nio.file.Path;
 
 public class PathGetter {
     /**
