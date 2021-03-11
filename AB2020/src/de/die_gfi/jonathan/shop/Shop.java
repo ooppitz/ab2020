@@ -47,13 +47,21 @@ public class Shop {
 						}
 						break;
 					case "addb":
+						try {
 						System.out.println("Bitte Author Titel Sprache preis und anzahl der exemplare angeben");
 						storage.addToCollection(new Book(sc.next(), sc.next(), sc.next(), sc.nextDouble()),
 								sc.nextInt());
+						} catch (InputMismatchException e) {
+							System.err.println("falsche Eingabe!");
+						}
 						break;
 					case "addt":
+						try {
 						System.out.println("Bite Name Preis Beschreibung und Anzahl angeben");
 						storage.addToCollection(new Trinket(sc.next(), sc.nextDouble(), sc.nextLine()), sc.nextInt());
+						} catch (InputMismatchException e) {
+							System.err.println("falsche Eingabe!");
+						}
 						break;
 					case "index":
 						storage.giveIndex();
