@@ -4,20 +4,22 @@ package de.die_gfi.philipp.shop.products;
 
 public interface Discount {
 
-	/** Checks if a discount is possible for the product 
+	/**
+	 * Checks if a discount is possible for the product
 	 * 
 	 * @return true, if a discount can be given, otherwise false
 	 */
 	boolean isDiscountPossible();
-	
-	
-	/** Returns the maximum possible discount for a product in percent
+
+	/**
+	 * Returns the maximum possible discount for a product in percent
 	 * 
 	 * @return maximum possible discount in percent
 	 */
 	int getMaximumDiscount();
-	
-	/** Returns the discount when purchasing multiple products 
+
+	/**
+	 * Returns the discount when purchasing multiple products
 	 * 
 	 * @param amount number of items to purchase
 	 * @return possible discount in percent
