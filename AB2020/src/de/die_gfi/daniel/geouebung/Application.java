@@ -25,9 +25,7 @@ public class Application
       
       bild.zeichnen();
       bild.drucken();
-    
-
-      
+     
       
       // Ausdrucken des Arrays auf der Konsole
 /*
