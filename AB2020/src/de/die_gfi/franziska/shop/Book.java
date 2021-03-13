@@ -11,7 +11,7 @@ public class Book extends Product implements InstanceCounter {
 	public Book(String n, double p, int nr, int isbn) {
 
 		super(n, p, nr);
-		
+
 		this.isbn = isbn;
 
 		Book.counter++;
@@ -38,4 +38,38 @@ public class Book extends Product implements InstanceCounter {
 
 	}
 
+	@Override
+	public boolean isDiscountPossible() {
+
+		return false;
+
+	}
+
+	@Override
+	public int getMaximumDiscount() {
+
+		return 0;
+	}
+
+	@Override
+	public int getDiscountForAmount(int count) {
+
+		int discount = 0;
+
+		if (count >= 5) {
+
+			discount = getMaximumDiscount() / 10;
+
+		} else if (count >= 10) {
+
+			discount = getMaximumDiscount() / 5;
+
+		} else if (count >= 80) {
+
+			discount = getMaximumDiscount();
+
+		}
+
+		return discount;
+	}
 }

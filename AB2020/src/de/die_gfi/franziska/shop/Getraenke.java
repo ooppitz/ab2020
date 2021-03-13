@@ -2,7 +2,7 @@ package de.die_gfi.franziska.shop;
 
 //start implementing interfaces
 
-public class Getraenke extends Product implements InstanceCounter {
+public class Getraenke extends Product implements InstanceCounter, Discount {
 
 	String ablaufdatum;
 
@@ -26,15 +26,53 @@ public class Getraenke extends Product implements InstanceCounter {
 
 	}
 
+	@Override
 	public String toString() {
 
 		return "Artikenummer: " + artikelnummer + "\nGetränk: " + name + " \nPreis: " + App.f.format(preis) + "\n";
 
 	}
 
+	@Override
 	public int getCount() {
 
 		return Getraenke.counter;
+
+	}
+
+	@Override
+	public boolean isDiscountPossible() {
+
+		return true;
+	}
+
+	@Override
+	public int getMaximumDiscount() {
+
+		return 40;
+
+	}
+
+	@Override
+	public int getDiscountForAmount(int count) {
+
+		int discount = 0;
+
+		if (count >= 5 && count < 10) {
+
+			discount = getMaximumDiscount() / 10;
+
+		} else if (count >= 10 && count < 80) {
+
+			discount = getMaximumDiscount() / 5;
+
+		} else if (count >= 80) {
+
+			discount = getMaximumDiscount();
+
+		}
+
+		return discount;
 
 	}
 }

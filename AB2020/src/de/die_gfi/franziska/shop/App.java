@@ -27,13 +27,18 @@ public class App {
 	}
 
 	/**
+	 * contains the selection menu and adds the chosen products to a PurchaseItem
+	 * array list has special output if the customer chose not to buy anything
 	 * 
-	 * @param Customer c
-	 * @return creates Purchase object which contains multiple Products
+	 * @param c Customer
+	 * @param p ProductCollection
+	 * @return Purchase object which contains multiple Products
 	 */
 	public static Purchase simulatePurchase(Customer c, ProductCollection p) {
 
 		ArrayList<PurchaseItem> purchasedItems = new ArrayList<PurchaseItem>();
+
+		Purchase purchase = new Purchase(c, purchasedItems);
 
 		System.out.println("Wilkommen in Franzis fantastischem Online-Shop :D");
 
@@ -50,8 +55,9 @@ public class App {
 			purchasedItems.add(PurchaseItem.productToPurchaseItem(p.artikelNummerToProduct()));
 
 			System.out.println("Noch einen Artikel hinzufügen?");
-			
-			System.out.println("\"hinzufügen\" eingeben um einen weiteren Artikel aus dieser Kategorie hinzuzufügen ");
+
+			System.out.println(
+					"\"hinzufügen\" eingeben um einen weiteren Artikel aus dieser Kategorie hinzuzufügen, \"nein\" eingeben um eine andere Kategorie zu wählen oder den Kauf zu beenden");
 
 			String nextChoice = scannerApp.next();
 
@@ -66,8 +72,9 @@ public class App {
 					purchasedItems.add(PurchaseItem.productToPurchaseItem(p.artikelNummerToProduct()));
 
 					System.out.println("Weitere Artikel hinzufügen?");
-					
-					System.out.println("\" weiter \" eingeben um weitere Artikel hinzuzufügen");
+
+					System.out.println(
+							"\" weiter \" eingeben um weitere Artikel hinzuzufügen, \"nein\" eingeben um eine andere Kategorie zu wählen oder den Kauf zu beenden");
 
 					if (scannerApp.next().equalsIgnoreCase("weiter")) {
 						continue;
@@ -80,13 +87,15 @@ public class App {
 				}
 				System.out.println("Wollen Sie weiter einkaufen?");
 				System.out.println("\" ja \" eingeben um weiter einzukaufen");
+
 			} else {
 				System.out.println("Wollen Sie weiter einkaufen?");
 				System.out.println("\" ja \" eingeben um weiter einzukaufen");
+
 			}
 		}
 
-		Purchase purchase = new Purchase(c, purchasedItems);
+		PurchaseItem.zusammenfassen(purchasedItems);
 
 		return purchase;
 	}

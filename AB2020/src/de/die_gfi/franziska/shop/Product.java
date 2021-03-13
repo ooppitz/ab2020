@@ -34,22 +34,8 @@ public class Product implements Discount {
 		produkte.add(erbsen);
 		produkte.add(mettIgel);
 
-		for (Product product : produkte) {
-			if (product instanceof Book) {
-
-				System.out.println("Anzahl Bücher: " + product.getCount());
-
-			} else if (product instanceof Nahrung) {
-
-				System.out.println("Anzahl Lebensmittel: " + product.getCount());
-
-			} else {
-
-				System.out.println("Anzahl Getränke: " + product.getCount());
-
-			}
-		}
-
+		System.out.println(sLernen.isDiscountPossible());
+		
 	}
 
 	public Product(String n, double p, int nr) {
@@ -85,7 +71,6 @@ public class Product implements Discount {
 	@Override
 	public int getMaximumDiscount() {
 		
-		
 		return 30;
 	}
 
@@ -93,5 +78,6 @@ public class Product implements Discount {
 	public int getDiscountForAmount(int count) {
 		
 		return 10;
+		
 	}
 }
