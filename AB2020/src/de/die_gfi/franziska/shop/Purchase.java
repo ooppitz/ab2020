@@ -58,8 +58,8 @@ public class Purchase {
 		}
 		String linie = "-".repeat(57);
 
-		String kopf = "Steuernummer" + String.format("%45s", (int) (Math.random() * 99 - 1)) + "\n" + linie
-				+ "\nIhre Rechnung:";
+		String kopf = einkauf.customer.name + "\n" + "Steuernummer"
+				+ String.format("%45s", (int) (Math.random() * 99 - 1) + 1) + "\n" + linie + "\nIhre Rechnung:";
 
 		String gesamt = linie + "\nGesamt: "
 				+ String.format("%49s", App.f.format(preisGesamt - ersparnisDurchRabatt(einkauf)) + "€");
@@ -120,6 +120,24 @@ public class Purchase {
 
 		return rabattCounter;
 
+	}
+	
+	public static double berechneGesamtPreis(Purchase einkauf) {
+		
+		double preisProItem = 0;
+		
+		double preisGesamt = 0;
+		
+		for (int i = 0; i < einkauf.items.size(); i++) {
+
+			preisProItem = einkauf.items.get(i).preis * einkauf.items.get(i).menge;
+
+			preisGesamt = preisGesamt + preisProItem;
+
+		}
+		
+		return preisGesamt;
+		
 	}
 
 }

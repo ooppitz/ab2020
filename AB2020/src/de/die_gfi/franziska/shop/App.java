@@ -18,12 +18,9 @@ public class App {
 
 		ProductCollection p = App.createProductCollection();
 
-		Customer kurt = new Customer("Kurt Maier", "Landau", "kurt@maier.de");
-
-		Purchase k = simulatePurchase(kurt, p);
+		Purchase k = simulatePurchase(Customer.chooseCustomer(), p);
 
 		System.out.println(k.toString());
-
 	}
 
 	/**
@@ -40,7 +37,7 @@ public class App {
 
 		Purchase purchase = new Purchase(c, purchasedItems);
 
-		System.out.println("Wilkommen in Franzis fantastischem Online-Shop :D");
+		System.out.println("Wilkommen in Franzis fantastischem Online-Shop :D\n");
 
 		System.out.println("Wollen Sie etwas kaufen?");
 		System.out.println("\" ja \" eingeben um einzukaufen");
@@ -96,6 +93,23 @@ public class App {
 		}
 
 		PurchaseItem.zusammenfassen(purchasedItems);
+
+		boolean zuViel = false;
+
+		for (PurchaseItem purchaseItem : purchasedItems) {
+			if (purchaseItem.menge >= 100 && purchaseItem.menge != 420) {
+
+				purchaseItem.menge = 99;
+
+				zuViel = true;
+
+			}
+		}
+
+		if (zuViel) {
+
+			System.out.println("netter Versuch. Es wurden überschüssige Artikel entfernt");
+		}
 
 		return purchase;
 	}

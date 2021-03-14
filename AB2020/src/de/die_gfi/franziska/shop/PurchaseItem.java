@@ -8,38 +8,35 @@ public class PurchaseItem {
 	int menge;
 	Product p;
 
-	
 	public static void main(String[] args) {
-/*
-
-		Book proG = new Book("Gulaschsuppe für Fortgeschrittene", 9.99, 1, 347);
-		Book sLernen = new Book("Stricken lernen", 67.00, 2, 345578);
-		Getraenke eLimo = new Getraenke("Erdbeerlimo", 1.00, 3, "22.08.2023");
-		Getraenke bier = new Getraenke("Bier", 1.86, 4, "nächster Tag bis 4 Uhr");
-		Nahrung sandwich = new Nahrung("Sandwich", 2.00, 5, "04.03.2021");
-		Nahrung brei = new Nahrung("Babybrei", 10.00, 6, "01.01.2030");
-		Nahrung mGulasch = new Nahrung("Minderwertiges Gulasch", 28, 7, "jetzt");
-		Nahrung erbsen = new Nahrung("N' Batzen Bohnen", 3, 8, "wahrscheinlich noch ne gute Zeit entfernt");
-		Nahrung mettIgel = new Nahrung("Mettigel", 9, 9, "unbekannt");
-
-		ArrayList<PurchaseItem> list = new ArrayList<PurchaseItem>();
-
-		list.add(productToPurchaseItem(proG));
-		list.add(productToPurchaseItem(sLernen));
-		list.add(productToPurchaseItem(eLimo));
-		list.add(productToPurchaseItem(proG));
-
-		System.out.println("Original list");
-		for (PurchaseItem purchaseItem : list) {
-			System.out.println(purchaseItem);
-		}
-
-		zusammenfassen(list);
-
-		System.out.println("\nNach zusammenfassen");
-		for (PurchaseItem purchaseItem : list) {
-			System.out.println(purchaseItem);
-		}*/
+		/*
+		 * 
+		 * Book proG = new Book("Gulaschsuppe für Fortgeschrittene", 9.99, 1, 347); Book
+		 * sLernen = new Book("Stricken lernen", 67.00, 2, 345578); Getraenke eLimo =
+		 * new Getraenke("Erdbeerlimo", 1.00, 3, "22.08.2023"); Getraenke bier = new
+		 * Getraenke("Bier", 1.86, 4, "nächster Tag bis 4 Uhr"); Nahrung sandwich = new
+		 * Nahrung("Sandwich", 2.00, 5, "04.03.2021"); Nahrung brei = new
+		 * Nahrung("Babybrei", 10.00, 6, "01.01.2030"); Nahrung mGulasch = new
+		 * Nahrung("Minderwertiges Gulasch", 28, 7, "jetzt"); Nahrung erbsen = new
+		 * Nahrung("N' Batzen Bohnen", 3, 8,
+		 * "wahrscheinlich noch ne gute Zeit entfernt"); Nahrung mettIgel = new
+		 * Nahrung("Mettigel", 9, 9, "unbekannt");
+		 * 
+		 * ArrayList<PurchaseItem> list = new ArrayList<PurchaseItem>();
+		 * 
+		 * list.add(productToPurchaseItem(proG));
+		 * list.add(productToPurchaseItem(sLernen));
+		 * list.add(productToPurchaseItem(eLimo));
+		 * list.add(productToPurchaseItem(proG));
+		 * 
+		 * System.out.println("Original list"); for (PurchaseItem purchaseItem : list) {
+		 * System.out.println(purchaseItem); }
+		 * 
+		 * zusammenfassen(list);
+		 * 
+		 * System.out.println("\nNach zusammenfassen"); for (PurchaseItem purchaseItem :
+		 * list) { System.out.println(purchaseItem); }
+		 */
 
 	}
 
@@ -54,6 +51,47 @@ public class PurchaseItem {
 		System.out.println("Bitte Menge eingeben: ");
 
 		int anzahl = App.scannerApp.nextInt();
+
+		int tryCounter = 0;
+
+		int tryCounterS = 0;
+
+		if (anzahl == 69) {
+
+			System.out.println("nice");
+
+		}
+
+		while (anzahl >= 100) {
+
+			if (anzahl >= 100 && anzahl != 420) {
+
+				System.out.println(
+						"Es werden nur haushaltsübliche Mengen verkauft. Bitte erneut Menge (unter 100) eingeben!\n");
+
+				tryCounter++;
+
+				if (tryCounter >= 3) {
+					System.out.println("\nNUR HAUSHALTSÜBLICHE MENGEN!\n");
+				}
+
+				anzahl = App.scannerApp.nextInt();
+
+			} else if (anzahl == 420) {
+
+				System.out.println("nice... aber nur haushaltsübliche Mengen angeben, bitte\n");
+
+				tryCounterS++;
+
+				if (tryCounterS >= 3) {
+
+					System.out.println("Okay. Wir machen dieses Mal eine Ausnahme ;D\n");
+					break;
+				}
+
+				anzahl = App.scannerApp.nextInt();
+			}
+		}
 
 		return anzahl;
 
