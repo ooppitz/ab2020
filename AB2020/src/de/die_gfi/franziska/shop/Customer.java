@@ -10,8 +10,6 @@ public class Customer {
 	int kundennummer;
 
 	static ArrayList<Customer> kunden = zugeteilteKunden(kundenverwaltung());
-	
-	double bezahlt;
 
 	public static void main(String[] args) {
 
@@ -43,8 +41,8 @@ public class Customer {
 		this.adresse = a;
 		this.mail = m;
 		this.kundennummer = nummer;
-		
-		this.bezahlt = Purchase.berechneGesamtPreis(null);
+
+//		this.bezahlt = Purchase.berechneGesamtPreis(null);
 
 	}
 
@@ -129,18 +127,20 @@ public class Customer {
 		return kunde;
 	}
 
-	public static String erstelleReport(Purchase p) {
-
-		String s = "";
-
-		for (Customer customer : kunden) {
-
-			s = s + customer.name + " hat für " + Purchase.berechneGesamtPreis(p) + " eingekauft";
-
-		}
-
-		return s;
-
-	}
-
+	/*
+	 * public static String erstelleReport(Purchase p) {
+	 * 
+	 * String s = "";
+	 * 
+	 * for (Customer customer : kunden) {
+	 * 
+	 * s = s + customer.name + " hat für " + Purchase.berechneGesamtPreis(p) +
+	 * " eingekauft";
+	 * 
+	 * }
+	 * 
+	 * return s;
+	 * 
+	 * }
+	 */
 }

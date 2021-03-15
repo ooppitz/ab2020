@@ -8,6 +8,8 @@ public class Purchase {
 
 	Customer customer;
 
+	static int speicherNummer = 0;
+
 	public static void main(String[] args) {
 
 	}
@@ -58,11 +60,11 @@ public class Purchase {
 		}
 		String linie = "-".repeat(57);
 
-		String kopf = einkauf.customer.name + "\n" + "Steuernummer"
-				+ String.format("%45s", (int) (Math.random() * 99 - 1) + 1) + "\n" + linie + "\nIhre Rechnung:";
+		String kopf = "Steuernummer" + String.format("%45s", (int) (Math.random() * 99 - 1) + 1) + "\n" + linie
+				+ "\nIhre Rechnung:";
 
 		String gesamt = linie + "\nGesamt: "
-				+ String.format("%49s", App.f.format(preisGesamt - ersparnisDurchRabatt(einkauf)) + "€");
+				+ String.format("%49s", App.f.format(preisGesamt - this.ersparnisDurchRabatt()) + "€");
 
 		String ciao = String.format("%40s", "Vielen Dank & bis bald!");
 
@@ -70,9 +72,8 @@ public class Purchase {
 
 		String rabatt = "";
 
-		if (ersparnisDurchRabatt(einkauf) != 0) {
-			rabatt = "\nRabatt: " + String.format("%48s", "-" + App.f.format(ersparnisDurchRabatt(einkauf))) + "€"
-					+ "\n";
+		if (this.ersparnisDurchRabatt() != 0) {
+			rabatt = "\nRabatt: " + String.format("%48s", "-" + App.f.format(this.ersparnisDurchRabatt())) + "€" + "\n";
 			originalPreis = "\n" + String.format("%57s", App.f.format(preisGesamt) + "€");
 		}
 
@@ -88,15 +89,15 @@ public class Purchase {
 
 	}
 
-	public double ersparnisDurchRabatt(Purchase einkauf) {
+	public double ersparnisDurchRabatt() {
 
 		double preisProItem = 0;
 
 		double preisGesamt = 0;
 
-		for (int i = 0; i < einkauf.items.size(); i++) {
+		for (int i = 0; i < this.items.size(); i++) {
 
-			preisProItem = einkauf.items.get(i).preis * einkauf.items.get(i).menge;
+			preisProItem = this.items.get(i).preis * this.items.get(i).menge;
 
 			preisGesamt = preisGesamt + preisProItem;
 
@@ -104,15 +105,14 @@ public class Purchase {
 
 		double rabattCounter = 0;
 
-		for (int i = 0; i < einkauf.items.size(); i++) {
+		for (int i = 0; i < this.items.size(); i++) {
 
-			if (einkauf.items.get(i).p.isDiscountPossible()) {
+			if (this.items.get(i).p.isDiscountPossible()) {
 
-				preisProItem = einkauf.items.get(i).preis * einkauf.items.get(i).menge;
+				preisProItem = this.items.get(i).preis * this.items.get(i).menge;
 
 				rabattCounter = rabattCounter
-						+ ((preisProItem * (einkauf.items.get(i).p.getDiscountForAmount(einkauf.items.get(i).menge)))
-								/ 100);
+						+ ((preisProItem * (this.items.get(i).p.getDiscountForAmount(this.items.get(i).menge))) / 100);
 
 			}
 
@@ -121,23 +121,38 @@ public class Purchase {
 		return rabattCounter;
 
 	}
-	
-	public static double berechneGesamtPreis(Purchase einkauf) {
-		
-		double preisProItem = 0;
-		
-		double preisGesamt = 0;
-		
-		for (int i = 0; i < einkauf.items.size(); i++) {
 
-			preisProItem = einkauf.items.get(i).preis * einkauf.items.get(i).menge;
+	public double berechneGesamtPreis() {
+
+		double preisProItem = 0;
+
+		double preisGesamt = 0;
+
+		for (int i = 0; i < this.items.size(); i++) {
+
+			preisProItem = this.items.get(i).preis * this.items.get(i).menge;
 
 			preisGesamt = preisGesamt + preisProItem;
 
 		}
-		
+
 		return preisGesamt;
-		
+
 	}
 
+	public static String createReport(ArrayList<Purchase> ps) {
+
+		String s = "";
+
+		double preis = 0;
+
+		for (int i = 0; i < ps.size(); i++) {
+
+			preis = ps.get(i).berechneGesamtPreis() - ps.get(i).ersparnisDurchRabatt();
+
+			s = s + ps.get(i).customer.name + " hat für insgesamt " + App.f.format(preis) + "€ eingekauft\n";
+
+		}
+		return s;
+	}
 }

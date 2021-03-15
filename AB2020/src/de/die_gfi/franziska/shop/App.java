@@ -13,14 +13,25 @@ public class App {
 	static Scanner scannerApp = new Scanner(System.in);
 
 	static DecimalFormat f = new DecimalFormat("#0.00");
+	
+	public static ArrayList<Purchase> purchases = new ArrayList<Purchase>();
 
 	public static void main(String[] args) {
-
+		
 		ProductCollection p = App.createProductCollection();
 
 		Purchase k = simulatePurchase(Customer.chooseCustomer(), p);
 
 		System.out.println(k.toString());
+		
+		Purchase j = simulatePurchase(Customer.chooseCustomer(), p);
+		
+		System.out.println(j.toString());
+		
+		System.out.println();
+		System.out.println(Purchase.createReport(purchases));
+		
+
 	}
 
 	/**
@@ -111,6 +122,8 @@ public class App {
 			System.out.println("netter Versuch. Es wurden überschüssige Artikel entfernt");
 		}
 
+		purchases.add(purchase);
+		
 		return purchase;
 	}
 
