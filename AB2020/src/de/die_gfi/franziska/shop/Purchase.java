@@ -1,6 +1,7 @@
 package de.die_gfi.franziska.shop;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Purchase {
 
@@ -155,4 +156,5 @@ public class Purchase {
 		}
 		return s;
 	}
+
 }

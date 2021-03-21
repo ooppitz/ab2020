@@ -13,24 +13,24 @@ public class App {
 	static Scanner scannerApp = new Scanner(System.in);
 
 	static DecimalFormat f = new DecimalFormat("#0.00");
-	
+
 	public static ArrayList<Purchase> purchases = new ArrayList<Purchase>();
 
 	public static void main(String[] args) {
-		
+
 		ProductCollection p = App.createProductCollection();
 
 		Purchase k = simulatePurchase(Customer.chooseCustomer(), p);
 
 		System.out.println(k.toString());
-		
-		Purchase j = simulatePurchase(Customer.chooseCustomer(), p);
-		
-		System.out.println(j.toString());
-		
-		System.out.println();
-		System.out.println(Purchase.createReport(purchases));
-		
+
+//
+//		Purchase j = simulatePurchase(Customer.chooseCustomer(), p);
+
+//		System.out.println(j.toString());
+
+//		System.out.println();
+//		System.out.println(Purchase.createReport(purchases));
 
 	}
 
@@ -123,7 +123,7 @@ public class App {
 		}
 
 		purchases.add(purchase);
-		
+
 		return purchase;
 	}
 
@@ -141,6 +141,8 @@ public class App {
 		Nahrung mGulasch = new Nahrung("Minderwertiges Gulasch", 28, 7, "jetzt");
 		Nahrung erbsen = new Nahrung("N' Batzen Erbsen", 15, 8, "wahrscheinlich noch ne gute Zeit entfernt");
 		Nahrung mettIgel = new Nahrung("Mett-Igel", 9, 9, "unbekannt");
+		Nahrung phil = new Nahrung("Prince Philip Rosinen (ohne Konservierungsmittel)", 1.99, 10,
+				"schon lange abgelaufen");
 
 		ArrayList<Product> produkte = new ArrayList<Product>();
 
@@ -153,6 +155,7 @@ public class App {
 		produkte.add(mGulasch);
 		produkte.add(erbsen);
 		produkte.add(mettIgel);
+		produkte.add(phil);
 
 		ProductCollection collection = new ProductCollection(produkte);
 

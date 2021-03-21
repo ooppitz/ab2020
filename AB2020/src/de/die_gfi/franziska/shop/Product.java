@@ -10,7 +10,6 @@ public class Product implements Discount {
 
 	public static void main(String[] args) {
 
-
 	}
 
 	public Product(String n, double p, int nr) {
@@ -20,7 +19,7 @@ public class Product implements Discount {
 		this.artikelnummer = nr;
 
 		App.f.format(preis);
-		
+
 		Product.counter++;
 
 	}
@@ -29,7 +28,16 @@ public class Product implements Discount {
 
 		return "Name: " + name + "\nPreis: " + preis + "\nArtikelnummer: " + artikelnummer;
 
+	}	
+	
+	public static Product purchaseItemToProduct(PurchaseItem purchaseItem) {
+		
+		Product produkt = new Product(purchaseItem.p.name, purchaseItem.p.preis, purchaseItem.p.artikelnummer);
+		
+		return produkt;
+		
 	}
+
 
 	public int getCount() {
 
@@ -39,20 +47,20 @@ public class Product implements Discount {
 
 	@Override
 	public boolean isDiscountPossible() {
-		
+
 		return true;
 	}
 
 	@Override
 	public int getMaximumDiscount() {
-		
+
 		return 30;
 	}
 
 	@Override
 	public int getDiscountForAmount(int count) {
-		
+
 		return 10;
-		
+
 	}
 }

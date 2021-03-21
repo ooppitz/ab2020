@@ -25,6 +25,11 @@ public class Getraenke extends Product implements InstanceCounter, Discount {
 		System.out.println(limo.toString());
 
 	}
+	public String getMHD() {
+
+		return this.ablaufdatum;
+
+	}
 
 	@Override
 	public String toString() {

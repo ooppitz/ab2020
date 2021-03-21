@@ -4,7 +4,7 @@ package de.die_gfi.franziska.shop;
 
 public class Nahrung extends Product implements InstanceCounter {
 
-	String ablaufdatum;
+	static String ablaufdatum;
 
 	protected static int counter = 0;
 
@@ -12,18 +12,25 @@ public class Nahrung extends Product implements InstanceCounter {
 
 		super(n, p, nr);
 
-		this.ablaufdatum = a;
+		ablaufdatum = a;
 
 		Nahrung.counter++;
 
 	}
 
+	public static String getMHD() {
+
+		return ablaufdatum;
+
+	}
+	
 	public String toString() {
 
 		return "Artikelnummer: " + artikelnummer + "\nLebensmittel: " + name + " \nPreis: " + App.f.format(preis) + "€"
 				+ "\n";
 
 	}
+	
 
 	public int getCount() {
 
