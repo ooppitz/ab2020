@@ -39,6 +39,10 @@ public class Person {
         this.gewichtInKg = gewichtInKg;
     }
 
+    public int getAlter() {
+        return alter;
+    }
+
     @Override
     public String toString() {
         String str = "";
