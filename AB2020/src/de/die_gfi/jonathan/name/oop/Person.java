@@ -1,9 +1,12 @@
 package de.die_gfi.jonathan.name.oop;
 
 public class Person {
-	int alter ;
-	double height;
-	double gewicht; 
+	static final int Unbekantes_alter=-1;
+	int alter =Unbekantes_alter;
+	static final double Unbekannte_hoehe = -1;
+	double height =Unbekannte_hoehe;
+	static final double Unbekanntes_gewicht = -1;
+	double gewicht =Unbekanntes_gewicht; 
 	String vorname;
 	String nachname;
 	
@@ -60,6 +63,9 @@ public Person(int a,String v,String n) {
 	 vorname=v;
 	 nachname=n;
 	}
-
+@Override
+public String toString() {
+	return "Name: "+vorname+" "+nachname+" alter: "+alter+" größe: "+height+" gewicht: "+gewicht;
+}
 
 }
