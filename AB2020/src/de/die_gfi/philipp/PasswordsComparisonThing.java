@@ -33,7 +33,8 @@ public class PasswordsComparisonThing {
 
     }
 
-    public static int readPassword(String pwMessage) {
+    @SuppressWarnings("resource")
+	public static int readPassword(String pwMessage) {
         System.out.print(pwMessage);
         return Arrays.hashCode((new Scanner(System.in)).nextLine().toCharArray());
     }

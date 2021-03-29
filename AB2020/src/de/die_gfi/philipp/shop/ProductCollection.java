@@ -15,81 +15,88 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ProductCollection {
-    private final ArrayList<Product> products;
+	private final ArrayList<Product> products;
 
-    public ProductCollection() {
-        this.products = new ArrayList<>();
-    }
+	public ProductCollection() {
+		this.products = new ArrayList<>();
+	}
 
-    public void addProduct(Product prod) {
-        this.products.add(prod);
-    }
+	public void addProduct(Product prod) {
+		this.products.add(prod);
+	}
 
-    public Product[] getProducts() {
-        return products.toArray(Product[]::new);
-    }
+	public Product[] getProducts() {
+		return products.toArray(Product[]::new);
+	}
 
-    public static ProductCollection createProductCollection() {
-        File file = new File(PathGetter.getDataPath() + "products.inv");
-        try {
-            InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
-            ProductCollection productCollection = new ProductCollection();
+	public static ProductCollection createProductCollection() {
+		File file = new File(PathGetter.getDataPath() + "products.inv");
+		try (Scanner fileScanner = new Scanner(
+				new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
 
-            Scanner fileScanner = new Scanner(fileReader);
+			ProductCollection productCollection = new ProductCollection();
 
-            while (fileScanner.hasNextLine()) {
+			while (fileScanner.hasNextLine()) {
 
-                String str = fileScanner.nextLine();
-                String[] elements = str.split("\\|");
-                String type = elements[0];
+				String str = fileScanner.nextLine();
+				String[] elements = str.split("\\|");
 
-                Product prod = null;
+				Product prod = null;
 
-                if (type.equalsIgnoreCase("beverage")) {
-                    prod = Beverage.parseString(elements);
-                }
-                if (type.equalsIgnoreCase("food")) {
-                    prod = Food.parseString(elements);
-                }
-                if (type.equalsIgnoreCase("expirableproduct")) {
-                    prod = ExpirableProduct.parseString(elements);
-                }
-                if (type.equalsIgnoreCase("product")) {
-                    prod = Product.parseString(elements);
-                }
+				prod = parseProduct(elements);
 
-                if (prod != null) {
-                    productCollection.addProduct(prod);
-                }
-            }
-            return productCollection;
-        } catch (FileNotFoundException e) {
-            System.out.println("File products.inv couldn't be accessed, it may be deleted or moved.");
-        }
-        return new ProductCollection();
-    }
+				if (prod != null) {
+					productCollection.addProduct(prod);
+				}
+			}
+			return productCollection;
+		} catch (FileNotFoundException e) {
+			System.out.println("File products.inv couldn't be accessed, it may be deleted or moved.");
+		}
+		return new ProductCollection();
+	}
 
-    /**
-     *
-     * @param articleNumber Article number of the product which is to be returned
-     * @return {@link Product} object with the specified article number, null if product couldn't be found
-     */
-    public Product getProduct(long articleNumber) {
-        for (Product prod : products) {
-            if (prod.getArticleNumber() == articleNumber) {
-                return prod;
-            }
-        }
+	public static Product parseProduct(String[] elements) {
+		String type = elements[0].toLowerCase();
+		switch (type) {
+		case "product":
+			return Product.parseString(elements);
+		case "expirableproduct":
+			return ExpirableProduct.parseString(elements);
+		case "beverage":
+			return Beverage.parseString(elements);
+		case "food":
+			return Food.parseString(elements);
+		default:
+			return null;
+		}
+	}
 
-        return null;
-    }
+	/**
+	 *
+	 * @param articleNumber Article number of the product which is to be returned
+	 * @return {@link Product} object with the specified article number, null if
+	 *         product couldn't be found
+	 */
+	public Product getProduct(long articleNumber) {
+		for (Product prod : products) {
+			if (prod.getArticleNumber() == articleNumber) {
+				return prod;
+			}
+		}
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        for (Product prod : products) {
-            builder.append(prod).append("\n");
-        }
-        return builder.toString();
-    }
+		return null;
+	}
+
+	/**
+	 * @return A pretty String
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		for (Product prod : products) {
+			builder.append(prod).append("\n");
+		}
+		return builder.toString();
+	}
 }

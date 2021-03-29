@@ -14,4 +14,15 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<filteredResources>
+		<filter>
+			<id>1615457041025</id>
+			<name>src/de/die_gfi/philipp/shop/data/bills</name>
+			<type>5</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*.bill</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>
