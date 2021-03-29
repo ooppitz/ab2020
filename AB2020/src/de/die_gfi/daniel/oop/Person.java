@@ -40,7 +40,7 @@ public class Person
    }
    
    
-   public Person( int alter, String vorname, String nachname )
+   public Person( String vorname, String nachname, int alter )
    {
       this();
       this.alter = alter;
@@ -49,16 +49,16 @@ public class Person
    }
    
    
-   public Person( int alter, double koerperGroesse, double gewicht, String vorname, String nachname )
+   public Person( String vorname, String nachname, int alter, double koerperGroesse, double gewicht )
    {
-      this( alter, vorname, nachname );
+      this( vorname, nachname, alter );
       
       this.koerperGroesse = koerperGroesse;
       this.gewicht = gewicht;
    }
    
    
-   public String toString()
+   public String ausgabe()
    {
       /*
       return
@@ -120,5 +120,13 @@ public class Person
       }
       
       return rueckgabe;
+   }
+   
+   
+   public String toString()
+   {
+      return
+            ":Person\n" +
+            ausgabe();
    }
 }

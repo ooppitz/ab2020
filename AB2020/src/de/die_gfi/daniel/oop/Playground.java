@@ -4,15 +4,24 @@ public class Playground
 {
    public static void main( String[] args )
    {
-      Person daniel = new Person( 17, "Daniel", "Neumann" );
+      Patient hans = new Patient();
       
-//    david.gewicht = 70.0;
-      daniel.koerperGroesse = 2.4;
+      hans.vorName = "Hans";
+      hans.nachName = "Neumann";
+      hans.alter = 17;
+      hans.gewicht = 75;
+      hans.koerperGroesse = 1.8;
+    
+      hans.addDiagnosis( "Spieleentzug" );
       
-      daniel.nachName = null;
+      System.out.println( hans );
+      
+      
+      Person daniel = new Patient( "Spieleentzug", "wahnsinn" );
+      daniel.vorName = "Daniel";
+      daniel.nachName = "Smith";
       
       System.out.println( daniel );
-
    }
 
 }
