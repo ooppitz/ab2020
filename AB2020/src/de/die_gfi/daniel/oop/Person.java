@@ -13,8 +13,8 @@ public class Person
    int alter;
    double koerperGroesse;
    double gewicht;
-   String vorname;
-   String nachname;
+   String vorName;
+   String nachName;
 
 
    public Person()
@@ -26,8 +26,8 @@ public class Person
    public Person( int alter, String vorname, String nachname )
    {
       this.alter = alter;
-      this.vorname = vorname;
-      this.nachname = nachname;
+      this.vorName = vorname;
+      this.nachName = nachname;
    }
    
    
@@ -37,5 +37,16 @@ public class Person
       
       this.koerperGroesse = koerperGroesse;
       this.gewicht = gewicht;
+   }
+   
+   
+   public String toString()
+   {
+      return
+            String.format( "%-8s : %s", "Vorname", this.vorName ) + "\n" +
+            String.format( "%-8s : %s", "Nachname", this.nachName ) + "\n" +
+            String.format( "%-8s : %d", "Alter", this.alter ) + "\n" +
+            String.format( "%-8s : %.2f kg", "Gewicht", this.gewicht ) + "\n" +
+            String.format( "%-8s : %.2f m", "Groesse", this.koerperGroesse ) + "\n";
    }
 }
