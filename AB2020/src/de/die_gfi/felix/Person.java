@@ -3,7 +3,7 @@ package de.die_gfi.felix;
 public class Person {
 	
 	private static final double UNKNOWN_DOUBLE = -1;
-	private static final String UNKNOWN_NAME = "";
+	private static final String UNKNOWN_NAME = "-1";
 	String vorname;
 	String nachname;
 	double koerpergroesse;
@@ -49,13 +49,13 @@ public class Person {
 		} else {
 			s = s + "kein Nachname gefunden ";
 		}
-		if(this.koerpergroesse == UNKNOWN_DOUBLE) {
+		if(this.koerpergroesse != UNKNOWN_DOUBLE) {
 			s = s + this.koerpergroesse + " ";
 		}
-		if(this.koerpergewicht == UNKNOWN_DOUBLE) {
+		if(this.koerpergewicht != UNKNOWN_DOUBLE) {
 			s = s + this.koerpergewicht + " ";
 		}
-		s = s + "/n";
+		s = s + "\n";
 		return s;
 	}
 	
