@@ -38,4 +38,35 @@ public class Person {
         this.koerpergroesseInCm = koerpergroesseInCm;
         this.gewichtInKg = gewichtInKg;
     }
+
+    @Override
+    public String toString() {
+        String str = "";
+
+        if (!vorname.equals(UNBEKANNTER_VORNAME)) {
+            str += vorname;
+        } else {
+            str += " Vorname unbekannt";
+        }
+
+        if (!nachname.equals(UNBEKANNTER_NACHNAME)) {
+            str += " " + nachname;
+        } else {
+            str += " Nachname unbekannt";
+        }
+
+        if (alter != UNBEKANNTES_ALTER) {
+            str += " Alter = " + alter;
+        }
+
+        if (koerpergroesseInCm != UNBEKANNTE_KOERPERGROESSE) {
+            str += " Koerpergroesse = " + koerpergroesseInCm;
+        }
+
+        if (gewichtInKg != UNBEKANNTES_GEWICHT) {
+            str += " Gewicht = " + gewichtInKg;
+        }
+
+        return str;
+    }
 }
