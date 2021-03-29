@@ -4,9 +4,14 @@ public class Playground
 {
    public static void main( String[] args )
    {
-      Person patient = new Person( 17, "David", "Neumann" );
+      Person daniel = new Person( 17, "Daniel", "Neumann" );
       
-      System.out.println( patient );
+//    david.gewicht = 70.0;
+      daniel.koerperGroesse = 2.4;
+      
+      daniel.nachName = null;
+      
+      System.out.println( daniel );
 
    }
 
