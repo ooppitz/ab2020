@@ -24,5 +24,11 @@ public class Computer extends Product {
 	public String toString() {
 		return "Computer '" + name + "': " + description + ", " + memoryGB + " GB RAM " + storageGB + " Storage";
 	}
+
+	@Override
+	public int caculateDiscount(int numberOfItems) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

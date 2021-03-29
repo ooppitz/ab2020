@@ -1,6 +1,6 @@
 package de.die_gfi.oppitz.shop;
 
-public class Product {
+public abstract class Product {
 
 	String name; 
 	String description; 
@@ -17,5 +17,9 @@ public class Product {
 	public String toString() {
 		return "Product '" + name + "' Price: " + price;
 	}
+	
+	/** Returns the discount for this product */
+	public abstract int caculateDiscount(int numberOfItems);
+	
 	
 }
