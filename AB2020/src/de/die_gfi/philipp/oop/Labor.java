@@ -50,10 +50,26 @@ public class Labor {
             }
         }
         if (alter > 0 && alter < 18) {
-
+            if (laborwertD < 24) {
+                System.out.println("Vitamin D Spiegel: Zu niedrig");
+            }
+            if (laborwertD >= 24 && laborwertD <= 144) {
+                System.out.println("Vitamin D Spiegel: OK");
+            }
+            if (laborwertD > 144) {
+                System.out.println("Vitamin D Spiegel: Zu hoch");
+            }
         }
         if (alter >= 18) {
-
+            if (laborwertD < 20) {
+                System.out.println("Vitamin D Spiegel: Zu niedrig");
+            }
+            if (laborwertD >= 20 && laborwertD <= 120) {
+                System.out.println("Vitamin D Spiegel: OK");
+            }
+            if (laborwertD > 120) {
+                System.out.println("Vitamin D Spiegel: Zu hoch");
+            }
         }
     }
 
