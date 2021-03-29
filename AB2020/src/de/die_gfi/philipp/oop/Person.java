@@ -43,29 +43,11 @@ public class Person {
     public String toString() {
         String str = "";
 
-        if (!vorname.equals(UNBEKANNTER_VORNAME)) {
-            str += vorname;
-        } else {
-            str += " Vorname unbekannt";
-        }
-
-        if (!nachname.equals(UNBEKANNTER_NACHNAME)) {
-            str += " " + nachname;
-        } else {
-            str += " Nachname unbekannt";
-        }
-
-        if (alter != UNBEKANNTES_ALTER) {
-            str += " Alter = " + alter;
-        }
-
-        if (koerpergroesseInCm != UNBEKANNTE_KOERPERGROESSE) {
-            str += " Koerpergroesse = " + koerpergroesseInCm;
-        }
-
-        if (gewichtInKg != UNBEKANNTES_GEWICHT) {
-            str += " Gewicht = " + gewichtInKg;
-        }
+        str += (!vorname.equals(UNBEKANNTER_VORNAME)) ? (vorname + " ") : "Vorname unbekannt ";
+        str += (!nachname.equals(UNBEKANNTER_NACHNAME)) ? (nachname + " ") : "Nachname unbekannt ";
+        str += (alter != UNBEKANNTES_ALTER) ? ("Alter = " + alter + " ") : "";
+        str += (koerpergroesseInCm != UNBEKANNTE_KOERPERGROESSE) ? ("Koerpergroesse = " + koerpergroesseInCm + " ") : "";
+        str += (gewichtInKg != UNBEKANNTES_GEWICHT) ? ("Gewicht = " + gewichtInKg + " ") : "";
 
         return str;
     }
