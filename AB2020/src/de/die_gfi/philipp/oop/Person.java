@@ -7,10 +7,19 @@ public class Person {
     String vorname;
     String nachname;
 
+    static final int UNBEKANNTES_ALTER = -1;
+    static final int UNBEKANNTE_KOERPERGROESSE = -1;
+    static final double UNBEKANNTES_GEWICHT = -1.0;
+
+    static final String UNBEKANNTER_VORNAME = "###";
+    static final String UNBEKANNTER_NACHNAME = "###";
+
     private Person() {
-        alter = -1;
-        koerpergroesseInCm = -1;
-        gewichtInKg = -1;
+        alter = UNBEKANNTES_ALTER;
+        koerpergroesseInCm = UNBEKANNTE_KOERPERGROESSE;
+        gewichtInKg = UNBEKANNTES_GEWICHT;
+        vorname = UNBEKANNTER_VORNAME;
+        nachname = UNBEKANNTER_NACHNAME;
     }
 
     public Person(String vorname, String nachname) {
