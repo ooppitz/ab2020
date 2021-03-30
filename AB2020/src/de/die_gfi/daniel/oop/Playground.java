@@ -53,10 +53,19 @@ public class Playground
       laborpatient.vorName = "Daniel";
       laborpatient.nachName = "Smith";
       
-      
       System.out.println( "Geben Sie den Vitamin A Wert in μg/l ein:" );
-      laborpatient.setVitaminA( scanner.nextDouble() * (1*10E-6) );
-      System.out.printf( "Vitamin A = %E\n", laborpatient.vitaminA );
+      
+      double wertMikrogrammProLiter = scanner.nextDouble();  // μg/l
+    
+      double wertGrammProLiter = wertMikrogrammProLiter / 1000000;  // g/l   ... 1 Gram = 1000.000 μg
+    		  
+      System.out.println("Der Zufallswert ist " + wertGrammProLiter + "g/l");
+      
+      laborpatient.setVitaminA(wertGrammProLiter);
+      
+      // 5.000000E-04    0.0005 g /l  ... 500 ug
+      
+      System.out.printf( "Vitamin A = %E g/l\n", laborpatient.vitaminA );
       
 //    laborpatient.setVitaminA(100E-6);
       laborpatient.setVitaminC(1.7E-3);
