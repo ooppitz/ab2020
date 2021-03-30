@@ -49,13 +49,13 @@ public class Labor
       /* Vitamin C */
       double vitaminC = patient.getVitaminC();
       
-      if( vitaminC < 17E-3 )
+      if( vitaminC < 1.7E-3 )
       {
          System.out.println( "Vitamin C Mangel" );
       }
       else
       {
-         if( vitaminC > 17E-3 )
+         if( vitaminC > 1.7E-3 )
          {
             System.out.println( "Vitamin C Ueberdosis" );
          }

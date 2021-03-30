@@ -43,6 +43,14 @@ public class Laborpatient extends Patient implements VitaminSpiegel
    }
    
    
+   public Laborpatient( double vitaminA, double vitaminC, double vitaminD )
+   {
+      this.vitaminA = vitaminA;
+      this.vitaminC = vitaminC;
+      this.vitaminD = vitaminD;
+   }
+   
+   
    public double getVitaminA()
    {
       return this.vitaminA;

@@ -1,10 +1,12 @@
 package de.die_gfi.daniel.oop;
 
+import java.util.Scanner;
+
 public class Playground
 {
    public static void main( String[] args )
    {
-      
+/*      
       Patient hans = new Patient();
       
       hans.vorName = "Hans";
@@ -41,7 +43,28 @@ public class Playground
       System.out.println( tom );
 
 
+*/
+      Scanner scanner = new Scanner(System.in);
       
+      
+      Laborpatient laborpatient = new Laborpatient();
+      
+
+      laborpatient.vorName = "Daniel";
+      laborpatient.nachName = "Smith";
+      
+      
+      System.out.println( "Geben Sie den Vitamin A Wert in μg/l ein:" );
+      laborpatient.setVitaminA( scanner.nextDouble() * (1*10E-6) );
+      System.out.printf( "Vitamin A = %E\n", laborpatient.vitaminA );
+      
+//    laborpatient.setVitaminA(100E-6);
+      laborpatient.setVitaminC(1.7E-3);
+      laborpatient.setVitaminD(40E-6);
+      
+      
+      
+      Labor.ueberpruefeLaborwerte(laborpatient);
    }
 
 }
