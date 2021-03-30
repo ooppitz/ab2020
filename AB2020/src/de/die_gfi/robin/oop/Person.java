@@ -64,50 +64,15 @@ public class Person {
 	public String toString() {
 		String s = "";
 		
-		if (this.vorname != UNBEKANNTER_VORNAME) {
-			s += this.vorname + " ";
-		}
-		else {
-			s += "!Vorname fehlt! ";
-		}
-		
-		if (this.nachname != UNBEKANNTER_NACHNAME) {
-			s += this.nachname + " ";
-		}
-		else {
-			s += "!Nachname fehlt! ";
-		}
-		
-		if (this.alter != UNBEKANNTES_ALTER) {
-			s += "Alter: " + this.alter + " ";
-		}
-		else {
-			s += "!Alter fehlt! ";
-		}
-		
-		if (this.gewicht != UNBEKANNTES_GEWICHT) {
-			s += "Gewicht: " + this.gewicht + " ";
-		}
-		else {
-			s += "!Gewicht fehlt! ";
-		}
-		
-		if (this.groesse != UNBEKANNTE_GROESSE) {
-			s += "Größe: " + this.groesse + " ";
-		}
-		else {
-			s += "!Größe fehlt! ";
-		}
+		s += (this.vorname != UNBEKANNTER_VORNAME) ? (this.vorname + " ") : ("!Vorname fehlt! ");
+		s += (this.nachname != UNBEKANNTER_NACHNAME) ? ( this.nachname + "\n") : ("!Nachname fehlt!\n");
+		s += (this.alter != UNBEKANNTES_ALTER) ? ("Alter: " + this.alter + "\n") : ("!Alter fehlt!\n");
+		s += (this.gewicht != UNBEKANNTES_GEWICHT) ? ("Gewicht: " + this.gewicht + "\n") : ("!Gewicht fehlt!\n");
+		s += (this.groesse != UNBEKANNTE_GROESSE) ? ("Größe: " + this.groesse + "\n") : ("!Größe fehlt!\n");
 		
 		return s;
 	}
 	
 	
-	
-	public static void main(String[] args) {
-		
-		Person jeff = new Person (UNBEKANNTER_VORNAME,"Jefferson", 15, UNBEKANNTES_GEWICHT, 44.0);
-		System.out.println(jeff);
-	}
 	
 }
