@@ -30,6 +30,8 @@ public class MasseProVolumen {
     double volume;
     String volumeUnit;
 
+    double massPerVolume;
+
     /**
      *
      * @param mass Value of mass
@@ -42,5 +44,6 @@ public class MasseProVolumen {
         this.massUnit = massUnit;
         this.volume = volume;
         this.volumeUnit = volumeUnit;
+        this.massPerVolume = mass / volume;
     }
 }
