@@ -61,6 +61,10 @@ public class Patient extends Person {
 
 	}
 
+	/**
+	 * Uses console input to make a list of symptoms 
+	 * @return ArrayList out of symptoms 
+	 */
 	public static ArrayList<String> symptomeAnlegen() {
 
 		ArrayList<String> symptome = new ArrayList<String>();

@@ -6,6 +6,11 @@ public class Labor {
 	static final double NORM_VITAMINC = 110; // mg
 	static final double NORM_VITAMIND = 20; // ug
 
+	/**
+	 * 
+	 * @param labPat
+	 * @return evaluation of vitamin readings
+	 */
 	static String ueberpruefeLaborwerte(Laborpatient labPat) {
 
 		String s = "";
