@@ -1,5 +1,6 @@
 package de.die_gfi.jonathan.name.oop;
 
+//@author jonazhan Göth
 public class Laborpatient extends Patient implements VitaminSpiegel {
 	double VitaminA=unbekannter_wert;
 	double VitaminB=unbekannter_wert;
@@ -11,18 +12,17 @@ public class Laborpatient extends Patient implements VitaminSpiegel {
 		super(a, h, g, v, n, d);
 	}
 
-	@Override
-	public void getA(double wert) {
-		
+	//get Vitamin a
+	public double getA() {
+		return VitaminA;
 	}
 
-	@Override
+	
 	public void setA(double wert) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	//get Vitamin b
 	public void getB(double wert) {
 		// TODO Auto-generated method stub
 		
