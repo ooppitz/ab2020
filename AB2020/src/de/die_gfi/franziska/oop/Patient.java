@@ -7,7 +7,9 @@ public class Patient extends Person {
 
 	String diagnose;
 	ArrayList<String> symptome;
-	public static Scanner scanner = new Scanner(System.in);
+	static Scanner scanner = new Scanner(System.in);
+
+	static final ArrayList<String> UNBEKANNTE_SYMPTOME = null;
 
 	public Patient(String vn, String nn) {
 
@@ -37,7 +39,15 @@ public class Patient extends Person {
 
 		super(vn, nn, alter, gewicht, groesse);
 		this.diagnose = diagnose;
-		this.symptome = symptomeAnlegen();
+
+	}
+
+	public Patient(String vn, String nn, int alter, double gewicht, double groesse, String diagnose,
+			ArrayList<String> symptome) {
+
+		super(vn, nn, alter, gewicht, groesse);
+		this.diagnose = diagnose;
+		this.symptome = symptome;
 
 	}
 
@@ -45,11 +55,13 @@ public class Patient extends Person {
 
 		Patient rolaf = new Patient("Rolaf", "Siegmundsdotjr", 9, 50, 2, "sehr groß");
 
+		symptomeAnlegen();
+
 		System.out.println(rolaf);
 
 	}
 
-	public ArrayList<String> symptomeAnlegen() {
+	public static ArrayList<String> symptomeAnlegen() {
 
 		ArrayList<String> symptome = new ArrayList<String>();
 
