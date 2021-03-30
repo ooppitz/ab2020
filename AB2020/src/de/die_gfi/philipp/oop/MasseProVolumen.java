@@ -40,6 +40,7 @@ public class MasseProVolumen {
     double massPerVolume;
 
     /**
+     * Constructs a MasseProVolumen Object with the original units.
      *
      * @param mass Value of mass
      * @param massUnit Unit of mass

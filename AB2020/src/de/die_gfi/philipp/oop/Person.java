@@ -1,5 +1,8 @@
 package de.die_gfi.philipp.oop;
 
+/**
+ * Eine Klasse welche eine hypothetische Person darstellt
+ */
 public class Person {
     int alter;
     int koerpergroesseInCm;
