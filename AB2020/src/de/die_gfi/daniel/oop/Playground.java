@@ -4,6 +4,7 @@ public class Playground
 {
    public static void main( String[] args )
    {
+      
       Patient hans = new Patient();
       
       hans.vorName = "Hans";
@@ -17,11 +18,30 @@ public class Playground
       System.out.println( hans );
       
       
-      Person daniel = new Patient( "Spieleentzug", "wahnsinn" );
+//---------------------------------------------------------------------
+      
+      Laborpatient daniel = new Laborpatient();
       daniel.vorName = "Daniel";
       daniel.nachName = "Smith";
+
       
+      
+      daniel.setVitaminA( 140E-6 );
+      daniel.vitaminC = 2.5;
       System.out.println( daniel );
+      Labor.ueberpruefeLaborwerte(daniel);
+      System.out.println();
+      
+      
+//--------------------------------------------------------------------
+      
+      Person tom = new Patient();
+      tom.alter = 25;
+      
+      System.out.println( tom );
+
+
+      
    }
 
 }
