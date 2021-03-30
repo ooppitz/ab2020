@@ -1,12 +1,17 @@
 package de.die_gfi.jonathan.name.oop;
 
 //@author jonazhan Göth
+/**
+ * 
+ * @author Jonathan Göth
+ *
+ */
 public class Laborpatient extends Patient implements VitaminSpiegel {
-	double VitaminA=unbekannter_wert;
-	double VitaminB=unbekannter_wert;
-	double VitaminC=unbekannter_wert;
-	double VitaminD=unbekannter_wert;
-	public static final double unbekannter_wert = -1;
+	double VitaminA=Unbekannter_wert;
+	double VitaminB=Unbekannter_wert;
+	double VitaminC=Unbekannter_wert;
+	double VitaminD=Unbekannter_wert;
+	public static final double Unbekannter_wert = -1;
 	
 	public Laborpatient(int a, double h, double g, String v, String n, String d) {
 		super(a, h, g, v, n, d);
@@ -23,7 +28,8 @@ public class Laborpatient extends Patient implements VitaminSpiegel {
 	}
 
 	//get Vitamin b
-	public void getB(double wert) {
+	public double getB() {
+		return VitaminB;
 		// TODO Auto-generated method stub
 		
 	}
@@ -35,7 +41,8 @@ public class Laborpatient extends Patient implements VitaminSpiegel {
 	}
 
 	@Override
-	public void getC(double wert) {
+	public double getC() {
+		return VitaminC;
 		// TODO Auto-generated method stub
 		
 	}
@@ -47,7 +54,8 @@ public class Laborpatient extends Patient implements VitaminSpiegel {
 	}
 
 	@Override
-	public void getD(double wert) {
+	public double getD() {
+		return VitaminD;
 		// TODO Auto-generated method stub
 		
 	}
@@ -57,6 +65,10 @@ public class Laborpatient extends Patient implements VitaminSpiegel {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	
 
 	
 

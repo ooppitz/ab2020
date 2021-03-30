@@ -3,19 +3,19 @@ package de.die_gfi.jonathan.name.oop;
 public interface VitaminSpiegel {
 ;
 
-	void getA(double wert) ;
+	double getA() ;
 	
 	void setA(double wert);
 	
-	void getB(double wert) ;
+	double getB() ;
 	
 	void setB(double wert);
 	
-	void getC(double wert) ;
+	double getC() ;
 	
 	void setC(double wert);
 	
-	void getD(double wert) ;
+	double getD() ;
 	
 	void setD(double wert);
 
