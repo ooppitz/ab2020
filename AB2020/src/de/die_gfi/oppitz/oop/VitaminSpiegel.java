@@ -2,13 +2,13 @@ package de.die_gfi.oppitz.oop;
 
 public interface VitaminSpiegel {
 	
-	void setVitaminD(double blutwertNgProMl);
+	void setVitaminD(MasseProVolumen mpv);
     double getVitaminD();
 
-	void setVitaminA(double blutwertNgProMl);  
+	void setVitaminA(MasseProVolumen mpv);  
     double getVitaminA();
 
-    void setVitaminC(double blutwertMgProL);
+    void setVitaminC(MasseProVolumen mpv);
     double getVitaminC();
 	
 }
