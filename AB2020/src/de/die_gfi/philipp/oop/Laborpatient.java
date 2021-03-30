@@ -14,31 +14,55 @@ public class Laborpatient extends Patient implements Vitaminspiegel{
         super(vorname, nachname, alter, koerpergroesseInCm, gewichtInKg, symptome);
     }
 
+    /**
+     *
+     * @param laborwertVitA Vitaminspiegel von Vitamin A in &mu;g/dl
+     */
     @Override
     public void setLaborwertVitA(double laborwertVitA) {
         this.laborwertVitA = laborwertVitA;
     }
 
+    /**
+     *
+     * @param laborwertVitC Vitaminspiegel von Vitamin C in &mu;g/dl
+     */
     @Override
     public void setLaborwertVitC(double laborwertVitC) {
         this.laborwertVitC = laborwertVitC;
     }
 
+    /**
+     *
+     * @param laborwertVitD Vitaminspiegel von Vitamin D in &mu;g/dl
+     */
     @Override
     public void setLaborwertVitD(double laborwertVitD) {
         this.laborwertVitD = laborwertVitD;
     }
 
+    /**
+     *
+     * @return Vitaminspiegel von Vitamin A in &mu;g/dl
+     */
     @Override
     public double getLaborwertVitA() {
         return laborwertVitA;
     }
 
+    /**
+     *
+     * @return Vitaminspiegel von Vitamin C in &mu;g/dl
+     */
     @Override
     public double getLaborwertVitC() {
         return laborwertVitC;
     }
 
+    /**
+     *
+     * @return Vitaminspiegel von Vitamin D in &mu;g/dl
+     */
     @Override
     public double getLaborwertVitD() {
         return laborwertVitD;

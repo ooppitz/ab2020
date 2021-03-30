@@ -2,6 +2,13 @@ package de.die_gfi.philipp.oop;
 
 public class Labor {
 
+    /**
+     * Prueft die Laborwerte auf Vitaminspiegel fuer Vitamin A, C, und D
+     *
+     * Die Werte f&uuml;r die Vitaminspiegel muessen in &mu;g/dl angegeben sein.
+     *
+     * @param laborpatient Der Patient fuer den die Laborwerte geprueft werden
+     */
     void ueberpruefeLaborwerte(Vitaminspiegel laborpatient){
         double laborwertA = laborpatient.getLaborwertVitA();
         double laborwertC = laborpatient.getLaborwertVitC();
