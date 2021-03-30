@@ -24,6 +24,13 @@ public class MasseProVolumen {
 
     g, mg, μg, ng
     l, dl, cl, ml
+
+    Drehpunkt: μg/dl
+
+    g  x10^6        l  x10
+    mg x10^3        dl x1
+    μg x1           cl x10^-1
+    ng x10^-3       ml x10^-2
      */
     double mass;
     String massUnit;
@@ -45,5 +52,12 @@ public class MasseProVolumen {
         this.volume = volume;
         this.volumeUnit = volumeUnit;
         this.massPerVolume = mass / volume;
+    }
+
+    /**
+     * converts the whole object into the base unit of &mu;g/dl
+     */
+    public void convertToBaseUnit() {
+
     }
 }
