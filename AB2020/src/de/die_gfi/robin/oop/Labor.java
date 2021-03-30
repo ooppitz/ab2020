@@ -7,10 +7,6 @@ public class Labor {
 		System.out.println("\nPatient: " + pat.vorname + " " + pat.nachname + "\n");
 		
 		
-		pat.vitaminAAuslesen();
-		pat.vitaminCAuslesen();
-		pat.vitaminDAuslesen();
-		
 		
 		if(pat.vitA < 100) {
 			System.out.println(String.format("Vitamin A: %d µg/l liegt unter dem Normalwert", pat.vitA));
@@ -42,7 +38,7 @@ public class Labor {
 			System.out.println(String.format("Vitamin D: %d µg/l liegt innerhalb des Normalwertes", pat.vitD));
 		}
 		
-		System.out.println("\nNormwerte:\nVitamin A: 100-1000µg/l\nVitamin C: 5-15mg/l\nVitamin D: 30-50µg/l");
+		System.out.println("\nNormwerte:\nVitamin A: 100-1000µg/l\nVitamin C: 5-15mg/l\nVitamin D: 30-50µg/l\n");
 		
 	}
 }

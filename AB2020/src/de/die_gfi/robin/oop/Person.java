@@ -17,6 +17,9 @@ public class Person {
 	static final double UNBEKANNTES_GEWICHT = -1;
 	static final double UNBEKANNTE_GROESSE = -1;
 	
+	/**
+	 * Default Konstruktor fuer die Klasse Person
+	 */
 	public Person() {
 		this.vorname = UNBEKANNTER_VORNAME;
 		this.nachname = UNBEKANNTER_NACHNAME;
@@ -26,41 +29,77 @@ public class Person {
 	}
 	
 	
+	/**
+	 * Konstruktor fuer die Klasse Person mit Parameter "vorname" und "nachname"
+	 * @param vn
+	 * @param nn
+	 */
+	
 	public Person(String vn, String nn) {
 		this();
 		this.vorname = vn;
 		this.nachname = nn;
 	}
 	
+	/**
+	 * Konstruktor fuer die Klasse Person mit Parameter "vorname", "nachname" und "alter"
+	 * @param vn
+	 * @param nn
+	 * @param alter
+	 */
 	public Person(String vn, String nn, int alter) {
 		this(vn, nn);
 		this.alter = alter;
 	}
-	
+	/**
+	 * Konstruktor fuer die Klasse Person mit Parameter "vorname", "nachname" und "gewicht"
+	 * @param vn
+	 * @param nn
+	 * @param gewicht
+	 */
 	public Person(String vn, String nn, double gewicht) {
 		this(vn, nn);
 		this.gewicht = gewicht;
 	}
-	
+	/**
+	 * Konstruktor fuer die Klasse Person mit Parameter "vorname", "nachname", "alter" und "gewicht"
+	 * @param vn
+	 * @param nn
+	 * @param alter
+	 * @param gewicht
+	 */
 	public Person (String vn, String nn, int alter, double gewicht) {
 		this(vn, nn, alter);
 		this.gewicht = gewicht;
 		
 	}
-	
+	/**
+	 * Konstruktor fuer die Klasse Person mit Parameter "vorname", "nachname", "gewicht" und "groesse"
+	 * @param vn
+	 * @param nn
+	 * @param gewicht
+	 * @param groesse
+	 */
 	public Person (String vn, String nn,double gewicht, double groesse) {
 		this(vn, nn, gewicht);
 		this.groesse = groesse;
 		
 	}
-	
+	/**
+	 * Konstruktor fuer die Klasse Person mit Parameter "vorname", "nachname", "alter", "gewicht" und "groesse"
+	 * @param vn
+	 * @param nn
+	 * @param alter
+	 * @param gewicht
+	 * @param groesse
+	 */
 	public Person (String vn, String nn, int alter, double gewicht, double groesse) {
 		this(vn, nn, alter, gewicht);
 		this.groesse = groesse;
 		
 	}
 	
-	
+	@Override
 	public String toString() {
 		String s = "";
 		

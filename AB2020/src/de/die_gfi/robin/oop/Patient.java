@@ -27,7 +27,7 @@ public class Patient extends Person {
 		String s = "";
 		s += super.toString();
 		s += (this.diagnose != UNBEKANNTE_DIAGNOSE) ? ("Diagnose: " + this.diagnose + "\n") : ("!Diagnose fehlt!\n");
-		s += (this.symptome != UNBEKANNTE_SYMPTOME) ? ("Symptome: " + this.symptome + " ") : ("!Symptome fehlen! ");
+		s += (this.symptome != UNBEKANNTE_SYMPTOME) ? ("Symptome: " + this.symptome + "\n") : ("!Symptome fehlen!\n");
 		
 		return s;
 	}

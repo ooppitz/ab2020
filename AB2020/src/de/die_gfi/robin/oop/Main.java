@@ -13,6 +13,7 @@ public static void main(String[] args) {
 		
 		Labor.ueberpruefeLaborwerte(keith);
 		Labor.ueberpruefeLaborwerte(carl);
+		System.out.println(jeff);
 		
 	}
 	

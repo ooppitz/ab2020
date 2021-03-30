@@ -6,4 +6,5 @@ public interface Vitaminspiegel {
 	int vitaminCAuslesen();
 	int vitaminDAuslesen();
 	
+	
 }
