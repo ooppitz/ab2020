@@ -2,6 +2,14 @@ package de.die_gfi.franziska.oop;
 
 import java.util.ArrayList;
 
+/**
+ * Laborpatient is a subclass of Patient.
+ * <br> It implements the VitaminSpiegel interface. </br>
+ * <br> Laborpatient is used to create a Patient that also has their vitamin readings evaluated. </br>
+ * 
+ * @author Franzi
+ *
+ */
 public class Laborpatient extends Patient implements VitaminSpiegel {
 
 	double vitaminA;

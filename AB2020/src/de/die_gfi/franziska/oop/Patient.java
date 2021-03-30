@@ -3,6 +3,12 @@ package de.die_gfi.franziska.oop;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Patient is a subclass of Person 
+ * <br>Attributes are <code>diagnose</code> and <code>symptome</code>
+ * @author Franzi
+ *
+ */
 public class Patient extends Person {
 
 	String diagnose;
