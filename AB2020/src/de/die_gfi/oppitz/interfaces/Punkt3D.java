@@ -1,6 +1,6 @@
 package de.die_gfi.oppitz.interfaces;
 
-public class Punkt3D extends Punkt{
+public class Punkt3D extends Punkt implements CounterInterface{
 
 	double z;
 	
@@ -10,8 +10,8 @@ public class Punkt3D extends Punkt{
 		
 		super(x,y);
 		
-		this.counterPunkt3D++;
-		super.counterPunkt--; // 3D - Punkte zählen nicht als 2D-Punkte
+		Punkt3D.counterPunkt3D++;
+		Punkt.counterPunkt--; // 3D - Punkte zählen nicht als 2D-Punkte
 		
 		this.z = z;	
 	}
@@ -32,7 +32,16 @@ public class Punkt3D extends Punkt{
 		this(x, 0, 0);
 	}
 	
+	public int getCount() {
+
+		return Punkt3D.counterPunkt3D;
+	}
 	
+	public int setCount(int newValue) {
+		int oldValue = Punkt3D.counterPunkt3D;
+		Punkt3D.counterPunkt3D = newValue;
+		return oldValue;
+	}
 	
 	
 	@Override
