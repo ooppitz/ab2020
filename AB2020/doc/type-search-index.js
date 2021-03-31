@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"de.die_gfi.robin.oop","l":"Labor"},{"p":"de.die_gfi.robin.oop","l":"Person"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"de.die_gfi.robin.enumexercise","l":"Kalender"},{"p":"de.die_gfi.robin.enumexercise","l":"Monat"}];updateSearchResults();
