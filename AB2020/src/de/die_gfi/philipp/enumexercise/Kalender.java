@@ -1,6 +1,23 @@
 package de.die_gfi.philipp.enumexercise;
 
 public class Kalender {
+    public static void main(String[] args) {
+        int zaehler = berechneTageproMonat(1984, Monat.FEBRUAR);
+        System.out.println(zaehler);
+
+        zaehler = berechneTageproMonat(1900, Monat.FEBRUAR);
+        System.out.println(zaehler);
+
+        zaehler = berechneTageproMonat(2000, Monat.FEBRUAR);
+        System.out.println(zaehler);
+
+        zaehler = berechneTageproMonat(2004, Monat.AUGUST);
+        System.out.println(Monat.AUGUST + " " + zaehler);
+
+        zaehler = berechneTageproMonat(1948, Monat.OKTOBER);
+        System.out.println(Monat.OKTOBER + " " + zaehler);
+    }
+
     public static int berechneTageproMonat(int jahr, Monat m) {
         switch (m) {
             case JANUAR, MAERZ, MAI, JULI, AUGUST, OKTOBER, DEZEMBER -> {
