@@ -5,6 +5,16 @@ public class EnumExample {
         System.out.println(druckeWochentag(Wochentag.MONTAG));
         System.out.println(druckeWochentagCheat(Wochentag.MONTAG));
         System.out.println(Wochentag.MONTAG);
+
+        System.out.println(druckeWochentag(Wochentag.DIENSTAG));
+        System.out.println(druckeWochentagCheat(Wochentag.DIENSTAG));
+        System.out.println(Wochentag.DIENSTAG);
+
+        System.out.println("etc. etc. etc.");
+
+        System.out.println(druckeWochentag(Wochentag.SONNTAG));
+        System.out.println(druckeWochentagCheat(Wochentag.SONNTAG));
+        System.out.println(Wochentag.SONNTAG);
     }
 
     public static String druckeWochentag(Wochentag tag) {
