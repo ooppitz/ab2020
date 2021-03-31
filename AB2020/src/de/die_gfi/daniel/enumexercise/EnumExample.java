@@ -11,70 +11,37 @@
 
 package de.die_gfi.daniel.enumexercise;
 
+public class EnumExample {
 
-public class EnumExample
-{
-   public static String druckeWochentag( Wochentag tag )
-   {
-      String rueckgabe = "";
-      
-      
-      switch( tag )
-      {
-         case MONTAG:
-         {
-            rueckgabe = "Montag";
-            break;
-         }
-         
-         case DIENSTAG:
-         {
-            rueckgabe = "Dienstag";
-            break;
-         }
-         
-         case MITTWOCH:
-         {
-            rueckgabe = "Mittwoch";
-            break;
-         }
-         
-         case DONNERSTAG:
-         {
-            rueckgabe = "Donnerstag";
-            break;
-         }
-         
-         case FREITAG:
-         {
-            rueckgabe = "Freitag";
-            break;
-         }
-         
-         case SAMSTAG:
-         {
-            rueckgabe = "Samstag";
-            break;
-         }
-         
-         case SONNTAG:
-         {
-            rueckgabe = "Sonntag";
-            break;
-         }
-         
-         default:
-         {
-            rueckgabe = "1. April";
-            break;
-         }
-         
-      }
-      
-      
-      
-      return rueckgabe;
-   }
+	public static String druckeWochentag(Wochentag tag) {
 
+		switch (tag) {
+		case MONTAG:
+			return "Montag";
+
+		case DIENSTAG:
+			return "Dienstag";
+
+		case MITTWOCH:
+			return "Mittwoch";
+
+		case DONNERSTAG:
+			return "Donnerstag";
+
+		case FREITAG:
+			return "Freitag";
+
+		case SAMSTAG:
+			return "Samstag";
+
+		case SONNTAG:
+			return "Sonntag";
+
+		default:
+			return "1. April";
+
+		}
+
+	}
 
 }
