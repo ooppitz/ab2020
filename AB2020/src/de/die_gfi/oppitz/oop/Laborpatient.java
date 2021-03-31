@@ -13,7 +13,7 @@ package de.die_gfi.oppitz.oop;
   Die Klasse Laborpatient soll das Interface VitaminSpiegel implementieren.
 */
 
-public class Laborpatient extends Patient implements VitaminSpiegel {
+public abstract class Laborpatient extends Patient implements VitaminSpiegel {
 
 	double vitaminA; // ng/ml (100-1000)
 	double vitaminD; // ng/ml (30-100)

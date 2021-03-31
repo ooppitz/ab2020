@@ -16,11 +16,11 @@ public class FelixTest {
 		Patient p7 = new Patient("Albert", "Speer", 1.89, 78.5, "Milde Grippe");
 		
 		ArrayList<Person> pListe = new ArrayList<Person>( ); 
-		pListe.add(p1);
+		// pListe.add(p1);
 		pListe.add(p2);
 		pListe.add(p3);
 		pListe.add(p4);
-		pListe.add(p5);
+		// pListe.add(p5);
 		pListe.add(p6);
 		pListe.add(p7);
 		for(Person p : pListe) {
