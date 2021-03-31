@@ -1,7 +1,5 @@
 package de.die_gfi.philipp.enumexercise;
 
-import java.util.Locale;
-
 public enum Wochentag {
     MONTAG,
     DIENSTAG,
