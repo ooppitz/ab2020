@@ -9,10 +9,7 @@ package de.die_gfi.philipp.enumexercise;
  */
 public class Kalender {
     public static void main(String[] args) {
-        int zaehler = berechneTageProMonat(1984, Monat.FEBRUAR);
-        System.out.println(zaehler);
-
-        zaehler = berechneTageProMonat(1900, Monat.FEBRUAR);
+        int zaehler = berechneTageProMonat(1900, Monat.FEBRUAR);
         System.out.println(zaehler);
 
         zaehler = berechneTageProMonat(2000, Monat.FEBRUAR);
@@ -21,8 +18,16 @@ public class Kalender {
         zaehler = berechneTageProMonat(2004, 8);
         System.out.println(Monat.AUGUST + " " + zaehler);
 
-        zaehler = berechneTageProMonat(1948, Monat.OKTOBER);
-        System.out.println(Monat.OKTOBER + " " + zaehler);
+        System.out.println("-".repeat(25));
+
+        zaehler = berechneTagesNummer(2005, 4, 16);
+        System.out.println(zaehler);
+        System.out.println(berechneTagesNummer(2004, Monat.JANUAR, 1));
+        System.out.println(berechneTagesNummer(2004, Monat.JANUAR, 31));
+        System.out.println(berechneTagesNummer(2004, Monat.FEBRUAR, 1));
+        System.out.println(berechneTagesNummer(2003, Monat.FEBRUAR, 29));
+        System.out.println(berechneTagesNummer(2003, Monat.MAERZ, 1));
+        System.out.println(berechneTagesNummer(2000, 3, 1));
     }
 
     /**
@@ -68,7 +73,7 @@ public class Kalender {
      * @param jahr Ein Jahr
      * @param m Ein Monat als Konstante von {@link Monat}
      * @param tag Ein Tag
-     * @return Nummer des Tages zu dem gegebenen vollen Datum
+     * @return Nummer des Tages zu dem gegebenen vollen Datum, -1 falls ein ung&uuml;ltiges Datum gegeben wurde
      */
     static int berechneTagesNummer(int jahr, Monat m, int tag) {
         return berechneTagesNummer(jahr, m.getNumericValue(), tag);
@@ -80,12 +85,15 @@ public class Kalender {
      * @param jahr Ein Jahr
      * @param m Ein Monat als numerische Angabe (1 ist Januar, 12 ist Dezember)
      * @param tag Ein Tag
-     * @return Nummer des Tages zu dem gegebenen vollen Datum
+     * @return Nummer des Tages zu dem gegebenen vollen Datum, -1 falls ein ung&uuml;ltiges Datum gegeben wurde.
      */
     static int berechneTagesNummer(int jahr, int m, int tag) {
+        if (tag > berechneTageProMonat(jahr, m) || m > 12 || m <= 0 || tag <= 0) {
+            return -1;
+        }
         int summe = 0;
         for (int i = 1; i < m; i++) {
-            summe += berechneTageProMonat(jahr, m);
+            summe += berechneTageProMonat(jahr, i);
         }
         summe += tag;
         return summe;
