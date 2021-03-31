@@ -50,3 +50,12 @@ Dezember 31
 int zaehler = berechneTageProMonat(1984, FEBRUAR);
 System.out.println(zaehler); 
 29
+
+
+
+Aufgabe 5:
+
+Erweitern Sie das Programm Kalender. Führen Sie eine Methode berechneTageProMonat() ein, welche als Parameter ein Jahr bekommt und einen int von 1 bis 12, welcher den Monat angibt. Die Methode soll dasselbe Ergebnis wie die vorhandene Methode liefern.
+
+    public static int berechneTageProMonat(int jahr, Monat monat);
+    public static int berechneTageProMonat(int jahr, int monat );

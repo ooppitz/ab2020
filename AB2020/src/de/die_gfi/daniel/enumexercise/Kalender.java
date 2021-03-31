@@ -24,7 +24,19 @@ Dezember 31
 Beispielausgabe:
 int zaehler = berechneTageProMonat(1984, FEBRUAR);
 System.out.println(zaehler); 
-29 */
+29 
+
+
+
+
+Aufgabe 5:
+
+Erweitern Sie das Programm Kalender. Führen Sie eine Methode berechneTageProMonat() ein, welche als Parameter ein Jahr bekommt und einen int von 1 bis 12, welcher den Monat angibt. Die Methode soll dasselbe Ergebnis wie die vorhandene Methode liefern.
+
+    public static int berechneTageProMonat(int jahr, Monat monat);
+    public static int berechneTageProMonat(int jahr, int monat );
+
+*/
 
 package de.die_gfi.daniel.enumexercise;
 
@@ -35,45 +47,67 @@ public class Kalender
    {
       int anzahlTage = 0;
       
-      if( Monat.FEBRUAR == m )
+      switch( m )
       {
-         if( schaltJahr(jahr) )
-         {
-            anzahlTage = 29;
-         }
-         else
-         {
-            anzahlTage = 28;
-         }
-      }
-      else
-      {
-         switch( m )
-         {
-            case JANUAR:    anzahlTage = 31; break;
-            case MÄRZ:      anzahlTage = 31; break;
-            case APRIL:     anzahlTage = 30; break;
-            case MAI:       anzahlTage = 31; break;
-            case JUNI:      anzahlTage = 30; break;
-            case JULI:      anzahlTage = 31; break;
-            case AUGUST:    anzahlTage = 31; break;
-            case SEPTEMBER: anzahlTage = 30; break;
-            case OKTOBER:   anzahlTage = 31; break;
-            case NOVEMBER:  anzahlTage = 30; break;
-            case DEZEMBER:  anzahlTage = 31; break;
+        case JANUAR:    anzahlTage = 31; break;
+        case FEBRUAR:   anzahlTage = schaltJahr(jahr) ? 29 : 28; break;
+        case MÄRZ:      anzahlTage = 31; break;
+        case APRIL:     anzahlTage = 30; break;
+        case MAI:       anzahlTage = 31; break;
+        case JUNI:      anzahlTage = 30; break;
+        case JULI:      anzahlTage = 31; break;
+        case AUGUST:    anzahlTage = 31; break;
+        case SEPTEMBER: anzahlTage = 30; break;
+        case OKTOBER:   anzahlTage = 31; break;
+        case NOVEMBER:  anzahlTage = 30; break;
+        case DEZEMBER:  anzahlTage = 31; break;
             
-            default:        System.err.println( "Das haette nicht passieren duerfen" );
-                            break;
-         }
+        default:        System.err.println( "Das haette nicht passieren duerfen" );
+                        break;
       }
-      
+
       return anzahlTage;
    }
    
    
+   public static int berechneTageProMonat(int jahr, int monat )
+   {
+      Monat kalenderMonat = Monat.JANUAR;
+      
+      switch( monat )
+      {
+         case  1: kalenderMonat = Monat.JANUAR; break;
+         case  2: kalenderMonat = Monat.FEBRUAR; break;
+         case  3: kalenderMonat = Monat.MÄRZ; break;
+         case  4: kalenderMonat = Monat.APRIL; break;
+         case  5: kalenderMonat = Monat.MAI; break;
+         case  6: kalenderMonat = Monat.JUNI; break;
+         case  7: kalenderMonat = Monat.JULI; break;
+         case  8: kalenderMonat = Monat.AUGUST; break;
+         case  9: kalenderMonat = Monat.SEPTEMBER; break;
+         case 10: kalenderMonat = Monat.OKTOBER; break;
+         case 11: kalenderMonat = Monat.NOVEMBER; break;
+         case 12: kalenderMonat = Monat.DEZEMBER; break;
+         
+         default: System.err.println( "Fuer die Monate sind nur Zahlen von 1 bis 12 erlaubt" );
+                  System.err.println( "Benuzte 'Januar' als Monat" );
+                  break;
+      }
+      
+      
+      return berechneTageProMonat( jahr, kalenderMonat );
+   }
+   
+   
+   /**
+    * Ueberprueft ob es sich bei einem bestimmten Jahr um ein Schaltjahr handelt
+    * 
+    * @param jahr Das Jahr welches ueberprueft werden soll
+    * @return true wenn es sich um ein Schaltjahr handelt ansonsten false
+    */
    private static boolean schaltJahr( int jahr )
    {
-      return ( jahr % 4 == 0 );
+      return ((jahr % 4 == 0)  &&  (jahr % 100 != 0)) || (jahr % 400 == 0);
    }
 }
 

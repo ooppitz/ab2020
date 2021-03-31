@@ -20,7 +20,7 @@ public class Playground
       System.out.println();
       */
       
-      int tage = Kalender.berechneTageProMonat( 2024, Monat.FEBRUAR );
+      int tage = Kalender.berechneTageProMonat( 1900, 12 );
       System.out.println( "tage = " + tage );
    }
 
