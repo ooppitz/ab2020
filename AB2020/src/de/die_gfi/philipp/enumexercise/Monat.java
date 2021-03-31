@@ -34,7 +34,7 @@ public enum Monat {
             case 10 -> m = OKTOBER;
             case 11 -> m = NOVEMBER;
             case 12 -> m = DEZEMBER;
-            default -> throw new IllegalArgumentException("No month with give numeric value " + a);
+            default -> throw new IllegalArgumentException("No month with the given numeric value " + a);
         }
         return m;
     }
