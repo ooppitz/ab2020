@@ -22,8 +22,20 @@
 package de.die_gfi.daniel.oop;
 
 
+/**
+ * Enthaelt Methoden zur Auswertung von Medizinischen Daten
+ * 
+ * @author Daniel
+ *
+ */
 public class Labor
 {
+   /**
+    * Ueberprueft die Vitaminwerte eines Patienten und druckt die Auswertung aus
+    * 
+    * 
+    * @param patient der patient ueberpfueft werden soll
+    */
    public static void ueberpruefeLaborwerte( Laborpatient patient )
    {
       /* Vitamin A */

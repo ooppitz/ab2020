@@ -1,0 +1,52 @@
+Aufgabe 1:
+
+Legen Sie ein Package <name>.enumexercise an. Definieren Sie ein Enumeration "enum Wochtentag", welche für alle Wochentage eine Konstante enthält.
+Schreiben Sie eine class EnumExample mit einer Methode
+
+    public static String druckeWochentag(Wochentag tag);
+    
+Welche für jeden Wochentag den Namen des Wochentags ausgibt.
+
+
+
+Aufgabe 2:
+
+Implementieren Sie eine Methode, welche die Wochentage auf Englisch ausgibt und wenn Sie möchten eine dritte Methode, welche die Ausgabe in einer weiteren Sprache vornimmt.
+
+
+
+Aufgabe 3: Switch-case mit dem -> Operator
+
+Implementieren Sie eine Variante der Methode druckeWochentag() welche die switch-case Syntax mit "->" verwendet. Nennen Sie die neue Methode
+
+    public static String druckeWochentagVariante(Wochentag tag);
+
+
+
+Aufgabe 4:
+
+Implementieren Sie einen enum Monat für die Monate Januar bis Dezember. 
+Implementieren Sie eine class Kalender mit einer Methode 
+
+    public static int berechneTageProMonat(int jahr, Monat m);
+
+Die Methode soll Schaltjahre berücksichtigen. Jedes vierte Jahr (2004, 2008, 2012, … ) ist ein Schaltjahr. Entwerfen Sie einen entsprechenden Algorithmus, sodass für den Februar eine korrekte Anzahl der Tage errechnet wird. Wenn Sie möchten, können Sie einen Algorithmus implementieren, der auch Sonderfälle bzgl. Schaltjahren berücksichtigt.
+Bzgl. Des switch-case Statements können Sie sich entscheiden, ob Sie die Variante mit „break“ oder mit "->" benützen.
+
+Jan 31 
+Februar 28/29. ß Schaltjahr
+März 31
+April 30
+Mai 31
+Juni 30 
+Juli 31
+August 31
+September 30
+Oktober 31
+November 30
+Dezember 31
+
+ Beispielausgabe:
+int zaehler = berechneTageProMonat(1984, FEBRUAR);
+System.out.println(zaehler); 
+29
