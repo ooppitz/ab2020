@@ -94,4 +94,46 @@ public class EnumExample {
 		return s;
 
 	}
+
+	public static String druckeWochentagFranzoesisch(Wochentag tag) {
+
+		String s = "";
+
+		switch (tag) {
+		case MONTAG:
+			s = "Lundi";
+			break;
+
+		case DIENSTAG:
+			s = "Mardi";
+			break;
+
+		case MITTWOCH:
+			s = "Mercredi";
+			break;
+
+		case DONNERSTAG:
+			s = "Jeudi";
+			break;
+
+		case FREITAG:
+			s = "Vendredi";
+			break;
+
+		case SAMSTAG:
+			s = "Samedi";
+			break;
+
+		case SONNTAG:
+			s = "Dimanche";
+			break;
+
+		default:
+			s = "C'est-pas-un-jour";
+			break;
+		}
+
+		return s;
+
+	}
 }
