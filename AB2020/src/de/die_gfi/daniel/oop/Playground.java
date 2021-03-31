@@ -2,6 +2,18 @@ package de.die_gfi.daniel.oop;
 
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Daniel
+ *
+ */
+
+
+/**
+ * This class was made to test new classes
+ * 
+ * 
+ */
 public class Playground
 {
    public static void main( String[] args )
@@ -57,7 +69,8 @@ public class Playground
       
       double wertMikrogrammProLiter = scanner.nextDouble();  // μg/l
     
-      double wertGrammProLiter = wertMikrogrammProLiter / 1000000;  // g/l   ... 1 Gram = 1000.000 μg
+//      double wertGrammProLiter = wertMikrogrammProLiter / 1000000;  // g/l   ... 1 Gram = 1000.000 μg
+      double wertGrammProLiter = wertMikrogrammProLiter * (1E-6);
     		  
       System.out.println("Der Zufallswert ist " + wertGrammProLiter + "g/l");
       
