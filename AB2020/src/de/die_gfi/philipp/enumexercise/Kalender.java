@@ -30,10 +30,10 @@ public class Kalender {
                     return 28;
                 }
             }
-            default -> {
+            case APRIL, JUNI, SEPTEMBER, NOVEMBER -> {
                 return 30;
             }
         }
-
+        return -1;
     }
 }
