@@ -1,5 +1,7 @@
 package de.die_gfi.philipp.oop;
 
+import java.util.ArrayList;
+
 public class Laborpatient extends Patient implements Vitaminspiegel{
     double laborwertVitA;
     double laborwertVitC;
@@ -10,7 +12,7 @@ public class Laborpatient extends Patient implements Vitaminspiegel{
         super(vorname, nachname, alter, koerpergroesseInCm, gewichtInKg);
     }
 
-    public Laborpatient(String vorname, String nachname, int alter, int koerpergroesseInCm, double gewichtInKg, String[] symptome) {
+    public Laborpatient(String vorname, String nachname, int alter, int koerpergroesseInCm, double gewichtInKg, ArrayList<String> symptome) {
         super(vorname, nachname, alter, koerpergroesseInCm, gewichtInKg, symptome);
     }
 

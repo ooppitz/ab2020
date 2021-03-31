@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"de.die_gfi.philipp.oop","l":"Patient"}];updateSearchResults();
