@@ -1,5 +1,8 @@
 package de.die_gfi.philipp.enumexercise;
 
+/**
+ * Ein Enum f&uuml;r Wochentage
+ */
 public enum Wochentag {
     MONTAG,
     DIENSTAG,

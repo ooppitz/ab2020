@@ -1,5 +1,11 @@
 package de.die_gfi.philipp.oop;
 
+/**
+ * Eine Darstellung eines möglichen Labors
+ *
+ * @author Philipp Kumitz
+ * @version 0.1
+ */
 public class Labor {
 
     /**

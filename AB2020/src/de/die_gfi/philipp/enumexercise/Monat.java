@@ -1,5 +1,8 @@
 package de.die_gfi.philipp.enumexercise;
 
+/**
+ * Ein Enumerator f&uuml;r Monate
+ */
 public enum Monat {
     JANUAR,
     FEBRUAR,
@@ -14,11 +17,20 @@ public enum Monat {
     NOVEMBER,
     DEZEMBER;
 
+    /**
+     *
+     * @return Ein String mit dem ersten Buchstaben groß, alle anderen Kleinbuchstaben
+     */
     @Override
     public String toString() {
         return super.toString().substring(0, 1).toUpperCase() + super.toString().substring(1).toLowerCase();
     }
 
+    /**
+     *
+     * @param a Monat als Integer von 1 bis 12, wobei 1 Januar ist und 12 Dezember ist
+     * @return Eine Konstante von {@link Monat}
+     */
     public static Monat valueOf(int a) {
         Monat m;
         switch (a) {
@@ -35,6 +47,25 @@ public enum Monat {
             case 11 -> m = NOVEMBER;
             case 12 -> m = DEZEMBER;
             default -> throw new IllegalArgumentException("No month with the given numeric value " + a);
+        }
+        return m;
+    }
+
+    public int getNumericValue() {
+        int m = -1;
+        switch (this) {
+            case JANUAR -> m = 1;
+            case FEBRUAR -> m = 2;
+            case MAERZ -> m = 3;
+            case APRIL -> m = 4;
+            case MAI -> m = 5;
+            case JUNI -> m = 6;
+            case JULI -> m = 7;
+            case AUGUST -> m = 8;
+            case SEPTEMBER -> m = 9;
+            case OKTOBER -> m = 10;
+            case NOVEMBER -> m = 11;
+            case DEZEMBER -> m = 12;
         }
         return m;
     }

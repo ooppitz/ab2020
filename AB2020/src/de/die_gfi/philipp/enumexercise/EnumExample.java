@@ -1,5 +1,8 @@
 package de.die_gfi.philipp.enumexercise;
 
+/**
+ * Ein Beispiel wie Enums eingesetzt werden k&ouml;nnen.
+ */
 public class EnumExample {
     public static void main(String[] args) {
         druckeWochentag(Wochentag.MONTAG);
@@ -21,6 +24,12 @@ public class EnumExample {
 
     }
 
+    /**
+     * Druckt den gegebenen Wochentag auf der Konsole aus, und gibt diesen auch zur&uuml;ck
+     *
+     * @param tag Ein Wochentag
+     * @return Einen String welcher das Wort vom Wochentag beinhaltet
+     */
     public static String druckeWochentag(Wochentag tag) {
         String tagString;
         switch (tag) {
@@ -37,6 +46,13 @@ public class EnumExample {
         return tagString;
     }
 
+    /**
+     * Druckt den gegebenen Wochentag auf der Konsole aus, und gibt diesen auch zur&uuml;ck, aber auf Englisch
+     *
+     * @param tag Ein Wochentag
+     * @return Einen String welcher das Wort vom Wochentag beinhaltet, aber auf Englisch
+     * @see EnumExample#druckeWochentag(Wochentag)
+     */
     public static String druckeWochentagEnglish(Wochentag tag) {
         String tagString;
         switch (tag) {
@@ -53,6 +69,12 @@ public class EnumExample {
         return tagString;
     }
 
+    /**
+     * Cheat Form mit der {@link Wochentag#toString()} Methode um den String, der zurückgegeben wird zu kriegen.
+     *
+     * @param tag Ein Wochentag
+     * @return Einen String welcher das Wort vom Wochentag beinhaltet
+     */
     public static String druckeWochentagCheat(Wochentag tag) {
         System.out.println(tag.toString());
         return tag.toString();

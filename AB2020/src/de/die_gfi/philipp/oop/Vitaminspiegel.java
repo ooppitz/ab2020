@@ -1,5 +1,8 @@
 package de.die_gfi.philipp.oop;
 
+/**
+ * Ein Interface f&uuml;r Vitaminspiegel
+ */
 public interface Vitaminspiegel {
 
     public void setLaborwertVitA(double laborwertVitA);

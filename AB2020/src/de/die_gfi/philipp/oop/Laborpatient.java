@@ -2,6 +2,13 @@ package de.die_gfi.philipp.oop;
 
 import java.util.ArrayList;
 
+/**
+ * Ein Darstellung von einem {@link Patient}, dessen Laborwerte gepr&uuml;ft werden
+ *
+ * @author Philipp Kumitz
+ * @see de.die_gfi.philipp.oop.Patient
+ * @version 0.1
+ */
 public class Laborpatient extends Patient implements Vitaminspiegel{
     double laborwertVitA;
     double laborwertVitC;
