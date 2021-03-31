@@ -2,13 +2,13 @@ package de.die_gfi.oppitz.shop;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+	
 public class App {
 
 	public static void main(String[] args) {
 
 		
-			
+	
 		listAvailableProducts();
 		
 		ArrayList<Product> catalog = Shop.getProducts();
