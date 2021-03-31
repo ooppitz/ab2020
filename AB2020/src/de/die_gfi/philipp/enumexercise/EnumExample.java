@@ -18,6 +18,7 @@ public class EnumExample {
         druckeWochentagCheat(Wochentag.SONNTAG);
         druckeWochentagEnglish(Wochentag.SONNTAG);
         System.out.println(Wochentag.SONNTAG);
+
     }
 
     public static String druckeWochentag(Wochentag tag) {
