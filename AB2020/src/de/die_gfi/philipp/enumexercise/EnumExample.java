@@ -2,35 +2,39 @@ package de.die_gfi.philipp.enumexercise;
 
 public class EnumExample {
     public static void main(String[] args) {
-        System.out.println(druckeWochentag(Wochentag.MONTAG));
-        System.out.println(druckeWochentagCheat(Wochentag.MONTAG));
+        druckeWochentag(Wochentag.MONTAG);
+        druckeWochentagCheat(Wochentag.MONTAG);
         System.out.println(Wochentag.MONTAG);
 
-        System.out.println(druckeWochentag(Wochentag.DIENSTAG));
-        System.out.println(druckeWochentagCheat(Wochentag.DIENSTAG));
+        druckeWochentag(Wochentag.DIENSTAG);
+        druckeWochentagCheat(Wochentag.DIENSTAG);
         System.out.println(Wochentag.DIENSTAG);
 
         System.out.println("etc. etc. etc.");
 
-        System.out.println(druckeWochentag(Wochentag.SONNTAG));
-        System.out.println(druckeWochentagCheat(Wochentag.SONNTAG));
+        druckeWochentag(Wochentag.SONNTAG);
+        druckeWochentagCheat(Wochentag.SONNTAG);
         System.out.println(Wochentag.SONNTAG);
     }
 
     public static String druckeWochentag(Wochentag tag) {
+        String tagString;
         switch (tag) {
-            case MONTAG -> {return "Montag";}
-            case DIENSTAG -> {return "Dienstag";}
-            case MITTWOCH -> {return "Mittwoch";}
-            case DONNERSTAG -> {return "Donnerstag";}
-            case FREITAG -> {return "Freitag";}
-            case SAMSTAG -> {return "Samstag";}
-            case SONNTAG -> {return "Sonntag";}
-            default -> {return null;}
+            case MONTAG -> tagString = "Montag";
+            case DIENSTAG -> tagString = "Dienstag";
+            case MITTWOCH -> tagString = "Mittwoch";
+            case DONNERSTAG -> tagString = "Donnerstag";
+            case FREITAG -> tagString = "Freitag";
+            case SAMSTAG -> tagString = "Samstag";
+            case SONNTAG -> tagString = "Sonntag";
+            default -> tagString = null;
         }
+        System.out.println(tagString);
+        return tagString;
     }
 
     public static String druckeWochentagCheat(Wochentag tag) {
+        System.out.println(tag.toString());
         return tag.toString();
     }
 }
