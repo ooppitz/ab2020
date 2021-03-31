@@ -22,6 +22,13 @@ public class Playground
       
       int tage = Kalender.berechneTageProMonat( 1900, 12 );
       System.out.println( "tage = " + tage );
+      
+/*      
+      for( int i = 1; i <= 12; i++ )
+      {
+         System.out.printf( "%d\n", Kalender.berechneTageProMonat(1900, i) );
+      }
+*/
    }
 
 }

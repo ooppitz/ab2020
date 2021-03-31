@@ -87,14 +87,14 @@ public class EnumExample
       String rueckgabe;
       switch(tag)
       {
-         case MONTAG -> rueckgabe = "Montag";
-         case DIENSTAG -> rueckgabe = "Dienstag";
-         case MITTWOCH -> rueckgabe = "Mittwoch";
+         case MONTAG ->     rueckgabe = "Montag";
+         case DIENSTAG ->   rueckgabe = "Dienstag";
+         case MITTWOCH ->   rueckgabe = "Mittwoch";
          case DONNERSTAG -> rueckgabe = "Donnerstag";
-         case FREITAG -> rueckgabe = "Freitag";
-         case SAMSTAG -> rueckgabe = "Samstag";
-         case SONNTAG -> rueckgabe = "Sonntag";
-         default -> rueckgabe = null;
+         case FREITAG ->    rueckgabe = "Freitag";
+         case SAMSTAG ->    rueckgabe = "Samstag";
+         case SONNTAG ->    rueckgabe = "Sonntag";
+         default ->         rueckgabe = null;
       }
       
       return rueckgabe;

@@ -40,9 +40,23 @@ Erweitern Sie das Programm Kalender. Führen Sie eine Methode berechneTageProMon
 
 package de.die_gfi.daniel.enumexercise;
 
-
+/**
+ * 
+ * 
+ * @author Daniel
+ *
+ */
 public class Kalender
 {
+   
+   /**
+    * Berechnet wie viele Tage ein angegebener Monat in einem bestimmten Jahr hat.
+    * Nimmt Ruecksicht auf Schaltjahre.
+    * 
+    * @param jahr Das angegebene Jahr
+    * @param m Der angegebene Monat
+    * @return Gibt die Anzahl der Tage des Ausgewaehlten Monats zurueck
+    */
    public static int berechneTageProMonat( int jahr, Monat m )
    {
       int anzahlTage = 0;
@@ -70,6 +84,14 @@ public class Kalender
    }
    
    
+   /**
+    * Hat die Selbe Funktion wie "berechneTageProMonat( int jahr, Monat m )". Der Monat wird als Zahl angegeben.
+    * Ruft "berechneTageProMonat( int jahr, Monat m )" auf.
+    * 
+    * @param jahr Das angegebene Jahr
+    * @param monat Der angegebene Monat
+    * @return Gibt die Anzahl der Tage des Ausgewaehlten Monats zurueck
+    */
    public static int berechneTageProMonat(int jahr, int monat )
    {
       Monat kalenderMonat = Monat.JANUAR;
