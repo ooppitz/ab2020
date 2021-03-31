@@ -1,12 +1,20 @@
 package de.die_gfi.jonathan.enumexercise;
 
 
-
+/**
+ * Das Programm berechnet die tage pro monat unter berücksichtigung von schaltjahren
+ * @author Jonathan Göth
+ *
+ */
 public class Kalender {
+	/**
+	 * 
+	 */
 	public static final int FEHLER=-1;
 	
 	public static void main(String[] args) {
-		System.out.println(berechneTageProMonat(900, Monat.DEZEMBER));
+		//System.out.println(berechneTageProMonat(900, Monat.DEZEMBER));
+		System.out.println(berechneTagesNummer(900, 12, 24));
 	}
 	
 	public static int berchneFeb(int jahr) {
@@ -34,9 +42,17 @@ public class Kalender {
 		case 12 ->x=31;
 		default ->x=FEHLER;
 		}
-		System.out.println("programm 2");
+		//System.out.println("programm 2");
 		 return x;
 		 
+	 }
+	
+	 static int berechneTagesNummer(int jahr, int m, int tag) {
+		 int x=tag;
+		 for (int i = 1; i < m; i++) {
+			x=x+berechneTageProMonat(jahr, i);
+		}
+		 return x;
 	 }
 	
 	
@@ -57,7 +73,7 @@ public class Kalender {
 		case DEZEMBER ->x=31;
 		default ->x=FEHLER;
 		}
-		System.out.println("programm 1");
+		//System.out.println("programm 1");
 		 return x;
 		 
 	 }
