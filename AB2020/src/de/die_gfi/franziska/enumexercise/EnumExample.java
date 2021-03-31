@@ -6,47 +6,30 @@ public class EnumExample {
 
 		Wochentag gesuchterTag = Wochentag.MITTWOCH;
 
-		System.out.println(druckeWochentag(gesuchterTag));
-		System.out.println(druckeWochentagEnglisch(gesuchterTag));
+		System.out.println(druckeWochentagVariante(gesuchterTag));
 
 	}
 
-	public static String druckeWochentag(Wochentag tag) {
+	public static String druckeWochentagVariante(Wochentag tag) {
 
 		String s = "";
 
 		switch (tag) {
-		case MONTAG:
-			s = "Montag";
-			break;
+		case MONTAG -> s = "Montag";
 
-		case DIENSTAG:
-			s = "Dienstag";
-			break;
+		case DIENSTAG -> s = "Dienstag";
 
-		case MITTWOCH:
-			s = "Mittwoch";
-			break;
+		case MITTWOCH -> s = "Mittwoch";
 
-		case DONNERSTAG:
-			s = "Donnerstag";
-			break;
+		case DONNERSTAG -> s = "Donnerstag";
 
-		case FREITAG:
-			s = "Freitag";
-			break;
+		case FREITAG -> s = "Freitag";
 
-		case SAMSTAG:
-			s = "Samstag";
-			break;
+		case SAMSTAG -> s = "Samstag";
 
-		case SONNTAG:
-			s = "Sonntag";
-			break;
+		case SONNTAG -> s = "Sonntag";
 
-		default:
-			s = "ungültiger Wochentag";
-			break;
+		default -> s = "ungültiger Wochentag";
 		}
 
 		return s;
