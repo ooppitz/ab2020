@@ -11,7 +11,7 @@ public class Kalender {
         zaehler = berechneTageproMonat(2000, Monat.FEBRUAR);
         System.out.println(zaehler);
 
-        zaehler = berechneTageproMonat(2004, Monat.AUGUST);
+        zaehler = berechneTageproMonat(2004, 8);
         System.out.println(Monat.AUGUST + " " + zaehler);
 
         zaehler = berechneTageproMonat(1948, Monat.OKTOBER);
@@ -38,21 +38,6 @@ public class Kalender {
     }
 
     public static int berechneTageproMonat(int jahr, int m) {
-        switch (m) {
-            case 1, 3, 5, 7, 8, 10, 12 -> {
-                return 31;
-            }
-            case 2 -> {
-                if (jahr % 100 != 0 && jahr % 4 == 0 || jahr % 400 == 0) {
-                    return 29;
-                } else {
-                    return 28;
-                }
-            }
-            case 4, 6, 9, 11 -> {
-                return 30;
-            }
-        }
-        return -1;
+        return berechneTageproMonat(jahr, Monat.valueOf(m));
     }
 }
