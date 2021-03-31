@@ -2,23 +2,23 @@ package de.die_gfi.philipp.enumexercise;
 
 public class Kalender {
     public static void main(String[] args) {
-        int zaehler = berechneTageproMonat(1984, Monat.FEBRUAR);
+        int zaehler = berechneTageProMonat(1984, Monat.FEBRUAR);
         System.out.println(zaehler);
 
-        zaehler = berechneTageproMonat(1900, Monat.FEBRUAR);
+        zaehler = berechneTageProMonat(1900, Monat.FEBRUAR);
         System.out.println(zaehler);
 
-        zaehler = berechneTageproMonat(2000, Monat.FEBRUAR);
+        zaehler = berechneTageProMonat(2000, Monat.FEBRUAR);
         System.out.println(zaehler);
 
-        zaehler = berechneTageproMonat(2004, 8);
+        zaehler = berechneTageProMonat(2004, 8);
         System.out.println(Monat.AUGUST + " " + zaehler);
 
-        zaehler = berechneTageproMonat(1948, Monat.OKTOBER);
+        zaehler = berechneTageProMonat(1948, Monat.OKTOBER);
         System.out.println(Monat.OKTOBER + " " + zaehler);
     }
 
-    public static int berechneTageproMonat(int jahr, Monat m) {
+    public static int berechneTageProMonat(int jahr, Monat m) {
         switch (m) {
             case JANUAR, MAERZ, MAI, JULI, AUGUST, OKTOBER, DEZEMBER -> {
                 return 31;
@@ -37,7 +37,7 @@ public class Kalender {
         return -1;
     }
 
-    public static int berechneTageproMonat(int jahr, int m) {
-        return berechneTageproMonat(jahr, Monat.valueOf(m));
+    public static int berechneTageProMonat(int jahr, int m) {
+        return berechneTageProMonat(jahr, Monat.valueOf(m));
     }
 }
