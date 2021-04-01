@@ -9,6 +9,7 @@ package de.die_gfi.philipp.enumexercise;
  */
 public class Kalender {
     public static void main(String[] args) {
+        /*
         int zaehler = berechneTageProMonat(1900, Monat.FEBRUAR);
         System.out.println(zaehler);
 
@@ -39,6 +40,11 @@ public class Kalender {
         System.out.println("25.01.2012 ist ein Mittwoch, Algorithmus sagt: " + berechneWochentag(2012, 1, 25));
         System.out.println("25.01.2020 ist ein Montag, Algorithmus sagt: " + berechneWochentag(2020, 1, 25));
         System.out.println("Anderer Algorithmus sagt: " + berechneWochentag(1, 25));
+        */
+
+        for (int i = 1970; i < 2025; i++) {
+            System.out.println(berechneWochentag(i, 1, 1));
+        }
     }
 
     /**
@@ -164,25 +170,27 @@ public class Kalender {
      * @return Den Wochentag vom gegebenen Datum
      */
     static Wochentag berechneWochentag(int jahr, int m, int tag) {
-        int epochYear = 1921;
-        int epochDay = Wochentag.SAMSTAG.getNumericValue();
+        int epochYear = 1970;
+        int epochDay = Wochentag.DONNERSTAG.getNumericValue();
         int eineMagischeZahl = 1;
-        if (jahr >= 1970) {
-            int nummerVomGesuchtenTag = berechneTagesNummer(jahr, m, tag) + 1;
+        if (jahr >= epochYear) {
+            int nummerVomGesuchtenTag = berechneTagesNummer(jahr, m, tag);
             int tageSeitEpoch = 0;
             for (int j = epochYear; j < jahr; j++) {
                 tageSeitEpoch += berechneTageProJahr(jahr);
             }
             tageSeitEpoch += nummerVomGesuchtenTag;
-            int zahlVomWochentag = tageSeitEpoch - (tageSeitEpoch / 7) * 7 + epochDay;
+            int zahlVomWochentag = tageSeitEpoch - ((tageSeitEpoch / 7)) * 7 + epochDay - eineMagischeZahl;
             if (zahlVomWochentag > 7) {
                 zahlVomWochentag -= 7;
             }
             return Wochentag.valueOf(zahlVomWochentag);
 
         } else {
-            throw new IllegalArgumentException("Year " + jahr + "smaller than 1970, only years later thatn or equal " +
-                    "to 1970 are allowed.");
+            throw new IllegalArgumentException("Year " + jahr + "smaller than + " +
+                    epochYear +
+                    "2, only years later than or equal " +
+                    "to " + epochYear + " are allowed.");
         }
     }
 
