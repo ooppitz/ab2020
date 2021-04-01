@@ -239,22 +239,23 @@ public class Kalender
       w = (d + (int)(2.6*m-0.2) + y + (int)(y/4) + (int)(c/4) - 2*c) % 7;
 
       
-      
+/*      
       System.out.printf( "d = %d\n", d );
       System.out.printf( "m = %d\n", m );
       System.out.printf( "y = %d\n", y );
       System.out.printf( "c = %d\n", c );
       System.out.printf( "w = %d\n", w );
-      
+*/      
       
       /* Wenn w negativ ist, solange 7 addieren bis w >= 0 ist */
       while( w < 0 )
       {
          w = w + 7;
       }
-      
+
+/*
       System.out.printf( "w = %d\n", w );
-      
+*/      
 
 
       
@@ -351,15 +352,21 @@ public class Kalender
    
    public static void druckeMonat(int jahr, int monat)
    {
-/*      
-           April 2020
-      So Mo Di Mi Do Fr Sa
-                1  2  3  4
-       5  6  7  8  9 10 11
-      12 13 14 15 16 17 18
-      19 20 21 22 23 24 25
-      26 27 28 29 30
-*/
+      /*
+       * daniel@PC04:~$ echo $SHELL
+       * /bin/bash
+       * daniel@PC04:~$ cal 4 2020
+       *      April 2020
+       * Su Mo Tu We Th Fr Sa
+       *           1  2  3  4
+       *  5  6  7  8  9 10 11
+       * 12 13 14 15 16 17 18
+       * 19 20 21 22 23 24 25
+       * 26 27 28 29 30
+       * 
+       * daniel@PC04:~$
+       *
+       */
       
       String ueberschrift = "So Mo Di Mi Do Fr Sa";
       int tage[][] = new int[5][7];
@@ -396,10 +403,10 @@ public class Kalender
       }
       
       
-      
       /* Kalender ausgeben */
       
-      System.out.println( ueberschrift );
+      System.out.printf( "%d. Monat, Jahr %d\n", monat, jahr );
+      System.out.printf( "%s\n", ueberschrift );
       for( i = 0; i < 5; i++ )
       {
          for( j = 0; j < 7; j++ ) 
@@ -415,6 +422,86 @@ public class Kalender
          }
          System.out.println();
       }
+   }
+   
+   
+   
+   public static void druckeJahr(int jahr) 
+   {
+      /*
+       * daniel@PC04:~$ echo $SHELL
+       * /bin/bash
+       * daniel@PC04:~$ cal 2020
+       *                             2020
+       *       January               February               March
+       * Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
+       *           1  2  3  4                     1   1  2  3  4  5  6  7
+       *  5  6  7  8  9 10 11   2  3  4  5  6  7  8   8  9 10 11 12 13 14
+       * 12 13 14 15 16 17 18   9 10 11 12 13 14 15  15 16 17 18 19 20 21
+       * 19 20 21 22 23 24 25  16 17 18 19 20 21 22  22 23 24 25 26 27 28
+       * 26 27 28 29 30 31     23 24 25 26 27 28 29  29 30 31
+       * 
+       * 
+       *        April                  May                   June
+       * Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
+       *           1  2  3  4                  1  2      1  2  3  4  5  6
+       *  5  6  7  8  9 10 11   3  4  5  6  7  8  9   7  8  9 10 11 12 13
+       * 12 13 14 15 16 17 18  10 11 12 13 14 15 16  14 15 16 17 18 19 20
+       * 19 20 21 22 23 24 25  17 18 19 20 21 22 23  21 22 23 24 25 26 27
+       * 26 27 28 29 30        24 25 26 27 28 29 30  28 29 30
+       *                       31
+       * 
+       *         July                 August              September
+       * Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
+       *           1  2  3  4                     1         1  2  3  4  5
+       *  5  6  7  8  9 10 11   2  3  4  5  6  7  8   6  7  8  9 10 11 12
+       * 12 13 14 15 16 17 18   9 10 11 12 13 14 15  13 14 15 16 17 18 19
+       * 19 20 21 22 23 24 25  16 17 18 19 20 21 22  20 21 22 23 24 25 26
+       * 26 27 28 29 30 31     23 24 25 26 27 28 29  27 28 29 30
+       *                       30 31
+       * 
+       *       October               November              December
+       * Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
+       *              1  2  3   1  2  3  4  5  6  7         1  2  3  4  5
+       *  4  5  6  7  8  9 10   8  9 10 11 12 13 14   6  7  8  9 10 11 12
+       * 11 12 13 14 15 16 17  15 16 17 18 19 20 21  13 14 15 16 17 18 19
+       * 18 19 20 21 22 23 24  22 23 24 25 26 27 28  20 21 22 23 24 25 26
+       * 25 26 27 28 29 30 31  29 30                 27 28 29 30 31
+       * 
+       * daniel@PC04:~$
+       *
+       */
+      
+      
+      String ueberschrift = "So Mo Di Mi Do Fr Sa";
+      int tage[][][] = new int[3][5][7];    /* 3 Monate nebeneinander */
+//                             ^  ^  ^      /* 5 Zeilen fuer die Tage */
+//                             |  |  |      /* 7 Spalten fuer die Tage */
+      int                      k, i, j;     /* laufvariablen */
+                                            /* k: variable fuer die Monate in eime Quatal */
+                                            /* i: Zeilen eines Monats */
+      
+      
+      Wochentag ersterTag[] = new Wochentag[3];
+      int monat = 1;
+      
+      for( int quatal = 1; quatal <= 4; quatal++, monat += 3 )
+      {
+         int anzahlTage[] = new int[3];
+         anzahlTage[monat] = berechneTageProMonat( jahr, monat );
+         anzahlTage[monat+1] = berechneTageProMonat( jahr, monat+1 );
+         anzahlTage[monat+2] = berechneTageProMonat( jahr, monat+2 );
+         
+         
+         
+         
+         
+         
+         
+         
+         
+      }
+      
    }
 }
 
