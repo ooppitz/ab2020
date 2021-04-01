@@ -22,7 +22,7 @@ public enum Wochentag {
      * @param a Numerischer Wert von einem Wochentag, wobei 1 Montag ist und 7 Sonntag
      * @return Wochentag für den gegebenen numerischen Wert
      */
-    public Wochentag valueOf(int a) {
+    public static Wochentag valueOf(int a) {
         Wochentag tag;
         switch (a) {
             case 1 -> tag = MONTAG;

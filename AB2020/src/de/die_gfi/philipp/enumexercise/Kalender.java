@@ -108,7 +108,18 @@ public class Kalender {
      */
     static Wochentag berechneWochentag(int m, int tag) {
         int ersterTag = Wochentag.FREITAG.getNumericValue();
+        int magischeZahlFuerDenErstenTag = 1;
         int nummerVomGesuchtenTag = berechneTagesNummer(2021, m, tag);
+
+        int verliebeneTage = nummerVomGesuchtenTag % 7;
+        verliebeneTage -= magischeZahlFuerDenErstenTag;
+
+        int neuerWochentag = ersterTag + verliebeneTage;
+        if (neuerWochentag > 7) {
+            neuerWochentag -= 7;
+        }
+
+        return Wochentag.valueOf(neuerWochentag);
     }
 
     /**
