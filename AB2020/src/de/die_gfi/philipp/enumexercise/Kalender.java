@@ -31,6 +31,7 @@ public class Kalender {
         System.out.println(berechneWochentag(1, 1));
         System.out.println(berechneWochentag(1,2));
         System.out.println(berechneWochentag(8, 14));
+        System.out.println(berechneWochentag(2, 29));
     }
 
     /**
@@ -107,12 +108,15 @@ public class Kalender {
      *
      * @param m ein Monat
      * @param tag ein Tag
-     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat
+     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat, null wenn der Tag ung&uuml;ltig ist
      */
     static Wochentag berechneWochentag(int m, int tag) {
         int ersterTag = Wochentag.FREITAG.getNumericValue();
         int magischeZahlFuerDenErstenTag = 1;
         int nummerVomGesuchtenTag = berechneTagesNummer(2021, m, tag);
+        if (nummerVomGesuchtenTag == -1) {
+            return null;
+        }
 
         int verliebeneTage = nummerVomGesuchtenTag % 7;
         verliebeneTage -= magischeZahlFuerDenErstenTag;
@@ -130,7 +134,7 @@ public class Kalender {
      *
      * @param m ein Monat
      * @param tag ein Tag
-     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat
+     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat, null wenn der Tag ung&uuml;ltig ist
      */
     static Wochentag berechneWochentag(Monat m, int tag) {
         return berechneWochentag(m.getNumericValue(), tag);
