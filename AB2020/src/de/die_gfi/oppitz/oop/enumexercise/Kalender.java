@@ -4,14 +4,63 @@ public class Kalender {
 
 	public static void main(String[] args) {
 
-		int zaehler = berechneTageProMonat(1985, Monat.FEBRUAR);
-		System.out.println(zaehler);
+		testeBerechneTagesNummer();
 
+		
+	}
+
+	private static void testeBerechneTagesNummer() {
+		// 18.1.1990
+		int count = berechneTagesNummer(1990, 1, 18);
+
+		if (count == 18) {
+			System.out.println("OK");
+		} else {
+			System.out.println("Fehler! Erwartet: 18, tatsächlich " + count);
+		}
+
+		// 18.6.2021 = 31 + 28 +31 + 30 + 31 + 18
+		int count2 = berechneTagesNummer(2021, 6, 18);
+		int erwartet2 = 31 + 28 + 31 + 30 + 31 + 18;
+		if (count2 == erwartet2) {
+			System.out.println("OK");
+		} else {
+			System.out.println("Fehler! Erwartet: " + erwartet2 +", tatsächlich " + count2);
+		}
+
+		// 18.6.1990 = 31 + 28 +31 + 30 + 31 + 18
+		int count3 = berechneTagesNummer(2004, 6, 18); 
+		int erwartet3 = 31 + 29 + 31 + 30 + 31 + 18;
+		if (count3 == erwartet3) {
+			System.out.println("OK");
+		} else {
+			System.out.println("Fehler! Erwartet: " + erwartet3 + ", tatsächlich " + count3);
+		}
+	}
+
+	/**
+	 * 
+	 * @param jahr
+	 * @param monat der Montag, gezählt von 1 ... 12 (Januar - Dezember)
+	 * @param tag
+	 * @return
+	 */
+	static int berechneTagesNummer(int jahr, int monat, int tag) {
+
+		int tagesNummer = 0;
+		
+		for (int i = 1; i < monat; i++) {
+			tagesNummer = tagesNummer + berechneTageProMonat(jahr, i);
+		}
+
+		tagesNummer = tagesNummer + tag;
+
+		return tagesNummer;
 	}
 
 	public static int berechneTageProMonat(int jahr, int m) {
-		
-		Monat monat;
+
+		Monat monat = Monat.JANUAR;
 
 		switch (m) {
 		case 1 -> monat = Monat.JANUAR;
@@ -27,7 +76,7 @@ public class Kalender {
 		case 11 -> monat = Monat.NOVEMBER;
 		case 12 -> monat = Monat.DEZEMBER;
 		}
-		
+
 		return berechneTageProMonat(jahr, monat);
 
 	}
