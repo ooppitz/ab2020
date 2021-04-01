@@ -3,7 +3,7 @@ package de.die_gfi.felix.enumexercise;
 public class Kalender {
 
 	public static void main(String[] args) {
-		jahresausgabe(2000);
+		jahresausgabe(1600);
 		System.out.println(wochentagBerechnen(2021,1,1));
 		System.out.println(wochentagBerechnen(2021,2,1));
 		System.out.println(wochentagBerechnen(2021,3,1));
@@ -142,7 +142,7 @@ public class Kalender {
 			throw exc;
 		}
 		for(int i = 1; i < monat; i++) {
-			anzahlTage = anzahlTage + berechneTageProMonat(jahr, monat);
+			anzahlTage = anzahlTage + berechneTageProMonat(jahr, i);
 		}
 		anzahlTage = anzahlTage + tag;
 		return anzahlTage;
