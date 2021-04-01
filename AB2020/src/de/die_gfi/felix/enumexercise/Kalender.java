@@ -3,16 +3,33 @@ package de.die_gfi.felix.enumexercise;
 public class Kalender {
 
 	public static void main(String[] args) {
-
-		System.out.println(wochentagBerechnen(2000, 4, 1));
-		monatsausgabe(2000, 4);
-
+		jahresausgabe(2000);
+		System.out.println(wochentagBerechnen(2021,1,1));
+		System.out.println(wochentagBerechnen(2021,2,1));
+		System.out.println(wochentagBerechnen(2021,3,1));
+		System.out.println(wochentagBerechnen(2021,4,1));
+		System.out.println(wochentagBerechnen(2021,5,1));
+		System.out.println(wochentagBerechnen(2021,6,1));
+		
 	}
 
+	public static void jahresausgabe(int jahr) {
+		for(int i = 1; i <= 12; i++) {
+			monatsausgabe(jahr, i);
+			System.out.println("\n");
+		}
+	}
 	public static void monatsausgabe(int jahr, int monat) {
 		Wochentag wt = wochentagBerechnen(jahr, monat, 1);
 		int zeilenZaehler = 1;
-		String monatAusgabe = new String("");
+		String monatAusgabe = new String(String.format("%20s", Monat.monatAusMonatNummer(monat) + "\n"));
+		monatAusgabe += String.format("%5s", "MO");
+		monatAusgabe += String.format("%5s", "DI");
+		monatAusgabe += String.format("%5s", "MI");
+		monatAusgabe += String.format("%5s", "DO");
+		monatAusgabe += String.format("%5s", "FR");
+		monatAusgabe += String.format("%5s", "SA");
+		monatAusgabe += String.format("%5s", "SO\n");
 		switch(wt) {
 		case MONTAG: 
 			break;
@@ -59,24 +76,23 @@ public class Kalender {
 	public static Wochentag wochentagBerechnen(int jahr, int monat, int tag) {
 		int anzahlTage = 0;
 		if (jahr >= 1600) {
-			for (int i = 1600; i < jahr; i++) {
-				if (jahrIstSchaltjahr(i)) {
+			for (int iJahr = 1600; iJahr < jahr; iJahr++) {
+				if (jahrIstSchaltjahr(iJahr) == true) {
 					anzahlTage += 366;
 				} else {
 					anzahlTage += 365;
 				}
 			}
 			anzahlTage += berechneAnzahlTage(jahr, monat, tag);
-			anzahlTage--;
 			int gesuchterTag = anzahlTage % 7;
 			switch (gesuchterTag) {
-			case 0: return Wochentag.SAMSTAG;
-			case 1: return Wochentag.HEILIGERSONNTAG;
-			case 2: return Wochentag.MONTAG;
-			case 3: return Wochentag.DIENSTAG;
-			case 4: return Wochentag.MITTWOCH;
-			case 5: return Wochentag.DONNERSTAG;
-			case 6: return Wochentag.FREITAG;
+			case 0: return Wochentag.FREITAG;
+			case 1: return Wochentag.SAMSTAG;
+			case 2: return Wochentag.HEILIGERSONNTAG;
+			case 3: return Wochentag.MONTAG;
+			case 4: return Wochentag.DIENSTAG;
+			case 5: return Wochentag.MITTWOCH;
+			case 6: return Wochentag.DONNERSTAG;
 			default: return Wochentag.ERROR;
 			}
 		} else {
