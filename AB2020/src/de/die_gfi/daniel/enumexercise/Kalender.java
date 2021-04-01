@@ -206,7 +206,7 @@ public class Kalender
             Wochentag.SAMSTAG,
       };
 
-      
+      ueberpruefeDatum(jahr, monat, tag);
 
       d = tag;
       m = monat_tabelle[monat-1];
@@ -292,12 +292,17 @@ public class Kalender
    }
    
    
-   
+   // TODO: dokumentieren mit JavaDoc dieser Methode
+   // TODO: Die Fehlermeldung sollte konkreter ausgeben, was das Problem darstellt
+   //       1) Welches Datum ist fehlerhaft (jahr, monat, tag)??
+   //       2) So gut wie möglich, was der Fehler ist
    public static void ueberpruefeDatum( int jahr, int monat, int tag )
    {
       if( tag > berechneTageProMonat(jahr, monat) || tag < 0 )
       {
-         /* code */
+    	  String fehlermeldung = "Das übergebene Datum ist fehlerhaft";
+    	  IllegalArgumentException e = new IllegalArgumentException(fehlermeldung);
+    	  throw e;
       }
    }
 }
