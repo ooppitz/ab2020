@@ -64,6 +64,17 @@ Aufgabe 9:
 
 Erweitern Sie das Programm, sodass es ungültige Tage erkennt und eine Exception wirft. Überlegen Sie , an welchen Stellen ein ungültiges Datum überprüft werden muss. Schreiben Sie eine Methode, welche die Überprüfung vornimmt.
 
+
+
+Aufgabe 10:
+
+Implementieren Sie eine Methode, die für einen Monat alle Tage im Format eines Kalenders auf der Konsole ausgibt.
+
+  void druckeMonat(int jahr, int monat)
+  
+Die Methode soll für beliebige Monate funktionieren.
+Testen Sie die Methode für verschiedene Monate und Jahre.
+
 */
 
 package de.die_gfi.daniel.enumexercise;
@@ -331,6 +342,68 @@ public class Kalender
       if( jahr < 0 )
       {
          
+      }
+   }
+   
+   
+   
+   void druckeMonat(int jahr, int monat)
+   {
+/*      
+           April 2020
+      So Mo Di Mi Do Fr Sa
+                1  2  3  4
+       5  6  7  8  9 10 11
+      12 13 14 15 16 17 18
+      19 20 21 22 23 24 25
+      26 27 28 29 30
+*/
+      
+      String ueberschrift = "So Mo Di Mi Do Fr Sa";
+      int tage[][] = new int[5][7];
+      int anzahlTage = berechneTageProMonat( jahr, monat );
+      int tageZaehler = 1;
+      int i = 0,
+          j = 0;
+      
+      Wochentag ersterTag = berechneWochentag( jahr, monat, 1 );
+      
+      switch( ersterTag )
+      {
+         case MONTAG:       j = 0;  break;
+         case DIENSTAG:     j = 1;  break;
+         case MITTWOCH:     j = 2;  break;
+         case DONNERSTAG:   j = 3;  break;
+         case FREITAG:      j = 4;  break;
+         case SAMSTAG:      j = 5;  break;
+         case SONNTAG:      j = 6;  break;
+      }
+      
+      
+      while( tageZaehler <= anzahlTage )
+      {
+         tage[i][j] = tageZaehler;
+         j++;
+         tageZaehler++;
+         
+         if( j > 6 ) 
+         {
+            i++;
+            j = 0;
+         }
+      }
+      
+      
+      
+      /* Kalender ausgeben */
+      
+      System.out.println( ueberschrift );
+      for( i = 0; i < 5; i++ )
+      {
+         for( j = 0; j < 7; j++ ) 
+         {
+            
+         }
       }
    }
 }

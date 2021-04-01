@@ -76,10 +76,23 @@ Beispiele für den Output:
   int c = berechneTagNummer(2000, 12, 31); // Ergebnis = 366
   
   
+  
 Aufgabe 8:
 Berechnen Sie für ein Datum, welchen Wochentag dieses hat.
 Ziel: Ausgabe des Wochentags für ein Datum.
 
 
+
 Aufgabe 9:
 Erweitern Sie das Programm, sodass es ungültige Tage erkennt und eine Exception wirft. Überlegen Sie , an welchen Stellen ein ungültiges Datum überprüft werden muss. Schreiben Sie eine Methode, welche die Überprüfung vornimmt.
+
+
+
+Aufgabe 10:
+
+Implementieren Sie eine Methode, die für einen Monat alle Tage im Format eines Kalenders auf der Konsole ausgibt.
+
+  void druckeMonat(int jahr, int monat)
+  
+Die Methode soll für beliebige Monate funktionieren.
+Testen Sie die Methode für verschiedene Monate und Jahre.
