@@ -21,6 +21,7 @@ public enum Wochentag {
      *
      * @param a Numerischer Wert von einem Wochentag, wobei 1 Montag ist und 7 Sonntag
      * @return Wochentag für den gegebenen numerischen Wert
+     * @throws IllegalArgumentException Wenn kein Wert zwischen 1 und 7 gegeben wird
      */
     public static Wochentag valueOf(int a) {
         Wochentag tag;
@@ -40,6 +41,7 @@ public enum Wochentag {
     /**
      *
      * @return Den numerischen Wert von einem Wochentag, -1 falls etwas schief gehen sollte
+     * @throws IllegalArgumentException Wenn etwas komplett schief geht
      */
     public int getNumericValue() {
         int m = -1;
@@ -51,6 +53,7 @@ public enum Wochentag {
             case FREITAG -> m = 5;
             case SAMSTAG -> m = 6;
             case SONNTAG -> m = 7;
+            default -> throw new IllegalArgumentException();
         }
         return m;
     }

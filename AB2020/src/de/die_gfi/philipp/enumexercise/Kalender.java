@@ -39,7 +39,8 @@ public class Kalender {
      *
      * @param jahr Jahresangabe zur Berechnung von Schaltjahren
      * @param m Ein Monat
-     * @return 28, 29, 30 oder 31 je nach Monat und ob es ein Schaltjahr ist, -1 wenn etwas schiefgeht
+     * @return 28, 29, 30 oder 31 je nach Monat und ob es ein Schaltjahr ist
+     * @throws IllegalArgumentException wenn was schiefgeht
      */
     public static int berechneTageProMonat(int jahr, Monat m) {
         switch (m) {
@@ -57,7 +58,7 @@ public class Kalender {
                 return 30;
             }
         }
-        return -1;
+        throw new IllegalArgumentException();
     }
 
     /**
@@ -89,11 +90,12 @@ public class Kalender {
      * @param jahr Ein Jahr
      * @param m Ein Monat als numerische Angabe (1 ist Januar, 12 ist Dezember)
      * @param tag Ein Tag
-     * @return Nummer des Tages zu dem gegebenen vollen Datum, -1 falls ein ung&uuml;ltiges Datum gegeben wurde.
+     * @return Nummer des Tages zu dem gegebenen vollen Datum
+     * @throws IllegalArgumentException Wenn ein falsches Datum &uuml;bergeben wurde
      */
     static int berechneTagesNummer(int jahr, int m, int tag) {
-        if (tag > berechneTageProMonat(jahr, m) || m > 12 || m <= 0 || tag <= 0) {
-            return -1;
+        if (!checkDate(jahr, m, tag)) {
+            throw new IllegalArgumentException("Date " + jahr + "-" + m + "-" + tag + " is invalid");
         }
         int summe = 0;
         for (int i = 1; i < m; i++) {
@@ -108,15 +110,12 @@ public class Kalender {
      *
      * @param m ein Monat
      * @param tag ein Tag
-     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat, null wenn der Tag ung&uuml;ltig ist
+     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat
      */
     static Wochentag berechneWochentag(int m, int tag) {
         int ersterTag = Wochentag.FREITAG.getNumericValue();
         int magischeZahlFuerDenErstenTag = 1;
         int nummerVomGesuchtenTag = berechneTagesNummer(2021, m, tag);
-        if (nummerVomGesuchtenTag == -1) {
-            return null;
-        }
 
         int verliebeneTage = nummerVomGesuchtenTag % 7;
         verliebeneTage -= magischeZahlFuerDenErstenTag;
@@ -134,9 +133,35 @@ public class Kalender {
      *
      * @param m ein Monat
      * @param tag ein Tag
-     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat, null wenn der Tag ung&uuml;ltig ist
+     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat
      */
     static Wochentag berechneWochentag(Monat m, int tag) {
         return berechneWochentag(m.getNumericValue(), tag);
+    }
+
+    /**
+     * Pr&uuml;ft ein gegebenes Datum auf G&uuml;ltigkeit
+     *
+     * @param jahr Ein Jahr
+     * @param monat Ein Monat
+     * @param tag Ein Tag
+     * @return true wenn das Datum g&uuml;ltig ist, false wenn es ung&uuml;ltig ist
+     */
+    static boolean checkDate(int jahr, int monat, int tag) {
+        System.out.println(berechneTageProMonat(jahr, monat));
+        return (tag >= 1 && tag <= berechneTageProMonat(jahr, monat)) && (monat >= 1 && monat <= 12);
+    }
+
+    /**
+     * Pr&uuml;ft ein gegebenes Datum auf G&uuml;ltigkeit
+     *
+     * @param jahr Ein Jahr
+     * @param monat Ein Monat
+     * @param tag Ein Tag
+     * @return true wenn das Datum g&uuml;ltig ist, false wenn es ung&uuml;ltig ist
+     */
+    static boolean checkDate(int jahr, Monat monat, int tag) {
+        return checkDate(jahr, monat.getNumericValue(), tag);
+
     }
 }

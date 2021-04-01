@@ -30,6 +30,7 @@ public enum Monat {
      *
      * @param a Monat als Integer von 1 bis 12, wobei 1 Januar ist und 12 Dezember ist
      * @return Eine Konstante von {@link Monat}
+     * @throws IllegalArgumentException Wenn ein falscher Wert übergeben wurde, z.B. 13 oder 0
      */
     public static Monat valueOf(int a) {
         Monat m;
@@ -51,8 +52,13 @@ public enum Monat {
         return m;
     }
 
+    /**
+     *
+     * @return Numerischen Wert von einem Monat, wobei 1 Januar ist und 12 Dezember ist
+     * @throws IllegalArgumentException Falls etwas schief geht (Dieser Fall sollte nie eintreten)
+     */
     public int getNumericValue() {
-        int m = -1;
+        int m;
         switch (this) {
             case JANUAR -> m = 1;
             case FEBRUAR -> m = 2;
@@ -66,6 +72,7 @@ public enum Monat {
             case OKTOBER -> m = 10;
             case NOVEMBER -> m = 11;
             case DEZEMBER -> m = 12;
+            default -> throw new IllegalArgumentException();
         }
         return m;
     }
