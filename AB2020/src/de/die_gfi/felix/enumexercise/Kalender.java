@@ -4,10 +4,58 @@ public class Kalender {
 
 	public static void main(String[] args) {
 
-		System.out.println(wochentagBerechnen(1598, 1, 1));
+		System.out.println(wochentagBerechnen(2000, 4, 1));
+		monatsausgabe(2000, 4);
 
 	}
 
+	public static void monatsausgabe(int jahr, int monat) {
+		Wochentag wt = wochentagBerechnen(jahr, monat, 1);
+		int zeilenZaehler = 1;
+		String monatAusgabe = new String("");
+		switch(wt) {
+		case MONTAG: 
+			break;
+		case DIENSTAG: 
+			monatAusgabe += String.format("%5s", "");
+			zeilenZaehler = 2;
+			break;
+		case MITTWOCH: 
+			monatAusgabe += String.format("%10s", "");
+			zeilenZaehler = 3;
+			break;
+		case DONNERSTAG: 
+			monatAusgabe += String.format("%15s", "");
+			zeilenZaehler = 4;
+			break;
+		case FREITAG:
+			monatAusgabe += String.format("%20s", "");
+			zeilenZaehler = 5;
+			break;	
+		case SAMSTAG: 
+			monatAusgabe += String.format("%25s", "");
+			zeilenZaehler = 6;
+			break;
+		case HEILIGERSONNTAG: 
+			monatAusgabe += String.format("%30s", "");
+			zeilenZaehler = 7;
+			break;
+			
+		}
+		
+		for(int i = 1; i <= berechneTageProMonat(jahr, monat); i++) {
+			monatAusgabe += String.format("%5s", i);
+			if(zeilenZaehler >= 7) {
+				monatAusgabe += "\n";
+				zeilenZaehler = 0;
+			}
+			zeilenZaehler++;
+		}
+		System.out.println(monatAusgabe);
+	}
+	
+	
+	
 	public static Wochentag wochentagBerechnen(int jahr, int monat, int tag) {
 		int anzahlTage = 0;
 		if (jahr >= 1600) {
@@ -74,7 +122,8 @@ public class Kalender {
 	public static int berechneAnzahlTage(int jahr, int monat, int tag) {
 		int anzahlTage = 0;
 		if(tag < 1 || tag > berechneTageProMonat(jahr, monat)) {
-			 System.out.println("ERROR! ungültige Anzahl Tage pro Monat. Die Ausgegebene Zahl ist nicht korrekt.");
+			IllegalArgumentException exc = new IllegalArgumentException("Fehler! Ungültige Anzahl Tage: " + Monat.monatAusMonatNummer(monat) + " hat keinen " + tag + "sten Tag");
+			throw exc;
 		}
 		for(int i = 1; i < monat; i++) {
 			anzahlTage = anzahlTage + berechneTageProMonat(jahr, monat);
@@ -133,7 +182,7 @@ public class Kalender {
 	 * @return
 	 */
 	public static int berechneTageProMonat(int jahr, int m) {
-		return berechneTageProMonat(jahr, Monat.xyz(m));
+		return berechneTageProMonat(jahr, Monat.monatAusMonatNummer(m));
 	}
 
 }

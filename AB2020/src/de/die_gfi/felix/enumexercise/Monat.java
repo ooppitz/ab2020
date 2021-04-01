@@ -10,7 +10,7 @@ public enum Monat {
 	 * @param x die als Monat zu suchende Zahl
 	 * @return der Monat zur gegebenen Zahl
 	 */
-	public static Monat xyz(int x) {
+	public static Monat monatAusMonatNummer(int x) {
 		switch(x) {
 		case 1: return Monat.JANUAR;
 		case 2: return Monat.FEBRUAR;
