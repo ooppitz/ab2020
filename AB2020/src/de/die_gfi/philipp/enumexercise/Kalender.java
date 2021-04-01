@@ -22,9 +22,6 @@ public class Kalender {
 
         zaehler = berechneTagesNummer(2005, 4, 16);
         System.out.println(zaehler);
-        System.out.println(berechneTagesNummer(2004, Monat.JANUAR, 1));
-        System.out.println(berechneTagesNummer(2004, Monat.JANUAR, 31));
-        System.out.println(berechneTagesNummer(2004, Monat.FEBRUAR, 1));
         System.out.println(berechneTagesNummer(2003, Monat.FEBRUAR, 29));
         System.out.println(berechneTagesNummer(2003, Monat.MAERZ, 1));
         System.out.println(berechneTagesNummer(2000, 3, 1));
