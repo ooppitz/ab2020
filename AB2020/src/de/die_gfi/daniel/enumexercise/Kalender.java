@@ -57,6 +57,13 @@ Aufgabe 8:
 
 Berechnen Sie für ein Datum, welchen Wochentag dieses hat.
 Ziel: Ausgabe des Wochentags für ein Datum.
+
+
+
+Aufgabe 9:
+
+Erweitern Sie das Programm, sodass es ungültige Tage erkennt und eine Exception wirft. Überlegen Sie , an welchen Stellen ein ungültiges Datum überprüft werden muss. Schreiben Sie eine Methode, welche die Überprüfung vornimmt.
+
 */
 
 package de.die_gfi.daniel.enumexercise;
@@ -169,7 +176,14 @@ public class Kalender
       return tagesNummer;
    }
    
-   
+   /**
+    * Berechnet zu einem bestimmten Datum um welchen Wochentag es sich handelt
+    * 
+    * @param jahr 
+    * @param monat
+    * @param tag
+    * @return
+    */
    public static Wochentag berechneWochentag( int jahr, int monat, int tag )
    {
       int   d;    /* Tagesdatum 1 bis 31                                                  */
@@ -275,6 +289,16 @@ public class Kalender
       zahl = zahl - wert;
 
       return zahl;
+   }
+   
+   
+   
+   public static void ueberpruefeDatum( int jahr, int monat, int tag )
+   {
+      if( tag > berechneTageProMonat(jahr, monat) || tag < 0 )
+      {
+         /* code */
+      }
    }
 }
 

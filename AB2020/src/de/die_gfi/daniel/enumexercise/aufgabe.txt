@@ -79,3 +79,7 @@ Beispiele für den Output:
 Aufgabe 8:
 Berechnen Sie für ein Datum, welchen Wochentag dieses hat.
 Ziel: Ausgabe des Wochentags für ein Datum.
+
+
+Aufgabe 9:
+Erweitern Sie das Programm, sodass es ungültige Tage erkennt und eine Exception wirft. Überlegen Sie , an welchen Stellen ein ungültiges Datum überprüft werden muss. Schreiben Sie eine Methode, welche die Überprüfung vornimmt.

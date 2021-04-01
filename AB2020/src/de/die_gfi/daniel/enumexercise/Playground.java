@@ -33,7 +33,7 @@ public class Playground
       */
       
       Wochentag wochentag;
-      
+/*      
       wochentag = Kalender.berechneWochentag( 2021, 4, 1 );
       System.out.println( wochentag );
       System.out.println();
@@ -41,6 +41,35 @@ public class Playground
       wochentag = Kalender.berechneWochentag( 2000, 4, 1 );
       System.out.println( wochentag );
       System.out.println();
+      
+      wochentag = Kalender.berechneWochentag( 2006, 6, 12 );
+      System.out.println( wochentag );
+      System.out.println();
+      
+      wochentag = Kalender.berechneWochentag( 2021, 12, 24 );
+      System.out.println( wochentag );
+      System.out.println();
+*/      
+      
+
+      System.out.println( "Sonntag den 7. Dezember 1941" );
+      wochentag = Kalender.berechneWochentag( 1941, 12, 7 );
+      System.out.println( wochentag );
+      System.out.println();
+      
+      
+      System.out.println( "Sonntag den 13 August 1961" );
+      wochentag = Kalender.berechneWochentag( 1961, 8, 13 );
+      System.out.println( wochentag );
+      System.out.println();
+      
+      
+      System.out.println( "Donnerstag den 9. November 1989" );
+      wochentag = Kalender.berechneWochentag( 1989, 11, 9 );
+      System.out.println( wochentag );
+      System.out.println();
+      
+      
       
       
    }
