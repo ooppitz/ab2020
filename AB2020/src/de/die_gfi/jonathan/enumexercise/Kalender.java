@@ -12,17 +12,64 @@ public class Kalender {
 	 * 
 	 */
 	public static final int FEHLER = -1;
+	static String[] tage= {"Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"
+			,"Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag","Fehler"};
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// System.out.println(berechneTageProMonat(900, Monat.DEZEMBER));
-		// System.out.println(berechneTagesNummer(, 12, 24));
-		System.out.println(berchneFeb(2000));
-		System.out.println(berchneFeb(1999));
-		System.out.println(berchneFeb(2001));
-		System.out.println(berchneFeb(1900));
+		System.out.println(berechneTagesNummer(2020, 3, 1));
+		System.out.println(berechneTagesNummer(2021, 3, 1));
+		System.out.println(berechneWochentag(199, 15, 9));
+
 
 	}
+public static String berechneWochentag(int jahr,int m,int tag) throws Exception {
+	m=checkMonth(m);
 
+	int diff=additonalDays(jahr, m, tag);
+	int beginn=eins(jahr);
+	//beginn=beginn-7;
+	return tage[beginn+diff];
+
+	
+}
+
+@SuppressWarnings("null")
+public static int checkMonth(int m) throws Exception {
+	Exception IllegalArgumentException = ;
+	if (m<12) {
+		throw IllegalArgumentException;
+	}
+	return m;
+}
+public static int eins(int jahr) {
+	int wochentag=11;
+	for (int i = 2021; i <= jahr; i--) {
+		int x= additonalDays(i, 12, 31);
+		wochentag=wochentag-x;
+		if (wochentag>=6) {
+			wochentag=wochentag-7;
+		}
+	}
+	System.out.println(wochentag);
+	return wochentag;
+}
+
+
+	
+	public static int wochen(int jahr,int m,int tag) {
+	int d=	berechneTagesNummer(jahr, m, tag);
+	int wochen=d/7;
+	return wochen;		
+	}
+	
+	public static int additonalDays(int jahr,int m,int tag) {
+	int wochen	=wochen(jahr, m, tag);
+	int days=berechneTagesNummer(jahr, m, tag);
+	int diferenz=days-(wochen*7);
+	return diferenz;
+	}
+	
 	public static int berchneFeb(int jahr) {	
 		if (jahr%400==0) {
 			return 29;}
