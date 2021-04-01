@@ -9,7 +9,6 @@ package de.die_gfi.philipp.enumexercise;
  */
 public class Kalender {
     public static void main(String[] args) {
-        /*
         int zaehler = berechneTageProMonat(1900, Monat.FEBRUAR);
         System.out.println(zaehler);
 
@@ -38,13 +37,8 @@ public class Kalender {
         System.out.println("04.07.1992 ist ein Samstag, Algorithmus sagt: " + berechneWochentag(1992, 7, 4));
         System.out.println("12.08.2023 ist ein Samstag, Algorithmus sagt: " + berechneWochentag(2023, 8, 12));
         System.out.println("25.01.2012 ist ein Mittwoch, Algorithmus sagt: " + berechneWochentag(2012, 1, 25));
-        System.out.println("25.01.2020 ist ein Montag, Algorithmus sagt: " + berechneWochentag(2020, 1, 25));
+        System.out.println("25.01.2020 ist ein Samstag, Algorithmus sagt: " + berechneWochentag(2020, 1, 25));
         System.out.println("Anderer Algorithmus sagt: " + berechneWochentag(1, 25));
-        */
-
-        for (int i = 1970; i < 2025; i++) {
-            System.out.println(berechneWochentag(i, 1, 1));
-        }
     }
 
     /**
@@ -170,14 +164,14 @@ public class Kalender {
      * @return Den Wochentag vom gegebenen Datum
      */
     static Wochentag berechneWochentag(int jahr, int m, int tag) {
-        int epochYear = 1970;
-        int epochDay = Wochentag.DONNERSTAG.getNumericValue();
+        int epochYear = 1921;
+        int epochDay = Wochentag.SAMSTAG.getNumericValue();
         int eineMagischeZahl = 1;
         if (jahr >= epochYear) {
             int nummerVomGesuchtenTag = berechneTagesNummer(jahr, m, tag);
             int tageSeitEpoch = 0;
             for (int j = epochYear; j < jahr; j++) {
-                tageSeitEpoch += berechneTageProJahr(jahr);
+                tageSeitEpoch += berechneTageProJahr(j);
             }
             tageSeitEpoch += nummerVomGesuchtenTag;
             int zahlVomWochentag = tageSeitEpoch - ((tageSeitEpoch / 7)) * 7 + epochDay - eineMagischeZahl;
@@ -188,16 +182,14 @@ public class Kalender {
 
         } else {
             throw new IllegalArgumentException("Year " + jahr + "smaller than + " +
-                    epochYear +
-                    "2, only years later than or equal " +
-                    "to " + epochYear + " are allowed.");
+                    epochYear + "2, only years later than or equal to " + epochYear + " are allowed.");
         }
     }
 
     /**
-     * Berechnet den Wochentag von einem Tag, beginnened mit "The Epoch" (1970-01-01)
+     * Berechnet den Wochentag von einem Tag, beginnened mit 1921-01-01
      *
-     * @param jahr Ein Jahr, 1970 oder gr&ouml;&szlig;er
+     * @param jahr Ein Jahr, 1921 oder gr&ouml;&szlig;er
      * @param m    Ein Monat
      * @param tag  Ein Tag
      * @return Den Wochentag vom gegebenen Datum
