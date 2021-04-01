@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class Exercise1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		int[] zahlen = { 5, 7, 8, 9, 1, 3, 4, 2, 6, 0 };
 		String[] saetze = { "Hello World", "Hallo Welt" };

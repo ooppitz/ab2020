@@ -150,9 +150,11 @@ public class Kalender
          case 11: kalenderMonat = Monat.NOVEMBER; break;
          case 12: kalenderMonat = Monat.DEZEMBER; break;
          
-         default: System.err.println( "Fuer die Monate sind nur Zahlen von 1 bis 12 erlaubt" );
-                  System.err.println( "Benuzte 'Januar' als Monat" );
-                  break;
+         default: { 
+        	 IllegalArgumentException exc = new IllegalArgumentException("Fuer die Monate sind nur Zahlen von 1 bis 12 erlaubt");
+        	 throw exc;
+         }
+        	    
       }
       
       
