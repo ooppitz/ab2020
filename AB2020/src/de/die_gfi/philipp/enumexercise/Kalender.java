@@ -98,4 +98,27 @@ public class Kalender {
         summe += tag;
         return summe;
     }
+
+    /**
+     * Berechnet den Wochentag von einem Tag im Jahr 2021
+     *
+     * @param m ein Monat
+     * @param tag ein Tag
+     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat
+     */
+    static Wochentag berechneWochentag(int m, int tag) {
+        int ersterTag = Wochentag.FREITAG.getNumericValue();
+        int nummerVomGesuchtenTag = berechneTagesNummer(2021, m, tag);
+    }
+
+    /**
+     * Berechnet den Wochentag von einem Tag im Jahr 2021
+     *
+     * @param m ein Monat
+     * @param tag ein Tag
+     * @return den Wochentag von dem spezifizierten Tag im spezifizierten Monat
+     */
+    static Wochentag berechneWochentag(Monat m, int tag) {
+        return berechneWochentag(m.getNumericValue(), tag);
+    }
 }
