@@ -53,7 +53,7 @@ public class Playground
       
 
       System.out.println( "Sonntag den 7. Dezember 1941" );
-      wochentag = Kalender.berechneWochentag( 1941, 5, 222 );
+      wochentag = Kalender.berechneWochentag( 1941, 12, 7 );
       System.out.println( wochentag );
       System.out.println();
       
@@ -70,8 +70,18 @@ public class Playground
       System.out.println();
       
       
-      
-      
+      try
+      {
+         wochentag = Kalender.berechneWochentag( 2001, 12, 28 );
+         System.out.println( wochentag );
+         System.out.println();
+      }
+      catch( IllegalArgumentException exception )
+      {
+         System.err.println( "Falsche Eingabe" );
+         throw exception;
+      }
+
    }
 
 }

@@ -292,17 +292,45 @@ public class Kalender
    }
    
    
+   
+   /**
+    * Ueberprueft ob ein angegebenes Datum existiert
+    * 
+    * @param jahr Das Jahr des Datums
+    * @param monat Der Monoat des Datums
+    * @param tag Der Tag des Datums
+    */
    // TODO: dokumentieren mit JavaDoc dieser Methode
    // TODO: Die Fehlermeldung sollte konkreter ausgeben, was das Problem darstellt
    //       1) Welches Datum ist fehlerhaft (jahr, monat, tag)??
    //       2) So gut wie möglich, was der Fehler ist
    public static void ueberpruefeDatum( int jahr, int monat, int tag )
    {
-      if( tag > berechneTageProMonat(jahr, monat) || tag < 0 )
+      
+      if( tag > berechneTageProMonat(jahr, monat) || tag < 1 )
       {
-    	  String fehlermeldung = "Das übergebene Datum ist fehlerhaft";
-    	  IllegalArgumentException e = new IllegalArgumentException(fehlermeldung);
-    	  throw e;
+         /* String fehlermeldung = "Das übergebene Datum ist fehlerhaft"; */
+         String fehlerMeldung = ""; 
+         fehlerMeldung += String.format( "Das uebergebene Datum %02d.%02d.%04d ist fehlerhaft\n", tag, monat, jahr );
+         fehlerMeldung += String.format( "Der Monat hat nicht %d Tage, sondern nur 1 bis %d Tage\n", tag, berechneTageProMonat(jahr, monat) );
+
+         IllegalArgumentException e = new IllegalArgumentException(fehlerMeldung);
+         throw e;
+      }
+      
+      if( monat < 1  || monat > 12 )
+      {
+         String fehlerMeldung = "";
+         fehlerMeldung += String.format( "Das uebergebene Datum %02d.%02d.%04d ist fehlerhaft\n", tag, monat, jahr );
+         fehlerMeldung += String.format( "Ein Jahr hat nicht %d Monate sondern nur 1 bis 12 Monate\n", monat );
+         
+         IllegalArgumentException exception = new IllegalArgumentException( fehlerMeldung );
+         throw exception;
+      }
+      
+      if( jahr < 0 )
+      {
+         
       }
    }
 }
