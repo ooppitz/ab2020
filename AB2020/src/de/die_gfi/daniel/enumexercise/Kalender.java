@@ -36,12 +36,27 @@ Erweitern Sie das Programm Kalender. Führen Sie eine Methode berechneTageProMon
     public static int berechneTageProMonat(int jahr, Monat monat);
     public static int berechneTageProMonat(int jahr, int monat );
 
+
+
+Aufgabe 7:
+
+Implementieren Sie eine Methode, welche für ein Datum berechnet, der wievielte Tag im Jahr dieses ist. Die Methode soll die folgende Signatur haben:
+
+     static int berechneTagesNummer(int jahr, int m, int tag);
+     
+Beispiele für den Output:
+
+  int a = berechneTagNummer(2000, 1, 1); // Ergebnis = 1
+  int b = berechneTagNummer(2000, 3, 1); // Ergebnis = 61
+  int b = berechneTagNummer(2000, 3, 10); // Ergebnis = 40
+  int c = berechneTagNummer(2000, 12, 31); // Ergebnis = 366
+  
 */
 
 package de.die_gfi.daniel.enumexercise;
 
 /**
- * 
+ * Enthaelt Methoden zur Datumsberechnung
  * 
  * @author Daniel
  *
@@ -130,6 +145,22 @@ public class Kalender
    private static boolean schaltJahr( int jahr )
    {
       return ((jahr % 4 == 0)  &&  (jahr % 100 != 0)) || (jahr % 400 == 0);
+   }
+   
+   
+   static int berechneTagesNummer(int jahr, int m, int tag)
+   {
+      int tagesNummer = 0;
+      
+      tagesNummer = tag;
+      
+      for( int i = 1; i < m; i++ )
+      {
+         tagesNummer = tagesNummer + berechneTageProMonat( jahr, i );
+      }
+      
+      
+      return tagesNummer;
    }
 }
 
