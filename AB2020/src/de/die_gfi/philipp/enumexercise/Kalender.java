@@ -168,7 +168,7 @@ public class Kalender {
         int epochDay = Wochentag.SAMSTAG.getNumericValue();
         int eineMagischeZahl = 1;
         if (jahr >= 1970) {
-            int nummerVomGesuchtenTag = berechneTagesNummer(jahr, m, tag);
+            int nummerVomGesuchtenTag = berechneTagesNummer(jahr, m, tag) + 1;
             int tageSeitEpoch = 0;
             for (int j = epochYear; j < jahr; j++) {
                 tageSeitEpoch += berechneTageProJahr(jahr);
