@@ -53,7 +53,7 @@ public enum Wochentag {
             case FREITAG -> m = 5;
             case SAMSTAG -> m = 6;
             case SONNTAG -> m = 7;
-            default -> throw new IllegalArgumentException();
+            default -> throw new IllegalArgumentException("You should never see this error, so something major has happened.");
         }
         return m;
     }

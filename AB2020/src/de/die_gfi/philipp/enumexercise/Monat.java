@@ -72,7 +72,7 @@ public enum Monat {
             case OKTOBER -> m = 10;
             case NOVEMBER -> m = 11;
             case DEZEMBER -> m = 12;
-            default -> throw new IllegalArgumentException();
+            default -> throw new IllegalArgumentException("You should never see this error, so something major has happened.");
         }
         return m;
     }

@@ -95,7 +95,7 @@ public class Kalender {
      */
     static int berechneTagesNummer(int jahr, int m, int tag) {
         if (!checkDate(jahr, m, tag)) {
-            throw new IllegalArgumentException("Date " + jahr + "-" + m + "-" + tag + " is invalid");
+            errorHandler(jahr, m, tag);
         }
         int summe = 0;
         for (int i = 1; i < m; i++) {
@@ -163,5 +163,43 @@ public class Kalender {
     static boolean checkDate(int jahr, Monat monat, int tag) {
         return checkDate(jahr, monat.getNumericValue(), tag);
 
+    }
+
+    /**
+     * Diese Methode erzeugt verschiedene Exceptions je nach dem was f&uuml;r ein Fehler gemacht wurde
+     *
+     * @param jahr Ein Jahr
+     * @param monat Ein Monat
+     * @param tag Ein Tag
+     * @throws IllegalArgumentException Wenn ein fehlerhaftes Datum &uuml;bergeben wird
+     */
+    static void errorHandler(int jahr, Monat monat, int tag) {
+        errorHandler(jahr, monat.getNumericValue(), tag);
+    }
+
+    /**
+     * Diese Methode erzeugt verschiedene Exceptions je nach dem was f&uuml;r ein Fehler gemacht wurde
+     *
+     * @param jahr Ein Jahr
+     * @param monat Ein Monat
+     * @param tag Ein Tag
+     * @throws IllegalArgumentException Wenn ein fehlerhaftes Datum &uuml;bergeben wird
+     */
+    static void errorHandler(int jahr, int monat, int tag) {
+        if (tag < 1) {
+            throw new IllegalArgumentException("Tag kleiner als 1");
+        }
+
+        int mTage = berechneTageProMonat(jahr, monat);
+        if (tag > mTage) {
+            throw new IllegalArgumentException("Tag " + tag + " ist groesser als " + mTage + " fuer den Monat " + monat);
+        }
+
+        if (monat < 1) {
+            throw new IllegalArgumentException("Monat kleiner als 1, minimum erlaubt ist 1");
+        }
+        if (monat > 12) {
+            throw new IllegalArgumentException("Monat groesser als 12, maximum erlaubt ist 12");
+        }
     }
 }
