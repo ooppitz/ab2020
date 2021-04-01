@@ -349,7 +349,7 @@ public class Kalender
    
    
    
-   void druckeMonat(int jahr, int monat)
+   public static void druckeMonat(int jahr, int monat)
    {
 /*      
            April 2020
@@ -372,13 +372,13 @@ public class Kalender
       
       switch( ersterTag )
       {
-         case MONTAG:       j = 0;  break;
-         case DIENSTAG:     j = 1;  break;
-         case MITTWOCH:     j = 2;  break;
-         case DONNERSTAG:   j = 3;  break;
-         case FREITAG:      j = 4;  break;
-         case SAMSTAG:      j = 5;  break;
-         case SONNTAG:      j = 6;  break;
+         case MONTAG:       j = 1;  break;
+         case DIENSTAG:     j = 2;  break;
+         case MITTWOCH:     j = 3;  break;
+         case DONNERSTAG:   j = 4;  break;
+         case FREITAG:      j = 5;  break;
+         case SAMSTAG:      j = 6;  break;
+         case SONNTAG:      j = 0;  break;
       }
       
       
@@ -404,8 +404,16 @@ public class Kalender
       {
          for( j = 0; j < 7; j++ ) 
          {
-            
+            if( tage[i][j] == 0 )
+            {
+               System.out.printf( "%2s ", " " );
+            }
+            else
+            {
+               System.out.printf( "%2d ", tage[i][j] );
+            }
          }
+         System.out.println();
       }
    }
 }
