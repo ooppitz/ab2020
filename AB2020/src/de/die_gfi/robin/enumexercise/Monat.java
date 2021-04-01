@@ -1,6 +1,6 @@
 package de.die_gfi.robin.enumexercise;
 /**
- * Enthaelt alle Monate eines Jahres als Konstanten
+ * Enthaelt alle Monate eines Jahres als Konstanten                                 
  * @author Robin
  *
  */
