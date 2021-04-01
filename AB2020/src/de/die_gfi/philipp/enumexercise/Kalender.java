@@ -28,6 +28,10 @@ public class Kalender {
         System.out.println(berechneTagesNummer(2003, Monat.FEBRUAR, 29));
         System.out.println(berechneTagesNummer(2003, Monat.MAERZ, 1));
         System.out.println(berechneTagesNummer(2000, 3, 1));
+
+        System.out.println(berechneWochentag(1, 1));
+        System.out.println(berechneWochentag(1,2));
+        System.out.println(berechneWochentag(8, 14));
     }
 
     /**
