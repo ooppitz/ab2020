@@ -74,3 +74,8 @@ Beispiele für den Output:
   int b = berechneTagNummer(2000, 3, 1); // Ergebnis = 61
   int b = berechneTagNummer(2000, 3, 10); // Ergebnis = 40
   int c = berechneTagNummer(2000, 12, 31); // Ergebnis = 366
+  
+  
+Aufgabe 8:
+Berechnen Sie für ein Datum, welchen Wochentag dieses hat.
+Ziel: Ausgabe des Wochentags für ein Datum.

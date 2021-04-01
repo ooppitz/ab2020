@@ -51,6 +51,12 @@ Beispiele für den Output:
   int b = berechneTagNummer(2000, 3, 10); // Ergebnis = 40
   int c = berechneTagNummer(2000, 12, 31); // Ergebnis = 366
   
+  
+  
+Aufgabe 8:
+
+Berechnen Sie für ein Datum, welchen Wochentag dieses hat.
+Ziel: Ausgabe des Wochentags für ein Datum.
 */
 
 package de.die_gfi.daniel.enumexercise;
@@ -161,6 +167,114 @@ public class Kalender
       
       
       return tagesNummer;
+   }
+   
+   
+   public static Wochentag berechneWochentag( int jahr, int monat, int tag )
+   {
+      int   d;    /* Tagesdatum 1 bis 31                                                  */
+      int   m;    /* Monat gemaeß "monat_tabelle"                                         */
+      int   y;    /* Die beiden letzten Stellen der Jahreszahl,                           */
+                  /* bei den Monaten Januar und Februar die letzten Stellen des Vorjahres */
+      int   c;    /* Die beiden ersten Stellen der Jahreszahl, bei den Monaten Januar und */
+                  /* Februar die ersten Stellen des Vorjahres                             */
+      int   w;    /* Wochentag gemaeß wochentag_tabelle                                   */   
+
+      
+      int[] monat_tabelle = { 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+      Wochentag[] wochentag_tabelle = {
+            Wochentag.SONNTAG,
+            Wochentag.MONTAG,
+            Wochentag.DIENSTAG,
+            Wochentag.MITTWOCH,
+            Wochentag.DONNERSTAG,
+            Wochentag.FREITAG,
+            Wochentag.SAMSTAG,
+      };
+
+      
+
+      d = tag;
+      m = monat_tabelle[monat-1];
+      
+      
+      if( monat == 1  ||  monat == 2 )    /* Wenn der eingegebene Monat ein Januar oder Februar ist   */
+      {                                   /* sind die ersten bzw. letzten beiden stellen des          */
+         jahr = jahr - 1;                 /* Vorjahres wichtig                                        */
+      }
+      
+      
+      y = letzteZweiStellen( jahr );
+      c = ersteZweiStellen( jahr );
+      
+      
+      
+      w = (d + (int)(2.6*m-0.2) + y + (int)(y/4) + (int)(c/4) - 2*c) % 7;
+
+      
+      
+      System.out.printf( "d = %d\n", d );
+      System.out.printf( "m = %d\n", m );
+      System.out.printf( "y = %d\n", y );
+      System.out.printf( "c = %d\n", c );
+      System.out.printf( "w = %d\n", w );
+      
+      
+      /* Wenn w negativ ist, solange 7 addieren bis w >= 0 ist */
+      while( w < 0 )
+      {
+         w = w + 7;
+      }
+      
+      System.out.printf( "w = %d\n", w );
+      
+
+
+      
+      
+      return wochentag_tabelle[w];
+   }
+   
+   
+   private static int anzahl_stellen( int zahl )
+   {
+      int anzahl = 0;
+
+      while( zahl != 0 )
+      {
+         zahl /= 10;
+         anzahl++;
+      }
+
+      return anzahl;
+   }
+   
+   
+   private static int ersteZweiStellen( int zahl )
+   {
+      int wert = anzahl_stellen( zahl );
+      int i;
+
+
+      for( i = 0; i < wert - 2; i++ )
+      {
+         zahl /= 10;
+      }
+
+      return zahl;
+   }
+   
+   
+   private static int letzteZweiStellen( int zahl )
+   {
+      int wert = zahl;
+
+      wert = wert / 100;
+      wert = wert * 100;
+
+      zahl = zahl - wert;
+
+      return zahl;
    }
 }
 
