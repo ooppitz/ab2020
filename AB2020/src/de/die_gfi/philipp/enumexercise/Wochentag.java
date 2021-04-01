@@ -57,4 +57,23 @@ public enum Wochentag {
         }
         return m;
     }
+
+    /**
+     *
+     * @return Abk&uuml;rzung von diesem Wochentag
+     */
+    public String getAbbreviation() {
+        String abbr;
+        switch (this) {
+            case MONTAG -> abbr = "MO";
+            case DIENSTAG -> abbr = "DI";
+            case MITTWOCH -> abbr = "MI";
+            case DONNERSTAG -> abbr = "DO";
+            case FREITAG -> abbr = "FR";
+            case SAMSTAG -> abbr = "SA";
+            case SONNTAG -> abbr = "SO";
+            default -> {throw new IllegalArgumentException("Something went very wrong, you shouldn't be able to see this error");}
+        }
+        return abbr;
+    }
 }

@@ -1,5 +1,7 @@
 package de.die_gfi.philipp.enumexercise;
 
+import java.util.ArrayList;
+
 /**
  * Ein Klasse welche einen Kalender darstellen soll.
  *
@@ -9,36 +11,7 @@ package de.die_gfi.philipp.enumexercise;
  */
 public class Kalender {
     public static void main(String[] args) {
-        int zaehler = berechneTageProMonat(1900, Monat.FEBRUAR);
-        System.out.println(zaehler);
-
-        zaehler = berechneTageProMonat(2000, Monat.FEBRUAR);
-        System.out.println(zaehler);
-
-        zaehler = berechneTageProMonat(2004, 8);
-        System.out.println(Monat.AUGUST + " " + zaehler);
-
-        System.out.println("-".repeat(25));
-
-        zaehler = berechneTagesNummer(2005, 4, 16);
-        System.out.println(zaehler);
-
-        System.out.println(berechneTagesNummer(2003, Monat.MAERZ, 1));
-        System.out.println(berechneTagesNummer(2000, 3, 1));
-
-        System.out.println("-".repeat(25));
-
-        System.out.println(berechneWochentag(1, 1));
-        System.out.println(berechneWochentag(1, 2));
-        System.out.println(berechneWochentag(8, 14));
-
-        System.out.println("-".repeat(25));
-
-        System.out.println("04.07.1992 ist ein Samstag, Algorithmus sagt: " + berechneWochentag(1992, 7, 4));
-        System.out.println("12.08.2023 ist ein Samstag, Algorithmus sagt: " + berechneWochentag(2023, 8, 12));
-        System.out.println("25.01.2012 ist ein Mittwoch, Algorithmus sagt: " + berechneWochentag(2012, 1, 25));
-        System.out.println("25.01.2020 ist ein Samstag, Algorithmus sagt: " + berechneWochentag(2020, 1, 25));
-        System.out.println("Anderer Algorithmus sagt: " + berechneWochentag(1, 25));
+        druckeMonat(2021, 4);
     }
 
     /**
@@ -273,7 +246,32 @@ public class Kalender {
         return jahr % 100 != 0 && jahr % 4 == 0 || jahr % 400 == 0;
     }
 
-    void druckeMonat(int jahr, int monat) {
+    static void druckeMonat(int jahr, int monat) {
+        String monatName = Monat.valueOf(monat).toString();
+        int tageImMonat = berechneTageProMonat(jahr, monat);
+        Wochentag monatsanfang = berechneWochentag(jahr, monat, 1);
+        Wochentag monatsende = berechneWochentag(jahr, monat, tageImMonat);
 
+        StringBuilder headLineDaysBuilder = new StringBuilder();
+        for (Wochentag tag : Wochentag.values()) {
+            headLineDaysBuilder.append(tag.getAbbreviation()).append(" ");
+        }
+        String headLineDays = headLineDaysBuilder.substring(0, headLineDaysBuilder.length() - 1);
+
+        System.out.println(headLineDays);
+
+        ArrayList<Integer[]> wochen = new ArrayList<>();
+        Integer[] woche = new Integer[7];
+        int tagIndex = monatsanfang.getNumericValue() - 1;
+
+        while (tageImMonat >=1) {
+            if(tagIndex % 7 == 0 && tagIndex != 0) {
+                wochen.add(woche);
+                woche = new Integer[7];
+                tagIndex = 0;
+            }
+
+            tageImMonat--;
+        }
     }
 }
