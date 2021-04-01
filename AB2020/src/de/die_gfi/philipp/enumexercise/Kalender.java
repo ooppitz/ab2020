@@ -34,9 +34,11 @@ public class Kalender {
 
         System.out.println("-".repeat(25));
 
-        System.out.println(berechneWochentag(1992, 7, 4));
-        System.out.println(berechneWochentag(2023, 8, 12));
-        System.out.println(berechneWochentag(2012, 1, 25));
+        System.out.println("04.07.1992 ist ein Samstag, Algorithmus sagt: " + berechneWochentag(1992, 7, 4));
+        System.out.println("12.08.2023 ist ein Samstag, Algorithmus sagt: " + berechneWochentag(2023, 8, 12));
+        System.out.println("25.01.2012 ist ein Mittwoch, Algorithmus sagt: " + berechneWochentag(2012, 1, 25));
+        System.out.println("25.01.2020 ist ein Montag, Algorithmus sagt: " + berechneWochentag(2020, 1, 25));
+        System.out.println("Anderer Algorithmus sagt: " + berechneWochentag(1, 25));
     }
 
     /**
@@ -83,11 +85,7 @@ public class Kalender {
      * @return 366 für ein Schaltjahr, 365 für ein normales Jahr
      */
     public static int berechneTageProJahr(int jahr) {
-        if (checkLeapYear(jahr)) {
-            return 366;
-        } else {
-            return 365;
-        }
+        return (checkLeapYear(jahr)) ? 366 : 365;
     }
 
     /**
@@ -166,9 +164,9 @@ public class Kalender {
      * @return Den Wochentag vom gegebenen Datum
      */
     static Wochentag berechneWochentag(int jahr, int m, int tag) {
-        int epochYear = 1970;
-        int epochDay = Wochentag.DONNERSTAG.getNumericValue();
-        int eineEinsWeilMagie = 1;
+        int epochYear = 1921;
+        int epochDay = Wochentag.SAMSTAG.getNumericValue();
+        int eineMagischeZahl = 1;
         if (jahr >= 1970) {
             int nummerVomGesuchtenTag = berechneTagesNummer(jahr, m, tag);
             int tageSeitEpoch = 0;
@@ -176,7 +174,7 @@ public class Kalender {
                 tageSeitEpoch += berechneTageProJahr(jahr);
             }
             tageSeitEpoch += nummerVomGesuchtenTag;
-            int zahlVomWochentag = tageSeitEpoch % 7 + epochDay - eineEinsWeilMagie;
+            int zahlVomWochentag = tageSeitEpoch - (tageSeitEpoch / 7) * 7 + epochDay;
             if (zahlVomWochentag > 7) {
                 zahlVomWochentag -= 7;
             }
@@ -273,5 +271,9 @@ public class Kalender {
      */
     static boolean checkLeapYear(int jahr) {
         return jahr % 100 != 0 && jahr % 4 == 0 || jahr % 400 == 0;
+    }
+
+    void druckeMonat(int jahr, int monat) {
+
     }
 }
