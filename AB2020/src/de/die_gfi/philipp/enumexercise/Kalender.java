@@ -272,10 +272,6 @@ public class Kalender {
      * @return true wenn das Jahr ein Schaltjahr ist, false wenn es kein Schaltjahr ist
      */
     static boolean checkLeapYear(int jahr) {
-        if (jahr % 100 != 0 && jahr % 4 == 0 || jahr % 400 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return jahr % 100 != 0 && jahr % 4 == 0 || jahr % 400 == 0;
     }
 }
