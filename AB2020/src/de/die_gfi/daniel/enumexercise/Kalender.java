@@ -151,7 +151,7 @@ public class Kalender
          case 12: kalenderMonat = Monat.DEZEMBER; break;
          
          default: { 
-        	 IllegalArgumentException exc = new IllegalArgumentException("Fuer die Monate sind nur Zahlen von 1 bis 12 erlaubt");
+        	 IllegalArgumentException exc = new IllegalArgumentException("Fuer die Monate sind nur Zahlen von 1 bis 12 erlaubt.");
         	 throw exc;
          }
         	    
