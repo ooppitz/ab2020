@@ -12,6 +12,8 @@
 #include <stdio.h>
 
 
+#define TEST
+
 
 int anzahl_stellen( int zahl );
 int erste_stellen( int zahl );
@@ -74,13 +76,11 @@ int main(void)
 
 
    /* Wenn w negativ ist, solange 7 addieren bis w >= 0 ist */
-   if( w < 0 )
+   while( w < 0 )
    {
-      while( w <= 0 )
-      {
-         w = w + 7;
-      }
+      w = w + 7;
    }
+
 
 
 #ifdef TEST
