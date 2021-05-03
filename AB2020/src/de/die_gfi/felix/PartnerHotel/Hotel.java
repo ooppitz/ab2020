@@ -12,6 +12,16 @@ public class Hotel {
 		this.name = name;
 		this.kapazitaet = 5;
 	}
+	public Hotel(String name, int kapazitaet) {
+		super();
+		this.name = name;
+		if(kapazitaet > 0) {
+		this.kapazitaet = kapazitaet;
+		} else { 
+			System.out.println("hotel mit zimmeranzahl Kleiner oder Gleich Null ist nicht möglich\n Kapazität wurde auf 1 gesetzt");
+			this.kapazitaet = 1;
+		}
+	}
 	public String getName() {
 		return name;
 	}
@@ -22,7 +32,7 @@ public class Hotel {
 		return gaesteliste;
 	}
 	public void setGaesteliste(ArrayList<Person> gaesteliste) {
-		gaesteliste = gaesteliste;
+		this.gaesteliste = gaesteliste;
 	}
 	public int getfreieBetten() {
 			return this.kapazitaet - this.gaesteliste.size();
@@ -46,10 +56,17 @@ public class Hotel {
 		}
 	}
 	public String toString() {
-		String s = new String("Hotel: " + name + "\nverbleibende Kapazität: " + this.getfreieBetten() + " von 5\n\n" + "gaesteliste:\n");
+		String s = new String("Hotel: " + name + "\nverbleibende Kapazität: " + this.getfreieBetten() + " von 5\n\n");
+		s = s + stringGaesteliste();
+		return s;
+	}
+	private String stringGaesteliste() {
+		String s = new String("Gaesteliste:\n");
+		
 		for(Person p : gaesteliste) {
 			s = s + p.getName() + " " + p.getVorname() + "\n";
 		}
 		return s;
 	}
+	
 }

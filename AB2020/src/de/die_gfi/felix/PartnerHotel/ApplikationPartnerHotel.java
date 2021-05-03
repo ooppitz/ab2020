@@ -49,6 +49,7 @@ public class ApplikationPartnerHotel {
 		h1.einmieten(p6);
 		System.out.println(h1.toString());
 		System.out.println("-----------------------------------------");
+		System.out.println(p1.getInfo());
 	}
 
 }
