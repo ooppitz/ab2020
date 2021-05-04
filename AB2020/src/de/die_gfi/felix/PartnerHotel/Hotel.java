@@ -57,10 +57,10 @@ public class Hotel {
 	}
 	public String toString() {
 		String s = new String("Hotel: " + name + "\nverbleibende Kapazität: " + this.getfreieBetten() + " von 5\n\n");
-		s = s + stringGaesteliste();
+		s = s + status();
 		return s;
 	}
-	private String stringGaesteliste() {
+	public String status() {
 		String s = new String("Gaesteliste:\n");
 		
 		for(Person p : gaesteliste) {

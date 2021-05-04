@@ -50,6 +50,8 @@ public class ApplikationPartnerHotel {
 		System.out.println(h1.toString());
 		System.out.println("-----------------------------------------");
 		System.out.println(p1.getInfo());
+		System.out.println(h1.status());
+		System.out.println(p1.vorstellen());
 	}
 
 }

@@ -116,5 +116,7 @@ public class Person {
 	public String getVollerName() {
 		return this.name + ", " + this.vorname;
 	}
-
+	public String vorstellen() {
+		return "meine Name ist " + this.getVollerName();
+	}
 }
